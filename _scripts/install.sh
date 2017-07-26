@@ -11,3 +11,4 @@ stow git
 stow vim
 
 pip2 install -r _pip/packages2.txt
+source _npm/npm-install-global.sh

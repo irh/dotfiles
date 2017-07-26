@@ -1,0 +1,125 @@
+[include]
+  path = ~/.gitconfig_local
+
+[alias]
+  a = add
+  br = branch
+  branchname = !git branch | sed -n '/^*/s/^* //p'
+  bs = bisect
+  ca = commit -v --amend
+  ci = commit -v
+  cl = clone --recursive
+  co = checkout
+  cp = cherry-pick
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
+  da = diffall
+  deletemerged = !git branch --merged origin/master | grep -v 'master$' | xargs git branch -d
+  deletemerged9 = !git branch --merged origin/master-9 | grep -v 'master-9$' | xargs git branch -d
+  deletemerged10 = !git branch --merged origin/master-10 | grep -v 'master-10$' | xargs git branch -d
+  df = diff #--word-diff=color
+  dt = difftool -y
+  dump = cat-file -p
+  fe = fetch --prune
+  hist = log --pretty=format:\"%C(yellow)%h%Creset | %Cgreen%an%Creset | %Cred%ad%Creset | %s%C(cyan)%d%Creset\" --graph --date=short -30
+  id = rev-parse
+  mine = !git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authorname) | %(refname:short)' | egrep  '^iho' | tail -r | tail -n 20
+  mt = mergetool
+  nffmerge = merge --no-ff --log
+  ps = push
+  pu = pull --prune
+  rb = rebase
+  rba = rebase --abort
+  rbc = rebase --continue
+  rbi = rebase -i
+  rbm = rebase -i origin/master
+  rbp = "!f() { mb=$(git merge-base HEAD $1); git rebase -i $mb; }; f"
+  root = rev-parse --show-toplevel
+  showfiles = diff-tree --no-commit-id --name-only -r
+  sm = submodule
+  smf = submodule foreach git submodule update --init --recursive -- $path
+  smi = submodule init --recursive
+  smu = submodule update --init --recursive
+  st = status
+  team = !git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authorname) | %(refname:short)' | egrep  '^(iho|mre|mmg|rtu|mfi|heh|sbs|aws)' | tail -r | tail -n 20
+  type = cat-file -t
+  unstage = reset HEAD
+  upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u}
+  upstream-create = !git branchname | xargs git push -u origin
+  wip = commit -a -m WIP
+
+[branch]
+  autosetuprebase = always
+
+[color]
+  ui = true
+
+[core]
+  autocrlf = input
+  #safecrlf = true
+  editor = /usr/local/bin/vim
+  trustctime = false
+  ignorecase = true
+  excludesfile = ~/.gitignore_global
+  preloadindex = true
+
+[diff]
+  #external = cdiff
+  compactionHeuristic = true
+  context = 0
+  submodule = log
+  tool = FileMerge
+
+[difftool "FileMerge"]
+  cmd = /Developer/Applications/Utilities/FileMerge.app/Contents/MacOS/FileMerge -left $LOCAL -right $REMOTE
+
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+
+[gc]
+  auto = 0
+
+[interactive]
+  singlekey = true
+
+[merge]
+  conflictstyle = diff3
+  tool = vimdiff
+
+[merge "ours"]
+  driver = true
+
+[mergetool]
+  prompt = false
+  keepBackup = false
+
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
+[pager]
+  difftool = true
+
+[push]
+  default = simple
+
+[rebase]
+  autosquash = true
+
+[status]
+  submodulesummary= true
+
+[submodule]
+  fetchJobs = 8
+
+[url "https://"]
+  insteadOf = git://
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+
+[http]
+  postBuffer = 1073741824

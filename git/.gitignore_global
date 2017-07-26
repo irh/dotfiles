@@ -1,0 +1,6 @@
+*.swp
+*.swo
+*.out
+.DS_Store
+.vimrc
+compile_commands.json

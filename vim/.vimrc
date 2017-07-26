@@ -1,0 +1,466 @@
+" " filetype plugin on
+" filetype plugin indent on
+" filetype indent on
+" filetype indent plugin on
+
+" --- General configuration ---
+set confirm " confirmation on failed saves
+set number " line numbers
+set relativenumber " numbers displayed relatively
+set laststatus=2 " always display the status line
+set ruler " cursor position
+set cc=91
+set scrolloff=2 " start scrolling before cursor reaches last line
+"set autoindent " use indentation of previous line
+"set smartindent " auto indentation with C awareness
+set smarttab
+set list
+set listchars=tab:>-
+syntax on " syntax highlighting
+set wrap!  " turn off word wrap
+set mouse=a " mouse everywhere
+set directory^=$HOME/.vim/swap// " place swp files in central folder
+autocmd BufWritePre * :%s/\s\+$//e " remove trailing whitespace when saving files
+set backspace=indent,eol,start " allow deleting past insert, line breaks and autoindent
+"set path+=/usr/local/include,include/**,src/**,modules/**/include
+set path+=/usr/local/include,include/**,src/**
+set shortmess=a
+set exrc " enable per-directory .vimrc files
+set secure " disable unsafe commands in local .vimrc files
+set autoread " reload changed files
+set nofoldenable " Don't fold by default"
+set clipboard=unnamed " Use the system clipboard with default register
+set grepprg=ag\ --vimgrep\ $*
+set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
+set matchpairs+=<:>
+
+" --- Plugins ---
+call plug#begin('~/.vim/plugged')
+
+
+" Motion
+Plug 'christoomey/vim-sort-motion'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/Auto-Pairs'
+Plug 'vim-scripts/ConflictMotions'
+Plug 'vim-scripts/CountJump'
+Plug 'wellle/targets.vim'
+
+let g:sort_motion_flags = "ui"
+
+
+" Text formatting
+Plug 'chiel92/vim-autoformat'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-scripts/closetag.vim'
+
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
+au FileType cpp setlocal commentstring=//\ %s
+" au BufWrite * :Autoformat
+au FileType elm let b:autoformat_autoindent = 0
+
+
+" Navigation
+Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'Valloric/ListToggle'
+Plug 'vim-scripts/a.vim'
+
+let g:alternateNoDefaultAlternate = 1
+let g:alternateExtensions_hpp = "ipp,cpp"
+let g:alternateExtensions_cpp = "h,hh,H,HPP,hpp,ipp"
+let g:alternateExtensions_ipp = "hpp,cpp"
+let g:alternateSearchPath = 'wdr:include,wdr:src,sfr:../source,sfr:../src,sfr:../include,sfr:../inc'
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+let g:ackprg = 'ag --vimgrep'
+nnoremap <c-p> :GFiles<cr>
+
+
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'dbakker/vim-projectroot'
+Plug 'gregsexton/gitv' " requires vim-fugitive
+Plug 'tpope/vim-fugitive'
+
+
+" Vim layout
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'zhaocai/GoldenView.Vim' " auto-resize views to nice size ratios
+
+let g:airline_powerline_fonts = 1
+" let g:goldenview__enable_default_mapping = 0
+
+
+" Language support
+" Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
+Plug 'ElmCast/elm-vim', {'for': 'elm'}
+Plug 'Valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
+Plug 'cespare/vim-toml', {'for': 'toml'}
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'gmoe/vim-faust', {'for': 'faust'}
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
+Plug 'jceb/vim-orgmode', {'for': 'org'}
+Plug 'justinmk/vim-syntax-extra', {'for': 'c'}
+Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
+Plug 'kelan/gyp.vim', {'for': 'gyp'}
+Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
+Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
+Plug 'peterhoeg/vim-qml', {'for': 'qml'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'raichoo/purescript-vim', {'for': 'purescript'}
+Plug 'scrooloose/syntastic', {'for': ['cpp', 'python']}
+Plug 'tell-k/vim-autopep8', {'for': 'python'}
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+Plug 'wting/rust.vim', {'for': 'rust'}
+
+let g:elm_setup_keybindings = 0
+let g:elm_syntastic_show_warnings = 0
+let g:jedi#usages_command = "<leader>u"
+let g:jsx_ext_required = 0
+let g:mta_filetypes = {
+      \ 'html' : 1,
+      \ 'xhtml' : 1,
+      \ 'xml' : 1,
+      \ 'jinja' : 1,
+      \ 'javascript.jsx' : 1,
+      \}
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++17 -stdlib=libc++'
+let g:vim_markdown_initial_foldlevel=100
+
+
+" Code navigation + completion
+Plug 'honza/vim-snippets'
+Plug 'lyuts/vim-rtags', {'for': 'cpp'}
+Plug 'skywind3000/asyncrun.vim'
+Plug 'SirVer/ultisnips'
+Plug 'rizzatti/dash.vim'
+
+let g:rtagsUseLocationList = 0
+
+let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:dash_map = {
+      \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
+      \ }
+
+command! SetupNeocomleteForCppWithRtags call SetupNeocomleteForCppWithRtags()
+function! SetupNeocomleteForCppWithRtags()
+  " Enable heavy omni completion.
+  setlocal omnifunc=RtagsCompleteFunc
+
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
+  let l:cpp_patterns='[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+  let g:neocomplete#sources#omni#input_patterns.cpp = l:cpp_patterns
+  set completeopt+=longest,menuone
+endfunction
+
+autocmd FileType cpp,c SetupNeocomleteForCppWithRtags
+
+
+" Colors
+Plug 'altercation/vim-colors-solarized'
+
+
+" Vim Extensions
+" Plug 'gilligan/vim-lldb'
+Plug 'ktonga/vim-follow-my-lead'
+Plug 'mhinz/vim-startify'
+Plug 'suan/vim-instant-markdown'
+Plug 'vimwiki/vimwiki'
+
+let g:startify_change_to_dir = 0
+let g:vimwiki_list = [{'path': '~/Dropbox/Docs/vimwiki'}]
+
+
+
+" --- End of plugins ---
+call plug#end()
+
+" Bail out if plugins are not installed
+if empty(glob('~/.vim/plugged'))
+  finish
+endif
+
+
+" --- Color scheme ---
+set background=dark
+colorscheme solarized
+
+
+" --- 80 column limit for git commit messages and text files
+autocmd FileType gitcommit,markdown set textwidth=80
+autocmd FileType gitcommit,markdown setlocal colorcolumn=81
+
+
+" --- background colour of signs gutter
+highlight clear SignColumn
+
+" --- highlight colour for matching parentheses
+hi MatchParen ctermbg=blue ctermfg=white guibg=yellow
+
+
+" --- Command completion ---
+set wildmenu
+set wildmode=longest,list
+set wildignore+=.svn,CVS,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.vcproj,*.dll,*.zip
+set wildignorecase
+set completeopt=menu,menuone,longest " Complete options (disable preview scratch window)
+set pumheight=15 " Limit popup menu height
+
+
+" --- 2 space tabs by default ---
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+" Some languages should have 4 space tabs
+autocmd FileType gyp,rust setlocal shiftwidth=4 softtabstop=4 tabstop=4
+
+" PEP8 formatting for python
+autocmd FileType python setlocal
+  \ tabstop=4
+  \ softtabstop=4
+  \ shiftwidth=4
+  \ textwidth=79
+  \ cc=80
+  \ autoindent
+  \ fileformat=unix
+  \ encoding=utf-8
+let python_highlight_all=1
+
+
+" --- Search options ---
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch " highlight search results
+
+
+" --- Quickfix ---
+
+" From: http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
+" Automatically open, but do not go to (if there are errors) the quickfix /
+" location list window, or close it when is has become empty.
+"
+" Note: Must allow nesting of autocmds to enable any customizations for quickfix
+" buffers.
+" Note: Normally, :cwindow jumps to the quickfix window if the command opens it
+" (but not if it's already open). However, as part of the autocmd, this doesn't
+" seem to happen.
+" Note: The quickfix window will also automatically close in case the quickfix
+" list becomes empty. If instead you always want to open the quickfix window,
+" replace the cwindow with copen.
+"autocmd QuickFixCmdPost [^l]* nested botright copen
+"autocmd QuickFixCmdPost    l* nested botright lwindow
+"autocmd QuickFixCmdPost * botright copen 8
+
+" word wrap in quickfix
+augroup quickfix
+  autocmd!
+  autocmd FileType qf
+        \ setlocal wrap |
+        \ setlocal linebreak
+augroup END
+
+" --- Key mappings ---
+
+" map ctrl+h/l to tab next/prev
+nnoremap <C-h> :tabprev<CR>
+nnoremap <C-l> :tabnext<CR>
+" switch colon and semi-colon
+noremap : ;
+noremap ; :
+
+" move lines up/down
+" Normal mode
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+" Insert mode
+inoremap <C-j> <ESC>:m .+1<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
+" Visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv"
+
+" clang format
+map <C-y> :pyf clang-format.py<cr>
+imap <C-y> <c-o>:pyf clang-format.py<cr>
+
+
+" Make / test
+
+let $MAKEPRG="make -j8"
+function! DoMake()
+  let makeprg_old = &l:makeprg
+  try
+    set makeprg=$MAKEPRG
+    "silent make
+    AsyncStop
+    AsyncRun -program=make
+  finally
+    let &l:makeprg = makeprg_old
+    redraw!
+  endtry
+endfunction
+
+let $TESTPRG="make -j8 && make test"
+function! DoTest()
+  let makeprg_old = &l:makeprg
+  try
+    set makeprg=$TESTPRG
+    "silent make
+    AsyncRun -program=make
+  finally
+    let &l:makeprg = makeprg_old
+    redraw!
+  endtry
+endfunction
+
+
+
+" --- Leader ---
+" set leader to ,
+let mapleader = ","
+" ,1 - write all and make
+map <leader>1 ;wa<CR>;call DoMake()<CR>
+" ,! - make test
+map <leader>! ;wa<CR>;call DoTest()<CR>
+" ,2 -  previous error
+map <leader>2 ;wa<CR>;cp<CR>
+" ,3 - next error
+map <leader>3 ;wa<CR>;cn<CR>
+" ,4 - list errors
+map <leader>4 ;cl<CR>
+
+" " ,9 - cargo test
+" map <leader>9 ;wa<CR>;!cargo test<CR>
+" " ,0 - cargo build
+" map <leader>0 ;wa<CR>;!cargo build<CR>
+
+" 0 - stop async job
+map <leader>0 ;AsyncStop<CR>
+
+" ,. - ctrl p ctags
+map <leader>. ;CtrlPTag<cr>
+
+" ,n - toggle NERDTree
+map <leader>n ;NERDTreeToggle<cr>
+" ,f - find current buffer in NERDTree
+map <leader>f ;NERDTreeFind<cr>
+
+" ,b - toggle tagbar
+map <leader>b ;TagbarToggle<cr>
+
+" ,a - switch to counterpart
+map <leader>a ;A<cr>
+
+" ,s - vertical split
+map <leader>s ;vsp<cr>
+
+" ,p - reformat paragraph
+map <leader>p gqip<cr>
+
+" ,Q - open quickfix, scroll to end, and return focus
+map <leader>Q ;botright copen<cr>G<c-w><c-p>
+
+" ,w - save all
+map <leader>w ;wa<cr>
+
+" ,t - new tab
+map <leader>t ;tabnew<cr>
+
+" ,x - close tab
+map <leader>x ;tabclose<cr>
+
+" ,c - auto format
+map <leader>c ;Autoformat<cr>
+
+" ,d - insert date
+map <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>
+
+" ,D - insert timestamp
+map <leader>D a<c-r>=strftime('%Y-%m-%d %H:%M')<cr><esc>
+
+" ,T - insert empty TODO
+map <leader>T i- [ ] <esc>hhxla
+
+" ,g - open gitv
+map <leader>g ;Gitv<cr>
+
+" ,h - search for current word in Dash according to filetype
+map <leader>h <Plug>DashSearch
+
+" ,H - search for current word in Dash, globally
+map <leader>H <Plug>DashGlobalSearch
+
+
+" edit .vimrc~
+if has("unix") && strlen($MYVIMRC) < 1
+  let $MYVIMRC=$HOME . '/.vimrc'
+endif
+map <leader>v ;edit $MYVIMRC<CR>
+
+" --- Auto reload .vimrc ---
+augroup reload_vimrc " {
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
+
+" --- Highlighting ---
+au BufNewFile,BufRead *.h,*.hpp,*.cpp,*.h++ set syntax=cpp
+
+" GLSL highlighting
+command! SetGLSLFileType call SetGLSLFileType()
+function! SetGLSLFileType()
+  for item in getline(1,10)
+    if item =~ "#version 400"
+      execute ':set filetype=glsl400'
+      break
+    endif
+    if item =~ "#version 330"
+      execute ':set filetype=glsl330'
+      break
+    endif
+    execute ':set filetype=glsl'
+  endfor
+endfunction
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl SetGLSLFileType
+
+" JSON highlighting
+au BufNewFile,BufRead *.json set filetype=json
+
+" Objective c++ highlighting for .mm files
+au BufNewFile,BufRead *.mm set filetype=objcpp
+
+" Scala worksheets
+au BufNewFile,BufRead *.sc set filetype=scala
+

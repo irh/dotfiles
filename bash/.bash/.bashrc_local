@@ -1,0 +1,113 @@
+export PATH="$PATH:/usr/local/Cellar/ruby/1.9.3-p0/lib/ruby/gems/1.9.1"
+export PATH="/usr/local/git/bin:$PATH"
+
+export QTDIR32=/Volumes/GuiEnv_v5.6.0-abl1_32/Qt5.6.0/clang_32
+#export PATH=${QTDIR32}/bin:${PATH}
+
+export QTDIR64=/Volumes/GuiEnv_v5.6.0-abl1_64/Qt5.6.0/clang_64
+#export PATH=${QTDIR64}/bin:${PATH}
+
+export SHOW_CLANG_FORMAT_DIFF=1
+export HOMEBREW_GITHUB_API_TOKEN="05e79bb2739e6599fd30eb70fb61a87f4db8dff7"
+
+alias ca='cucumber -t '\''~@wip'\'' -t '\''~@terminate'\'' --strict && cucumber -w -t @wip --strict && cucumber -t @terminate'
+alias cs='cucumber -t @`story` --strict -x'
+alias cn='cucumber -n -x'
+alias cnow='cucumber -t @now -x'
+
+alias story='git rev-parse --abbrev-ref HEAD | sed -E s/\(S-[0-9]+\)-.*/\\1/'
+alias jenkins_status=/Users/iho/dev/tools/Misc/jenkins_status.py
+alias local_branches=/Users/iho/dev/tools/Git/local_branches.py
+alias branches='/Users/iho/dev/tools/Git/local_branches.py'
+alias reformat="/Users/iho/dev/source-utils/reformat.py include src"
+
+repo_root() {
+  local repo_root="`git rev-parse --show-toplevel 2>/dev/null`" || return
+  echo "$repo_root"
+}
+
+fixup() {
+  local repo_root=$(repo_root)
+  local fixup_cmd="$repo_root/../tools/Git/Fixup/fixup.py"
+  test -x "$fixup_cmd" && "$fixup_cmd"
+}
+
+xproject32() {
+  local repo_root=$(repo_root)
+  echo "$repo_root/IDE/mac_32_dll/Live.ninja.xcworkspace"
+}
+
+xproject64() {
+  local repo_root=$(repo_root)
+  echo "$repo_root/IDE/mac_64_dll/Live.ninja.xcworkspace"
+}
+
+xremove() {
+  local project=$(xproject32)
+  local project64=$(xproject64)
+  test -x "$project" && rm -rf "$project"
+  test -x "$project64" && rm -rf "$project64"
+}
+
+xupdate32() {
+  local repo_root=$(repo_root)
+  local auto_update_cmd="$repo_root/generate_projects.py"
+  test -x "$auto_update_cmd" && "$auto_update_cmd" --ccache $1
+}
+
+xupdate() {
+  local repo_root=$(repo_root)
+  local auto_update_cmd="$repo_root/generate_projects.py"
+  test -x "$auto_update_cmd" && "$auto_update_cmd" --ccache --64 $1
+}
+
+xopen32() {
+  local project=$(xproject32)
+  test -x "$project" && open "$project"
+}
+
+xopen() {
+  local project=$(xproject64)
+  test -x "$project" && open "$project"
+}
+
+ctagsupdate() {
+  ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=c++
+}
+
+ablc() {
+  local repo_root=$(repo_root)
+  local cmd="$repo_root/modules/build-system/scripts/configure.py"
+  test -x "$cmd" && "$cmd" $@
+}
+
+ablb() {
+  local repo_root=$(repo_root)
+  local cmd="$repo_root/modules/build-system/scripts/build.py"
+  test -x "$cmd" && "$cmd" $@
+}
+
+ablr() {
+  local repo_root=$(repo_root)
+  local cmd="$repo_root/modules/build-system/scripts/run.py"
+  test -x "$cmd" && "$cmd" $@
+}
+
+ablt() {
+  local repo_root=$(repo_root)
+  local cmd="$repo_root/modules/build-system/scripts/run.py"
+  test -x "$cmd" && "$cmd" cpptest
+}
+
+alias abll="ablc Live.gyp"
+
+alias abl="ablc && ablb && ablt"
+
+artags() {
+  local repo_root=$(repo_root)
+  local compile_commands="$repo_root/compile_commands.json"
+  ablc && ablb -a compdb > "$compile_commands" && rc -J "$compile_commands"
+}
+
+#alias artags="ablc && ablb -a compdb > /tmp/compile_commands.json && rc -J /tmp/compile_commands.json"
+alias cmaketags="cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. && rc -J compile_commands.json"

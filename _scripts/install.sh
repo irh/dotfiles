@@ -5,6 +5,8 @@ cd ..
 source _scripts/vim-setup.sh
 
 stow stow
+
+stow bash
 stow git
 stow vim
 

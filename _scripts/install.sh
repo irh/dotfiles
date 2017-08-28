@@ -1,5 +1,5 @@
 cd _homebrew
-brew bundle install
+brew bundle --verbose
 cd ..
 
 source _scripts/vim-setup.sh

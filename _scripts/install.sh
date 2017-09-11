@@ -1,6 +1,8 @@
-cd _homebrew
-brew bundle --verbose
-cd ..
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  cd _homebrew
+  brew bundle --verbose
+  cd ..
+fi
 
 source _scripts/vim-setup.sh
 

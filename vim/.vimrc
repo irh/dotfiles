@@ -65,7 +65,14 @@ Plug 'vim-scripts/closetag.vim'
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
 au FileType cpp setlocal commentstring=//\ %s
 " au BufWrite * :Autoformat
-au FileType elm let b:autoformat_autoindent = 0
+
+if !exists('g:formatdef_elm_format')
+    let g:formatdef_elm_format = '"elm-format --stdin"'
+endif
+
+if !exists('g:formatters_elm')
+    let g:formatters_elm = ['elm_format']
+endif
 
 
 " Navigation
@@ -130,6 +137,7 @@ Plug 'wting/rust.vim', {'for': 'rust'}
 
 let g:elm_setup_keybindings = 0
 let g:elm_syntastic_show_warnings = 0
+let g:elm_format_autosave = 0
 let g:jedi#usages_command = "<leader>u"
 let g:jsx_ext_required = 0
 let g:mta_filetypes = {

@@ -16,5 +16,6 @@ pip2 install -r _pip/packages2.txt
 source _npm/npm-install-global.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  stow Library
   source _scripts/setup-mac-preferences.sh
 fi

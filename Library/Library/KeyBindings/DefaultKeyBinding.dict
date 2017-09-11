@@ -1,0 +1,26 @@
+{
+  "^b" = "moveWordLeft:";
+  "^w" = "moveWordRight:";
+  "^e" = "moveWordRight:";
+  "^B" = "moveWordLeftAndModifySelection:";
+  "^W" = "moveWordRightAndModifySelection:";
+  "^E" = "moveWordRightAndModifySelection:";
+
+  "^h" = "moveLeft:";
+  "^l" = "moveRight:";
+  "^j" = "moveDown:";
+  "^k" = "moveUp:";
+  "^H" = "moveLeftAndModifySelection:";
+  "^L" = "moveRightAndModifySelection:";
+  "^J" = "moveDownAndModifySelection:";
+  "^K" = "moveUpAndModifySelection:";
+
+  "^6" = "moveToBeginningOfLine:";
+  "^$" = "moveToEndOfLine:";
+  "^V" = "selectLine:";
+
+  "^u" = "undo:";
+  "^r" = "redo:";
+
+  "^x" = "deleteForward:";
+}

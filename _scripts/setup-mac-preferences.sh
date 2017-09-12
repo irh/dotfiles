@@ -12,6 +12,9 @@ defaults write com.apple.dock autohide-delay -float 0; # remove Dock show delay
 defaults write com.apple.dock autohide-time-modifier -float 0; # remove Dock show delay
 defaults write com.apple.dock orientation left; # place Dock on the left side of screen
 
+# Disable the dashboard
+defaults write com.apple.dashboard mcx-disabled -boolean YES
+
 # Use current directory as default search scope in Finder
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 

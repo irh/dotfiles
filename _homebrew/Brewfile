@@ -39,6 +39,7 @@ brew "vim"
 brew "wget"
 brew "youtube-dl"
 
+cask "authy-desktop"
 cask "disk-inventory-x"
 cask "dropbox"
 cask "flux"

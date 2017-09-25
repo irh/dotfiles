@@ -79,6 +79,8 @@ defaults write -g "com.apple.sound.beep.feedback" -int 0
 defaults write "com.apple.systemsound" "com.apple.sound.uiaudio.enabled" -int 0
 defaults write com.apple.mail MailSentSoundPath /devnull
 
+# Set screenshot folder
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
 
 killall Dock 2>/dev/null;
 killall Finder 2>/dev/null;

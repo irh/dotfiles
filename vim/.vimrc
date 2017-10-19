@@ -1,8 +1,3 @@
-" " filetype plugin on
-" filetype plugin indent on
-" filetype indent on
-" filetype indent plugin on
-
 " --- General configuration ---
 set confirm " confirmation on failed saves
 set number " line numbers
@@ -30,7 +25,7 @@ set secure " disable unsafe commands in local .vimrc files
 set autoread " reload changed files
 set nofoldenable " Don't fold by default"
 set clipboard=unnamed " Use the system clipboard with default register
-set grepprg=ag\ --vimgrep\ $*
+set grepprg=rg\ --vimgrep\ $*
 set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
 set matchpairs+=<:>
 
@@ -60,19 +55,13 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/closetag.vim'
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
 au FileType cpp setlocal commentstring=//\ %s
 " au BufWrite * :Autoformat
-
-if !exists('g:formatdef_elm_format')
-    let g:formatdef_elm_format = '"elm-format --stdin"'
-endif
-
-if !exists('g:formatters_elm')
-    let g:formatters_elm = ['elm_format']
-endif
+au FileType elm let b:autoformat_autoindent = 0
 
 
 " Navigation
@@ -90,7 +79,7 @@ let g:alternateSearchPath = 'wdr:include,wdr:src,sfr:../source,sfr:../src,sfr:..
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep'
 nnoremap <c-p> :GFiles<cr>
 
 
@@ -99,7 +88,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dbakker/vim-projectroot'
 Plug 'gregsexton/gitv' " requires vim-fugitive
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
+let g:gitgutter_sign_added = '·'
+let g:gitgutter_sign_modified = '·'
+let g:gitgutter_sign_removed = '·'
+let g:gitgutter_sign_modified_removed = '·'
 
 " Vim layout
 Plug 'vim-airline/vim-airline'
@@ -111,34 +105,17 @@ let g:airline_powerline_fonts = 1
 
 
 " Language support
-" Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
-Plug 'ElmCast/elm-vim', {'for': 'elm'}
-Plug 'Valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'gmoe/vim-faust', {'for': 'faust'}
-Plug 'guns/vim-clojure-static', {'for': 'clojure'}
-Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
-Plug 'justinmk/vim-syntax-extra', {'for': 'c'}
-Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
-Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
-Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
-Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
-Plug 'peterhoeg/vim-qml', {'for': 'qml'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'raichoo/purescript-vim', {'for': 'purescript'}
-Plug 'scrooloose/syntastic', {'for': ['cpp', 'python']}
+Plug 'sheerun/vim-polyglot'
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
-Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
-Plug 'wting/rust.vim', {'for': 'rust'}
 
-let g:elm_setup_keybindings = 0
-let g:elm_syntastic_show_warnings = 0
-let g:elm_format_autosave = 0
-let g:jedi#usages_command = "<leader>u"
 let g:jsx_ext_required = 0
 let g:mta_filetypes = {
       \ 'html' : 1,
@@ -147,20 +124,13 @@ let g:mta_filetypes = {
       \ 'jinja' : 1,
       \ 'javascript.jsx' : 1,
       \}
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++17 -stdlib=libc++'
 let g:vim_markdown_initial_foldlevel=100
 
 
 " Code navigation + completion
 Plug 'honza/vim-snippets'
-Plug 'lyuts/vim-rtags', {'for': 'cpp'}
+" Plug 'lyuts/vim-rtags', {'for': 'cpp'}
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'SirVer/ultisnips'
 Plug 'rizzatti/dash.vim'
@@ -254,14 +224,14 @@ autocmd FileType gyp,rust setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 " PEP8 formatting for python
 autocmd FileType python setlocal
-  \ tabstop=4
-  \ softtabstop=4
-  \ shiftwidth=4
-  \ textwidth=79
-  \ cc=80
-  \ autoindent
-  \ fileformat=unix
-  \ encoding=utf-8
+      \ tabstop=4
+      \ softtabstop=4
+      \ shiftwidth=4
+      \ textwidth=79
+      \ cc=80
+      \ autoindent
+      \ fileformat=unix
+      \ encoding=utf-8
 let python_highlight_all=1
 
 
@@ -355,8 +325,8 @@ endfunction
 
 
 " --- Leader ---
-" set leader to ,
-let mapleader = ","
+" set leader to space
+let mapleader = "\<Space>"
 " ,1 - write all and make
 map <leader>1 ;wa<CR>;call DoMake()<CR>
 " ,! - make test
@@ -376,57 +346,59 @@ map <leader>4 ;cl<CR>
 " 0 - stop async job
 map <leader>0 ;AsyncStop<CR>
 
-" ,. - ctrl p ctags
-map <leader>. ;CtrlPTag<cr>
+" k - fzf ctags
+map <leader>k ;Tags<cr>
 
-" ,n - toggle NERDTree
+" j - jump to tag
+map <leader>j <C-]>
+" J - jump to previous tag
+map <leader>J <C-t>
+
+" n - toggle NERDTree
 map <leader>n ;NERDTreeToggle<cr>
-" ,f - find current buffer in NERDTree
-map <leader>f ;NERDTreeFind<cr>
+" N - find current buffer in NERDTree
+map <leader>N ;NERDTreeFind<cr>
 
-" ,b - toggle tagbar
-map <leader>b ;TagbarToggle<cr>
-
-" ,a - switch to counterpart
+" a - switch to counterpart
 map <leader>a ;A<cr>
 
-" ,s - vertical split
+" s - vertical split
 map <leader>s ;vsp<cr>
 
-" ,p - reformat paragraph
+" p - reformat paragraph
 map <leader>p gqip<cr>
 
-" ,Q - open quickfix, scroll to end, and return focus
+" Q - open quickfix, scroll to end, and return focus
 map <leader>Q ;botright copen<cr>G<c-w><c-p>
 
-" ,w - save all
+" w - save all
 map <leader>w ;wa<cr>
 
-" ,t - new tab
+" t - new tab
 map <leader>t ;tabnew<cr>
 
-" ,x - close tab
+" x - close tab
 map <leader>x ;tabclose<cr>
 
-" ,c - auto format
+" c - auto format
 map <leader>c ;Autoformat<cr>
 
-" ,d - insert date
+" d - insert date
 map <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>
 
-" ,D - insert timestamp
+" D - insert timestamp
 map <leader>D a<c-r>=strftime('%Y-%m-%d %H:%M')<cr><esc>
 
-" ,T - insert empty TODO
+" T - insert empty TODO
 map <leader>T i- [ ] <esc>hhxla
 
-" ,g - open gitv
+" g - open gitv
 map <leader>g ;Gitv<cr>
 
-" ,h - search for current word in Dash according to filetype
+" h - search for current word in Dash according to filetype
 map <leader>h <Plug>DashSearch
 
-" ,H - search for current word in Dash, globally
+" H - search for current word in Dash, globally
 map <leader>H <Plug>DashGlobalSearch
 
 

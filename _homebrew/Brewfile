@@ -28,7 +28,6 @@ brew "lua"
 brew "ninja"
 brew "node"
 brew "ripgrep"
-brew "rtags", restart_service: true
 brew "sox"
 brew "stow"
 brew "the_silver_searcher"

@@ -276,6 +276,11 @@ nnoremap <C-l> :tabnext<CR>
 " switch colon and semi-colon
 noremap : ;
 noremap ; :
+" colemak
+noremap j e
+noremap k n
+noremap e k
+noremap n j
 
 " move lines up/down
 " Normal mode

@@ -333,15 +333,15 @@ endfunction
 " set leader to space
 let mapleader = "\<Space>"
 " ,1 - write all and make
-map <leader>1 ;wa<CR>;call DoMake()<CR>
+nmap <leader>1 ;wa<CR>;call DoMake()<CR>
 " ,! - make test
-map <leader>! ;wa<CR>;call DoTest()<CR>
+nmap <leader>! ;wa<CR>;call DoTest()<CR>
 " ,2 -  previous error
-map <leader>2 ;wa<CR>;cp<CR>
+nmap <leader>2 ;wa<CR>;cp<CR>
 " ,3 - next error
-map <leader>3 ;wa<CR>;cn<CR>
+nmap <leader>3 ;wa<CR>;cn<CR>
 " ,4 - list errors
-map <leader>4 ;cl<CR>
+nmap <leader>4 ;cl<CR>
 
 " " ,9 - cargo test
 " map <leader>9 ;wa<CR>;!cargo test<CR>
@@ -349,69 +349,74 @@ map <leader>4 ;cl<CR>
 " map <leader>0 ;wa<CR>;!cargo build<CR>
 
 " 0 - stop async job
-map <leader>0 ;AsyncStop<CR>
+nmap <leader>0 ;AsyncStop<CR>
 
 " k - fzf ctags
-map <leader>k ;Tags<cr>
+nmap <leader>k ;Tags<cr>
 
 " j - jump to tag
-map <leader>j <C-]>
+nmap <leader>j <C-]>
 " J - jump to previous tag
-map <leader>J <C-t>
+nmap <leader>J <C-t>
 
 " n - toggle NERDTree
-map <leader>n ;NERDTreeToggle<cr>
+nmap <leader>n ;NERDTreeToggle<cr>
 " N - find current buffer in NERDTree
-map <leader>N ;NERDTreeFind<cr>
+nmap <leader>N ;NERDTreeFind<cr>
 
 " a - switch to counterpart
-map <leader>a ;A<cr>
+nmap <leader>a ;A<cr>
 
 " s - vertical split
-map <leader>s ;vsp<cr>
+nmap <leader>s ;vsp<cr>
 
 " p - reformat paragraph
-map <leader>p gqip<cr>
+nmap <leader>p gqip<cr>
 
 " Q - open quickfix, scroll to end, and return focus
-map <leader>Q ;botright copen<cr>G<c-w><c-p>
+nmap <leader>Q ;botright copen<cr>G<c-w><c-p>
 
 " w - save all
-map <leader>w ;wa<cr>
+nmap <leader>w ;wa<cr>
 
 " t - new tab
-map <leader>t ;tabnew<cr>
+nmap <leader>t ;tabnew<cr>
 
 " x - close tab
-map <leader>x ;tabclose<cr>
+nmap <leader>x ;tabclose<cr>
 
 " c - auto format
-map <leader>c ;Autoformat<cr>
+nmap <leader>c ;Autoformat<cr>
 
 " d - insert date
-map <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>
+nmap <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>
 
 " D - insert timestamp
-map <leader>D a<c-r>=strftime('%Y-%m-%d %H:%M')<cr><esc>
+nmap <leader>D a<c-r>=strftime('%Y-%m-%d %H:%M')<cr><esc>
 
 " T - insert empty TODO
-map <leader>T i- [ ] <esc>hhxla
+nmap <leader>T i- [ ] <esc>hhxla
 
 " g - open gitv
-map <leader>g ;Gitv<cr>
+nmap <leader>g ;Gitv<cr>
 
 " h - search for current word in Dash according to filetype
-map <leader>h <Plug>DashSearch
+nmap <leader>h <Plug>DashSearch
 
 " H - search for current word in Dash, globally
-map <leader>H <Plug>DashGlobalSearch
+nmap <leader>H <Plug>DashGlobalSearch
+
+" Unmap insert mode mappings from a.vim
+autocmd VimEnter * iunmap <leader>ih
+autocmd VimEnter * iunmap <leader>is
+autocmd VimEnter * iunmap <leader>ihn
 
 
 " edit .vimrc~
 if has("unix") && strlen($MYVIMRC) < 1
   let $MYVIMRC=$HOME . '/.vimrc'
 endif
-map <leader>v ;edit $MYVIMRC<CR>
+nmap <leader>v ;edit $MYVIMRC<CR>
 
 " --- Auto reload .vimrc ---
 augroup reload_vimrc " {

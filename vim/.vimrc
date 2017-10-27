@@ -277,10 +277,10 @@ nnoremap <C-l> :tabnext<CR>
 noremap : ;
 noremap ; :
 " colemak
-noremap j e
-noremap k n
-noremap e k
-noremap n j
+" noremap j e
+" noremap k n
+" noremap e k
+" noremap n j
 
 " move lines up/down
 " Normal mode

@@ -1375,6 +1375,14 @@
                 },
                 {
                     "from": {
+                        "key_code": "i"
+                    },
+                    "to": {
+                        "key_code": "u"
+                    }
+                },
+                {
+                    "from": {
                         "key_code": "j"
                     },
                     "to": {
@@ -1387,6 +1395,14 @@
                     },
                     "to": {
                         "key_code": "e"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "l"
+                    },
+                    "to": {
+                        "key_code": "i"
                     }
                 },
                 {
@@ -1447,34 +1463,18 @@
                 },
                 {
                     "from": {
+                        "key_code": "u"
+                    },
+                    "to": {
+                        "key_code": "l"
+                    }
+                },
+                {
+                    "from": {
                         "key_code": "y"
                     },
                     "to": {
                         "key_code": "j"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "u"
-                    },
-                    "to": {
-                        "key_code": "l"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "i"
-                    },
-                    "to": {
-                        "key_code": "u"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "l"
-                    },
-                    "to": {
-                        "key_code": "i"
                     }
                 }
             ],

@@ -111,6 +111,7 @@ Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
@@ -222,6 +223,8 @@ set expandtab
 " Some languages should have 4 space tabs
 autocmd FileType gyp,rust setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
+autocmd FileType rust compiler cargo
+
 " PEP8 formatting for python
 autocmd FileType python setlocal
       \ tabstop=4
@@ -305,7 +308,6 @@ function! DoMake()
   let makeprg_old = &l:makeprg
   try
     set makeprg=$MAKEPRG
-    "silent make
     AsyncStop
     AsyncRun -program=make
   finally
@@ -319,7 +321,7 @@ function! DoTest()
   let makeprg_old = &l:makeprg
   try
     set makeprg=$TESTPRG
-    "silent make
+    AsyncStop
     AsyncRun -program=make
   finally
     let &l:makeprg = makeprg_old

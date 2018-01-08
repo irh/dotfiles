@@ -169,6 +169,7 @@ Plug 'altercation/vim-colors-solarized'
 
 " Vim Extensions
 " Plug 'gilligan/vim-lldb'
+Plug 'junegunn/goyo.vim'
 Plug 'ktonga/vim-follow-my-lead'
 Plug 'mhinz/vim-startify'
 Plug 'suan/vim-instant-markdown'

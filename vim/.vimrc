@@ -6,8 +6,6 @@ set laststatus=2 " always display the status line
 set ruler " cursor position
 set cc=91
 set scrolloff=2 " start scrolling before cursor reaches last line
-"set autoindent " use indentation of previous line
-"set smartindent " auto indentation with C awareness
 set smarttab
 set list
 set listchars=tab:>-
@@ -98,10 +96,8 @@ let g:gitgutter_sign_modified_removed = '·'
 " Vim layout
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'zhaocai/GoldenView.Vim' " auto-resize views to nice size ratios
 
 let g:airline_powerline_fonts = 1
-" let g:goldenview__enable_default_mapping = 0
 
 
 " Language support
@@ -130,45 +126,19 @@ let g:vim_markdown_initial_foldlevel=100
 
 " Code navigation + completion
 Plug 'honza/vim-snippets'
-" Plug 'lyuts/vim-rtags', {'for': 'cpp'}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'SirVer/ultisnips'
 Plug 'rizzatti/dash.vim'
-
-let g:rtagsUseLocationList = 0
-
-let g:UltiSnipsEditSplit="vertical"
-"let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
       \ }
-
-command! SetupNeocomleteForCppWithRtags call SetupNeocomleteForCppWithRtags()
-function! SetupNeocomleteForCppWithRtags()
-  " Enable heavy omni completion.
-  setlocal omnifunc=RtagsCompleteFunc
-
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  let l:cpp_patterns='[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.cpp = l:cpp_patterns
-  set completeopt+=longest,menuone
-endfunction
-
-autocmd FileType cpp,c SetupNeocomleteForCppWithRtags
-
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
 
 
 " Vim Extensions
-" Plug 'gilligan/vim-lldb'
 Plug 'junegunn/goyo.vim'
 Plug 'ktonga/vim-follow-my-lead'
 Plug 'mhinz/vim-startify'
@@ -280,11 +250,6 @@ nnoremap <C-l> :tabnext<CR>
 " switch colon and semi-colon
 noremap : ;
 noremap ; :
-" colemak
-" noremap j e
-" noremap k n
-" noremap e k
-" noremap n j
 
 " move lines up/down
 " Normal mode
@@ -346,10 +311,11 @@ nmap <leader>3 ;wa<CR>;cn<CR>
 " ,4 - list errors
 nmap <leader>4 ;cl<CR>
 
-" " ,9 - cargo test
-" map <leader>9 ;wa<CR>;!cargo test<CR>
-" " ,0 - cargo build
-" map <leader>0 ;wa<CR>;!cargo build<CR>
+" ,5 - next location
+nmap <leader>5 ;wa<CR>;lp<CR>
+" ,6 - next location
+nmap <leader>6 ;wa<CR>;ln<CR>
+
 
 " 0 - stop async job
 nmap <leader>0 ;AsyncStop<CR>

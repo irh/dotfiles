@@ -6,6 +6,8 @@ tap "caskroom/cask"
 tap "caskroom/fonts"
 tap "caskroom/versions"
 
+tap "universal-ctags/universal-ctags"
+
 brew "autojump"
 brew "bash"
 brew "boost"
@@ -33,6 +35,7 @@ brew "stow"
 brew "the_silver_searcher"
 brew "translate-shell"
 brew "tree"
+brew "universal-ctags", args: ['HEAD']
 brew "vim"
 brew "wget"
 brew "youtube-dl"

@@ -23,6 +23,7 @@
   fe = fetch --prune
   hist = log --pretty=format:\"%C(yellow)%h%Creset | %Cgreen%an%Creset | %Cred%ad%Creset | %s%C(cyan)%d%Creset\" --graph --date=short -30
   id = rev-parse
+  local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
   mine = !git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authorname) | %(refname:short)' | egrep  '^iho' | tail -r | tail -n 20
   mt = mergetool
   nffmerge = merge --no-ff --log

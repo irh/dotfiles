@@ -96,12 +96,6 @@ let g:gitgutter_sign_modified = '·'
 let g:gitgutter_sign_removed = '·'
 let g:gitgutter_sign_modified_removed = '·'
 
-" Vim layout
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-let g:airline_powerline_fonts = 1
-
 
 " Language support
 Plug 'cespare/vim-toml', {'for': 'toml'}

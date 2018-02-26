@@ -13,7 +13,10 @@ syntax on " syntax highlighting
 set wrap!  " turn off word wrap
 set mouse=a " mouse everywhere
 set directory^=$HOME/.vim/swap// " place swp files in central folder
-autocmd BufWritePre * :%s/\s\+$//e " remove trailing whitespace when saving files
+augroup stripwhitespace
+  autocmd!
+  autocmd BufWritePre * :%s/\s\+$//e " remove trailing whitespace when saving files
+augroup END
 set backspace=indent,eol,start " allow deleting past insert, line breaks and autoindent
 "set path+=/usr/local/include,include/**,src/**,modules/**/include
 set path+=/usr/local/include,include/**,src/**
@@ -165,8 +168,11 @@ colorscheme solarized
 
 
 " --- 80 column limit for git commit messages and text files
-autocmd FileType gitcommit,markdown set textwidth=80
-autocmd FileType gitcommit,markdown setlocal colorcolumn=81
+augroup gitsetup
+  autocmd!
+  autocmd FileType gitcommit,markdown set textwidth=80
+  autocmd FileType gitcommit,markdown setlocal colorcolumn=81
+augroup END
 
 
 " --- background colour of signs gutter
@@ -191,21 +197,28 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
-" Some languages should have 4 space tabs
-autocmd FileType gyp,rust setlocal shiftwidth=4 softtabstop=4 tabstop=4
+augroup filetypes
+  autocmd!
 
-autocmd FileType rust compiler cargo
+  " Some languages should have 4 space tabs
+  autocmd FileType gyp,rust setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
-" PEP8 formatting for python
-autocmd FileType python setlocal
-      \ tabstop=4
-      \ softtabstop=4
-      \ shiftwidth=4
-      \ textwidth=79
-      \ cc=80
-      \ autoindent
-      \ fileformat=unix
-      \ encoding=utf-8
+  autocmd FileType rust compiler cargo
+augroup END
+
+augroup python
+  autocmd!
+  " PEP8 formatting for python
+  autocmd FileType python setlocal
+        \ tabstop=4
+        \ softtabstop=4
+        \ shiftwidth=4
+        \ textwidth=79
+        \ cc=80
+        \ autoindent
+        \ fileformat=unix
+        \ encoding=utf-8
+augroup END
 let python_highlight_all=1
 
 
@@ -376,9 +389,12 @@ nmap <leader>h <Plug>DashSearch
 nmap <leader>H <Plug>DashGlobalSearch
 
 " Unmap insert mode mappings from a.vim
-autocmd VimEnter * iunmap <leader>ih
-autocmd VimEnter * iunmap <leader>is
-autocmd VimEnter * iunmap <leader>ihn
+augroup unmap-a-vim
+  autocmd!
+  autocmd VimEnter * iunmap <leader>ih
+  autocmd VimEnter * iunmap <leader>is
+  autocmd VimEnter * iunmap <leader>ihn
+augroup END
 
 
 " edit .vimrc~

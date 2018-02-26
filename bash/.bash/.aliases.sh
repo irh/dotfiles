@@ -27,6 +27,7 @@ alias clang17++="clang++ --std=c++1z --stdlib=libc++"
 
 alias git="hub"
 alias g="git"
+alias gk="gitk"
 alias gad="git add"
 alias gbr="git br"
 alias gbs="git bs"

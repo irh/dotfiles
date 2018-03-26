@@ -63,6 +63,7 @@
   ignorecase = true
   excludesfile = ~/.gitignore_global
   preloadindex = true
+  sparsecheckout = true
 
 [diff]
   #external = cdiff

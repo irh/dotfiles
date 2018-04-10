@@ -1,4 +1,5 @@
 appnope
+autopep8
 cdiff
 cycler
 ipython

@@ -139,6 +139,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/goyo.vim'
 Plug 'ktonga/vim-follow-my-lead'
 Plug 'mhinz/vim-startify'
+Plug 'reedes/vim-pencil'
 Plug 'suan/vim-instant-markdown'
 Plug 'vimwiki/vimwiki'
 

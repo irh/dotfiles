@@ -21,6 +21,9 @@ alias mvim="mvim -p"
 alias v="vim"
 alias vrc="vim ~/.vimrc"
 
+alias nvim="nvim -p"
+alias n="nvim"
+
 alias clang11++="clang++ --std=c++11 --stdlib=libc++ -I/usr/local/include"
 alias clang14++="clang++ --std=c++1y --stdlib=libc++"
 alias clang17++="clang++ --std=c++1z --stdlib=libc++"

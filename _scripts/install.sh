@@ -5,6 +5,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 source _scripts/vim-setup.sh
+source _scripts/neovim-setup.sh
 
 stow stow
 

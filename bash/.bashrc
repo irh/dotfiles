@@ -48,7 +48,8 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR=vim
 
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_OPTS="--preview='head -$LINES {}' -m"
 
 # auto cd into directories
 if [[ $BASH_VERSION > 4.*  ]]; then

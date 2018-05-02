@@ -6,6 +6,5 @@ Following the approach taken in [Kraymer's Dotfiles](https://github.com/Kraymer/
 
 TODO
 - secrets
-- julia
 - ruby
 

@@ -14,6 +14,7 @@ stow git
 stow vim
 
 pip2 install -r _pip/packages2.txt
+julia _julia/packages.jl
 source _npm/npm-install-global.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then

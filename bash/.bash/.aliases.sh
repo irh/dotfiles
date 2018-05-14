@@ -17,12 +17,9 @@ alias ccat="pygmentize -g"
 alias vim="vim -p"
 alias gvim="gvim -p"
 alias mvim="mvim -p"
-
-alias v="vim"
-alias vrc="vim ~/.vimrc"
-
 alias nvim="nvim -p"
 alias n="nvim"
+alias v="n"
 
 alias clang11++="clang++ --std=c++11 --stdlib=libc++ -I/usr/local/include"
 alias clang14++="clang++ --std=c++1y --stdlib=libc++"

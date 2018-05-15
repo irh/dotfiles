@@ -159,7 +159,7 @@ endif
 
 
 " --- Color scheme ---
-set background=dark
+set background=light
 colorscheme solarized
 
 

@@ -12,7 +12,7 @@ set listchars=tab:>-
 syntax on " syntax highlighting
 set wrap!  " turn off word wrap
 set mouse=a " mouse everywhere
-set directory^=$HOME/.vim/swap// " place swp files in central folder
+set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
 augroup stripwhitespace
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//e " remove trailing whitespace when saving files
@@ -21,8 +21,8 @@ set backspace=indent,eol,start " allow deleting past insert, line breaks and aut
 "set path+=/usr/local/include,include/**,src/**,modules/**/include
 set path+=/usr/local/include,include/**,src/**
 set shortmess=a
-set exrc " enable per-directory .vimrc files
-set secure " disable unsafe commands in local .vimrc files
+set exrc " enable per-directory nvim/init.vim files
+set secure " disable unsafe commands in local nvim/init.vim files
 set autoread " reload changed files
 set nofoldenable " Don't fold by default"
 set clipboard=unnamed " Use the system clipboard with default register
@@ -407,14 +407,14 @@ augroup unmap-a-vim
 augroup END
 
 
-" edit .vimrc~
+" edit nvim/init.vim~
 if has("unix") && strlen($MYVIMRC) < 1
-  let $MYVIMRC=$HOME . '/.vimrc'
+  let $MYVIMRC=$HOME . '/.config/nvim/init.vim'
 endif
 nmap <leader>v ;edit $MYVIMRC<CR>
 
-" --- Auto reload .vimrc ---
-augroup reload_vimrc " {
+" --- Auto reload nvim/init.vim ---
+augroup reload_nvim_init " {
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }

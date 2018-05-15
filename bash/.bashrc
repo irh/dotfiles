@@ -46,7 +46,7 @@ export LIBCLANG_LLVM_CONFIG_EXECUTABLE=/usr/local/opt/llvm/bin/llvm-config
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export EDITOR=vim
+export EDITOR=nvim
 
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS="--preview='head -$LINES {}' -m"

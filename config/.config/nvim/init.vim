@@ -49,10 +49,10 @@ let g:sort_motion_flags = "ui"
 
 
 " Text formatting
-Plug 'chiel92/vim-autoformat'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
+Plug 'sbdchd/neoformat'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -62,8 +62,6 @@ Plug 'vim-scripts/closetag.vim'
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
 au FileType cpp setlocal commentstring=//\ %s
-" au BufWrite * :Autoformat
-au FileType elm let b:autoformat_autoindent = 0
 
 
 " Navigation
@@ -125,12 +123,15 @@ let g:vim_markdown_initial_foldlevel=100
 " Code navigation + completion
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'neomake/neomake'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'rizzatti/dash.vim'
 
 let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
       \ }
+
+let g:neomake_open_list = 2
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
@@ -297,8 +298,7 @@ function! DoMake()
   let makeprg_old = &l:makeprg
   try
     set makeprg=$MAKEPRG
-    AsyncStop
-    AsyncRun -program=make
+    Neomake!
   finally
     let &l:makeprg = makeprg_old
     redraw!
@@ -310,8 +310,7 @@ function! DoTest()
   let makeprg_old = &l:makeprg
   try
     set makeprg=$TESTPRG
-    AsyncStop
-    AsyncRun -program=make
+    Neomake!
   finally
     let &l:makeprg = makeprg_old
     redraw!
@@ -328,9 +327,9 @@ nmap <leader>1 ;wa<CR>;call DoMake()<CR>
 " ,! - make test
 nmap <leader>! ;wa<CR>;call DoTest()<CR>
 " ,2 -  previous error
-nmap <leader>2 ;wa<CR>;cp<CR>
+nmap <leader>2 ;wa<CR>;lprev<CR>
 " ,3 - next error
-nmap <leader>3 ;wa<CR>;cn<CR>
+nmap <leader>3 ;wa<CR>;lnext<CR>
 " ,4 - list errors
 nmap <leader>4 ;cl<CR>
 
@@ -378,7 +377,7 @@ nmap <leader>t ;tabnew<cr>
 nmap <leader>x ;tabclose<cr>
 
 " c - auto format
-nmap <leader>c ;Autoformat<cr>
+nmap <leader>c ;Neoformat<cr>
 
 " d - insert date
 nmap <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>

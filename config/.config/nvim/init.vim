@@ -164,7 +164,7 @@ endif
 
 
 " --- Color scheme ---
-set background=light
+set background=dark
 colorscheme solarized
 
 
@@ -299,24 +299,24 @@ vnoremap <C-k> :m '<-2<CR>gv=gv"
 
 let $MAKEPRG="make -j8"
 function! DoMake()
-  let makeprg_old = &l:makeprg
+  let s:makeprg_old = &l:makeprg
   try
     set makeprg=$MAKEPRG
     Neomake!
   finally
-    let &l:makeprg = makeprg_old
+    let &l:makeprg = s:makeprg_old
     redraw!
   endtry
 endfunction
 
 let $TESTPRG="make -j8 && make test"
 function! DoTest()
-  let makeprg_old = &l:makeprg
+  let s:makeprg_old = &l:makeprg
   try
     set makeprg=$TESTPRG
     Neomake!
   finally
-    let &l:makeprg = makeprg_old
+    let &l:makeprg = s:makeprg_old
     redraw!
   endtry
 endfunction
@@ -345,9 +345,9 @@ nmap <leader>1 ;wa<CR>;call DoMake()<CR>
 " ,! - make test
 nmap <leader>! ;wa<CR>;call DoTest()<CR>
 " ,2 -  previous error
-nmap <leader>2 ;wa<CR>;lprev<CR>
+nmap <leader>2 ;wa<CR>;cprev<CR>
 " ,3 - next error
-nmap <leader>3 ;wa<CR>;lnext<CR>
+nmap <leader>3 ;wa<CR>;cnext<CR>
 " ,4 - list errors
 nmap <leader>4 ;cl<CR>
 

@@ -62,7 +62,11 @@ Plug 'vim-scripts/closetag.vim'
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
 au FileType cpp setlocal commentstring=//\ %s
-
+let g:neoformat_c_clangformat = {
+  \ 'exe': 'clang-format',
+  \ 'args': ['-style=file'],
+  \ 'stdin': 1,
+  \ }
 
 " Navigation
 Plug 'mileszs/ack.vim'
@@ -317,6 +321,20 @@ function! DoTest()
   endtry
 endfunction
 
+function! DoNeoformat()
+  let s:current_dir = getcwd()
+  echo $current_dir
+  try
+    " set the window's working directory to its file's location,
+    " so that clang-format can correctly recurse the parent folders to find a
+    " .clang-format file
+    lcd %:p:h
+    Neoformat
+  finally
+    " put the window's working directory to its original location
+    execute 'lcd' fnameescape(s:current_dir)
+  endtry
+endfunction
 
 
 " --- Leader ---
@@ -377,7 +395,7 @@ nmap <leader>t ;tabnew<cr>
 nmap <leader>x ;tabclose<cr>
 
 " c - auto format
-nmap <leader>c ;Neoformat<cr>
+nmap <leader>c ;call DoNeoformat()<cr>
 
 " d - insert date
 nmap <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>

@@ -2,6 +2,8 @@
 *.swo
 *.out
 .DS_Store
+.nvimrc
 .vimrc
 compile_commands.json
 tags
+tags.*

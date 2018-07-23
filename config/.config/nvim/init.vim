@@ -215,6 +215,7 @@ augroup filetypes
   autocmd FileType gyp,rust setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
   autocmd FileType rust compiler cargo
+  autocmd FileType rust setlocal cc=101
 augroup END
 
 augroup python

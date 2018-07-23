@@ -346,10 +346,18 @@ function! DoNeoformat()
   endtry
 endfunction
 
+" --- Function Keys ---
+nmap <F13> ;wa<CR>;call DoMake()<CR>
+nmap <F14> ;wa<CR>;call DoTest()<CR>
+nmap <F15> ;wa<CR>;cprev<CR>
+nmap <F16> ;wa<CR>;cnext<CR>
+
 
 " --- Leader ---
 " set leader to space
 let mapleader = "\<Space>"
+" ,Tab - write all and build for Rust
+nmap <leader><Tab> ;wa<CR>;Neomake! cargo<CR>
 " ,1 - write all and make
 nmap <leader>1 ;wa<CR>;call DoMake()<CR>
 " ,! - make test
@@ -386,17 +394,17 @@ nmap <leader>N ;NERDTreeFind<cr>
 " a - switch to counterpart
 nmap <leader>a ;A<cr>
 
-" s - vertical split
-nmap <leader>s ;vsp<cr>
+" s - save all
+nmap <leader>s ;wa<cr>
+
+" S - vertical split
+nmap <leader>S ;vsp<cr>
 
 " p - reformat paragraph
 nmap <leader>p gqip<cr>
 
 " Q - open quickfix, scroll to end, and return focus
 nmap <leader>Q ;botright copen<cr>G<c-w><c-p>
-
-" w - save all
-nmap <leader>w ;wa<cr>
 
 " t - new tab
 nmap <leader>t ;tabnew<cr>

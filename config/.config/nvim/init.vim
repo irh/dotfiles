@@ -156,14 +156,14 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/goyo.vim'
 Plug 'ktonga/vim-follow-my-lead'
 Plug 'mhinz/vim-startify'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-pencil'
 Plug 'suan/vim-instant-markdown'
 Plug 'vimwiki/vimwiki'
 
 let g:startify_change_to_dir = 0
 let g:vimwiki_list = [{'path': '~/Dropbox/Docs/vimwiki'}]
-
-
 
 " --- End of plugins ---
 call plug#end()
@@ -175,8 +175,11 @@ endif
 
 
 " --- Color scheme ---
-set background=dark
 colorscheme solarized
+set background=dark
+let g:airline_theme="solarized"
+let g:airline_solarized_bg='dark'
+
 
 
 " --- 80 column limit for git commit messages and text files

@@ -136,6 +136,7 @@ let g:dash_map = {
       \ }
 
 let g:neomake_open_list = 2
+let g:neomake_verbose = 2
 let g:neomake_ft_cpp_buffer_output = 0
 let g:neomake_error_sign = {'text': '❌', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {

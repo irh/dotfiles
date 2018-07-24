@@ -135,7 +135,8 @@ let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
       \ }
 
-let g:neomake_open_list = 0
+let g:neomake_open_list = 2
+let g:neomake_ft_cpp_buffer_output = 0
 let g:neomake_error_sign = {'text': '❌', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {
   \   'text': '❓',
@@ -310,25 +311,25 @@ vnoremap <C-k> :m '<-2<CR>gv=gv"
 
 let $MAKEPRG="make -j8"
 function! DoMake()
+  cexpr [] " clear quickfix window
   let s:makeprg_old = &l:makeprg
   try
     set makeprg=$MAKEPRG
     Neomake!
   finally
     let &l:makeprg = s:makeprg_old
-    redraw!
   endtry
 endfunction
 
 let $TESTPRG="make -j8 && make test"
 function! DoTest()
+  cexpr [] " clear quickfix window
   let s:makeprg_old = &l:makeprg
   try
     set makeprg=$TESTPRG
     Neomake!
   finally
     let &l:makeprg = s:makeprg_old
-    redraw!
   endtry
 endfunction
 

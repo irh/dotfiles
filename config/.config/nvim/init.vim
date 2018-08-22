@@ -135,9 +135,12 @@ let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
       \ }
 
-let g:neomake_open_list = 2
+let g:neomake_open_list = 0
 let g:neomake_verbose = 2
+let g:neomake_buffer_output = 0
+let g:neomake_clang_buffer_output = 0
 let g:neomake_ft_cpp_buffer_output = 0
+let g:neomake_ft_c_buffer_output = 0
 let g:neomake_error_sign = {'text': '❌', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {
   \   'text': '❓',
@@ -260,9 +263,9 @@ set hlsearch " highlight search results
 " Note: The quickfix window will also automatically close in case the quickfix
 " list becomes empty. If instead you always want to open the quickfix window,
 " replace the cwindow with copen.
-"autocmd QuickFixCmdPost [^l]* nested botright copen
-"autocmd QuickFixCmdPost    l* nested botright lwindow
-"autocmd QuickFixCmdPost * botright copen 8
+autocmd QuickFixCmdPost [^l]* nested vert botright cwindow 100
+autocmd QuickFixCmdPost    l* nested vert botright lwindow
+autocmd QuickFixCmdPost * nested vert botright cwindow 100
 
 " word wrap in quickfix
 augroup quickfix
@@ -410,7 +413,7 @@ nmap <leader>S ;vsp<cr>
 nmap <leader>p gqip<cr>
 
 " Q - open quickfix, scroll to end, and return focus
-nmap <leader>Q ;botright copen<cr>G<c-w><c-p>
+nmap <leader>Q ;vert botright copen 100<cr>G<c-w><c-p>
 
 " t - new tab
 nmap <leader>t ;tabnew<cr>

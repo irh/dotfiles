@@ -10,6 +10,7 @@ tap "universal-ctags/universal-ctags"
 
 brew "autojump"
 brew "bash"
+brew "bat"
 brew "boost"
 brew "ccache"
 brew "cheat"

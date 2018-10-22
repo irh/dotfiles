@@ -1678,7 +1678,7 @@
                 }
             ],
             "name": "Colemak Mod-DH R",
-            "selected": true,
+            "selected": false,
             "simple_modifications": [
                 {
                     "from": {
@@ -2012,7 +2012,7 @@
                 }
             ],
             "name": "Colemak Mod-DH",
-            "selected": false,
+            "selected": true,
             "simple_modifications": [
                 {
                     "from": {

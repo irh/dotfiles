@@ -16,6 +16,7 @@ c_green=`tput setaf 2`
 c_yellow=`tput setaf 3`
 c_blue=`tput setaf 4`
 c_cyan=`tput setaf 6`
+c_grey=`tput setaf 11`
 c_reset=`tput sgr0`
 
 export LS_COLORS='di=36:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
@@ -57,16 +58,15 @@ upstream_status() {
 git_branch() {
   local repo_root="`git rev-parse --show-toplevel 2>/dev/null`"
   if [ -n "$repo_root" ]; then
-    echo -ne "["
     echo -ne "$(branch_color)$(git branchname)"
     echo -ne "${c_yellow}$(upstream_status)"
-    echo -ne "${c_reset}]"
+    echo -ne "${c_reset}"
     echo -ne "$(xcode_update_required $repo_root)"
   fi
 }
 
 showtime() {
-  echo -ne "[${c_blue}$(date +%k:%M:%S)${c_reset}]"
+  echo -ne "${c_blue}$(date +%k:%M:%S)${c_reset}"
 }
 
 jobcount() {
@@ -81,5 +81,5 @@ showjobcount() {
   fi
 }
 
-PS1='\n$(showtime) $(git_branch) $(showjobcount)\n\[${c_cyan}\]\w\[${c_reset}\] » '
+PS1='\n$(showtime) $(git_branch) $(showjobcount)\n${c_grey}\h${c_reset} ${c_cyan}\w${c_reset}\n» '
 

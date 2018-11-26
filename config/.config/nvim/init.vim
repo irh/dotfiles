@@ -1,35 +1,37 @@
 " --- General configuration ---
-set confirm " confirmation on failed saves
-set number " line numbers
-set relativenumber " numbers displayed relatively
-set laststatus=2 " always display the status line
-set ruler " cursor position
+"set path+=/usr/local/include,include/**,src/**,modules/**/include
+set autoread " reload changed files
+set backspace=indent,eol,start " allow deleting past insert, line breaks and autoindent
 set cc=91
-set scrolloff=2 " start scrolling before cursor reaches last line
-set smarttab
+set clipboard=unnamed " Use the system clipboard with default register
+set confirm " confirmation on failed saves
+set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
+set exrc " enable per-directory nvim/init.vim files
+set grepprg=rg\ --vimgrep\ $*
+set hidden " Enable hidden buffers
+set laststatus=2 " always display the status line
 set list
 set listchars=tab:>-
-syntax on " syntax highlighting
-set wrap!  " turn off word wrap
+set matchpairs+=<:>
 set mouse=a " mouse everywhere
-set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
+set nofoldenable " Don't fold by default"
+set number " line numbers
+set path+=/usr/local/include,include/**,src/**
+set relativenumber " numbers displayed relatively
+set ruler " cursor position
+set scrolloff=2 " start scrolling before cursor reaches last line
+set secure " disable unsafe commands in local nvim/init.vim files
+set shortmess=a
+set signcolumn=yes
+set smarttab
+set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
+set wrap!  " turn off word wrap
+
+syntax on " syntax highlighting
 augroup stripwhitespace
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//e " remove trailing whitespace when saving files
 augroup END
-set backspace=indent,eol,start " allow deleting past insert, line breaks and autoindent
-"set path+=/usr/local/include,include/**,src/**,modules/**/include
-set path+=/usr/local/include,include/**,src/**
-set shortmess=a
-set exrc " enable per-directory nvim/init.vim files
-set secure " disable unsafe commands in local nvim/init.vim files
-set autoread " reload changed files
-set nofoldenable " Don't fold by default"
-set clipboard=unnamed " Use the system clipboard with default register
-set grepprg=rg\ --vimgrep\ $*
-set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
-set matchpairs+=<:>
-
 
 " --- Plugins ---
 call plug#begin('~/.vim/plugged')
@@ -67,6 +69,19 @@ let g:neoformat_c_clangformat = {
   \ 'args': ['-style=file'],
   \ 'stdin': 1,
   \ }
+
+" let g:multi_cursor_use_default_mapping=0
+
+" " Default mapping
+" let g:multi_cursor_start_word_key      = '<C-h>'
+" let g:multi_cursor_select_all_word_key = '<A-h>'
+" let g:multi_cursor_start_key           = 'g<C-h>'
+" let g:multi_cursor_select_all_key      = 'g<A-h>'
+" let g:multi_cursor_next_key            = '<C-h>'
+" let g:multi_cursor_prev_key            = '<C-p>'
+" let g:multi_cursor_skip_key            = '<C-x>'
+" let g:multi_cursor_quit_key            = '<Esc>'
+
 
 " Navigation
 Plug 'mileszs/ack.vim'
@@ -107,8 +122,8 @@ Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'sheerun/vim-polyglot'
+" Plug 'rust-lang/rust.vim', {'for': 'rust'}
+" Plug 'sheerun/vim-polyglot'
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
@@ -152,6 +167,50 @@ let g:neomake_message_sign = {
   \ }
 let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
+
+" Temp
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
+
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+"     \ }
+
+" " Automatically start language servers.
+" " let g:LanguageClient_autoStart = 1
+" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" " Or map each action separately
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/nvim-yarp'
+
+" Plug 'ncm2/ncm2-ultisnips'
+" Plug 'SirVer/ultisnips'
+
+" enable ncm2 for all buffers
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANTE: :help Ncm2PopupOpen for more information
+" set completeopt=noinsert,menuone ",noselect
+" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+" c-j c-k for moving in snippet
+" let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+" based on ultisnips
+"
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+
 " Colors
 Plug 'altercation/vim-colors-solarized'
 
@@ -163,7 +222,6 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-pencil'
-Plug 'suan/vim-instant-markdown'
 Plug 'vimwiki/vimwiki'
 
 let g:startify_change_to_dir = 0
@@ -206,8 +264,8 @@ set wildmenu
 set wildmode=longest,list
 set wildignore+=.svn,CVS,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.vcproj,*.dll,*.zip
 set wildignorecase
-set completeopt=menu,menuone,longest " Complete options (disable preview scratch window)
-set pumheight=15 " Limit popup menu height
+" set completeopt=menu,menuone,longest " Complete options (disable preview scratch window)
+" set pumheight=15 " Limit popup menu height
 
 
 " --- 2 space tabs by default ---
@@ -354,6 +412,19 @@ function! DoNeoformat()
     execute 'lcd' fnameescape(s:current_dir)
   endtry
 endfunction
+
+" Wrappers for cnext et al to make them wrap
+command! Cnext try | cnext | catch | cfirst | catch | endtry
+command! Cprev try | cprev | catch | clast | catch | endtry
+
+command! Lnext try | lnext | catch | lfirst | catch | endtry
+command! Lprev try | lprev | catch | llast | catch | endtry
+
+cabbrev cnext Cnext
+cabbrev cprev Cprev
+cabbrev lnext Lnext
+cabbrev lprev Lprev
+
 
 " --- Function Keys ---
 nmap <F13> ;wa<CR>;call DoMake()<CR>

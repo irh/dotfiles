@@ -32,6 +32,7 @@ PATH="/usr/local/bin:$PATH:/usr/local/sbin"
 PATH="~/.bash/scripts:$PATH"
 PATH="/usr/local/Cellar/ruby/2.1.2/bin:$PATH"
 PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 export PYTHONSTARTUP="$HOME/.pyrc"
 
@@ -57,4 +58,3 @@ if [[ $BASH_VERSION > 4.*  ]]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-

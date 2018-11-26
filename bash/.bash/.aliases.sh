@@ -76,7 +76,7 @@ alias togerman="trans -t de"
 
 alias scm="scheme --batch-mode"
 
-alias server="python -m SimpleHTTPServer 8000"
+alias server="python3 -m http.server 8000"
 
 alias builds="open http://jupiter.office.ableton.com/builds/continuous/"
 alias ci="open http://ci/view/FA%20Sound/"

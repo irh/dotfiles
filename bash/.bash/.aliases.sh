@@ -6,7 +6,7 @@ if ! command_exists gls; then
 fi
 
 alias ll="gls -AlFvh --color"
-alias l="ll"
+alias l="exa --long --all --classify"
 
 alias grep="grep --color=always"
 alias grp="grep -ri"

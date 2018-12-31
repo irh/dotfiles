@@ -121,10 +121,12 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 " Plug 'rust-lang/rust.vim', {'for': 'rust'}
 " Plug 'sheerun/vim-polyglot'
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
+Plug 'tikhomirov/vim-glsl'
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
@@ -538,22 +540,23 @@ augroup END " }
 " --- Highlighting ---
 au BufNewFile,BufRead *.h,*.hpp,*.cpp,*.h++ set syntax=cpp
 
-" GLSL highlighting
-command! SetGLSLFileType call SetGLSLFileType()
-function! SetGLSLFileType()
-  for item in getline(1,10)
-    if item =~ "#version 400"
-      execute ':set filetype=glsl400'
-      break
-    endif
-    if item =~ "#version 330"
-      execute ':set filetype=glsl330'
-      break
-    endif
-    execute ':set filetype=glsl'
-  endfor
-endfunction
-au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl SetGLSLFileType
+" " GLSL highlighting
+" command! SetGLSLFileType call SetGLSLFileType()
+" function! SetGLSLFileType()
+"   for item in getline(1,10)
+"     if item =~ "#version 400"
+"       execute ':set filetype=glsl400'
+"       break
+"     endif
+"     if item =~ "#version 330"
+"       execute ':set filetype=glsl330'
+"       break
+"     endif
+"     execute ':set filetype=glsl'
+"   endfor
+" endfunction
+" au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl,*.fs,*.vs SetGLSLFileType
+autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 " JSON highlighting
 au BufNewFile,BufRead *.json set filetype=json

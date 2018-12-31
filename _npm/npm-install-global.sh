@@ -3,4 +3,6 @@ npm install -g \
   elm-format \
   gulp-cli \
   instant-markdown-d \
+  typescript \
+  typescript-formatter \
   ;

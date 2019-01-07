@@ -17,11 +17,11 @@
   deletemerged = !git branch --merged origin/master | grep -v 'master$' | xargs git branch -d
   deletemerged9 = !git branch --merged origin/master-9 | grep -v 'master-9$' | xargs git branch -d
   deletemerged10 = !git branch --merged origin/master-10 | grep -v 'master-10$' | xargs git branch -d
-  df = diff #--word-diff=color
+  df = diff --ignore-submodules
   dt = difftool -y
   dump = cat-file -p
   fe = fetch --prune
-  hist = log --pretty=format:\"%C(yellow)%h%Creset | %Cgreen%an%Creset | %Cred%ad%Creset | %s%C(cyan)%d%Creset\" --graph --date=short -30
+  hist = log --pretty=format:\"%C(yellow)%h%Creset | %Cgreen%an%Creset | %Cred%ad%Creset | %s%C(cyan)%d%Creset\" --graph --date=short -30 @~30..@
   id = rev-parse
   local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
   mine = !git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authorname) | %(refname:short)' | egrep  '^iho' | tail -r | tail -n 20
@@ -45,6 +45,7 @@
   team = !git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authorname) | %(refname:short)' | egrep  '^(iho|mre|mmg|rtu|mfi|heh|sbs|aws)' | tail -r | tail -n 20
   type = cat-file -t
   unstage = reset HEAD
+  update-commit-graph = !git show-ref -s | git commit-graph write --stdin-commits
   upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u}
   upstream-create = !git branchname | xargs git push -u origin
   wip = commit -a -m WIP
@@ -57,14 +58,15 @@
 
 [core]
   autocrlf = input
-  #safecrlf = true
+  commitGraph = true
   editor = /usr/local/bin/nvim
-  trustctime = false
-  ignorecase = true
   excludesfile = ~/.gitignore_global
+  ignorecase = true
+  pager = diff-so-fancy | less --tabs=4 -RFX
   preloadindex = true
   sparsecheckout = true
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  trustctime = false
+  untrackedCache = true
 
 [diff]
   #external = cdiff
@@ -82,6 +84,7 @@
 
 [gc]
   auto = 0
+  commitGraph = true
 
 [interactive]
   singlekey = true

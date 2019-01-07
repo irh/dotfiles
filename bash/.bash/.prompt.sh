@@ -22,7 +22,7 @@ c_reset=`tput sgr0`
 export LS_COLORS='di=36:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
 
 branch_color() {
-  if git diff --quiet 2>/dev/null >&2
+  if git diff --quiet --ignore-submodules 2>/dev/null >&2
   then
     echo -ne ${c_green}
   else

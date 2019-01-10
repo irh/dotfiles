@@ -143,7 +143,7 @@ let g:vim_markdown_initial_foldlevel=100
 
 " Code navigation + completion
 Plug 'honza/vim-snippets'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
 Plug 'neomake/neomake'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'rizzatti/dash.vim'

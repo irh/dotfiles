@@ -85,3 +85,5 @@ alias pivotal="open https://www.pivotaltracker.com/n/workspaces/26630"
 alias weather="curl http://wttr.in"
 
 alias ggl="googler"
+
+alias colours="for code in {0..255}; do echo -e "\033[38;05;${code}m $code"; done | column"

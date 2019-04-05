@@ -70,6 +70,12 @@ let g:neoformat_c_clangformat = {
   \ 'stdin': 1,
   \ }
 
+let g:neoformat_python_black = {
+  \ 'exe': 'black',
+  \ 'stdin': 1,
+  \ 'args': ['--fast', '--line-length', '90', '-q', '-'],
+  \ }
+
 " let g:multi_cursor_use_default_mapping=0
 
 " " Default mapping
@@ -318,8 +324,8 @@ augroup python
         \ tabstop=4
         \ softtabstop=4
         \ shiftwidth=4
-        \ textwidth=79
-        \ cc=80
+        \ textwidth=89
+        \ cc=90
         \ autoindent
         \ fileformat=unix
         \ encoding=utf-8

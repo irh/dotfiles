@@ -1,5 +1,4 @@
 appnope
-autopep8
 cdiff
 cycler
 ipython
@@ -9,6 +8,7 @@ pathlib2
 pickleshare
 pip
 prompt-toolkit
+pynvim
 pyparsing
 python-dateutil
 pytz

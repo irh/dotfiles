@@ -15,6 +15,7 @@ stow git
 stow vim
 
 pip2 install -r _pip/packages2.txt
+pip3 install -r _pip/packages3.txt
 julia _julia/packages.jl
 source _npm/npm-install-global.sh
 

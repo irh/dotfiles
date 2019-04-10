@@ -355,9 +355,9 @@ set hlsearch " highlight search results
 " Note: The quickfix window will also automatically close in case the quickfix
 " list becomes empty. If instead you always want to open the quickfix window,
 " replace the cwindow with copen.
-autocmd QuickFixCmdPost [^l]* nested vert botright cwindow 100
-autocmd QuickFixCmdPost    l* nested vert botright lwindow
-autocmd QuickFixCmdPost * nested vert botright cwindow 100
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+autocmd QuickFixCmdPost * nested cwindow
 
 " word wrap in quickfix
 augroup quickfix

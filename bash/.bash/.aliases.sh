@@ -60,30 +60,19 @@ alias gsmf="git smf"
 alias gsmi="git smi"
 alias gsmu="git smu"
 
+alias builds="open http://jupiter.office.ableton.com/builds/continuous/"
+alias c="cucumber"
 alias cdf="cdiff -s"
 alias cdl="cdiff -s -l"
-
-alias groot="cd \`git root\`"
-
-alias c="cucumber"
+alias colours="for code in {0..255}; do echo -e "\033[38;05;${code}m $code"; done | column"
 alias cuke="cucumber"
-
-alias pylab="ipython --pylab"
+alias ggl="googler"
+alias groot="cd \`git root\`"
+alias ncdu="ncdu --color dark"
 alias notebook="jupyter notebook"
-
+alias pylab="ipython --pylab"
+alias scm="scheme --batch-mode"
+alias server="python3 -m http.server 8000"
 alias toenglish="trans -t en"
 alias togerman="trans -t de"
-
-alias scm="scheme --batch-mode"
-
-alias server="python3 -m http.server 8000"
-
-alias builds="open http://jupiter.office.ableton.com/builds/continuous/"
-alias ci="open http://ci/view/FA%20Sound/"
-alias pivotal="open https://www.pivotaltracker.com/n/workspaces/26630"
-
 alias weather="curl http://wttr.in"
-
-alias ggl="googler"
-
-alias colours="for code in {0..255}; do echo -e "\033[38;05;${code}m $code"; done | column"

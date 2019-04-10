@@ -122,6 +122,7 @@ let g:gitgutter_sign_modified_removed = '·'
 
 
 " Language support
+Plug 'bumaociyuan/vim-swift', {'for': 'swift'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'gmoe/vim-faust', {'for': 'faust'}
@@ -149,7 +150,7 @@ let g:vim_markdown_initial_foldlevel=100
 
 " Code navigation + completion
 Plug 'honza/vim-snippets'
-Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
+Plug 'ludovicchabant/vim-gutentags', {'for': ['cpp', 'rust']}
 Plug 'neomake/neomake'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'rizzatti/dash.vim'

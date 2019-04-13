@@ -4,12 +4,12 @@ command_exists() {
 
 [ -f ~/.bash/.bashrc_local ] && source ~/.bash/.bashrc_local
 
-if [ -f ~/.bash/.aliases.sh ]; then
-  source ~/.bash/.aliases.sh
+if [ -f ~/.bash/aliases.sh ]; then
+  source ~/.bash/aliases.sh
 fi
 
-if [ -f ~/.bash/.prompt.sh ]; then
-  source ~/.bash/.prompt.sh
+if [ -f ~/.bash/prompt.sh ]; then
+  source ~/.bash/prompt.sh
 fi
 
 if [ -f ~/.bash/scripts/git-completion.sh ]; then

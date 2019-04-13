@@ -60,6 +60,8 @@ alias gsmf="git smf"
 alias gsmi="git smi"
 alias gsmu="git smu"
 
+alias wdate="wdate.sh"
+
 alias builds="open http://jupiter.office.ableton.com/builds/continuous/"
 alias c="cucumber"
 alias cdf="cdiff -s"
@@ -68,6 +70,7 @@ alias colours="for code in {0..255}; do echo -e "\033[38;05;${code}m $code"; don
 alias cuke="cucumber"
 alias ggl="googler"
 alias groot="cd \`git root\`"
+alias honkers="wdate hongkong"
 alias ncdu="ncdu --color dark"
 alias notebook="jupyter notebook"
 alias pylab="ipython --pylab"

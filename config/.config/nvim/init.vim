@@ -1,5 +1,4 @@
 " --- General configuration ---
-"set path+=/usr/local/include,include/**,src/**,modules/**/include
 set autoread " reload changed files
 set backspace=indent,eol,start " allow deleting past insert, line breaks and autoindent
 set cc=91
@@ -33,7 +32,9 @@ augroup stripwhitespace
   autocmd BufWritePre * :%s/\s\+$//e " remove trailing whitespace when saving files
 augroup END
 
+
 " --- Plugins ---
+
 call plug#begin('~/.vim/plugged')
 
 
@@ -75,18 +76,6 @@ let g:neoformat_python_black = {
   \ 'stdin': 1,
   \ 'args': ['--fast', '--line-length', '90', '-q', '-'],
   \ }
-
-" let g:multi_cursor_use_default_mapping=0
-
-" " Default mapping
-" let g:multi_cursor_start_word_key      = '<C-h>'
-" let g:multi_cursor_select_all_word_key = '<A-h>'
-" let g:multi_cursor_start_key           = 'g<C-h>'
-" let g:multi_cursor_select_all_key      = 'g<A-h>'
-" let g:multi_cursor_next_key            = '<C-h>'
-" let g:multi_cursor_prev_key            = '<C-p>'
-" let g:multi_cursor_skip_key            = '<C-x>'
-" let g:multi_cursor_quit_key            = '<Esc>'
 
 
 " Navigation
@@ -130,8 +119,6 @@ Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-" Plug 'rust-lang/rust.vim', {'for': 'rust'}
-" Plug 'sheerun/vim-polyglot'
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
 Plug 'tikhomirov/vim-glsl'
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
@@ -159,12 +146,6 @@ let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
       \ }
 
-let g:neomake_open_list = 0
-let g:neomake_verbose = 2
-let g:neomake_buffer_output = 0
-let g:neomake_clang_buffer_output = 0
-let g:neomake_ft_cpp_buffer_output = 0
-let g:neomake_ft_c_buffer_output = 0
 let g:neomake_error_sign = {'text': '❌', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {
   \   'text': '❓',
@@ -175,50 +156,6 @@ let g:neomake_message_sign = {
   \   'texthl': 'NeomakeMessageSign',
   \ }
 let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
-
-
-" Temp
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-"     \ }
-
-" " Automatically start language servers.
-" " let g:LanguageClient_autoStart = 1
-" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" " Or map each action separately
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-" " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
-" Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp'
-
-" Plug 'ncm2/ncm2-ultisnips'
-" Plug 'SirVer/ultisnips'
-
-" enable ncm2 for all buffers
-" autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANTE: :help Ncm2PopupOpen for more information
-" set completeopt=noinsert,menuone ",noselect
-" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
-" c-j c-k for moving in snippet
-" let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
-" based on ultisnips
-"
-" Required for operations modifying multiple buffers like rename.
-set hidden
-
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
@@ -253,8 +190,6 @@ let g:rainbow_conf = {
 Plug 'junegunn/goyo.vim'
 Plug 'ktonga/vim-follow-my-lead'
 Plug 'mhinz/vim-startify'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-pencil'
 Plug 'vimwiki/vimwiki'
 
@@ -278,6 +213,33 @@ let g:airline_solarized_bg='dark'
 
 
 
+" --- Status line ---
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f   " file
+set statusline+=\ %m   " modified
+set statusline+=%=     " separator
+set statusline+=%#CursorColumn#
+set statusline+=\ %y  " file type
+set statusline+=\ %#PmenuSel#
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ "
+
+
+
 " --- 80 column limit for git commit messages and text files
 augroup gitsetup
   autocmd!
@@ -298,8 +260,6 @@ set wildmenu
 set wildmode=longest,list
 set wildignore+=.svn,CVS,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.vcproj,*.dll,*.zip
 set wildignorecase
-" set completeopt=menu,menuone,longest " Complete options (disable preview scratch window)
-" set pumheight=15 " Limit popup menu height
 
 
 " --- 2 space tabs by default ---
@@ -343,25 +303,11 @@ set hlsearch " highlight search results
 
 " --- Quickfix ---
 
-" From: http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
-" Automatically open, but do not go to (if there are errors) the quickfix /
-" location list window, or close it when is has become empty.
-"
-" Note: Must allow nesting of autocmds to enable any customizations for quickfix
-" buffers.
-" Note: Normally, :cwindow jumps to the quickfix window if the command opens it
-" (but not if it's already open). However, as part of the autocmd, this doesn't
-" seem to happen.
-" Note: The quickfix window will also automatically close in case the quickfix
-" list becomes empty. If instead you always want to open the quickfix window,
-" replace the cwindow with copen.
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
-autocmd QuickFixCmdPost * nested cwindow
-
-" word wrap in quickfix
 augroup quickfix
   autocmd!
+  autocmd QuickFixCmdPost * nested botright copen
+  autocmd QuickFixCmdPost * nested cbottom
+
   autocmd FileType qf
         \ setlocal wrap |
         \ setlocal linebreak
@@ -414,6 +360,7 @@ function! DoMake()
   let s:makeprg_old = &l:makeprg
   try
     set makeprg=$MAKEPRG
+    call neomake#config#set('maker_defaults.buffer_output', 0)
     Neomake!
   finally
     let &l:makeprg = s:makeprg_old
@@ -426,6 +373,7 @@ function! DoTest()
   let s:makeprg_old = &l:makeprg
   try
     set makeprg=$TESTPRG
+    call neomake#config#set('maker_defaults.buffer_output', 0)
     Neomake!
   finally
     let &l:makeprg = s:makeprg_old
@@ -461,10 +409,10 @@ cabbrev lprev Lprev
 
 
 " --- Function Keys ---
-nmap <F13> ;wa<CR>;call DoMake()<CR>
-nmap <F14> ;wa<CR>;call DoTest()<CR>
-nmap <F15> ;wa<CR>;cprev<CR>
-nmap <F16> ;wa<CR>;cnext<CR>
+nmap <F16> ;wa<CR>;call DoMake()<CR>
+nmap <F16> ;wa<CR>;call DoTest()<CR>
+nmap <F17> ;wa<CR>;cprev<CR>
+nmap <F18> ;wa<CR>;cnext<CR>
 
 
 " --- Leader ---
@@ -490,7 +438,7 @@ nmap <leader>6 ;wa<CR>;ln<CR>
 
 
 " 0 - stop async job
-nmap <leader>0 ;AsyncStop<CR>
+nmap <leader>0 ;NeomakeCancelJobs<CR>
 
 " k - fzf ctags
 nmap <leader>k ;Tags<cr>
@@ -518,7 +466,7 @@ nmap <leader>S ;vsp<cr>
 nmap <leader>p gqip<cr>
 
 " Q - open quickfix, scroll to end, and return focus
-nmap <leader>Q ;vert botright copen 100<cr>G<c-w><c-p>
+nmap <leader>Q ;copen<cr>G<c-w><c-p>
 
 " t - new tab
 nmap <leader>t ;tabnew<cr>
@@ -563,39 +511,8 @@ endif
 nmap <leader>v ;edit $MYVIMRC<CR>
 
 " --- Auto reload nvim/init.vim ---
-augroup reload_nvim_init " {
+augroup reload_nvim_init
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
-
-
-" --- Highlighting ---
-au BufNewFile,BufRead *.h,*.hpp,*.cpp,*.h++ set syntax=cpp
-
-" " GLSL highlighting
-" command! SetGLSLFileType call SetGLSLFileType()
-" function! SetGLSLFileType()
-"   for item in getline(1,10)
-"     if item =~ "#version 400"
-"       execute ':set filetype=glsl400'
-"       break
-"     endif
-"     if item =~ "#version 330"
-"       execute ':set filetype=glsl330'
-"       break
-"     endif
-"     execute ':set filetype=glsl'
-"   endfor
-" endfunction
-" au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl,*.fs,*.vs SetGLSLFileType
-autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
-
-" JSON highlighting
-au BufNewFile,BufRead *.json set filetype=json
-
-" Objective c++ highlighting for .mm files
-au BufNewFile,BufRead *.mm set filetype=objcpp
-
-" Scala worksheets
-au BufNewFile,BufRead *.sc set filetype=scala
+augroup END
 

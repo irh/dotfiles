@@ -305,8 +305,9 @@ set hlsearch " highlight search results
 
 augroup quickfix
   autocmd!
-  autocmd QuickFixCmdPost * nested botright copen
-  autocmd QuickFixCmdPost * nested cbottom
+
+  autocmd QuickFixCmdPost [^l]* nested botright copen
+  autocmd QuickFixCmdPost * nested cbottom | wincmd p
 
   autocmd FileType qf
         \ setlocal wrap |
@@ -409,7 +410,7 @@ cabbrev lprev Lprev
 
 
 " --- Function Keys ---
-nmap <F16> ;wa<CR>;call DoMake()<CR>
+nmap <F15> ;wa<CR>;call DoMake()<CR>
 nmap <F16> ;wa<CR>;call DoTest()<CR>
 nmap <F17> ;wa<CR>;cprev<CR>
 nmap <F18> ;wa<CR>;cnext<CR>
@@ -466,7 +467,7 @@ nmap <leader>S ;vsp<cr>
 nmap <leader>p gqip<cr>
 
 " Q - open quickfix, scroll to end, and return focus
-nmap <leader>Q ;copen<cr>G<c-w><c-p>
+nmap <leader>Q ;copen<cr>;cbottom<cr><c-w><c-p>
 
 " t - new tab
 nmap <leader>t ;tabnew<cr>

@@ -215,18 +215,8 @@ let g:airline_solarized_bg='dark'
 
 " --- Status line ---
 
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-
 set statusline=
 set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
 set statusline+=%#LineNr#
 set statusline+=\ %f   " file
 set statusline+=\ %m   " modified
@@ -307,7 +297,7 @@ augroup quickfix
   autocmd!
 
   autocmd QuickFixCmdPost [^l]* nested botright copen
-  autocmd QuickFixCmdPost * nested cbottom | wincmd p
+  autocmd QuickFixCmdPost [^l]* nested cbottom | wincmd p
 
   autocmd FileType qf
         \ setlocal wrap |

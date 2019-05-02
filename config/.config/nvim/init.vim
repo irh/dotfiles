@@ -133,6 +133,7 @@ let g:mta_filetypes = {
       \ 'javascript.jsx' : 1,
       \}
 let g:vim_markdown_initial_foldlevel=100
+let g:markdown_enable_insert_mode_leader_mappings = 1
 
 
 " Code navigation + completion
@@ -485,6 +486,12 @@ nmap <leader>h <Plug>DashSearch
 
 " H - search for current word in Dash, globally
 nmap <leader>H <Plug>DashGlobalSearch
+
+" m - enter Goyo mode with PencilSoft
+nmap <leader>m ;Goyo<cr>;PencilSoft<cr>
+
+" M - open a new markdown buffer and enter Goyo mode with PencilSoft
+nmap <leader>M ;set filetype=markdown<cr><leader>m
 
 " Unmap insert mode mappings from a.vim
 augroup unmap-a-vim

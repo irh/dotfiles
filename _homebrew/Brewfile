@@ -48,6 +48,7 @@ brew "vim"
 brew "wget"
 brew "youtube-dl"
 
+cask "alacritty"
 cask "anki"
 cask "authy"
 cask "contexts"

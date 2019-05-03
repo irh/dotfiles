@@ -70,6 +70,11 @@ let g:neoformat_c_clangformat = {
   \ 'args': ['-style=file'],
   \ 'stdin': 1,
   \ }
+let g:neoformat_cpp_clangformat = {
+  \ 'exe': 'clang-format',
+  \ 'args': ['-style=file'],
+  \ 'stdin': 1,
+  \ }
 
 let g:neoformat_python_black = {
   \ 'exe': 'black',
@@ -401,10 +406,11 @@ cabbrev lprev Lprev
 
 
 " --- Function Keys ---
-nmap <F15> ;wa<CR>;call DoMake()<CR>
-nmap <F16> ;wa<CR>;call DoTest()<CR>
-nmap <F17> ;wa<CR>;cprev<CR>
-nmap <F18> ;wa<CR>;cnext<CR>
+nmap <F5> ;wa<CR>;call DoTest()<CR>
+nmap <F6> ;wa<CR>;call DoMake()<CR>
+nmap <F8> ;
+nmap <F9> ;wa<CR>;cprev<CR>
+nmap <F10> ;wa<CR>;cnext<CR>
 
 
 " --- Leader ---

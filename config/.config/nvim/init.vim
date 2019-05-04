@@ -220,7 +220,6 @@ let g:airline_solarized_bg='dark'
 
 
 " --- Status line ---
-
 set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%#LineNr#
@@ -406,11 +405,11 @@ cabbrev lprev Lprev
 
 
 " --- Function Keys ---
-nmap <F5> ;wa<CR>;call DoTest()<CR>
-nmap <F6> ;wa<CR>;call DoMake()<CR>
-nmap <F8> ;
-nmap <F9> ;wa<CR>;cprev<CR>
-nmap <F10> ;wa<CR>;cnext<CR>
+nmap <F15> ;wa<CR>;call DoTest()<CR>
+nmap <F16> ;wa<CR>;call DoMake()<CR>
+nmap <F18> ;
+nmap <F19> ;wa<CR>;cprev<CR>
+nmap <F20> ;wa<CR>;cnext<CR>
 
 
 " --- Leader ---

@@ -408,8 +408,8 @@ cabbrev lprev Lprev
 nmap <F15> ;wa<CR>;call DoTest()<CR>
 nmap <F16> ;wa<CR>;call DoMake()<CR>
 nmap <F18> ;
-nmap <F19> ;wa<CR>;cprev<CR>
-nmap <F20> ;wa<CR>;cnext<CR>
+nmap <F19> ;wa<CR>;cnext<CR>
+nmap <F20> ;wa<CR>;cprev<CR>
 
 
 " --- Leader ---
@@ -480,7 +480,7 @@ nmap <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>
 " D - insert timestamp
 nmap <leader>D a<c-r>=strftime('%Y-%m-%d %H:%M')<cr><esc>
 
-" T - insert empty TODO
+" T - insert empty TODO, ensure correct formatting and enter insert via append
 nmap <leader>T i- [ ] <esc>hhxla
 
 " g - open gitv

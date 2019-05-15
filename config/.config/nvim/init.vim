@@ -332,6 +332,11 @@ vnoremap <C-k> :m '<-2<CR>gv=gv"
 
 " --- Terminal ---
 :tnoremap <Esc> <C-\><C-n>
+au TermOpen * setlocal listchars= nonumber norelativenumber
+au TermOpen * startinsert
+au BufEnter,BufWinEnter,WinEnter term://* startinsert
+au BufLeave term://* stopinsert
+
 
 " --- Use Alt+{h,j,k,l} to navigate windows
 :tnoremap <A-h> <C-\><C-N><C-w>h

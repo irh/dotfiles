@@ -5,4 +5,5 @@ npm install -g \
   instant-markdown-d \
   typescript \
   typescript-formatter \
+  tldr \
   ;

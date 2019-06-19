@@ -34,8 +34,6 @@ PATH="/usr/local/Cellar/ruby/2.1.2/bin:$PATH"
 PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export PYTHONSTARTUP="$HOME/.pyrc"
-
 export NODE_PATH="/usr/local/lib/node_modules"
 export ELM_HOME="/usr/local/lib/node_modules/elm/Elm-Platform/0.16.0/share/"
 

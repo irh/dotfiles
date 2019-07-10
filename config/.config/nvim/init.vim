@@ -25,6 +25,7 @@ set signcolumn=yes
 set smarttab
 set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
 set wrap!  " turn off word wrap
+set diffopt+=vertical
 
 syntax on " syntax highlighting
 augroup stripwhitespace
@@ -300,6 +301,18 @@ set smartcase
 set hlsearch " highlight search results
 
 
+" --- Macros ---
+
+" From https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
+" Executes a macro for each line in a visual selection
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+
 " --- Quickfix ---
 
 augroup quickfix
@@ -414,8 +427,8 @@ cabbrev lprev Lprev
 
 
 " --- Function Keys ---
-nmap <F15> ;wa<CR>;call DoTest()<CR>
-nmap <F16> ;wa<CR>;call DoMake()<CR>
+nmap <F16> ;wa<CR>;call DoTest()<CR>
+nmap <F17> ;wa<CR>;call DoMake()<CR>
 nmap <F18> ;
 nmap <F19> ;wa<CR>;cnext<CR>
 nmap <F20> ;wa<CR>;cprev<CR>

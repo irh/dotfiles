@@ -79,10 +79,6 @@
 [difftool "FileMerge"]
   cmd = /Developer/Applications/Utilities/FileMerge.app/Contents/MacOS/FileMerge -left $LOCAL -right $REMOTE
 
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-
 [gc]
   auto = 0
   commitGraph = true
@@ -91,8 +87,8 @@
   singlekey = true
 
 [merge]
+  tool = nvim
   conflictstyle = diff3
-  tool = vimdiff
 
 [merge "ours"]
   driver = true
@@ -101,9 +97,10 @@
   prompt = false
   keepBackup = false
 
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+[mergetool "nvim"]
+  prompt = false
+  keepBackup = false
+  cmd = /usr/local/bin/nvim -f -c \"Gdiff\" \"$MERGED\"
 
 [pager]
   difftool = true

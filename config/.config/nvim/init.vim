@@ -196,6 +196,7 @@ let g:rainbow_conf = {
 
 
 " Vim Extensions
+Plug 'AndrewRadev/bufferize.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'ktonga/vim-follow-my-lead'
 Plug 'mhinz/vim-startify'

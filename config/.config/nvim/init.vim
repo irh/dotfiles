@@ -144,7 +144,10 @@ let g:markdown_enable_insert_mode_leader_mappings = 1
 " Code navigation + completion
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags', {'for': ['cpp', 'rust']}
-Plug 'neomake/neomake'
+" Pin to commit that calls QuickFixCmdPost correctly
+" This might include the buggy buffer overwrite behaviour,
+" if so, 17a5f1b6c358a5022b2371512675186003ae78d5 is worth trying
+Plug 'neomake/neomake', {'commit': '20bff93760a7400298ad6f7755ed64e734114b3e'}
 Plug 'skywind3000/asyncrun.vim'
 Plug 'rizzatti/dash.vim'
 

@@ -86,9 +86,10 @@ let g:neoformat_python_black = {
 
 " Navigation
 Plug 'mileszs/ack.vim'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+" Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Valloric/ListToggle'
 Plug 'vim-scripts/a.vim'
+Plug 'tpope/vim-vinegar'
 
 let g:alternateNoDefaultAlternate = 1
 let g:alternateExtensions_hpp = "ipp,cpp"
@@ -238,6 +239,12 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ "
 
+
+" --- netrw ---
+let g:netrw_banner = 0 " Turn off the banner
+let g:netrw_browse_split = 4 " Open files in previous window
+let g:netrw_winsize = 25 " 25% width
+let g:netrw_liststyle = 3 " Tree view
 
 
 " --- 80 column limit for git commit messages and text files
@@ -467,10 +474,10 @@ nmap <leader>j <C-]>
 " J - jump to previous tag
 nmap <leader>J <C-t>
 
-" n - toggle NERDTree
-nmap <leader>n ;NERDTreeToggle<cr>
-" N - find current buffer in NERDTree
-nmap <leader>N ;NERDTreeFind<cr>
+" " n - toggle NERDTree
+" nmap <leader>n ;NERDTreeToggle<cr>
+" " N - find current buffer in NERDTree
+" nmap <leader>N ;NERDTreeFind<cr>
 
 " a - switch to counterpart
 nmap <leader>a ;A<cr>

@@ -49,6 +49,8 @@ export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS="--preview='head -$LINES {}' -m"
 
+export RUSTC_WRAPPER=~/.cargo/bin/sccache
+
 # auto cd into directories
 if [[ $BASH_VERSION > 4.*  ]]; then
   shopt -s autocd

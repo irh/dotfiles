@@ -20,9 +20,8 @@ if [ -f ~/.bash/scripts/wrap-aliases.sh ]; then
   source ~/.bash/scripts/wrap-aliases.sh
 fi
 
-if command_exists brew ; then
-  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh  ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-fi
+[[ -s /usr/local/etc/profile.d/autojump.sh  ]] && . /usr/local/etc/profile.d/autojump.sh
+[[ -s /usr/local/etc/profile.d/bash_completion.sh ]] && . /usr/local/etc/profile.d/bash_completion.sh
 
 if [[ $OSTYPE == "linux-gnu" ]]; then
   export PATH="/home/iho/.linuxbrew/bin:$PATH"

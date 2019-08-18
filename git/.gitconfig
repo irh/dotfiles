@@ -25,7 +25,6 @@
   histall = log --pretty=format:\"%C(yellow)%h%Creset | %Cgreen%an%Creset | %Cred%ad%Creset | %s%C(cyan)%d%Creset\" --graph --date=short
   id = rev-parse
   local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
-  mine = !git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authorname) | %(refname:short)' | egrep  '^iho' | tail -r | tail -n 20
   mt = mergetool
   nffmerge = merge --no-ff --log
   ps = push
@@ -43,7 +42,6 @@
   smi = submodule init --recursive
   smu = submodule update --init --recursive
   st = status
-  team = !git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authorname) | %(refname:short)' | egrep  '^(iho|mre|mmg|rtu|mfi|heh|sbs|aws)' | tail -r | tail -n 20
   type = cat-file -t
   unstage = reset HEAD
   update-commit-graph = !git show-ref -s | git commit-graph write --stdin-commits
@@ -76,12 +74,18 @@
   submodule = log
   tool = FileMerge
 
-[difftool "FileMerge"]
-  cmd = /Developer/Applications/Utilities/FileMerge.app/Contents/MacOS/FileMerge -left $LOCAL -right $REMOTE
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 
 [gc]
   auto = 0
   commitGraph = true
+
+[http]
+  postBuffer = 1073741824
 
 [interactive]
   singlekey = true
@@ -117,13 +121,10 @@
 [submodule]
   fetchJobs = 8
 
+[user]
+  name = irh
+  email = ian.r.hobson@gmail.com
+
 [url "https://"]
   insteadOf = git://
 
-[filter "lfs"]
-  required = true
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-
-[http]
-  postBuffer = 1073741824

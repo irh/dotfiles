@@ -25,6 +25,8 @@ alias clang11++="clang++ --std=c++11 --stdlib=libc++ -I/usr/local/include"
 alias clang14++="clang++ --std=c++1y --stdlib=libc++"
 alias clang17++="clang++ --std=c++1z --stdlib=libc++"
 
+alias c="cargo"
+
 alias git="hub"
 alias g="git"
 alias gk="gitk"
@@ -63,7 +65,6 @@ alias gsmu="git smu"
 alias wdate="wdate.sh"
 
 alias builds="open http://jupiter.office.ableton.com/builds/continuous/"
-alias c="cucumber"
 alias cdf="cdiff -s"
 alias cdl="cdiff -s -l"
 # alias colours="for code in {0..255}; do echo -e "\033[38;05;${code}m $code"; done | column"

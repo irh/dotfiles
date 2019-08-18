@@ -120,7 +120,7 @@ let g:gitgutter_sign_modified_removed = '·'
 " Language support
 Plug 'bumaociyuan/vim-swift', {'for': 'swift'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+" Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}

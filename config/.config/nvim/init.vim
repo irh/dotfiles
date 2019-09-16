@@ -143,27 +143,12 @@ let g:markdown_enable_insert_mode_leader_mappings = 1
 " Code navigation + completion
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags', {'for': ['cpp', 'rust']}
-" Pin to commit that calls QuickFixCmdPost correctly
-" This might include the buggy buffer overwrite behaviour,
-" if so, 17a5f1b6c358a5022b2371512675186003ae78d5 is worth trying
-Plug 'neomake/neomake', {'commit': '20bff93760a7400298ad6f7755ed64e734114b3e'}
 Plug 'skywind3000/asyncrun.vim'
 Plug 'rizzatti/dash.vim'
 
 let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
       \ }
-
-let g:neomake_error_sign = {'text': '❌', 'texthl': 'NeomakeErrorSign'}
-let g:neomake_warning_sign = {
-  \   'text': '❓',
-  \   'texthl': 'NeomakeWarningSign',
-  \ }
-let g:neomake_message_sign = {
-  \   'text': '➤',
-  \   'texthl': 'NeomakeMessageSign',
-  \ }
-let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
@@ -322,13 +307,15 @@ endfunction
 augroup quickfix
   autocmd!
 
-  autocmd QuickFixCmdPost [^l]* nested botright copen
-  autocmd QuickFixCmdPost [^l]* nested cbottom | wincmd p
+  " Open quickfix when new output is added, and return cursor to previous location
+  autocmd QuickFixCmdPost [^l]* nested botright copen | wincmd p
 
+  " Enable wrapping for long quickfix lines
   autocmd FileType qf
         \ setlocal wrap |
         \ setlocal linebreak
 augroup END
+
 
 " --- Key mappings ---
 
@@ -376,32 +363,6 @@ au BufLeave term://* stopinsert
 
 " --- Make / test ---
 
-let $MAKEPRG="make -j8"
-function! DoMake()
-  cexpr [] " clear quickfix window
-  let s:makeprg_old = &l:makeprg
-  try
-    set makeprg=$MAKEPRG
-    call neomake#config#set('maker_defaults.buffer_output', 0)
-    Neomake!
-  finally
-    let &l:makeprg = s:makeprg_old
-  endtry
-endfunction
-
-let $TESTPRG="make -j8 && make test"
-function! DoTest()
-  cexpr [] " clear quickfix window
-  let s:makeprg_old = &l:makeprg
-  try
-    set makeprg=$TESTPRG
-    call neomake#config#set('maker_defaults.buffer_output', 0)
-    Neomake!
-  finally
-    let &l:makeprg = s:makeprg_old
-  endtry
-endfunction
-
 function! DoNeoformat()
   let s:current_dir = getcwd()
   echo $current_dir
@@ -431,8 +392,8 @@ cabbrev lprev Lprev
 
 
 " --- Function Keys ---
-nmap <F16> ;wa<CR>;call DoTest()<CR>
-nmap <F17> ;wa<CR>;call DoMake()<CR>
+nmap <F16> ;set makeprg=$TESTPRG<CR>;wa<CR>;AsyncRun -program=make<CR>
+nmap <F17> ;set makeprg=$MAKEPRG<CR>;wa<CR>;AsyncRun -program=make<CR>
 nmap <F18> ;
 nmap <F19> ;wa<CR>;cnext<CR>
 nmap <F20> ;wa<CR>;cprev<CR>
@@ -441,8 +402,6 @@ nmap <F20> ;wa<CR>;cprev<CR>
 " --- Leader ---
 " set leader to space
 let mapleader = "\<Space>"
-" ,Tab - write all and build for Rust
-nmap <leader><Tab> ;wa<CR>;Neomake! cargo<CR>
 " ,1 - write all and make
 nmap <leader>1 ;wa<CR>;call DoMake()<CR>
 " ,! - make test
@@ -461,7 +420,7 @@ nmap <leader>6 ;wa<CR>;ln<CR>
 
 
 " 0 - stop async job
-nmap <leader>0 ;NeomakeCancelJobs<CR>
+nmap <leader>0 ;AsyncStop<CR>
 
 " k - fzf ctags
 nmap <leader>k ;Tags<cr>

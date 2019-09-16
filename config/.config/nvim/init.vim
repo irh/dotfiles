@@ -86,7 +86,7 @@ let g:neoformat_python_black = {
 
 " Navigation
 Plug 'mileszs/ack.vim'
-" Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Valloric/ListToggle'
 Plug 'vim-scripts/a.vim'
 Plug 'tpope/vim-vinegar'
@@ -475,9 +475,9 @@ nmap <leader>j <C-]>
 nmap <leader>J <C-t>
 
 " " n - toggle NERDTree
-" nmap <leader>n ;NERDTreeToggle<cr>
+nmap <leader>n ;NERDTreeToggle<cr>
 " " N - find current buffer in NERDTree
-" nmap <leader>N ;NERDTreeFind<cr>
+nmap <leader>N ;NERDTreeFind<cr>
 
 " a - switch to counterpart
 nmap <leader>a ;A<cr>

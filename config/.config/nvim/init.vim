@@ -209,7 +209,6 @@ let g:airline_solarized_bg='dark'
 
 " --- Status line ---
 set statusline=
-set statusline+=%#PmenuSel#
 set statusline+=%#LineNr#
 set statusline+=\ %f   " file
 set statusline+=\ %m   " modified
@@ -316,6 +315,11 @@ augroup quickfix
         \ setlocal linebreak
 augroup END
 
+let g:asyncrun_status = "stopped"
+augroup QuickfixStatus
+  au! BufWinEnter quickfix setlocal
+    \ statusline=%#LineNr#%{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ [%{g:asyncrun_status}]\ %=\%#CursorColumn#\ %y\ %#PmenuSel#\ %p%%\ %l:%c\ "
+augroup END
 
 " --- Key mappings ---
 

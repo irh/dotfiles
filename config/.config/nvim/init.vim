@@ -120,16 +120,13 @@ let g:gitgutter_sign_modified_removed = '·'
 " Language support
 Plug 'bumaociyuan/vim-swift', {'for': 'swift'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
-" Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'tell-k/vim-autopep8', {'for': 'python'}
 Plug 'tikhomirov/vim-glsl'
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
-Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
 let g:jsx_ext_required = 0
 let g:mta_filetypes = {

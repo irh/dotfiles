@@ -36,7 +36,8 @@ function fish_prompt
     end
   end
   # Job count
-  set -l jobcount (jobs | wc -l | sed -e "s/ //g")
+  # Autojump sometime leaves a job running after changing directory, so filter it from list
+  set -l jobcount (jobs | sed -e "/autojump/d" | wc -l | sed -e "s/ //g")
   if test $jobcount -gt 0
     set_color yellow
     echo -n " ($jobcount)"

@@ -8,17 +8,3 @@ set autojump_path (brew --prefix)/share/autojump/autojump.fish
 if test -e $autojump_path
   source $autojump_path
 end
-
-abbr -g b 'bat'
-abbr -g c 'cargo'
-abbr -g g 'git'
-abbr -g gad 'git add'
-abbr -g gco 'git checkout'
-abbr -g gci 'git commit -v'
-abbr -g gcl 'git clone --recursive'
-abbr -g gdf 'git diff --ignore-submodules'
-abbr -g gfe 'git fetch --prune'
-abbr -g ghi 'git hist'
-abbr -g gps 'git push'
-abbr -g gpu 'git pull --prune'
-abbr -g gst 'git status'

@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function grbc --description 'alias grbc git rebase --continue'
-	git rebase --continue $argv;
+function grbc --wraps 'git rebase' --description 'alias grbc git rebase --continue'
+    git rebase --continue $argv;
 end

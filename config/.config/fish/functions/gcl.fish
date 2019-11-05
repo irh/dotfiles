@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function gcl --description 'alias gcl git clone --recursive'
-	git clone --recursive $argv;
+function gcl --wraps 'git clone' --description 'alias gcl git clone --recursive'
+    git clone --recursive $argv;
 end

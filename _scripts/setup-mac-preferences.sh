@@ -82,6 +82,9 @@ defaults write com.apple.mail MailSentSoundPath /devnull
 # Set screenshot folder
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
 
+# Enable font smoothing, needed by Alacritty since Mojave
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+
 killall Dock 2>/dev/null;
 killall Finder 2>/dev/null;
 killall NotificationCenter 2>/dev/null;

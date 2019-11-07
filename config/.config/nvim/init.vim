@@ -13,6 +13,8 @@ set list
 set listchars=tab:>-
 set matchpairs+=<:>
 set mouse=a " mouse everywhere
+set nobackup
+set nowritebackup
 set nofoldenable " Don't fold by default"
 set number " line numbers
 set path+=/usr/local/include,include/**,src/**
@@ -20,7 +22,7 @@ set relativenumber " numbers displayed relatively
 set ruler " cursor position
 set scrolloff=2 " start scrolling before cursor reaches last line
 set secure " disable unsafe commands in local nvim/init.vim files
-set shortmess=a
+set shortmess+=c
 set signcolumn=yes
 set smarttab
 set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
@@ -120,6 +122,7 @@ let g:gitgutter_sign_modified_removed = '·'
 " Language support
 Plug 'bumaociyuan/vim-swift', {'for': 'swift'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dag/vim-fish'
 Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
@@ -140,10 +143,9 @@ let g:mta_filetypes = {
 let g:vim_markdown_initial_foldlevel=100
 let g:markdown_enable_insert_mode_leader_mappings = 1
 
-
 " Code navigation + completion
 Plug 'honza/vim-snippets'
-Plug 'ludovicchabant/vim-gutentags', {'for': ['cpp', 'rust']}
+Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
 Plug 'skywind3000/asyncrun.vim'
 Plug 'rizzatti/dash.vim'
 
@@ -249,6 +251,62 @@ set wildmenu
 set wildmode=longest,list
 set wildignore+=.svn,CVS,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.vcproj,*.dll,*.zip
 set wildignorecase
+
+
+" coc setup
+inoremap <silent><expr> <c-space> coc#refresh()
+
+set cmdheight=2
+set updatetime=300
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+
+
+
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 
 
 " --- 2 space tabs by default ---
@@ -408,9 +466,9 @@ nmap <F20> ;wa<CR>;cprev<CR>
 " set leader to space
 let mapleader = "\<Space>"
 " ,1 - write all and make
-nmap <leader>1 ;wa<CR>;call DoMake()<CR>
+nmap <leader>1 ;wa<CR><F17><CR>
 " ,! - make test
-nmap <leader>! ;wa<CR>;call DoTest()<CR>
+nmap <leader>! ;wa<CR><F16><CR>
 " ,2 -  previous error
 nmap <leader>2 ;wa<CR>;cprev<CR>
 " ,3 - next error

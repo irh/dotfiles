@@ -3,7 +3,8 @@ npm install -g \
   elm-format \
   gulp-cli \
   instant-markdown-d \
+  lua-fmt \
+  prettier \
   typescript \
-  typescript-formatter \
   tldr \
   ;

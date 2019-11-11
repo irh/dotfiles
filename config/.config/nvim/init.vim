@@ -143,6 +143,12 @@ let g:mta_filetypes = {
       \}
 let g:vim_markdown_initial_foldlevel=100
 let g:markdown_enable_insert_mode_leader_mappings = 1
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-python',
+  \ 'coc-tsserver',
+  \ 'coc-rust-analyzer',
+  \ ]
 
 " Code navigation + completion
 Plug 'honza/vim-snippets'

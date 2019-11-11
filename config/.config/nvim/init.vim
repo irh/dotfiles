@@ -24,6 +24,7 @@ set scrolloff=2 " start scrolling before cursor reaches last line
 set secure " disable unsafe commands in local nvim/init.vim files
 set shortmess+=c
 set signcolumn=yes
+set splitbelow " get preview window to show below rather than above
 set smarttab
 set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
 set wrap!  " turn off word wrap

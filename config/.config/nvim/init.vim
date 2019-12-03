@@ -326,7 +326,7 @@ augroup filetypes
   autocmd!
 
   " Some languages should have 4 space tabs
-  autocmd FileType gyp,lua,rust,typescript
+  autocmd FileType gyp,lua,rust,swift,typescript
     \ setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
   autocmd FileType rust compiler cargo

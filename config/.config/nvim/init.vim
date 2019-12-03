@@ -1,3 +1,23 @@
+" Load .nvimrc files from $HOME to current directory
+" From https://vim.fandom.com/wiki/Source_vimrc_and_use_tags_in_a_parent_directory
+let local_vimrc = ".nvimrc"
+let local_tags = "tags"
+let local_path = "/"
+let current_path = getcwd()
+" If the current path is a child of $HOME directory, start from $HOME
+if current_path =~ $HOME
+    let local_path = $HOME . local_path
+    let current_path = substitute(current_path, $HOME, '', "g")
+endif
+let path_parts = split(current_path, "/")
+for path_part in path_parts
+    let local_path = local_path . path_part . "/"
+    if filereadable(local_path . local_vimrc)
+        exe ":so " . local_path . local_vimrc
+    endif
+endfor
+unlet local_vimrc local_tags local_path current_path path_parts
+
 " --- General configuration ---
 set autoread " reload changed files
 set backspace=indent,eol,start " allow deleting past insert, line breaks and autoindent
@@ -327,7 +347,7 @@ augroup filetypes
   autocmd!
 
   " Some languages should have 4 space tabs
-  autocmd FileType gyp,lua,rust,typescript
+  autocmd FileType gyp,lua,rust,swift,typescript
     \ setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
   autocmd FileType rust compiler cargo

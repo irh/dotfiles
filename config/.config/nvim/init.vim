@@ -332,6 +332,8 @@ augroup filetypes
 
   autocmd FileType rust compiler cargo
   autocmd FileType rust setlocal cc=101
+
+  autocmd FileType lua setlocal cc=121
 augroup END
 
 augroup python

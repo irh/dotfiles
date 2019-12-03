@@ -16,6 +16,7 @@ set mouse=a " mouse everywhere
 set nobackup
 set nowritebackup
 set nofoldenable " Don't fold by default"
+set noshowcmd
 set number " line numbers
 set path+=/usr/local/include,include/**,src/**
 set relativenumber " numbers displayed relatively

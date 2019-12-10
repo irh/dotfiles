@@ -40,7 +40,7 @@ set noshowcmd
 set number " line numbers
 set path+=/usr/local/include,include/**,src/**
 set relativenumber " numbers displayed relatively
-set ruler " cursor position
+set noruler " cursor position
 set scrolloff=2 " start scrolling before cursor reaches last line
 set secure " disable unsafe commands in local nvim/init.vim files
 set shortmess+=c
@@ -250,10 +250,6 @@ set statusline+=\ %m   " modified
 set statusline+=%=     " separator
 set statusline+=%#CursorColumn#
 set statusline+=\ %y  " file type
-set statusline+=\ %#PmenuSel#
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\ "
 
 
 " --- netrw ---

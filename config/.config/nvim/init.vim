@@ -174,8 +174,12 @@ let g:coc_global_extensions = [
 " Code navigation + completion
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
+Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'rizzatti/dash.vim'
+
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
@@ -271,7 +275,10 @@ augroup END
 highlight clear SignColumn
 
 " --- highlight colour for matching parentheses
-hi MatchParen ctermbg=blue ctermfg=white guibg=yellow
+highlight MatchParen ctermbg=blue ctermfg=white guibg=yellow
+
+" --- popup menu colors
+highlight Pmenu ctermbg=grey ctermfg=black
 
 
 " --- Command completion ---
@@ -284,7 +291,6 @@ set wildignorecase
 " coc setup
 inoremap <silent><expr> <c-space> coc#refresh()
 
-set cmdheight=2
 set updatetime=300
 
 inoremap <silent><expr> <TAB>
@@ -317,9 +323,8 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-
-
+hi link CocFloating markdown
+hi CocFloat ctermbg=white ctermfg=red
 
 
 function! s:show_documentation()

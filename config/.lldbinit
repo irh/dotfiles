@@ -1,4 +1,1 @@
 settings set target.inline-breakpoint-strategy always
-
-command script import ~/dev/tools/Mac/Lldb-Support/LiveTypes.py
-command source ~/dev/tools/Mac/Lldb-Support/LiveStepFilters.lldb

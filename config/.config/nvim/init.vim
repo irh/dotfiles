@@ -143,12 +143,14 @@ let g:gitgutter_sign_modified_removed = '·'
 " Language support
 Plug 'bumaociyuan/vim-swift', {'for': 'swift'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dag/vim-fish'
 Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'pest-parser/pest.vim', {'for': 'pest'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'tikhomirov/vim-glsl'
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}

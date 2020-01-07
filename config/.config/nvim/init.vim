@@ -356,6 +356,8 @@ augroup filetypes
   autocmd FileType rust setlocal cc=101
 
   autocmd FileType lua setlocal cc=121
+
+  autocmd FileType objcpp set ft=objc " Hack for neoformat
 augroup END
 
 augroup python

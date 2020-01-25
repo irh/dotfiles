@@ -437,7 +437,10 @@ vnoremap <C-k> :m '<-2<CR>gv=gv"
 
 
 " --- Terminal ---
-:tnoremap <Esc> <C-\><C-n>
+if has("nvim")
+  au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+  au FileType fzf tunmap <buffer> <Esc>
+endif
 au TermOpen * setlocal listchars= nonumber norelativenumber
 au TermOpen * startinsert
 au BufEnter,BufWinEnter,WinEnter term://* startinsert

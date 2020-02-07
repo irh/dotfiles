@@ -2,7 +2,7 @@
   "dependencies": {
     "coc-json": ">=1.2.4",
     "coc-python": ">=1.2.7",
-    "coc-rust-analyzer": ">=0.3.3",
+    "coc-rust-analyzer": ">=0.4.0",
     "coc-tsserver": ">=1.4.9",
     "coc-ultisnips": ">=1.2.3"
   }

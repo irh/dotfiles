@@ -150,6 +150,7 @@ Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'pest-parser/pest.vim', {'for': 'pest'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'tikhomirov/vim-glsl'

@@ -2,6 +2,7 @@
 *.swo
 *.out
 .DS_Store
+.netrwhist
 .nvimrc
 .vimrc
 compile_commands.json

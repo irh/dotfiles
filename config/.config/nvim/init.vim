@@ -153,6 +153,7 @@ Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'pest-parser/pest.vim', {'for': 'pest'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
 Plug 'tikhomirov/vim-glsl'
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
 

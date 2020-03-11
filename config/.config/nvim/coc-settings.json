@@ -1,5 +1,9 @@
 {
-  "rust-analyzer.enableCargoWatchOnStartup": "disabled",
+  "disableDiagnostics": true,
+  "rust-analyzer.cargo-watch.enable": false,
+  "rust-analyzer.featureFlags": {
+    "lsp.diagnostics": false
+  },
   "signature.enable": false,
   "coc.preferences.messageLevel": "error"
 }

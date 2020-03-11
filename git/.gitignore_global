@@ -1,6 +1,7 @@
 *.swp
 *.swo
 *.out
+*.code-workspace
 .DS_Store
 .netrwhist
 .nvimrc

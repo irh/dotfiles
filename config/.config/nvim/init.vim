@@ -27,7 +27,7 @@ set confirm " confirmation on failed saves
 set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
 set exrc " enable per-directory nvim/init.vim files
 set grepprg=rg\ --vimgrep\ $*
-set hidden " Enable hidden buffers
+" set hidden " Enable hidden buffers
 set laststatus=2 " always display the status line
 set list
 set listchars=tab:>-

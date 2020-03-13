@@ -1,5 +1,4 @@
 {
-  "disableDiagnostics": true,
   "rust-analyzer.cargo-watch.enable": false,
   "rust-analyzer.featureFlags": {
     "lsp.diagnostics": false

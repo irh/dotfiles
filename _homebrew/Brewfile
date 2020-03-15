@@ -1,10 +1,9 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "homebrew/versions"
-tap "caskroom/cask"
-tap "caskroom/fonts"
-tap "caskroom/versions"
+tap "homebrew/cask-cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 
 brew "autojump"
 brew "bash"

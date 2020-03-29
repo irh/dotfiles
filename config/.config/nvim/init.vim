@@ -76,7 +76,7 @@ let g:sort_motion_flags = "ui"
 
 
 " Text formatting
-Plug 'dhruvasagar/vim-table-mode'
+" Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 Plug 'sbdchd/neoformat'
@@ -108,6 +108,7 @@ let g:neoformat_python_black = {
 
 
 " Navigation
+Plug 'antoinemadec/coc-fzf'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Valloric/ListToggle'
@@ -124,7 +125,9 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 let g:ackprg = 'rg --vimgrep'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 nnoremap <c-p> :GFiles<cr>
+nnoremap <c-s> :CocFzfList symbols<cr>
 
 
 " Git
@@ -220,7 +223,6 @@ let g:rainbow_conf = {
 " Vim Extensions
 Plug 'AndrewRadev/bufferize.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'ktonga/vim-follow-my-lead'
 Plug 'mhinz/vim-startify'
 Plug 'reedes/vim-pencil'
 Plug 'vimwiki/vimwiki'
@@ -526,8 +528,14 @@ nmap <leader>6 ;wa<CR>;ln<CR>
 " 0 - stop async job
 nmap <leader>0 ;AsyncStop<CR>
 
-" k - fzf ctags
-nmap <leader>k ;Tags<cr>
+" e - fzf coc symbols
+nmap <leader>e ;CocFzfList symbols<cr>
+
+" o - fzf coc outline
+nmap <leader>o ;CocFzfList outline<cr>
+
+" f - fzf files
+nmap <leader>f ;GFiles<cr>
 
 " j - jump to tag
 nmap <leader>j <C-]>

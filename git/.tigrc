@@ -1,2 +1,3 @@
 set main-view = line-number:no,interval=5 id:no date:custom,format="%Y-%m-%d %H:%M" author:full commit-title:yes,graph,refs,overflow=no
 set mouse = yes
+set vertical-split = horizontal

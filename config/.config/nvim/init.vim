@@ -38,6 +38,7 @@ set nowritebackup
 set nofoldenable " Don't fold by default"
 set noshowcmd
 set number " line numbers
+set nrformats-=octal
 set path+=/usr/local/include,include/**,src/**
 set noruler " cursor position
 set scrolloff=2 " start scrolling before cursor reaches last line
@@ -227,7 +228,7 @@ Plug 'mhinz/vim-startify'
 Plug 'reedes/vim-pencil'
 Plug 'vimwiki/vimwiki'
 
-let g:goyo_width = 100
+let g:goyo_width = 101
 let g:startify_change_to_dir = 0
 let g:vimwiki_list = [{'path': '~/Dropbox/Docs/vimwiki'}]
 

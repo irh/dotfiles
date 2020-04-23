@@ -1,8 +1,8 @@
 {
-  "rust-analyzer.cargo-watch.enable": false,
-  "rust-analyzer.featureFlags": {
-    "lsp.diagnostics": false
-  },
+  "rust-analyzer.cargo.noDefaultFeatures": true,
+  "rust-analyzer.checkOnSave.enable": false,
+  "rust-analyzer.diagnostics.enable": false,
+  "diagnostic.enable": false,
   "signature.enable": false,
   "coc.preferences.messageLevel": "error"
 }

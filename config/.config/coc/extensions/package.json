@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "coc-json": ">=1.2.5",
-    "coc-python": ">=1.2.9",
-    "coc-rust-analyzer": ">=0.4.6",
-    "coc-tsserver": ">=1.4.11",
+    "coc-python": ">=1.2.10",
+    "coc-rust-analyzer": ">=0.5.5",
+    "coc-tsserver": ">=1.5.1",
     "coc-ultisnips": ">=1.2.3"
   }
 }

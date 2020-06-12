@@ -14,9 +14,7 @@
   cpa = cherry-pick --abort
   cpc = cherry-pick --continue
   da = diffall
-  deletemerged = !git branch --merged origin/master | grep -v 'master$' | xargs git branch -d
-  deletemerged9 = !git branch --merged origin/master-9 | grep -v 'master-9$' | xargs git branch -d
-  deletemerged10 = !git branch --merged origin/master-10 | grep -v 'master-10$' | xargs git branch -d
+  deletemerged = !git branch --merged origin/main | grep -v 'main$' | xargs git branch -d
   df = diff --ignore-submodules
   dt = difftool -y
   dump = cat-file -p
@@ -33,7 +31,7 @@
   rba = rebase --abort
   rbc = rebase --continue
   rbi = rebase -i
-  rbm = rebase -i origin/master
+  rbm = rebase -i origin/main
   rbp = "!f() { mb=$(git merge-base HEAD $1); git rebase -i $mb; }; f"
   root = rev-parse --show-toplevel
   showfiles = diff-tree --no-commit-id --name-only -r
@@ -48,6 +46,9 @@
   upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u}
   upstream-create = !git branchname | xargs git push -u origin
   wip = commit -a -m WIP
+
+[absorb]
+  maxStack=50
 
 [branch]
   autosetuprebase = always

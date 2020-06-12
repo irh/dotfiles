@@ -226,11 +226,9 @@ Plug 'AndrewRadev/bufferize.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'mhinz/vim-startify'
 Plug 'reedes/vim-pencil'
-Plug 'vimwiki/vimwiki'
 
 let g:goyo_width = 101
 let g:startify_change_to_dir = 0
-let g:vimwiki_list = [{'path': '~/Dropbox/Docs/vimwiki'}]
 
 " --- End of plugins ---
 call plug#end()

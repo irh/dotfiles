@@ -497,20 +497,19 @@ cabbrev lprev Lprev
 
 
 " --- Function Keys ---
-nmap <F16> ;set makeprg=$TESTPRG<CR>;wa<CR>;AsyncRun -program=make<CR>
-nmap <F17> ;set makeprg=$MAKEPRG<CR>;wa<CR>;AsyncRun -program=make<CR>
-nmap <F18> ;
-nmap <F19> ;wa<CR>;cnext<CR>
-nmap <F20> ;wa<CR>;cprev<CR>
+nmap <S-F5> ;set makeprg=$TESTPRG<CR>;wa<CR>;AsyncRun -program=make<CR>
+nmap <S-F6> ;set makeprg=$MAKEPRG<CR>;wa<CR>;AsyncRun -program=make<CR>
+nmap <S-F7> ;wa<CR>;cnext<CR>
+nmap <S-F8> ;wa<CR>;cprev<CR>
 
 
 " --- Leader ---
 " set leader to space
 let mapleader = "\<Space>"
 " ,1 - write all and make
-nmap <leader>1 ;wa<CR><F17><CR>
+nmap <leader>1 ;wa<CR><S-F6><CR>
 " ,! - make test
-nmap <leader>! ;wa<CR><F16><CR>
+nmap <leader>! ;wa<CR><S-F5><CR>
 " ,2 -  previous error
 nmap <leader>2 ;wa<CR>;cprev<CR>
 " ,3 - next error

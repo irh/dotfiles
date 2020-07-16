@@ -62,18 +62,21 @@
   editor = /usr/local/bin/nvim
   excludesfile = ~/.gitignore_global
   ignorecase = true
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
   preloadindex = true
   sparsecheckout = true
   trustctime = false
   untrackedCache = true
 
-[diff]
-  #external = cdiff
-  compactionHeuristic = true
-  context = 0
-  submodule = log
-  tool = FileMerge
+[delta]
+  syntax-theme = Solarized (dark)
+  features = decorations
+
+[delta "decorations"]
+  file-style = bold white none
+  file-decoration-style = ul
+  hunk-header-decoration-style = yellow none
+  hunk-header-style = yellow bold
 
 [filter "lfs"]
   required = true
@@ -85,18 +88,23 @@
   auto = 0
   commitGraph = true
 
-[http]
-  postBuffer = 1073741824
-
 [interactive]
+  diffFilter = delta --color-only
   singlekey = true
+
+[diff]
+  tool = nvim
+
+[difftool]
+  prompt = false
+
+[difftool "nvim"]
+  prompt = false
+  cmd = /usr/local/bin/nvim -d
 
 [merge]
   tool = nvim
   conflictstyle = diff3
-
-[merge "ours"]
-  driver = true
 
 [mergetool]
   prompt = false
@@ -106,9 +114,6 @@
   prompt = false
   keepBackup = false
   cmd = /usr/local/bin/nvim -f -c \"Gdiff\" \"$MERGED\"
-
-[pager]
-  difftool = true
 
 [push]
   default = simple
@@ -125,7 +130,3 @@
 [user]
   name = irh
   email = ian.r.hobson@gmail.com
-
-[url "https://"]
-  insteadOf = git://
-

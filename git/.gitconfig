@@ -75,14 +75,14 @@
 [delta "decorations"]
   file-style = bold white none
   file-decoration-style = ul
-  hunk-header-decoration-style = yellow none
-  hunk-header-style = yellow bold
+  hunk-header-decoration-style = "#555555" ul
+  hunk-header-style = "#777777" bold
   minus-style= red
   minus-non-emph-style= red
-  minus-emph-style= red bold
+  minus-emph-style= "#ff4444" bold
   plus-style = green
   plus-non-emph-style = green
-  plus-emph-style = green bold
+  plus-emph-style = "#aabb11" bold
   keep-plus-minus-markers = true
   zero-style = raw
   line-numbers = false

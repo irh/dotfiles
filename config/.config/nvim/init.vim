@@ -145,6 +145,7 @@ let g:gitgutter_sign_modified_removed = '·'
 
 
 " Language support
+Plug 'andys8/vim-elm-syntax', {'for': 'elm'}
 Plug 'bumaociyuan/vim-swift', {'for': 'swift'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chrisbra/csv.vim', {'for': 'csv'}

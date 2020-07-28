@@ -19,34 +19,25 @@ endfor
 unlet local_vimrc local_tags local_path current_path path_parts
 
 " --- General configuration ---
-set autoread " reload changed files
-set backspace=indent,eol,start " allow deleting past insert, line breaks and autoindent
 set cc=91
 set clipboard=unnamed " Use the system clipboard with default register
 set confirm " confirmation on failed saves
 set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
-set exrc " enable per-directory nvim/init.vim files
+" set exrc " enable per-directory nvim/init.vim files
 set grepprg=rg\ --vimgrep\ $*
 " set hidden " Enable hidden buffers
-set laststatus=2 " always display the status line
-set list
-set listchars=tab:>-
-set matchpairs+=<:>
+set list             " enable highlighting of tabs
+set listchars=tab:>- " show >- for tab characters
+set matchpairs+=<:>  " allow % matching on <>
 set mouse=a " mouse everywhere
-set nobackup
-set nowritebackup
-set nofoldenable " Don't fold by default"
-set noshowcmd
-set number " line numbers
-set nrformats-=octal
-set path+=/usr/local/include,include/**,src/**
-set noruler " cursor position
+" set nowritebackup
+set nofoldenable " Don't fold by default
+" set noshowcmd
+" set number " line numbers
 set scrolloff=2 " start scrolling before cursor reaches last line
-set secure " disable unsafe commands in local nvim/init.vim files
-set shortmess+=c
+set shortmess+=c " avoid completion menu messages
 set signcolumn=yes
 set splitbelow " get preview window to show below rather than above
-set smarttab
 set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
 set wrap!  " turn off word wrap
 set diffopt+=vertical
@@ -100,7 +91,6 @@ let g:neoformat_cpp_clangformat = {
   \ 'args': ['-style=file'],
   \ 'stdin': 1,
   \ }
-
 let g:neoformat_python_black = {
   \ 'exe': 'black',
   \ 'stdin': 1,
@@ -255,6 +245,7 @@ set statusline+=\ %f   " file
 set statusline+=\ %m   " modified
 set statusline+=%=     " separator
 set statusline+=%#CursorColumn#
+set statusline+=\%l:\%c  " file type
 set statusline+=\ %y  " file type
 
 
@@ -592,7 +583,7 @@ nmap <leader>H <Plug>DashGlobalSearch
 nmap <leader>m ;Goyo<cr>;PencilSoft<cr>
 
 " M - open a new markdown buffer and enter Goyo mode with PencilSoft
-nmap <leader>M ;set filetype=markdown<cr><leader>m
+nmap <leader>M ;set filetype=markdown<cr>;CocDisable<cr><leader>m
 
 " Unmap insert mode mappings from a.vim
 augroup unmap-a-vim

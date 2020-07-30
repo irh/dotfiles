@@ -33,7 +33,7 @@ set mouse=a " mouse everywhere
 " set nowritebackup
 set nofoldenable " Don't fold by default
 " set noshowcmd
-" set number " line numbers
+set number " line numbers
 set scrolloff=2 " start scrolling before cursor reaches last line
 set shortmess+=c " avoid completion menu messages
 set signcolumn=yes
@@ -215,11 +215,14 @@ let g:rainbow_conf = {
 " Vim Extensions
 Plug 'AndrewRadev/bufferize.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'liuchengxu/graphviz.vim'
 Plug 'mhinz/vim-startify'
 Plug 'reedes/vim-pencil'
 
 let g:goyo_width = 101
+let g:graphviz_output_format = 'svg'
 let g:startify_change_to_dir = 0
+
 
 " --- End of plugins ---
 call plug#end()

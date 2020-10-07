@@ -124,6 +124,9 @@
   keepBackup = false
   cmd = /usr/local/bin/nvim -f -c \"Gdiff\" \"$MERGED\"
 
+[pull]
+  rebase = true
+
 [push]
   default = simple
 

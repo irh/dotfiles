@@ -148,9 +148,11 @@ Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'pest-parser/pest.vim', {'for': 'pest'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
 Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
 Plug 'tikhomirov/vim-glsl'
-Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
+" Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
 
 let g:jsx_ext_required = 0
 let g:mta_filetypes = {

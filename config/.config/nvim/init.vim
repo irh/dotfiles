@@ -147,6 +147,8 @@ Plug 'dag/vim-fish'
 Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
+Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
+Plug 'koto-lang/koto.vim', {'for': 'koto'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'pest-parser/pest.vim', {'for': 'pest'}
@@ -174,6 +176,7 @@ let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
   \ ]
 
+
 " Code navigation + completion
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
@@ -187,6 +190,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],
       \ }
+
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
@@ -221,12 +225,14 @@ let g:rainbow_conf = {
 Plug 'AndrewRadev/bufferize.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'liuchengxu/graphviz.vim'
+Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'mhinz/vim-startify'
 Plug 'reedes/vim-pencil'
 
 let g:goyo_width = 101
 let g:graphviz_output_format = 'svg'
 let g:startify_change_to_dir = 0
+let g:startify_custom_header = ''
 
 
 " --- End of plugins ---

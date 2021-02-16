@@ -1,6 +1,3 @@
-let g:python_host_prog = $HOME.'/Volumes/Safe/dev/work/lofelt/AustinAnalysis/venv/bin/python'
-let g:python3_host_prog = $HOME.'/Volumes/Safe/dev/work/lofelt/AustinAnalysis/venv/bin/python'
-
 " Load .nvimrc files from $HOME to current directory
 " From https://vim.fandom.com/wiki/Source_vimrc_and_use_tags_in_a_parent_directory
 let local_vimrc = ".nvimrc"

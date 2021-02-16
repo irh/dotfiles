@@ -1,5 +1,6 @@
 {
   "rust-analyzer.serverPath": "~/.cargo/bin/rust-analyzer",
+  "rust-analyzer.inlayHints.typeHints": false,
   "rust-analyzer.inlayHints.chainingHints": false,
   "rust-analyzer.cargo.noDefaultFeatures": false,
   "rust-analyzer.checkOnSave.enable": false,

@@ -97,6 +97,9 @@
   auto = 0
   commitGraph = true
 
+[init]
+  defaultBranch = main
+
 [interactive]
   diffFilter = delta --color-only
   singlekey = true

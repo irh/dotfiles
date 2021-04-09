@@ -91,6 +91,11 @@ let g:neoformat_cpp_clangformat = {
   \ 'args': ['-style=file'],
   \ 'stdin': 1,
   \ }
+let g:neoformat_kotlin_ktlint = {
+  \ 'exe': 'ktlint',
+  \ 'stdin': 1,
+  \ 'args': ['--stdin', '--format'],
+  \ }
 let g:neoformat_python_black = {
   \ 'exe': 'black',
   \ 'stdin': 1,
@@ -154,6 +159,7 @@ Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
 Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
 Plug 'tikhomirov/vim-glsl'
+Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 " Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
 
 let g:jsx_ext_required = 0

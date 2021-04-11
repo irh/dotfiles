@@ -68,11 +68,9 @@ let g:sort_motion_flags = "ui"
 
 
 " Text formatting
-" Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 Plug 'sbdchd/neoformat'
-" Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'

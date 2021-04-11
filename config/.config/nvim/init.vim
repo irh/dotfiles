@@ -77,9 +77,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/closetag.vim'
 
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
 au FileType cpp setlocal commentstring=//\ %s
 let g:neoformat_c_clangformat = {
   \ 'exe': 'clang-format',
@@ -181,6 +179,7 @@ let g:coc_global_extensions = [
 
 
 " Code navigation + completion
+Plug 'alvan/vim-closetag', {'for': 'html'}
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
 Plug 'SirVer/ultisnips'

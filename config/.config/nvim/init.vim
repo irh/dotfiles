@@ -225,7 +225,6 @@ let g:rainbow_conf = {
 Plug 'AndrewRadev/bufferize.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'liuchengxu/graphviz.vim'
-Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'mhinz/vim-startify'
 Plug 'reedes/vim-pencil'
 

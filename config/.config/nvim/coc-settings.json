@@ -1,5 +1,5 @@
 {
-  "rust-analyzer.serverPath": "~/.cargo/bin/rust-analyzer",
+  "rust-analyzer.server.path": "~/.cargo/bin/rust-analyzer",
   "rust-analyzer.inlayHints.typeHints": false,
   "rust-analyzer.inlayHints.chainingHints": false,
   "rust-analyzer.cargo.noDefaultFeatures": false,
@@ -7,5 +7,6 @@
   "rust-analyzer.diagnostics.enable": false,
   "diagnostic.enable": false,
   "signature.enable": false,
-  "coc.preferences.messageLevel": "error"
+  "coc.preferences.messageLevel": "error",
+  "snippets.ultisnips.enable": false
 }

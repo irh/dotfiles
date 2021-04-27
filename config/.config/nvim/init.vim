@@ -180,12 +180,8 @@ let g:coc_global_extensions = [
 Plug 'alvan/vim-closetag', {'for': 'html'}
 Plug 'honza/vim-snippets'
 Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
-Plug 'SirVer/ultisnips'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'rizzatti/dash.vim'
-
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+Plug 'skywind3000/asyncrun.vim'
 
 let g:dash_map = {
       \ 'cpp' : ['cpp', 'boost', 'juce', 'dsp'],

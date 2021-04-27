@@ -59,7 +59,7 @@
 [core]
   autocrlf = input
   commitGraph = true
-  editor = /usr/local/bin/nvim
+  editor = nvim
   excludesfile = ~/.gitignore_global
   ignorecase = true
   pager = delta

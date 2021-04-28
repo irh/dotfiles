@@ -594,6 +594,9 @@ nmap <leader>m ;Goyo<cr>;PencilSoft<cr>
 " M - open a new markdown buffer and enter Goyo mode with PencilSoft
 nmap <leader>M ;set filetype=markdown<cr>;CocDisable<cr><leader>m
 
+" u - Go to parent Rust module
+nmap <leader>u ;CocCommand rust-analyzer.parentModule<cr>
+
 " Unmap insert mode mappings from a.vim
 augroup unmap-a-vim
   autocmd!

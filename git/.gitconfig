@@ -112,7 +112,7 @@
 
 [difftool "nvim"]
   prompt = false
-  cmd = /usr/local/bin/nvim -d
+  cmd = nvim -d
 
 [merge]
   tool = nvim
@@ -125,7 +125,7 @@
 [mergetool "nvim"]
   prompt = false
   keepBackup = false
-  cmd = /usr/local/bin/nvim -f -c \"Gdiff\" \"$MERGED\"
+  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 
 [pull]
   rebase = true

@@ -140,6 +140,7 @@ Plug 'andys8/vim-elm-syntax', {'for': 'elm'}
 Plug 'keith/swift.vim', {'for': 'swift'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dag/vim-fish'
 Plug 'gmoe/vim-faust', {'for': 'faust'}

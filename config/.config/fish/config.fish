@@ -1,4 +1,4 @@
-set -x PATH /opt/homebrew/bin /usr/local/bin $HOME/.cargo/bin $PATH
+set -x PATH /opt/homebrew/bin /usr/local/bin $HOME/.cargo/bin $HOME/dev/flutter/bin $PATH
 
 set -x EDITOR nvim
 set -x LC_ALL en_US.UTF-8

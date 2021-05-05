@@ -5,7 +5,10 @@
   "rust-analyzer.cargo.noDefaultFeatures": false,
   "rust-analyzer.checkOnSave.enable": false,
   "rust-analyzer.diagnostics.enable": false,
-  "diagnostic.enable": false,
+  "diagnostic.enable": true,
+  "diagnostic.locationlistUpdate": true,
+  "diagnostic.enableMessage": "never",
+  "diagnostic.messageTarget": "echo",
   "signature.enable": false,
   "coc.preferences.messageLevel": "error",
   "snippets.ultisnips.enable": false

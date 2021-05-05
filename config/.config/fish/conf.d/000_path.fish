@@ -5,4 +5,6 @@ set -x PATH \
   $HOME/dev/flutter/bin \
   $PATH
 
-set -g fish_user_paths (brew --prefix)/opt/llvm/bin $fish_user_paths
+set -x BREW_DIR (brew --prefix)
+
+set -g fish_user_paths $BREW_DIR/opt/llvm/bin $fish_user_paths

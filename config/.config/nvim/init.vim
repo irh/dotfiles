@@ -113,7 +113,7 @@ let g:alternateExtensions_cpp = "h,hh,H,HPP,hpp,ipp"
 let g:alternateExtensions_ipp = "hpp,cpp"
 let g:alternateSearchPath = 'wdr:include,wdr:src,sfr:../source,sfr:../src,sfr:../include,sfr:../inc'
 
-Plug '/usr/local/opt/fzf'
+Plug $BREW_DIR.'/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 let g:ackprg = 'rg --vimgrep'

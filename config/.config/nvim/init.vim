@@ -87,6 +87,11 @@ let g:neoformat_cpp_clangformat = {
   \ 'args': ['-style=file'],
   \ 'stdin': 1,
   \ }
+let g:neoformat_dart_dartfmt = {
+  \ 'exe': 'dart',
+  \ 'args': ['format'],
+  \ 'stdin': 1,
+  \ }
 let g:neoformat_kotlin_ktlint = {
   \ 'exe': 'ktlint',
   \ 'stdin': 1,

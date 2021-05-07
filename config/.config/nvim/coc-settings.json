@@ -11,5 +11,6 @@
   "diagnostic.messageTarget": "echo",
   "signature.enable": false,
   "coc.preferences.messageLevel": "error",
-  "snippets.ultisnips.enable": false
+  "snippets.ultisnips.enable": false,
+  "flutter.lsp.initialization.closingLabels": false
 }

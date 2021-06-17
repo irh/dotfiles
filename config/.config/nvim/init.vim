@@ -102,6 +102,11 @@ let g:neoformat_python_black = {
   \ 'stdin': 1,
   \ 'args': ['--fast', '--line-length', '90', '-q', '-'],
   \ }
+let g:neoformat_rust_rustfmt = {
+  \ 'exe': 'rustfmt',
+  \ 'stdin': 1,
+  \ }
+
 
 
 " Navigation

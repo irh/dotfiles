@@ -15,7 +15,7 @@ function fish_prompt
     end
     set -l branch_name (git branch | sed -n "/^*/s/^* //p")
     if test $branch_name
-      echo -n "$branch_name"
+      echo -n " $branch_name"
     end
     # Upstream status
     set_color yellow

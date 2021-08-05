@@ -33,6 +33,7 @@
   rbi = rebase -i
   rbm = rebase -i origin/main
   rbp = "!f() { mb=$(git merge-base HEAD $1); git rebase -i $mb; }; f"
+  re = restore
   root = rev-parse --show-toplevel
   showfiles = diff-tree --no-commit-id --name-only -r
   sm = submodule
@@ -40,6 +41,7 @@
   smi = submodule init --recursive
   smu = submodule update --init --recursive
   st = status
+  sw = switch
   type = cat-file -t
   unstage = reset HEAD
   update-commit-graph = !git show-ref -s | git commit-graph write --stdin-commits

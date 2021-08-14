@@ -74,6 +74,9 @@ defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 # Follow the keyboard focus while zoomed in
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
+# Disable the 'hold key for accents' feature
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 # Disable sounds
 defaults write -g "com.apple.sound.beep.feedback" -int 0
 defaults write "com.apple.systemsound" "com.apple.sound.uiaudio.enabled" -int 0

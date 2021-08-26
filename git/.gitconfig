@@ -19,7 +19,7 @@
   dt = difftool -y
   dump = cat-file -p
   fe = fetch --prune
-  hist = log --pretty=format:\"%C(yellow)%h%Creset | %Cgreen%an%Creset | %Cred%ad%Creset | %s%C(cyan)%d%Creset\" --graph --date=short -30 @~30..@
+  hist = log --pretty=format:\"%C(yellow)%h%Creset | %Cgreen%an%Creset | %Cred%ad%Creset | %s%C(cyan)%d%Creset\" --graph --date=short -30
   histall = log --pretty=format:\"%C(yellow)%h%Creset | %Cgreen%an%Creset | %Cred%ad%Creset | %s%C(cyan)%d%Creset\" --graph --date=short
   id = rev-parse
   local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'

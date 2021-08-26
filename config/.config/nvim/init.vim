@@ -105,6 +105,7 @@ let g:neoformat_python_black = {
 let g:neoformat_rust_rustfmt = {
   \ 'exe': 'rustfmt',
   \ 'stdin': 1,
+  \ 'args': ['--edition', '2018'],
   \ }
 
 
@@ -164,6 +165,7 @@ Plug 'pest-parser/pest.vim', {'for': 'pest'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
 Plug 'tikhomirov/vim-glsl'
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}

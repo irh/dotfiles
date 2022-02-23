@@ -136,7 +136,7 @@ nnoremap <c-s> :CocFzfList symbols<cr>
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'dbakker/vim-projectroot'
-Plug 'gregsexton/gitv' " requires vim-fugitive
+Plug 'rbong/vim-flog' " requires vim-fugitive
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
@@ -152,22 +152,25 @@ Plug 'keith/swift.vim', {'for': 'swift'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
+Plug 'DingDean/wgsl.vim', {'for': 'wgsl'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dag/vim-fish'
 Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
-Plug 'koto-lang/koto.vim', {'for': 'koto'}
+" Plug 'koto-lang/koto.vim', {'for': 'koto'}
+Plug '~/dev/koto/koto.vim'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'pest-parser/pest.vim', {'for': 'pest'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+Plug 'NoahTheDuke/vim-just', {'for': 'just'}
 Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
-Plug 'tikhomirov/vim-glsl'
+Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 " Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
 
@@ -261,10 +264,19 @@ let g:airline_solarized_bg='dark'
 
 
 " --- Status line ---
+
+function! SyntaxItem()
+  return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+
 set statusline=
 set statusline+=%#LineNr#
 set statusline+=\ %f   " file
 set statusline+=\ %m   " modified
+
+" set statusline+=%=     " separator
+" set statusline+=%{SyntaxItem()}
+
 set statusline+=%=     " separator
 set statusline+=%#CursorColumn#
 set statusline+=\%l:\%c  " file type
@@ -376,6 +388,8 @@ augroup filetypes
   autocmd FileType lua setlocal cc=121
 
   autocmd FileType objcpp set ft=objc " Hack for neoformat
+
+  autocmd FileType justfile set ft=make
 augroup END
 
 augroup python
@@ -592,8 +606,8 @@ nmap <leader>D a<c-r>=strftime('%Y-%m-%d %H:%M')<cr><esc>
 " T - insert empty TODO, ensure correct formatting and enter insert via append
 nmap <leader>T i- [ ] <esc>hhxla
 
-" g - open gitv
-nmap <leader>g ;Gitv<cr>
+" g - open flog
+nmap <leader>g ;Flog<cr>
 
 " h - search for current word in Dash according to filetype
 nmap <leader>h <Plug>DashSearch

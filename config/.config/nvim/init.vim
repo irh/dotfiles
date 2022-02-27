@@ -56,11 +56,10 @@ call plug#begin('~/.vim/plugged')
 
 " Motion
 Plug 'christoomey/vim-sort-motion'
+Plug 'jiangmiao/auto-pairs'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/Auto-Pairs'
-Plug 'vim-scripts/ConflictMotions'
 Plug 'vim-scripts/CountJump'
 Plug 'wellle/targets.vim'
 
@@ -159,8 +158,7 @@ Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
-" Plug 'koto-lang/koto.vim', {'for': 'koto'}
-Plug '~/dev/koto/koto.vim'
+Plug 'koto-lang/koto.vim', {'for': 'koto'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'pest-parser/pest.vim', {'for': 'pest'}
@@ -168,7 +166,7 @@ Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'NoahTheDuke/vim-just', {'for': 'just'}
 Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'rust-lang/rust.vim'
 Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
 Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
@@ -206,7 +204,7 @@ let g:dash_map = {
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
-Plug 'luochen1990/rainbow'
+" Plug 'luochen1990/rainbow'
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {
@@ -261,7 +259,9 @@ set background=dark
 let g:airline_theme="solarized"
 let g:airline_solarized_bg='dark'
 
-
+function! SyntaxItem()
+  return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
 
 " --- Status line ---
 
@@ -278,6 +278,8 @@ set statusline+=\ %m   " modified
 " set statusline+=%{SyntaxItem()}
 
 set statusline+=%=     " separator
+" set statusline+=%{SyntaxItem()}              " syntax highlight group under cursor
+" set statusline+=%=     " separator
 set statusline+=%#CursorColumn#
 set statusline+=\%l:\%c  " file type
 set statusline+=\ %y  " file type
@@ -608,6 +610,9 @@ nmap <leader>T i- [ ] <esc>hhxla
 
 " g - open flog
 nmap <leader>g ;Flog<cr>
+
+" G - Toggle Goyo
+nmap <leader>G ;Goyo<cr>
 
 " h - search for current word in Dash according to filetype
 nmap <leader>h <Plug>DashSearch

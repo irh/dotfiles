@@ -1,16 +1,17 @@
 {
-  "rust-analyzer.server.path": "~/.cargo/bin/rust-analyzer",
-  "rust-analyzer.inlayHints.typeHints": false,
-  "rust-analyzer.inlayHints.chainingHints": false,
+  "coc.preferences.messageLevel": "error",
+  "diagnostic.enable": true,
+  "diagnostic.enableMessage": "never",
+  "diagnostic.locationlistUpdate": true,
+  "diagnostic.messageTarget": "echo",
+  "flutter.lsp.initialization.closingLabels": false,
+  "javascript.suggestionActions.enabled": false,
   "rust-analyzer.cargo.noDefaultFeatures": false,
   "rust-analyzer.checkOnSave.enable": false,
   "rust-analyzer.diagnostics.enable": false,
-  "diagnostic.enable": true,
-  "diagnostic.locationlistUpdate": true,
-  "diagnostic.enableMessage": "never",
-  "diagnostic.messageTarget": "echo",
+  "rust-analyzer.inlayHints.chainingHints": false,
+  "rust-analyzer.inlayHints.typeHints": false,
+  "rust-analyzer.server.path": "~/.cargo/bin/rust-analyzer",
   "signature.enable": false,
-  "coc.preferences.messageLevel": "error",
-  "snippets.ultisnips.enable": false,
-  "flutter.lsp.initialization.closingLabels": false
+  "snippets.ultisnips.enable": false
 }

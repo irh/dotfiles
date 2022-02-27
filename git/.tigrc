@@ -2,4 +2,4 @@ set main-view = line-number:no,interval=5 id:no date:custom,format="%Y-%m-%d %H:
 set mouse = yes
 set mouse-scroll = 6
 set start-on-head = yes
-set vertical-split = horizontal
+# set vertical-split = horizontal

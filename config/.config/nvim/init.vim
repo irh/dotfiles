@@ -41,6 +41,7 @@ set splitbelow " get preview window to show below rather than above
 set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
 set wrap!  " turn off word wrap
 set diffopt+=vertical
+set backupcopy=no
 
 syntax on " syntax highlighting
 augroup stripwhitespace

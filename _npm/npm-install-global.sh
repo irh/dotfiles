@@ -1,10 +1,12 @@
+fnm install 16
+
 npm install -g \
-  elm \
-  elm-format \
   gulp-cli \
   instant-markdown-d \
   lua-fmt \
+  pnpm \
   prettier \
   typescript \
-  tldr \
+  vsce \
+  wrangler \
   ;

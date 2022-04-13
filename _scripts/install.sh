@@ -15,7 +15,6 @@ source _scripts/vim-setup.sh
 source _scripts/neovim-setup.sh
 
 source _scripts/rust-setup.sh
-pip2 install -r _pip/packages2.txt
 pip3 install -r _pip/packages3.txt
 julia _julia/packages.jl
 source _npm/npm-install-global.sh

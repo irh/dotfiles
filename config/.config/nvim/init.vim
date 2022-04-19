@@ -76,50 +76,50 @@ call plug#begin('~/.vim/plugged')
 " Text formatting
 " Plug 'godlygeek/tabular'
 " Plug 'junegunn/vim-easy-align'
-Plug 'sbdchd/neoformat'
+" Plug 'sbdchd/neoformat'
 " Plug 'tpope/vim-abolish'
 " Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-unimpaired'
 " Plug 'tpope/vim-repeat'
 
-au FileType cpp setlocal commentstring=//\ %s
-let g:neoformat_c_clangformat = {
-  \ 'exe': 'clang-format',
-  \ 'args': ['-style=file'],
-  \ 'stdin': 1,
-  \ }
-let g:neoformat_cpp_clangformat = {
-  \ 'exe': 'clang-format',
-  \ 'args': ['-style=file'],
-  \ 'stdin': 1,
-  \ }
-let g:neoformat_dart_dartfmt = {
-  \ 'exe': 'dart',
-  \ 'args': ['format'],
-  \ 'stdin': 1,
-  \ }
-let g:neoformat_kotlin_ktlint = {
-  \ 'exe': 'ktlint',
-  \ 'stdin': 1,
-  \ 'args': ['--stdin', '--format'],
-  \ }
-let g:neoformat_python_black = {
-  \ 'exe': 'black',
-  \ 'stdin': 1,
-  \ 'args': ['--fast', '--line-length', '90', '-q', '-'],
-  \ }
-let g:neoformat_rust_rustfmt = {
-  \ 'exe': 'rustfmt',
-  \ 'stdin': 1,
-  \ 'args': ['--edition', '2018'],
-  \ }
+" au FileType cpp setlocal commentstring=//\ %s
+" let g:neoformat_c_clangformat = {
+"   \ 'exe': 'clang-format',
+"   \ 'args': ['-style=file'],
+"   \ 'stdin': 1,
+"   \ }
+" let g:neoformat_cpp_clangformat = {
+"   \ 'exe': 'clang-format',
+"   \ 'args': ['-style=file'],
+"   \ 'stdin': 1,
+"   \ }
+" let g:neoformat_dart_dartfmt = {
+"   \ 'exe': 'dart',
+"   \ 'args': ['format'],
+"   \ 'stdin': 1,
+"   \ }
+" let g:neoformat_kotlin_ktlint = {
+"   \ 'exe': 'ktlint',
+"   \ 'stdin': 1,
+"   \ 'args': ['--stdin', '--format'],
+"   \ }
+" let g:neoformat_python_black = {
+"   \ 'exe': 'black',
+"   \ 'stdin': 1,
+"   \ 'args': ['--fast', '--line-length', '90', '-q', '-'],
+"   \ }
+" let g:neoformat_rust_rustfmt = {
+"   \ 'exe': 'rustfmt',
+"   \ 'stdin': 1,
+"   \ 'args': ['--edition', '2018'],
+"   \ }
 
 
 
 " Navigation
 Plug 'antoinemadec/coc-fzf'
 Plug 'mileszs/ack.vim'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+" Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'Valloric/ListToggle'
 Plug 'vim-scripts/a.vim'
 Plug 'tpope/vim-vinegar'
@@ -466,49 +466,49 @@ augroup END
 
 " --- Key mappings ---
 
-" map ctrl+h/l to tab next/prev
-nnoremap <C-h> :tabprev<CR>
-nnoremap <C-l> :tabnext<CR>
-" switch colon and semi-colon
-noremap : ;
-noremap ; :
+" " map ctrl+h/l to tab next/prev
+" nnoremap <C-h> :tabprev<CR>
+" nnoremap <C-l> :tabnext<CR>
+" " switch colon and semi-colon
+" noremap : ;
+" noremap ; :
 
-" move lines up/down
-" Normal mode
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-" Insert mode
-inoremap <C-j> <ESC>:m .+1<CR>==gi
-inoremap <C-k> <ESC>:m .-2<CR>==gi
-" Visual mode
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv"
-
-
-" --- Terminal ---
-if has("nvim")
-  au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-  au FileType fzf tunmap <buffer> <Esc>
-endif
-au TermOpen * setlocal listchars= nonumber norelativenumber
-au TermOpen * startinsert
-au BufEnter,BufWinEnter,WinEnter term://* startinsert
-au BufLeave term://* stopinsert
+" " move lines up/down
+" " Normal mode
+" nnoremap <C-j> :m .+1<CR>==
+" nnoremap <C-k> :m .-2<CR>==
+" " Insert mode
+" inoremap <C-j> <ESC>:m .+1<CR>==gi
+" inoremap <C-k> <ESC>:m .-2<CR>==gi
+" " Visual mode
+" vnoremap <C-j> :m '>+1<CR>gv=gv
+" vnoremap <C-k> :m '<-2<CR>gv=gv"
 
 
-" --- Use Alt+{h,j,k,l} to navigate windows
-:tnoremap <A-h> <C-\><C-N><C-w>h
-:tnoremap <A-j> <C-\><C-N><C-w>j
-:tnoremap <A-k> <C-\><C-N><C-w>k
-:tnoremap <A-l> <C-\><C-N><C-w>l
-:inoremap <A-h> <C-\><C-N><C-w>h
-:inoremap <A-j> <C-\><C-N><C-w>j
-:inoremap <A-k> <C-\><C-N><C-w>k
-:inoremap <A-l> <C-\><C-N><C-w>l
-:nnoremap <A-h> <C-w>h
-:nnoremap <A-j> <C-w>j
-:nnoremap <A-k> <C-w>k
-:nnoremap <A-l> <C-w>l
+" " --- Terminal ---
+" if has("nvim")
+"   au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+"   au FileType fzf tunmap <buffer> <Esc>
+" endif
+" au TermOpen * setlocal listchars= nonumber norelativenumber
+" au TermOpen * startinsert
+" au BufEnter,BufWinEnter,WinEnter term://* startinsert
+" au BufLeave term://* stopinsert
+
+
+" " --- Use Alt+{h,j,k,l} to navigate windows
+" :tnoremap <A-h> <C-\><C-N><C-w>h
+" :tnoremap <A-j> <C-\><C-N><C-w>j
+" :tnoremap <A-k> <C-\><C-N><C-w>k
+" :tnoremap <A-l> <C-\><C-N><C-w>l
+" :inoremap <A-h> <C-\><C-N><C-w>h
+" :inoremap <A-j> <C-\><C-N><C-w>j
+" :inoremap <A-k> <C-\><C-N><C-w>k
+" :inoremap <A-l> <C-\><C-N><C-w>l
+" :nnoremap <A-h> <C-w>h
+" :nnoremap <A-j> <C-w>j
+" :nnoremap <A-k> <C-w>k
+" :nnoremap <A-l> <C-w>l
 
 
 " --- Make / test ---
@@ -585,10 +585,10 @@ nmap <leader>j <C-]>
 " J - jump to previous tag
 nmap <leader>J <C-t>
 
-" " n - toggle NERDTree
-nmap <leader>n ;NERDTreeToggle<cr>
-" " N - find current buffer in NERDTree
-nmap <leader>N ;NERDTreeFind<cr>
+" " n - toggle NvimTree
+nmap <leader>n ;NvimTreeFindFileToggle<cr>
+" " N - find current buffer in NvimTree
+nmap <leader>N ;NvimTreeFindFile<cr>
 
 " a - switch to counterpart
 nmap <leader>a ;A<cr>

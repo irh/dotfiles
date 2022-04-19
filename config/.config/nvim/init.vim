@@ -1,3 +1,9 @@
+lua <<EOF
+EOF
+
+lua require('plugins')
+lua require('settings')
+
 " Load .nvimrc files from $HOME to current directory
 " From https://vim.fandom.com/wiki/Source_vimrc_and_use_tags_in_a_parent_directory
 let local_vimrc = ".nvimrc"
@@ -19,31 +25,31 @@ endfor
 unlet local_vimrc local_tags local_path current_path path_parts
 
 " --- General configuration ---
-set cc=91
-set clipboard=unnamed " Use the system clipboard with default register
-set confirm " confirmation on failed saves
-set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
+" set cc=91
+" set clipboard=unnamed " Use the system clipboard with default register
+" set confirm " confirmation on failed saves
+" set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
 " set exrc " enable per-directory nvim/init.vim files
-set grepprg=rg\ --vimgrep\ $*
+" set grepprg=rg\ --vimgrep\ $*
 " set hidden " Enable hidden buffers
-set list             " enable highlighting of tabs
-set listchars=tab:>- " show >- for tab characters
-set matchpairs+=<:>  " allow % matching on <>
-set mouse=a " mouse everywhere
+" set list             " enable highlighting of tabs
+" set listchars=tab:>- " show >- for tab characters
+" set matchpairs+=<:>  " allow % matching on <>
+" set mouse=a " mouse everywhere
 " set nowritebackup
-set nofoldenable " Don't fold by default
+" set nofoldenable " Don't fold by default
 " set noshowcmd
-set number " line numbers
-set scrolloff=2 " start scrolling before cursor reaches last line
-set shortmess+=c " avoid completion menu messages
-set signcolumn=yes
-set splitbelow " get preview window to show below rather than above
-set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
-set wrap!  " turn off word wrap
-set diffopt+=vertical
-set backupcopy=no
+" set number " line numbers
+" set scrolloff=2 " start scrolling before cursor reaches last line
+" set shortmess+=c " avoid completion menu messages
+" set signcolumn=yes
+" set splitbelow " get preview window to show below rather than above
+" set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
+" set wrap!  " turn off word wrap
+" set diffopt+=vertical
+" set backupcopy=no
 
-syntax on " syntax highlighting
+" syntax on " syntax highlighting
 augroup stripwhitespace
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//e " remove trailing whitespace when saving files
@@ -56,25 +62,25 @@ call plug#begin('~/.vim/plugged')
 
 
 " Motion
-Plug 'christoomey/vim-sort-motion'
-Plug 'jiangmiao/auto-pairs'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/CountJump'
-Plug 'wellle/targets.vim'
+" Plug 'christoomey/vim-sort-motion'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'Lokaltog/vim-easymotion'
+" Plug 'michaeljsmith/vim-indent-object'
+" Plug 'tpope/vim-surround'
+" Plug 'vim-scripts/CountJump'
+" Plug 'wellle/targets.vim'
 
-let g:sort_motion_flags = "ui"
+" let g:sort_motion_flags = "ui"
 
 
 " Text formatting
-Plug 'godlygeek/tabular'
-Plug 'junegunn/vim-easy-align'
+" Plug 'godlygeek/tabular'
+" Plug 'junegunn/vim-easy-align'
 Plug 'sbdchd/neoformat'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-abolish'
+" Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'tpope/vim-repeat'
 
 au FileType cpp setlocal commentstring=//\ %s
 let g:neoformat_c_clangformat = {
@@ -159,7 +165,8 @@ Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
-Plug 'koto-lang/koto.vim', {'for': 'koto'}
+" Plug 'koto-lang/koto.vim', {'for': 'koto'}
+Plug '~/dev/koto/koto.vim'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'pest-parser/pest.vim', {'for': 'pest'}
@@ -168,6 +175,7 @@ Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'NoahTheDuke/vim-just', {'for': 'just'}
 Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
 Plug 'rust-lang/rust.vim'
+Plug 'tbastos/vim-lua', {'for': 'lua'}
 Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
 Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
@@ -382,17 +390,23 @@ augroup filetypes
   autocmd!
 
   " Some languages should have 4 space tabs
-  autocmd FileType gyp,lua,rust,swift,typescript
+  autocmd FileType gyp,rust,swift,typescript
     \ setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
   autocmd FileType rust compiler cargo
   autocmd FileType rust setlocal cc=101
 
-  autocmd FileType lua setlocal cc=121
-
   autocmd FileType objcpp set ft=objc " Hack for neoformat
 
   autocmd FileType justfile set ft=make
+augroup END
+
+augroup lua
+  autocmd!
+  autocmd FileType lua setlocal
+        \ tabstop=2
+        \ softtabstop=2
+        \ cc=121
 augroup END
 
 augroup python

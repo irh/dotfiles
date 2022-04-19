@@ -1,3 +1,8 @@
+lua <<EOF
+EOF
+
+lua require('settings')
+
 " Load .nvimrc files from $HOME to current directory
 " From https://vim.fandom.com/wiki/Source_vimrc_and_use_tags_in_a_parent_directory
 let local_vimrc = ".nvimrc"
@@ -19,24 +24,24 @@ endfor
 unlet local_vimrc local_tags local_path current_path path_parts
 
 " --- General configuration ---
-set cc=91
-set clipboard=unnamed " Use the system clipboard with default register
-set confirm " confirmation on failed saves
-set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
+" set cc=91
+" set clipboard=unnamed " Use the system clipboard with default register
+" set confirm " confirmation on failed saves
+" set directory^=$HOME/.config/nvim/swap// " place swp files in central folder
 " set exrc " enable per-directory nvim/init.vim files
-set grepprg=rg\ --vimgrep\ $*
+" set grepprg=rg\ --vimgrep\ $*
 " set hidden " Enable hidden buffers
-set list             " enable highlighting of tabs
-set listchars=tab:>- " show >- for tab characters
-set matchpairs+=<:>  " allow % matching on <>
-set mouse=a " mouse everywhere
+" set list             " enable highlighting of tabs
+" set listchars=tab:>- " show >- for tab characters
+" set matchpairs+=<:>  " allow % matching on <>
+" set mouse=a " mouse everywhere
 " set nowritebackup
-set nofoldenable " Don't fold by default
+" set nofoldenable " Don't fold by default
 " set noshowcmd
-set number " line numbers
-set scrolloff=2 " start scrolling before cursor reaches last line
-set shortmess+=c " avoid completion menu messages
-set signcolumn=yes
+" set number " line numbers
+" set scrolloff=2 " start scrolling before cursor reaches last line
+" set shortmess+=c " avoid completion menu messages
+" set signcolumn=auto
 set splitbelow " get preview window to show below rather than above
 set switchbuf=usetab " Jump to already open buffers (in any tab) when switching buffers
 set wrap!  " turn off word wrap
@@ -159,7 +164,8 @@ Plug 'gmoe/vim-faust', {'for': 'faust'}
 Plug 'jceb/vim-orgmode', {'for': 'org'}
 Plug 'kelan/gyp.vim', {'for': 'gyp'}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
-Plug 'koto-lang/koto.vim', {'for': 'koto'}
+" Plug 'koto-lang/koto.vim', {'for': 'koto'}
+Plug '~/dev/koto/koto.vim'
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 Plug 'leafo/moonscript-vim', {'for': 'moon'}
 Plug 'pest-parser/pest.vim', {'for': 'pest'}
@@ -168,6 +174,7 @@ Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'NoahTheDuke/vim-just', {'for': 'just'}
 Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
 Plug 'rust-lang/rust.vim'
+Plug 'tbastos/vim-lua', {'for': 'lua'}
 Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
 Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}

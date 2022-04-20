@@ -1,9 +1,18 @@
 local map = require("core.utils").map
 
+local function swap_keys(a, b)
+  modes = {'n', 'v', 's', 'o'}
+  opts = {silent = false} 
+  map(modes, a, b, opts)
+  map(modes, b, a, opts)
+end
+
 local function nmap(from, to)
   map('n', from, to)
 end
 
+-- Swap : and ;
+swap_keys(':', ';')
 
 ------------------
 -- Function keys
@@ -33,6 +42,9 @@ nmap('<leader>2', '<F20>')
 
 -- 3 - Jump to next error
 nmap('<leader>3', '<F19>')
+
+-- e - Toggle explorer sidebar
+nmap('<leader>e', ':NvimTreeToggle<cr>')
 
 -- s - Save all
 nmap('<leader>s', ':wa<cr>')

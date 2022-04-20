@@ -15,13 +15,20 @@ end
 swap_keys(':', ';')
 
 ------------------
+-- Goto mappings
+------------------
+
+nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
+nmap('gD', ':lua vim.lsp.buf.declaration()<CR>')
+
+------------------
 -- Function keys
 ------------------
 
 -- F17 - Make
-nmap('<F17>', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
+nmap('<F17>', ':set makeprg=$MAKEPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
 -- F18 - Test
-nmap('<F18>', ':set makeprg=$MAKEPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
+nmap('<F18>', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
 -- F19 - Next error
 nmap('<F19>', ':wa<CR>:cnext<CR>')
 -- F20 - Previous error
@@ -32,22 +39,41 @@ nmap('<F20>', ':wa<CR>:cprev<CR>')
 ------------------
 
 -- ! - make+test
-nmap('<leader>!', '<F17>')
+nmap('<leader>!', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
 
 -- 1 - make
-nmap('<leader>1', '<F18>')
+nmap('<leader>1', ':set makeprg=$MAKEPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
 
 -- 2 - Jump to previous error
-nmap('<leader>2', '<F20>')
+nmap('<leader>2', ':wa<CR>:cprev<CR>')
 
 -- 3 - Jump to next error
-nmap('<leader>3', '<F19>')
+nmap('<leader>3', ':wa<CR>:cnext<CR>')
 
--- e - Toggle explorer sidebar
-nmap('<leader>e', ':NvimTreeToggle<cr>')
+-- 0 - Stop an active async job
+nmap('<leader>0', ':AsyncStop<CR>')
+
+-- d - Telescope diagnostics
+nmap('<leader>d', ':Telescope diagnostics<CR>')
+
+-- i - Telescope document symbols
+nmap('<leader>i', ':Telescope lsp_document_symbols<CR>')
+
+-- k - LSP hover
+nmap('K', ':lua vim.lsp.buf.hover()<CR>')
+
+-- o - Telescope workspace symbols
+nmap('<leader>o', ':Telescope lsp_dynamic_workspace_symbols<CR>')
+
+-- r - Telescope references
+nmap('<leader>r', ':Telescope lsp_references<CR>')
+
+-- R - LSP Rename
+nmap('<leader>R', ':lua vim.lsp.buf.rename()<CR>')
 
 -- s - Save all
-nmap('<leader>s', ':wa<cr>')
+nmap('<leader>s', ':wa<CR>')
 
 -- S - Vertical Split
-nmap('<leader>S', ':vsp<cr>')
+nmap('<leader>S', ':vsp<CR>')
+

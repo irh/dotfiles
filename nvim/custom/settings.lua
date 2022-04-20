@@ -18,9 +18,6 @@ opt.diffopt:append('vertical')
 -- Place swp files in a central folder
 opt.directory:prepend('$HOME/.config/nvim/swap/')
 
--- Allow loading local .nvimrc files for project-specific configuration
--- opt.exrc = true
-
 -- Don't fold by default
 opt.foldenable = false
 
@@ -33,9 +30,12 @@ opt.matchpairs:append('<:>')
 -- Don't show line numbers by default
 opt.number = false
 
---  -- Jump to already open buffers (including tabs) when switching buffers from quickfix
---  -- switchbuf = 'useopen', -- TODO would useopen be better?
---
+-- Start scrolling before cursor reaches last line 
+opt.scrolloff = 2
+
+-- Jump to already open buffers (including tabs) when switching buffers from quickfix
+-- switchbuf = 'useopen', -- TODO would useopen be better?
+
 -- Disable word wrap by default
 opt.wrap = false
 

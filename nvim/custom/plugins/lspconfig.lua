@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup_lsp = function(attach, capabilities)
-   -- local lspconfig = require "lspconfig"
+   local lspconfig = require "lspconfig"
 
    -- lspconfig.rust_analyzer.setup{}
 

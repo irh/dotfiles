@@ -1,8 +1,9 @@
 lua <<EOF
 EOF
 
-lua require('plugins')
-lua require('settings')
+luafile ~/.config/nvim/lua/key_bindings.lua
+luafile ~/.config/nvim/lua/plugins.lua
+luafile ~/.config/nvim/lua/settings.lua
 
 " Load .nvimrc files from $HOME to current directory
 " From https://vim.fandom.com/wiki/Source_vimrc_and_use_tags_in_a_parent_directory
@@ -117,26 +118,26 @@ call plug#begin('~/.vim/plugged')
 
 
 " Navigation
-Plug 'antoinemadec/coc-fzf'
-Plug 'mileszs/ack.vim'
+" Plug 'antoinemadec/coc-fzf'
+" Plug 'mileszs/ack.vim'
 " Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'Valloric/ListToggle'
-Plug 'vim-scripts/a.vim'
-Plug 'tpope/vim-vinegar'
+" Plug 'Valloric/ListToggle'
+" Plug 'vim-scripts/a.vim'
+" Plug 'tpope/vim-vinegar'
 
-let g:alternateNoDefaultAlternate = 1
-let g:alternateExtensions_hpp = "ipp,cpp"
-let g:alternateExtensions_cpp = "h,hh,H,HPP,hpp,ipp"
-let g:alternateExtensions_ipp = "hpp,cpp"
-let g:alternateSearchPath = 'wdr:include,wdr:src,sfr:../source,sfr:../src,sfr:../include,sfr:../inc'
+" let g:alternateNoDefaultAlternate = 1
+" let g:alternateExtensions_hpp = "ipp,cpp"
+" let g:alternateExtensions_cpp = "h,hh,H,HPP,hpp,ipp"
+" let g:alternateExtensions_ipp = "hpp,cpp"
+" let g:alternateSearchPath = 'wdr:include,wdr:src,sfr:../source,sfr:../src,sfr:../include,sfr:../inc'
 
-Plug $BREW_DIR.'/opt/fzf'
-Plug 'junegunn/fzf.vim'
+" Plug $BREW_DIR.'/opt/fzf'
+" Plug 'junegunn/fzf.vim'
 
-let g:ackprg = 'rg --vimgrep'
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-nnoremap <c-p> :GFiles<cr>
-nnoremap <c-s> :CocFzfList symbols<cr>
+" let g:ackprg = 'rg --vimgrep'
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+" nnoremap <c-p> :GFiles<cr>
+" nnoremap <c-s> :CocFzfList symbols<cr>
 
 
 " Git
@@ -153,56 +154,39 @@ let g:gitgutter_sign_modified_removed = '·'
 
 
 " Language support
-Plug 'andys8/vim-elm-syntax', {'for': 'elm'}
-Plug 'keith/swift.vim', {'for': 'swift'}
-Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'chrisbra/csv.vim', {'for': 'csv'}
-Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
-Plug 'DingDean/wgsl.vim', {'for': 'wgsl'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dag/vim-fish'
-Plug 'gmoe/vim-faust', {'for': 'faust'}
-Plug 'jceb/vim-orgmode', {'for': 'org'}
-Plug 'kelan/gyp.vim', {'for': 'gyp'}
-Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
+" Plug 'andys8/vim-elm-syntax', {'for': 'elm'}
+" Plug 'keith/swift.vim', {'for': 'swift'}
+" Plug 'cespare/vim-toml', {'for': 'toml'}
+" Plug 'chrisbra/csv.vim', {'for': 'csv'}
+" Plug 'dart-lang/dart-vim-plugin', {'for': 'dart'}
+" Plug 'DingDean/wgsl.vim', {'for': 'wgsl'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'dag/vim-fish'
+" Plug 'gmoe/vim-faust', {'for': 'faust'}
+" Plug 'jceb/vim-orgmode', {'for': 'org'}
+" Plug 'kelan/gyp.vim', {'for': 'gyp'}
+" Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
 " Plug 'koto-lang/koto.vim', {'for': 'koto'}
-Plug '~/dev/koto/koto.vim'
-Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-Plug 'leafo/moonscript-vim', {'for': 'moon'}
-Plug 'pest-parser/pest.vim', {'for': 'pest'}
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
-Plug 'NoahTheDuke/vim-just', {'for': 'just'}
-Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
-Plug 'rust-lang/rust.vim'
-Plug 'tbastos/vim-lua', {'for': 'lua'}
-Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
-Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
-Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
+" Plug '~/dev/koto/koto.vim'
+" Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+" Plug 'leafo/moonscript-vim', {'for': 'moon'}
+" Plug 'pest-parser/pest.vim', {'for': 'pest'}
+" Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+" Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+" Plug 'NoahTheDuke/vim-just', {'for': 'just'}
+" Plug 'peitalin/vim-jsx-typescript', {'for': 'typescriptreact'}
+" Plug 'rust-lang/rust.vim'
+" Plug 'tbastos/vim-lua', {'for': 'lua'}
+" Plug 'thyrgle/vim-dyon', {'for': 'dyon'}
+" Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
+" Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 " Plug 'valloric/MatchTagAlways', {'for': ['html', 'javascript.jsx']}
-
-let g:jsx_ext_required = 0
-let g:mta_filetypes = {
-      \ 'html' : 1,
-      \ 'xhtml' : 1,
-      \ 'xml' : 1,
-      \ 'jinja' : 1,
-      \ 'javascript.jsx' : 1,
-      \}
-let g:vim_markdown_initial_foldlevel=100
-let g:markdown_enable_insert_mode_leader_mappings = 1
-let g:coc_global_extensions = [
-  \ 'coc-json',
-  \ 'coc-python',
-  \ 'coc-tsserver',
-  \ 'coc-rust-analyzer',
-  \ ]
 
 
 " Code navigation + completion
-Plug 'alvan/vim-closetag', {'for': 'html'}
-Plug 'honza/vim-snippets'
-Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
+" Plug 'alvan/vim-closetag', {'for': 'html'}
+" Plug 'honza/vim-snippets'
+" Plug 'ludovicchabant/vim-gutentags', {'for': 'cpp'}
 Plug 'rizzatti/dash.vim'
 Plug 'skywind3000/asyncrun.vim'
 
@@ -215,35 +199,35 @@ let g:dash_map = {
 Plug 'altercation/vim-colors-solarized'
 " Plug 'luochen1990/rainbow'
 
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-    \    'guifgs': ['grey ', 'darkgrey'],
-    \    'ctermfgs': ['grey ', 'darkgrey'],
-    \    'operators': '_,_',
-    \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-    \    'separately': {
-    \        '*': {},
-    \        'tex': {
-    \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-    \        },
-    \        'lisp': {
-    \            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-    \        },
-    \        'vim': {
-    \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-    \        },
-    \        'html': {
-    \            'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-    \        },
-    \        'css': 0,
-    \    }
-    \}
+" let g:rainbow_active = 1
+" let g:rainbow_conf = {
+"     \    'guifgs': ['grey ', 'darkgrey'],
+"     \    'ctermfgs': ['grey ', 'darkgrey'],
+"     \    'operators': '_,_',
+"     \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+"     \    'separately': {
+"     \        '*': {},
+"     \        'tex': {
+"     \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+"     \        },
+"     \        'lisp': {
+"     \            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+"     \        },
+"     \        'vim': {
+"     \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+"     \        },
+"     \        'html': {
+"     \            'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+"     \        },
+"     \        'css': 0,
+"     \    }
+"     \}
 
 
 " Vim Extensions
 Plug 'AndrewRadev/bufferize.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'liuchengxu/graphviz.vim'
+" Plug 'liuchengxu/graphviz.vim'
 Plug 'mhinz/vim-startify'
 Plug 'reedes/vim-pencil'
 
@@ -295,10 +279,10 @@ set statusline+=\ %y  " file type
 
 
 " --- netrw ---
-let g:netrw_banner = 0 " Turn off the banner
-let g:netrw_browse_split = 4 " Open files in previous window
-let g:netrw_winsize = 25 " 25% width
-let g:netrw_liststyle = 3 " Tree view
+" let g:netrw_banner = 0 " Turn off the banner
+" let g:netrw_browse_split = 4 " Open files in previous window
+" let g:netrw_winsize = 25 " 25% width
+" let g:netrw_liststyle = 3 " Tree view
 
 
 " --- 80 column limit for git commit messages and text files
@@ -319,72 +303,72 @@ highlight MatchParen ctermbg=blue ctermfg=white guibg=yellow
 highlight Pmenu ctermbg=grey ctermfg=black
 
 
-" --- Command completion ---
-set wildmenu
-set wildmode=longest,list
-set wildignore+=.svn,CVS,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.vcproj,*.dll,*.zip
-set wildignorecase
+" " --- Command completion ---
+" set wildmenu
+" set wildmode=longest,list
+" set wildignore+=.svn,CVS,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.vcproj,*.dll,*.zip
+" set wildignorecase
 
 
-" coc setup
-inoremap <silent><expr> <c-space> coc#refresh()
+" " coc setup
+" inoremap <silent><expr> <c-space> coc#refresh()
 
-set updatetime=300
+" set updatetime=300
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-hi link CocFloating markdown
-hi CocFloat ctermbg=white ctermfg=red
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" " Coc only does snippet and additional edit on confirm.
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" " Or use `complete_info` if your vim support it, like:
+" " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+" " Use `[g` and `]g` to navigate diagnostics
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" " Remap keys for gotos
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+
+" " Use K to show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" hi link CocFloating markdown
+" hi CocFloat ctermbg=white ctermfg=red
+
+
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
+
+" " Highlight symbol under cursor on CursorHold
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" " Remap for rename current word
+" nmap <leader>rn <Plug>(coc-rename)
 
 
 " --- 2 space tabs by default ---
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
+" set shiftwidth=2
+" set softtabstop=2
+" set tabstop=2
+" set expandtab
 
 augroup filetypes
   autocmd!
@@ -426,52 +410,52 @@ let python_highlight_all=1
 
 
 " --- Search options ---
-set incsearch
-set ignorecase
-set smartcase
-set hlsearch " highlight search results
+" set incsearch
+" set ignorecase
+" set smartcase
+" set hlsearch " highlight search results
 
 
 " --- Macros ---
 
 " From https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
 " Executes a macro for each line in a visual selection
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+" xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
+" function! ExecuteMacroOverVisualRange()
+"   echo "@".getcmdline()
+"   execute ":'<,'>normal @".nr2char(getchar())
+" endfunction
 
 
 " --- Quickfix ---
 
-augroup quickfix
-  autocmd!
+" augroup quickfix
+"   autocmd!
 
-  " Open quickfix when new output is added, and return cursor to previous location
-  autocmd QuickFixCmdPost [^l]* nested botright copen | wincmd p
+"   " Open quickfix when new output is added, and return cursor to previous location
+"   autocmd QuickFixCmdPost [^l]* nested botright copen | wincmd p
 
-  " Enable wrapping for long quickfix lines
-  autocmd FileType qf
-        \ setlocal wrap |
-        \ setlocal linebreak
-augroup END
+"   " Enable wrapping for long quickfix lines
+"   autocmd FileType qf
+"         \ setlocal wrap |
+"         \ setlocal linebreak
+" augroup END
 
-let g:asyncrun_status = "stopped"
-augroup QuickfixStatus
-  au! BufWinEnter quickfix setlocal
-    \ statusline=%#LineNr#%{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ [%{g:asyncrun_status}]\ %=\%#CursorColumn#\ %y\ %#PmenuSel#\ %p%%\ %l:%c\ "
-augroup END
+" let g:asyncrun_status = "stopped"
+" augroup QuickfixStatus
+"   au! BufWinEnter quickfix setlocal
+"     \ statusline=%#LineNr#%{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ [%{g:asyncrun_status}]\ %=\%#CursorColumn#\ %y\ %#PmenuSel#\ %p%%\ %l:%c\ "
+" augroup END
 
 " --- Key mappings ---
 
 " " map ctrl+h/l to tab next/prev
 " nnoremap <C-h> :tabprev<CR>
 " nnoremap <C-l> :tabnext<CR>
-" " switch colon and semi-colon
-" noremap : ;
-" noremap ; :
+" switch colon and semi-colon
+noremap : ;
+noremap ; :
 
 " " move lines up/down
 " " Normal mode
@@ -550,9 +534,9 @@ nmap <F20> ;wa<CR>;cprev<CR>
 
 " --- Leader ---
 " set leader to space
-let mapleader = "\<Space>"
+" let mapleader = "\<Space>"
 " ,1 - write all and make
-nmap <leader>1 ;wa<CR><F18><CR>
+" nmap <leader>1 ;wa<CR><F18><CR>
 " ,! - make test
 nmap <leader>! ;wa<CR><F17><CR>
 " ,2 -  previous error
@@ -569,21 +553,21 @@ nmap <leader>6 ;wa<CR>;ln<CR>
 
 
 " 0 - stop async job
-nmap <leader>0 ;AsyncStop<CR>
+" nmap <leader>0 ;AsyncStop<CR>
 
 " e - fzf coc symbols
-nmap <leader>e ;CocFzfList symbols<cr>
+" nmap <leader>e ;CocFzfList symbols<cr>
 
-" o - fzf coc outline
-nmap <leader>o ;CocFzfList outline<cr>
+" " o - fzf coc outline
+" nmap <leader>o ;CocFzfList outline<cr>
 
 " f - fzf files
-nmap <leader>f ;GFiles<cr>
+" nmap <leader>f ;GFiles<cr>
 
 " j - jump to tag
-nmap <leader>j <C-]>
-" J - jump to previous tag
-nmap <leader>J <C-t>
+" nmap <leader>j <C-]>
+" " J - jump to previous tag
+" nmap <leader>J <C-t>
 
 " " n - toggle NvimTree
 nmap <leader>n ;NvimTreeFindFileToggle<cr>
@@ -591,66 +575,66 @@ nmap <leader>n ;NvimTreeFindFileToggle<cr>
 nmap <leader>N ;NvimTreeFindFile<cr>
 
 " a - switch to counterpart
-nmap <leader>a ;A<cr>
+" nmap <leader>a ;A<cr>
 
-" s - save all
-nmap <leader>s ;wa<cr>
+" " s - save all
+" nmap <leader>s ;wa<cr>
 
-" S - vertical split
-nmap <leader>S ;vsp<cr>
+" " S - vertical split
+" nmap <leader>S ;vsp<cr>
 
-" p - reformat paragraph
-nmap <leader>p gqip<cr>
+" " p - reformat paragraph
+" nmap <leader>p gqip<cr>
 
-" Q - open quickfix, scroll to end, and return focus
-nmap <leader>Q ;copen<cr>;cbottom<cr><c-w><c-p>
+" " Q - open quickfix, scroll to end, and return focus
+" nmap <leader>Q ;copen<cr>;cbottom<cr><c-w><c-p>
 
-" t - new tab
-nmap <leader>t ;tabnew<cr>
+" " t - new tab
+" nmap <leader>t ;tabnew<cr>
 
-" x - close tab
-nmap <leader>x ;tabclose<cr>
+" " x - close tab
+" nmap <leader>x ;tabclose<cr>
 
-" c - auto format
-nmap <leader>c ;call DoNeoformat()<cr>
+" " c - auto format
+" nmap <leader>c ;call DoNeoformat()<cr>
 
 " d - insert date
-nmap <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>
+" nmap <leader>d a<c-r>=strftime('%Y-%m-%d')<cr><esc>
 
-" D - insert timestamp
-nmap <leader>D a<c-r>=strftime('%Y-%m-%d %H:%M')<cr><esc>
+" " D - insert timestamp
+" nmap <leader>D a<c-r>=strftime('%Y-%m-%d %H:%M')<cr><esc>
 
 " T - insert empty TODO, ensure correct formatting and enter insert via append
-nmap <leader>T i- [ ] <esc>hhxla
+" nmap <leader>T i- [ ] <esc>hhxla
 
 " g - open flog
-nmap <leader>g ;Flog<cr>
+" nmap <leader>g ;Flog<cr>
 
 " G - Toggle Goyo
-nmap <leader>G ;Goyo<cr>
+" nmap <leader>G ;Goyo<cr>
 
 " h - search for current word in Dash according to filetype
-nmap <leader>h <Plug>DashSearch
+" nmap <leader>h <Plug>DashSearch
 
-" H - search for current word in Dash, globally
-nmap <leader>H <Plug>DashGlobalSearch
+" " H - search for current word in Dash, globally
+" nmap <leader>H <Plug>DashGlobalSearch
 
 " m - enter Goyo mode with PencilSoft
-nmap <leader>m ;Goyo<cr>;PencilSoft<cr>
+" nmap <leader>m ;Goyo<cr>;PencilSoft<cr>
 
 " M - open a new markdown buffer and enter Goyo mode with PencilSoft
-nmap <leader>M ;set filetype=markdown<cr>;CocDisable<cr><leader>m
+" nmap <leader>M ;set filetype=markdown<cr>;CocDisable<cr><leader>m
 
 " u - Go to parent Rust module
-nmap <leader>u ;CocCommand rust-analyzer.parentModule<cr>
+" nmap <leader>u ;CocCommand rust-analyzer.parentModule<cr>
 
-" Unmap insert mode mappings from a.vim
-augroup unmap-a-vim
-  autocmd!
-  autocmd VimEnter * iunmap <leader>ih
-  autocmd VimEnter * iunmap <leader>is
-  autocmd VimEnter * iunmap <leader>ihn
-augroup END
+" " Unmap insert mode mappings from a.vim
+" augroup unmap-a-vim
+"   autocmd!
+"   autocmd VimEnter * iunmap <leader>ih
+"   autocmd VimEnter * iunmap <leader>is
+"   autocmd VimEnter * iunmap <leader>ihn
+" augroup END
 
 
 " edit nvim/init.vim~

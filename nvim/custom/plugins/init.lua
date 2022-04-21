@@ -67,4 +67,7 @@ return {
 
   -- Leader mappings for quickly toggling the quickfix / location windows
   {'Valloric/ListToggle'},
+
+  -- Redirect output of commands into a buffer
+  {'AndrewRadev/bufferize.vim'},
 }

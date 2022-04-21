@@ -13,6 +13,10 @@ M.plugins = {
   },
 
   options = {
+    statusline = {
+      hide_disable = true,
+    },
+
     lspconfig = {
       setup_lspconf = "custom.plugins.lspconfig"
     }

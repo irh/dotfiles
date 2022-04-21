@@ -70,4 +70,13 @@ return {
 
   -- Redirect output of commands into a buffer
   {'AndrewRadev/bufferize.vim'},
+
+  -- REPL interaction 
+  {'jpalardy/vim-slime',
+    ft = {'julia', 'koto'},
+    config = function()
+      vim.g.slime_target = 'tmux'
+      vim.g.slime_default_config = {socket_name = "default", target_pane = "{last}"}
+    end
+  },
 }

@@ -12,6 +12,7 @@ M.treesitter = {
       "html",
       "javascript",
       "json",
+      "julia",
       "lua",
       "markdown",
       "rust",

@@ -79,4 +79,3 @@ nmap('<leader>s', ':wa<CR>')
 
 -- S - Vertical Split
 nmap('<leader>S', ':vsp<CR>')
-

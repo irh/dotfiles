@@ -18,6 +18,15 @@ return {
       require('rust-tools').setup {}
     end
   },
+
+  -- -- Autoformatter support for LSP
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   after = "nvim-lspconfig",
+  --   config = function()
+  --      require("custom.plugins.configs.null_ls").setup()
+  --   end,
+  -- },
  
   --
   -- Text editing 
@@ -47,7 +56,7 @@ return {
 
   -- Asynchronously run shell commands, used for make
   {'skywind3000/asyncrun.vim', 
-    ft = 'rust',
+    cmd = 'AsyncRun',
     config = function() 
       vim.g.asyncrun_open = 10 -- auto open the quickfix window with height 10 
     end

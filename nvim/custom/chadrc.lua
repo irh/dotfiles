@@ -26,6 +26,10 @@ M.plugins = {
 }
 
 M.mappings = {
+  misc = {
+    cheatsheet = "<leader>H",
+  },
+
   plugins = {
     bufferline = {
        next_buffer = "<TAB>",

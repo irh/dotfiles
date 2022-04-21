@@ -53,6 +53,9 @@ nmap('<leader>3', ':wa<CR>:cnext<CR>')
 -- 0 - Stop an active async job
 nmap('<leader>0', ':AsyncStop<CR>')
 
+-- c - Format the current buffer
+nmap('<leader>c', ':lua vim.lsp.buf.formatting_sync()<CR>')
+
 -- d - Telescope diagnostics
 nmap('<leader>d', ':Telescope diagnostics<CR>')
 

@@ -36,6 +36,8 @@ opt.scrolloff = 2
 -- Jump to already open buffers (including tabs) when switching buffers from quickfix
 -- switchbuf = 'useopen', -- TODO would useopen be better?
 
+opt.wildmode = "longest:full"
+
 -- Disable word wrap by default
 opt.wrap = false
 

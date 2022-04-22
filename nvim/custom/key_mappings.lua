@@ -59,6 +59,9 @@ nmap('<leader>c', ':lua vim.lsp.buf.formatting_sync()<CR>')
 -- d - Telescope diagnostics
 nmap('<leader>d', ':Telescope diagnostics<CR>')
 
+-- F - Telescope git files
+nmap('<leader>F', ':Telescope git_files<CR>')
+
 -- i - Telescope document symbols
 nmap('<leader>i', ':Telescope lsp_document_symbols<CR>')
 

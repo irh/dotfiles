@@ -36,7 +36,7 @@ return {
   {'tpope/vim-surround'},
 
   -- Auto-insert close brackets, quotes, etc
-  {'jiangmiao/auto-pairs'},
+  -- {'jiangmiao/auto-pairs'},
 
   -- Provides a text object that operates on indentation level
   {'michaeljsmith/vim-indent-object'},

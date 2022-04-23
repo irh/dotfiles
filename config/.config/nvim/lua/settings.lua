@@ -1,49 +1,86 @@
-settings = vim.opt
+opt = vim.opt
 
--- Make backups via renaming instead of copying
--- This is set this way so that trunk recognizes file changes in neovim, see https://github.com/thedodd/trunk/issues/232
+-- Make backups via renaming instead of copying.
+-- This is set this way so that trunk recognizes file changes in neovim, see
+-- https://github.com/thedodd/trunk/issues/232
 -- (May be unnecessary since https://github.com/thedodd/trunk/pull/350 was merged)
-settings.backupcopy = 'no'
+opt.backupcopy = 'no'
 
--- Use the system clipboard for the default register
-settings.clipboard = 'unnamed'
+-- Use the system clipboard with the default register
+opt.clipboard = 'unnamed'
 
 -- Highlight the column after 90
-settings.colorcolumn = '91'
+opt.colorcolumn = '91'
 
 -- Ask for confirmation to save when unsaved buffers are present
-settings.confirm = true
+opt.confirm = true
 
 -- Options for diff mode
-settings.diffopt:append('vertical')
+opt.diffopt:append('vertical')
 
 -- Place swp files in a central folder
-settings.directory:prepend('$HOME/.config/nvim/swap/')
+opt.directory:prepend('$HOME/.config/nvim/swap/')
+
+-- Expand tab keypresses into spaces
+opt.expandtab = true
 
 -- Don't fold by default
-settings.foldenable = false
+opt.foldenable = false
 
 -- Use ripgrep for grepping
-settings.grepprg = 'rg --vimgrep $*'
+opt.grepprg = 'rg --vimgrep $*'
+
+-- Ignore case when searching, see also: smartcase
+opt.ignorecase = true
+
+-- show a status line in the last window
+opt.laststatus = 2
 
 -- Allow % matching on <>
-settings.matchpairs:append('<:>')
+opt.matchpairs:append('<:>')
 
--- Enable the mouse in all modes
-settings.mouse = 'a'
+-- Enable mouse everywhere
+opt.mouse = 'a'
 
--- Start scrolling before the cursor reaches the vertical edge of the screen
-settings.scrolloff = 2
+-- Don't show line numbers by default
+opt.number = false
+
+-- Start scrolling before cursor reaches last line
+opt.scrolloff = 2
+
+-- 2 spaces for auto indent
+opt.shiftwidth = 2
 
 -- Always show the sign column
-settings.signcolumn = 'yes'
+opt.signcolumn = 'yes'
 
--- Split below the current window by default
-settings.splitbelow = true
+-- Don't ignore case when searching if the search string contains capital letters
+opt.smartcase = true
+
+-- Smart indenting when starting a new line
+opt.smartindent = true
+
+-- Split windows should appear below or to the right
+opt.splitbelow = true
+opt.splitright = true
+
+-- Enables 24 bit RGB color
+opt.termguicolors = true
 
 -- Jump to already open buffers (including tabs) when switching buffers from quickfix
-settings.switchbuf = 'useopen' -- TODO would useopen be better?
+-- switchbuf = 'useopen', -- TODO would useopen be better?
+
+opt.wildmode = "longest:full"
 
 -- Disable word wrap by default
-settings.wrap = false
+opt.wrap = false
 
+-- Disable virtual text for diagnostics, it's too distracting
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+ vim.lsp.diagnostic.on_publish_diagnostics, {
+   -- Disable underline
+   underline = false,
+   -- Disable virtual text
+   virtual_text = false,
+ }
+)

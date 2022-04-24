@@ -41,6 +41,14 @@ local plugins = {
     end
   },
 
+  { "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require('plugins/treesitter').setup()
+    end,
+    event = { "BufRead", "BufNewFile" },
+    run = ":TSUpdate",
+  },
+
   -- -- Autoformatter support for LSP
   -- {
   --   "jose-elias-alvarez/null-ls.nvim",
@@ -86,6 +94,17 @@ local plugins = {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup()
+    end
+  },
+
+  -- Show indent lines
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('indent_blankline').setup {
+        -- show_first_indent_level = false,
+        show_trailing_blankline_indent = false,
+      }
     end
   },
 
@@ -160,6 +179,7 @@ local plugins = {
     end
   },
 }
+
 
 -- The list of plugins to use
 require('packer').startup(function(use)

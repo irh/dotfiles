@@ -2,7 +2,9 @@
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone --depth 1 https://github.com/wbthomason/packer.nvim ' .. install_path)
+  vim.fn.execute(
+    '!git clone --depth 1 https://github.com/wbthomason/packer.nvim '
+    .. install_path)
 end
 
 -- Recompile the packer config when this file changes
@@ -13,6 +15,8 @@ vim.cmd([[
   augroup end
 ]])
 
+local file_events = { 'BufRead', 'BufNewFile' }
+
 local plugins = {
   --
   -- Language support
@@ -20,6 +24,7 @@ local plugins = {
 
   -- Common LSP configurations
   { 'neovim/nvim-lspconfig',
+    event = 'VimEnter',
     config = function()
       require('plugins/lspconfig').setup()
     end
@@ -41,49 +46,48 @@ local plugins = {
     end
   },
 
-  { "nvim-treesitter/nvim-treesitter",
+  { 'nvim-treesitter/nvim-treesitter',
     config = function()
       require('plugins/treesitter').setup()
     end,
-    event = { "BufRead", "BufNewFile" },
-    run = ":TSUpdate",
+    event = file_events,
+    run = ':TSUpdate',
   },
-
-  -- -- Autoformatter support for LSP
-  -- {
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   after = "nvim-lspconfig",
-  --   config = function()
-  --      require("custom.plugins.configs.null_ls").setup()
-  --   end,
-  -- },
 
   --
   -- Text editing
   --
 
   -- Surround motion
-  { 'tpope/vim-surround' },
-
-  -- Auto-insert close brackets, quotes, etc
-  -- {'jiangmiao/auto-pairs'},
+  { 'tpope/vim-surround',
+    event = file_events,
+  },
 
   -- Provides a text object that operates on indentation level
-  { 'michaeljsmith/vim-indent-object' },
+  { 'michaeljsmith/vim-indent-object',
+    event = file_events,
+  },
 
   -- Provides various useful text objects (pairs, strings, separators, arguments)
-  { 'wellle/targets.vim' },
+  { 'wellle/targets.vim',
+    event = file_events,
+  },
 
   -- Helper for surround.vim when using `.`
-  { 'tpope/vim-repeat' },
+  { 'tpope/vim-repeat',
+    event = file_events,
+  },
 
   -- Code auto-formatting
-  { 'sbdchd/neoformat' },
+  { 'sbdchd/neoformat',
+    event = file_events,
+  },
 
   -- Commenting
   {
-    "numToStr/Comment.nvim",
-    keys = { "gcc" },
+    'numToStr/Comment.nvim',
+    event = file_events,
+    keys = { 'gcc' },
     config = function()
       require('Comment').setup()
     end
@@ -92,6 +96,7 @@ local plugins = {
   -- Auto-insert pairs
   {
     'windwp/nvim-autopairs',
+    event = 'InsertEnter',
     config = function()
       require('nvim-autopairs').setup()
     end
@@ -115,7 +120,8 @@ local plugins = {
     config = function()
       onedark = require('onedark')
       onedark.setup {
-        style = 'warm'
+        style = 'warm',
+        -- transparent = true,
       }
       onedark.load()
     end
@@ -138,9 +144,9 @@ local plugins = {
 
   -- Telescope - preview / select list items
   {
-    "nvim-telescope/telescope.nvim",
+    'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
-    cmd = "Telescope",
+    cmd = 'Telescope',
     config = function()
       require('plugins/telescope').setup()
     end,
@@ -158,25 +164,84 @@ local plugins = {
   { 'ii14/exrc.vim' },
 
   -- Leader mappings for quickly toggling the quickfix / location windows
-  { 'Valloric/ListToggle' },
+  { 'Valloric/ListToggle',
+    event = 'VimEnter',
+  },
 
   -- Redirect output of commands into a buffer
-  { 'AndrewRadev/bufferize.vim' },
+  { 'AndrewRadev/bufferize.vim',
+    cmd = { 'Bufferize', 'BufferizeSystem', 'BufferizeTimer' },
+  },
 
   -- REPL interaction
   { 'jpalardy/vim-slime',
     ft = { 'julia', 'koto' },
     config = function()
       vim.g.slime_target = 'tmux'
-      vim.g.slime_default_config = { socket_name = "default", target_pane = "{last}" }
+      vim.g.slime_default_config = { socket_name = 'default', target_pane = '{last}' }
     end
   },
 
   -- Show git status in the sign column
   { 'lewis6991/gitsigns.nvim',
+    event = file_events,
     config = function()
       require('gitsigns').setup()
     end
+  },
+
+  --
+  -- Cmp
+  --
+
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    config = function()
+      require('plugins/cmp').setup()
+    end
+  },
+
+  -- Snippet engine
+  {
+    'L3MON4D3/LuaSnip',
+    after = 'nvim-cmp',
+    config = function()
+    end
+  },
+
+  -- snippets
+  {
+    'rafamadriz/friendly-snippets',
+    after = 'LuaSnip',
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end
+  },
+
+  {
+    'saadparwaiz1/cmp_luasnip',
+    after = 'LuaSnip',
+  },
+
+  {
+    'hrsh7th/cmp-nvim-lua',
+    after = 'cmp_luasnip',
+  },
+
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    after = 'cmp-nvim-lua',
+  },
+
+  {
+    'hrsh7th/cmp-buffer',
+    after = 'cmp-nvim-lsp',
+  },
+
+  {
+    'hrsh7th/cmp-path',
+    after = 'cmp-buffer',
   },
 }
 

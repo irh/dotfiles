@@ -1,20 +1,20 @@
 local function map(mode, keys, command, opt)
-   local options = { noremap = true, silent = true }
-   if opt then
-      options = vim.tbl_extend("force", options, opt)
-   end
-   if type(mode) == "table" then
-     for _, m in ipairs(mode) do
-        vim.api.nvim_set_keymap(m, keys, command, options)
-     end
-   else
-      vim.api.nvim_set_keymap(mode, keys, command, options)
-   end
+  local options = { noremap = true, silent = true }
+  if opt then
+    options = vim.tbl_extend("force", options, opt)
+  end
+  if type(mode) == "table" then
+    for _, m in ipairs(mode) do
+      vim.api.nvim_set_keymap(m, keys, command, options)
+    end
+  else
+    vim.api.nvim_set_keymap(mode, keys, command, options)
+  end
 end
 
 local function swap_keys(a, b)
-  modes = {'n', 'v', 's', 'o'}
-  opts = {silent = false}
+  modes = { 'n', 'v', 's', 'o' }
+  opts = { silent = false }
   map(modes, a, b, opts)
   map(modes, b, a, opts)
 end

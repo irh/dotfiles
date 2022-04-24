@@ -12,6 +12,9 @@ opt.clipboard = 'unnamed'
 -- Highlight the column after 90
 opt.colorcolumn = '91'
 
+-- Configure the completion menu
+opt.completeopt = 'menuone,noselect'
+
 -- Ask for confirmation to save when unsaved buffers are present
 opt.confirm = true
 

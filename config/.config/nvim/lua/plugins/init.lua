@@ -1,20 +1,3 @@
--- Bootstrap packer if it isn't already installed
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute(
-    '!git clone --depth 1 https://github.com/wbthomason/packer.nvim '
-    .. install_path)
-end
-
--- Recompile the packer config when this file changes
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
 local file_events = { 'BufRead', 'BufNewFile' }
 
 local plugins = {
@@ -245,13 +228,34 @@ local plugins = {
   },
 }
 
+-- Bootstrap packer if it isn't already installed
+local fn = vim.fn
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  print('cloning packer')
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+end
 
--- The list of plugins to use
-require('packer').startup(function(use)
+local packer = require('packer')
+
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "single" }
+    end,
+    prompt_border = "single",
+  },
+}
+
+packer.startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
   for _, plugin in ipairs(plugins) do
     use(plugin)
+  end
+
+  if packer_bootstrap then
+    require('packer').sync()
   end
 end)

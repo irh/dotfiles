@@ -89,6 +89,9 @@ nmap('<leader>F', ':Telescope git_files<CR>')
 -- g - Telescope grep
 nmap('<leader>g', ':Telescope live_grep<CR>')
 
+-- G - Telescope git commits
+nmap('<leader>G', ':Telescope git_commits<CR>')
+
 -- h - Telescope help
 nmap('<leader>h', ':Telescope help_tags<CR>')
 

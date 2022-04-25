@@ -255,6 +255,10 @@ local plugins = {
       require("zen-mode").setup {}
     end
   },
+
+  { 'tpope/vim-fugitive',
+    cmd = { 'G', 'Git', 'GBrowse', 'GDiff' }
+  },
 }
 
 -- Bootstrap packer if it isn't already installed

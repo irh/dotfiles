@@ -26,24 +26,28 @@ end
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   pattern = '*',
   callback = function(args)
-    local match = args.match
-    if match:match('NvimTree*') or match == '' or match == nil then
-      vim.opt_local.statusline = ' '
-    else
-      vim.opt_local.statusline = set_active()
-    end
+    vim.opt_local.statusline = set_active()
   end,
 })
 
 vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   pattern = '*',
   callback = function(args)
-    local match = args.match
-    if match:match('NvimTree*') or match == '' or match == nil then
-      vim.opt_local.statusline = ' '
-    else
-      vim.opt_local.statusline = set_inactive()
-    end
+    vim.opt_local.statusline = set_inactive()
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
+  pattern = 'NVimTree*',
+  callback = function(args)
+    vim.opt_local.statusline = ' '
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
+  pattern = 'NVimTree*',
+  callback = function(args)
+    vim.opt_local.statusline = ' '
   end,
 })
 

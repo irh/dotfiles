@@ -103,21 +103,21 @@ local plugins = {
   --
   { 'navarasu/onedark.nvim',
     config = function()
+      border_color = { fg = '$grey', bg = '$bg0' }
       onedark = require('onedark')
       onedark.setup {
         style = 'warm',
-        -- transparent = true,
+        highlights = {
+          TelescopeBorder = border_color,
+          TelescopePromptBorder = border_color,
+          TelescopeResultsBorder = border_color,
+          TelescopePreviewBorder = border_color,
+          TelescopePromptPrefix = border_color,
+        }
       }
       onedark.load()
     end
   },
-
-  -- {
-  --   'overcache/NeoSolarized',
-  --   setup = function()
-  --     vim.cmd('colorscheme NeoSolarized')
-  --   end
-  -- },
 
   --
   -- Extensions

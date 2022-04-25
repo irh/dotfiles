@@ -17,7 +17,9 @@ local plugins = {
   { 'NoahTheDuke/vim-just', ft = 'just' },
 
   -- Koto highlighting
-  { 'koto-lang/koto.vim', ft = 'koto' },
+  -- { 'koto-lang/koto.vim', ft = 'koto' },
+  { '~/dev/koto/koto.vim', ft = 'koto' },
+
 
   -- Rust support, particularly for better cargo integration
   { 'rust-lang/rust.vim', ft = 'rust' },

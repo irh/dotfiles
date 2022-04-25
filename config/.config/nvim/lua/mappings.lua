@@ -112,3 +112,9 @@ nmap('<leader>s', ':wa<CR>')
 
 -- S - Vertical Split
 nmap('<leader>S', ':vsp<CR>')
+
+-- t - New tab
+nmap('<leader>t', ':tabnew<CR>')
+
+-- z - Zen mode
+nmap('<leader>z', ':ZenMode<CR>')

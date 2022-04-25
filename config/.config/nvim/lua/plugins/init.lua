@@ -120,6 +120,60 @@ local plugins = {
   },
 
   --
+  -- Cmp
+  --
+
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    config = function()
+      require('plugins/cmp').setup()
+    end
+  },
+
+  -- Snippet engine
+  {
+    'L3MON4D3/LuaSnip',
+    after = 'nvim-cmp',
+    config = function()
+    end
+  },
+
+  -- snippets
+  {
+    'rafamadriz/friendly-snippets',
+    after = 'LuaSnip',
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end
+  },
+
+  {
+    'saadparwaiz1/cmp_luasnip',
+    after = 'LuaSnip',
+  },
+
+  {
+    'hrsh7th/cmp-nvim-lua',
+    after = 'cmp_luasnip',
+  },
+
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    after = 'cmp-nvim-lua',
+  },
+
+  {
+    'hrsh7th/cmp-buffer',
+    after = 'cmp-nvim-lsp',
+  },
+
+  {
+    'hrsh7th/cmp-path',
+    after = 'cmp-buffer',
+  },
+
+  --
   -- Extensions
   --
 
@@ -192,58 +246,12 @@ local plugins = {
     end
   },
 
-  --
-  -- Cmp
-  --
-
-  {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+  -- Minimal editing mode
+  { 'folke/zen-mode.nvim',
+    cmd = 'ZenMode',
     config = function()
-      require('plugins/cmp').setup()
+      require("zen-mode").setup {}
     end
-  },
-
-  -- Snippet engine
-  {
-    'L3MON4D3/LuaSnip',
-    after = 'nvim-cmp',
-    config = function()
-    end
-  },
-
-  -- snippets
-  {
-    'rafamadriz/friendly-snippets',
-    after = 'LuaSnip',
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end
-  },
-
-  {
-    'saadparwaiz1/cmp_luasnip',
-    after = 'LuaSnip',
-  },
-
-  {
-    'hrsh7th/cmp-nvim-lua',
-    after = 'cmp_luasnip',
-  },
-
-  {
-    'hrsh7th/cmp-nvim-lsp',
-    after = 'cmp-nvim-lua',
-  },
-
-  {
-    'hrsh7th/cmp-buffer',
-    after = 'cmp-nvim-lsp',
-  },
-
-  {
-    'hrsh7th/cmp-path',
-    after = 'cmp-buffer',
   },
 }
 

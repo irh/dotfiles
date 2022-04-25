@@ -233,8 +233,10 @@ local plugins = {
   { 'jpalardy/vim-slime',
     ft = { 'julia', 'koto' },
     config = function()
-      vim.g.slime_target = 'tmux'
-      vim.g.slime_default_config = { socket_name = 'default', target_pane = '{last}' }
+      local g = vim.g
+      g.slime_target = 'tmux'
+      g.slime_default_config = { socket_name = 'default', target_pane = '{last}' }
+      g.slime_dont_ask_default = 1
     end
   },
 

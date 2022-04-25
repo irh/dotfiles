@@ -126,9 +126,10 @@ local plugins = {
   -- Startup screen
   {
     'goolord/alpha-nvim',
+    event = 'VimEnter',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
-      require('alpha').setup(require('alpha.themes.startify').config)
+      require('alpha').setup(require('plugins.alpha').config)
     end
   },
 

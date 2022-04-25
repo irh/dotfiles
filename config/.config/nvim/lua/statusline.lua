@@ -22,30 +22,41 @@ local set_inactive = function()
       .. ' %f'
 end
 
-vim.api.nvim_create_autocmd({"WinEnter", "BufEnter"}, {
-  pattern = "*",
+
+vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
+  pattern = '*',
   callback = function(args)
-    vim.opt_local.statusline = set_active()
+    local match = args.match
+    if match:match('NvimTree*') or match == '' or match == nil then
+      vim.opt_local.statusline = ' '
+    else
+      vim.opt_local.statusline = set_active()
+    end
   end,
 })
 
-vim.api.nvim_create_autocmd({"WinLeave", "BufLeave"}, {
-  pattern = "*",
+vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
+  pattern = '*',
   callback = function(args)
-    vim.opt_local.statusline = set_inactive()
+    local match = args.match
+    if match:match('NvimTree*') or match == '' or match == nil then
+      vim.opt_local.statusline = ' '
+    else
+      vim.opt_local.statusline = set_inactive()
+    end
   end,
 })
 
-vim.api.nvim_create_autocmd({"WinEnter", "BufEnter"}, {
-  pattern = "NvimTree*",
+vim.api.nvim_create_autocmd({ 'User' }, {
+  pattern = 'AlphaReady',
   callback = function(args)
-    vim.opt_local.statusline = " "
-  end,
+    vim.opt.laststatus = 0
+  end
 })
 
-vim.api.nvim_create_autocmd({"WinLeave", "BufLeave"}, {
-  pattern = "NvimTree*",
+vim.api.nvim_create_autocmd({ 'BufUnload' }, {
+  pattern = '*',
   callback = function(args)
-    vim.opt_local.statusline = " "
-  end,
+    vim.opt.laststatus = 2
+  end
 })

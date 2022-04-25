@@ -1,5 +1,8 @@
 opt = vim.opt
 
+-- Use dark theme variants
+opt.background = 'dark'
+
 -- Make backups via renaming instead of copying.
 -- This is set this way so that trunk recognizes file changes in neovim, see
 -- https://github.com/thedodd/trunk/issues/232

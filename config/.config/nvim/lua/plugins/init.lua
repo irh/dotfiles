@@ -110,9 +110,25 @@ local plugins = {
     end
   },
 
+  -- {
+  --   'overcache/NeoSolarized',
+  --   setup = function()
+  --     vim.cmd('colorscheme NeoSolarized')
+  --   end
+  -- },
+
   --
   -- Extensions
   --
+
+  -- Startup screen
+  {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function()
+      require('alpha').setup(require('alpha.themes.startify').config)
+    end
+  },
 
   -- File explorer
   {

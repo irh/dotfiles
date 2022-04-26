@@ -24,13 +24,6 @@ local plugins = {
   -- Rust support, particularly for better cargo integration
   { 'rust-lang/rust.vim', ft = 'rust' },
 
-  -- Rust LSP support
-  { 'simrat39/rust-tools.nvim', ft = 'rust',
-    config = function()
-      require('rust-tools').setup {}
-    end
-  },
-
   { 'nvim-treesitter/nvim-treesitter',
     config = function()
       require('plugins/treesitter').setup()
@@ -113,7 +106,8 @@ local plugins = {
           TelescopeResultsBorder = border_color,
           TelescopePreviewBorder = border_color,
           TelescopePromptPrefix = border_color,
-        }
+        },
+        toggle_style_key = '<leader>Z',
       }
       onedark.load()
     end

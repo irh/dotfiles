@@ -88,6 +88,8 @@ local plugins = {
         -- show_first_indent_level = false,
         show_trailing_blankline_indent = false,
       }
+
+      vim.cmd "highlight IndentBlanklineChar guifg=#404040 gui=nocombine"
     end
   },
 

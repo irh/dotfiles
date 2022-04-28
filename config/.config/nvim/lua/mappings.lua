@@ -40,10 +40,10 @@ nmap('gD', ':lua vim.lsp.buf.declaration()<CR>')
 -- Function keys
 ------------------
 
--- F17 - Make
-nmap('<F17>', ':set makeprg=$MAKEPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
--- F18 - Test
-nmap('<F18>', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
+-- F17 - Test
+nmap('<F17>', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
+-- F18 - Make
+nmap('<F18>', ':set makeprg=$MAKEPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
 -- F19 - Next error
 nmap('<F19>', ':wa<CR>:cnext<CR>')
 -- F20 - Previous error

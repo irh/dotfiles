@@ -92,8 +92,11 @@ nmap('<leader>g', ':Telescope live_grep<CR>')
 -- G - Telescope git commits
 nmap('<leader>G', ':Telescope git_commits<CR>')
 
--- h - Telescope help
-nmap('<leader>h', ':Telescope help_tags<CR>')
+-- h - Search Dash for word under cursor
+nmap('<leader>h', ':DashWord<CR>')
+
+-- H - Telescope help
+nmap('<leader>H', ':Telescope help_tags<CR>')
 
 -- i - Telescope document symbols
 nmap('<leader>i', ':Telescope lsp_document_symbols<CR>')

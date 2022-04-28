@@ -198,7 +198,7 @@ local plugins = {
   {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
-    cmd = 'Telescope',
+    event = 'VimEnter',
     config = function()
       require('plugins/telescope').setup()
     end,
@@ -252,8 +252,20 @@ local plugins = {
     end
   },
 
+  -- Git commands
   { 'tpope/vim-fugitive',
     cmd = { 'G', 'Git', 'GBrowse', 'GDiff' }
+  },
+
+  -- Dash support
+  {
+    'mrjones2014/dash.nvim',
+    run = 'make install',
+    after = 'telescope.nvim',
+    cmd = { 'Dash', 'DashWord' },
+    config = function()
+      require('dash').setup {}
+    end
   },
 }
 

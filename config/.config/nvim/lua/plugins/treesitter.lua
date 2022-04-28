@@ -15,7 +15,6 @@ M.setup = function()
       'json',
       'julia',
       'lua',
-      'markdown',
       'rust',
       'swift',
       'toml',

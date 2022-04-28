@@ -94,7 +94,7 @@ local plugins = {
         show_trailing_blankline_indent = false,
       }
 
-      vim.cmd "highlight IndentBlanklineChar guifg=#404040 gui=nocombine"
+      vim.cmd "highlight IndentBlanklineChar guifg=#303030 gui=nocombine"
     end
   },
 

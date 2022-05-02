@@ -101,6 +101,12 @@ local plugins = {
     end
   },
 
+  -- Strip trailing whitespace from modified lines on save
+  --
+  { 'axelf4/vim-strip-trailing-whitespace',
+    event = { 'VimEnter' },
+  },
+
   --
   -- Colour scheme
   --

@@ -1,12 +1,27 @@
--- Git commit messages and text files
+-- Git commit messages
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "gitcommit,markdown",
-  command = "set textwidth=80 | setlocal colorcolumn=81",
+  pattern = "gitcommit",
+  callback = function()
+    vim.opt.textwidth = 80
+    vim.opt.colorcolumn = '+1'
+  end
+})
+
+-- Markdown settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt.textwidth = 80
+    vim.opt.colorcolumn = '+1'
+    vim.opt.wrap = true
+  end
 })
 
 -- Rust file settings
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "rust",
-  command = "setlocal cc=101 | compiler cargo",
+  callback = function()
+    vim.opt.colorcolumn = '101'
+    vim.cmd "compiler cargo"
+  end
 })
-

@@ -39,8 +39,11 @@ opt.grepprg = 'rg --vimgrep $*'
 -- Ignore case when searching, see also: smartcase
 opt.ignorecase = true
 
--- show a status line in the last window
+-- Show a status line in the last window
 opt.laststatus = 2
+
+-- Break on word boundary when wrapping is on
+opt.linebreak = true
 
 -- Allow % matching on <>
 opt.matchpairs:append('<:>')

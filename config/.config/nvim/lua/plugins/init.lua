@@ -184,6 +184,11 @@ local plugins = {
     after = 'cmp-buffer',
   },
 
+  {
+    'f3fora/cmp-spell',
+    after = 'cmp-buffer',
+  },
+
   --
   -- Extensions
   --

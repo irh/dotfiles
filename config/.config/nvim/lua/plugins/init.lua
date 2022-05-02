@@ -109,7 +109,8 @@ local plugins = {
       border_color = { fg = '$grey', bg = '$bg0' }
       onedark = require('onedark')
       onedark.setup {
-        style = 'warm',
+        transparent = false,
+        style = 'dark',
         highlights = {
           TelescopeBorder = border_color,
           TelescopePromptBorder = border_color,

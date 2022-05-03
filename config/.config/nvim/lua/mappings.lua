@@ -105,7 +105,7 @@ nmap('<leader>H', ':Telescope help_tags<CR>')
 nmap('<leader>i', ':Telescope lsp_document_symbols<CR>')
 
 -- k - LSP hover
-nmap('K', ':lua vim.lsp.buf.hover()<CR>')
+nmap('<leader>k', ':lua vim.lsp.buf.hover()<CR>')
 
 -- o - Telescope workspace symbols
 nmap('<leader>o', ':Telescope lsp_dynamic_workspace_symbols<CR>')

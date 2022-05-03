@@ -96,7 +96,9 @@ local plugins = {
   -- Strip trailing whitespace from modified lines on save
   --
   { 'axelf4/vim-strip-trailing-whitespace',
-    event = { 'VimEnter' },
+    -- Needs to be loaded before VimEnter so that it's active before the initial buffer
+    -- is loaded
+    -- event = { '' },
   },
 
   --

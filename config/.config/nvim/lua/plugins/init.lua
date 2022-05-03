@@ -127,13 +127,11 @@ local plugins = {
   --
 
   -- Cmp + LSP integration
-  {
-    'hrsh7th/cmp-nvim-lsp',
+  { 'hrsh7th/cmp-nvim-lsp',
     event = 'BufEnter',
   },
 
   -- Common LSP configurations
-
   { 'neovim/nvim-lspconfig',
     after = 'cmp-nvim-lsp',
     config = function()
@@ -142,14 +140,12 @@ local plugins = {
   },
 
   -- Snippet engine
-  {
-    'L3MON4D3/LuaSnip',
+  { 'L3MON4D3/LuaSnip',
     after = 'nvim-lspconfig',
   },
 
   -- snippets
-  {
-    'rafamadriz/friendly-snippets',
+  { 'rafamadriz/friendly-snippets',
     after = 'LuaSnip',
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -157,8 +153,7 @@ local plugins = {
   },
 
   -- Completion menu
-  {
-    'hrsh7th/nvim-cmp',
+  { 'hrsh7th/nvim-cmp',
     after = 'LuaSnip',
     config = function()
       require('plugins/cmp').setup()
@@ -166,30 +161,25 @@ local plugins = {
   },
 
   -- Cmp + LuaSnip integration
-  {
-    'saadparwaiz1/cmp_luasnip',
+  { 'saadparwaiz1/cmp_luasnip',
     after = 'nvim-cmp',
   },
 
   -- cmp sources
-  
-  {
-    'hrsh7th/cmp-nvim-lua',
+
+  { 'hrsh7th/cmp-nvim-lua',
     after = 'nvim-cmp',
   },
 
-  {
-    'hrsh7th/cmp-buffer',
+  { 'hrsh7th/cmp-buffer',
     after = 'nvim-cmp',
   },
 
-  {
-    'hrsh7th/cmp-path',
+  { 'hrsh7th/cmp-path',
     after = 'nvim-cmp',
   },
 
-  {
-    'f3fora/cmp-spell',
+  { 'f3fora/cmp-spell',
     after = 'nvim-cmp',
   },
 
@@ -198,8 +188,7 @@ local plugins = {
   --
 
   -- Startup screen
-  {
-    'goolord/alpha-nvim',
+  { 'goolord/alpha-nvim',
     event = 'VimEnter',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
@@ -208,8 +197,7 @@ local plugins = {
   },
 
   -- File explorer
-  {
-    'kyazdani42/nvim-tree.lua',
+  { 'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- For file icons
     },
@@ -219,14 +207,19 @@ local plugins = {
   },
 
   -- Telescope - preview / select list items
-  {
-    'nvim-telescope/telescope.nvim',
+  { 'nvim-telescope/telescope.nvim',
     commit = '280c4e30376e54d39e760e119cbe1dde965f39d9', -- Avoid bug in 544c5ee
     requires = { { 'nvim-lua/plenary.nvim' } },
     event = 'VimEnter',
     config = function()
       require('plugins/telescope').setup()
     end,
+  },
+
+  -- UI / dialog improvements
+  --
+  { 'stevearc/dressing.nvim',
+    event = 'VimEnter',
   },
 
   -- Asynchronously run shell commands, used for make
@@ -241,7 +234,8 @@ local plugins = {
   { 'ii14/exrc.vim' },
 
   -- Leader mappings for quickly toggling the quickfix / location windows
-  { 'Valloric/ListToggle',
+  {
+    'Valloric/ListToggle',
     event = 'VimEnter',
   },
 

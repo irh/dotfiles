@@ -88,7 +88,7 @@ opt.wrap = false
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  vim.lsp.diagnostic.on_publish_diagnostics, {
    -- Disable underline
-   underline = false,
+   underline = true,
    -- Disable virtual text
    virtual_text = false,
  }

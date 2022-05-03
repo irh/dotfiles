@@ -5,14 +5,6 @@ local plugins = {
   -- Language support
   --
 
-  -- Common LSP configurations
-  { 'neovim/nvim-lspconfig',
-    event = 'VimEnter',
-    config = function()
-      require('plugins/lspconfig').setup()
-    end
-  },
-
   -- justfile highlighting
   { 'NoahTheDuke/vim-just', ft = 'just' },
 
@@ -131,23 +123,28 @@ local plugins = {
   },
 
   --
-  -- Cmp
+  -- LSP, Snippets and completion menu
   --
 
+  -- Cmp + LSP integration
   {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    'hrsh7th/cmp-nvim-lsp',
+    event = 'BufEnter',
+  },
+
+  -- Common LSP configurations
+
+  { 'neovim/nvim-lspconfig',
+    after = 'cmp-nvim-lsp',
     config = function()
-      require('plugins/cmp').setup()
+      require('plugins/lspconfig').setup()
     end
   },
 
   -- Snippet engine
   {
     'L3MON4D3/LuaSnip',
-    after = 'nvim-cmp',
-    config = function()
-    end
+    after = 'nvim-lspconfig',
   },
 
   -- snippets
@@ -159,34 +156,41 @@ local plugins = {
     end
   },
 
+  -- Completion menu
+  {
+    'hrsh7th/nvim-cmp',
+    after = 'LuaSnip',
+    config = function()
+      require('plugins/cmp').setup()
+    end
+  },
+
+  -- Cmp + LuaSnip integration
   {
     'saadparwaiz1/cmp_luasnip',
-    after = 'LuaSnip',
+    after = 'nvim-cmp',
   },
 
+  -- cmp sources
+  
   {
     'hrsh7th/cmp-nvim-lua',
-    after = 'cmp_luasnip',
-  },
-
-  {
-    'hrsh7th/cmp-nvim-lsp',
-    after = 'cmp-nvim-lua',
+    after = 'nvim-cmp',
   },
 
   {
     'hrsh7th/cmp-buffer',
-    after = 'cmp-nvim-lsp',
+    after = 'nvim-cmp',
   },
 
   {
     'hrsh7th/cmp-path',
-    after = 'cmp-buffer',
+    after = 'nvim-cmp',
   },
 
   {
     'f3fora/cmp-spell',
-    after = 'cmp-buffer',
+    after = 'nvim-cmp',
   },
 
   --
@@ -217,6 +221,7 @@ local plugins = {
   -- Telescope - preview / select list items
   {
     'nvim-telescope/telescope.nvim',
+    commit = '280c4e30376e54d39e760e119cbe1dde965f39d9', -- Avoid bug in 544c5ee
     requires = { { 'nvim-lua/plenary.nvim' } },
     event = 'VimEnter',
     config = function()

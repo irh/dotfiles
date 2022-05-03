@@ -68,6 +68,9 @@ nmap('<leader>3', ':wa<CR>:cnext<CR>')
 -- 0 - Stop an active async job
 nmap('<leader>0', ':AsyncStop<CR>')
 
+-- a - Trigger code action
+nmap('<leader>a', ':lua vim.lsp.buf.code_action()<CR>')
+
 -- c - Format the current buffer
 nmap('<leader>c', ':lua vim.lsp.buf.formatting_sync()<CR>')
 
@@ -107,6 +110,9 @@ nmap('K', ':lua vim.lsp.buf.hover()<CR>')
 -- o - Telescope workspace symbols
 nmap('<leader>o', ':Telescope lsp_dynamic_workspace_symbols<CR>')
 
+-- P - Sync Packer
+nmap('<leader>P', ':PackerSync<CR>')
+
 -- r - Telescope references
 nmap('<leader>r', ':Telescope lsp_references<CR>')
 
@@ -121,6 +127,9 @@ nmap('<leader>S', ':vsp<CR>')
 
 -- t - New tab
 nmap('<leader>t', ':tabnew<CR>')
+
+-- x - Unlink active snippet
+nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')
 
 -- z - Zen mode
 nmap('<leader>z', ':ZenMode<CR>')

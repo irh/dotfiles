@@ -12,6 +12,9 @@ local plugins = {
   -- { 'koto-lang/koto.vim', ft = {'koto', 'markdown'} },
   { '~/dev/koto/koto.vim', ft = { 'koto', 'markdown' } },
 
+  -- Coffeescript highlighting
+  { 'kchmck/vim-coffee-script', ft = { 'coffee', 'markdown' } },
+
   -- Markdown support
   -- Treesitter markdown highlighting doesn't highlight fenced codeblocks correctly
   { 'preservim/vim-markdown', ft = 'markdown' },

@@ -59,10 +59,6 @@ M.setup = function()
       end,
     },
 
-    completion = {
-      autocomplete = false
-    },
-
     mapping = {
       ["<C-p>"] = cmp.mapping.select_prev_item(),
       ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -105,6 +101,12 @@ M.setup = function()
       { name = "spell" },
     },
   }
+
+  cmp.setup.filetype({ 'gitcommit', 'markdown', 'help' }, {
+    completion = {
+      autocomplete = false
+    },
+  })
 end
 
 return M

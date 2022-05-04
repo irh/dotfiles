@@ -65,12 +65,7 @@ local plugins = {
     event = file_events,
     keys = { 'gcc' },
     config = function()
-      require('Comment').setup {
-        toggler = {
-          line = '<leader>/',
-          block = '<leader>?',
-        },
-      }
+      require('Comment').setup()
     end
   },
 

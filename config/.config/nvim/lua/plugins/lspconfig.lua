@@ -9,6 +9,7 @@ M.setup = function()
     'ltex',
     'rust_analyzer',
     'sumneko_lua',
+    'tsserver',
   }
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()

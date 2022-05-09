@@ -7,6 +7,7 @@ npm install -g \
   pnpm \
   prettier \
   typescript \
+  typescript-language-server \
   vsce \
   wrangler \
   ;

@@ -1,10 +1,11 @@
 fnm install 16
 
-npm install -g \
+npm install -g pnpm
+
+pnpm install -g \
   gulp-cli \
   instant-markdown-d \
   lua-fmt \
-  pnpm \
   prettier \
   typescript \
   typescript-language-server \

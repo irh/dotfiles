@@ -9,15 +9,13 @@ stow stow
 stow bash
 stow config
 stow git
-stow vim
 
-source _scripts/vim-setup.sh
 source _scripts/neovim-setup.sh
 
 source _scripts/rust-setup.sh
+source _npm/npm-install-global.sh
 pip3 install -r _pip/packages3.txt
 julia _julia/packages.jl
-source _npm/npm-install-global.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   stow Library

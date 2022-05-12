@@ -1,5 +1,7 @@
 println("Installing Julia packages...")
 
+import Pkg
+
 Pkg.add("DSP")
 Pkg.add("FFTW")
 Pkg.add("Interact")

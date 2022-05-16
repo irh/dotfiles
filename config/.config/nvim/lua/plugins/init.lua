@@ -279,6 +279,10 @@ local plugins = {
   -- Dash support
   {
     'mrjones2014/dash.nvim',
+    opt = true,
+    cond = function()
+      return vim.fn.has('macunix') == 1
+    end,
     run = 'make install',
     after = 'telescope.nvim',
     cmd = { 'Dash', 'DashWord' },

@@ -5,6 +5,7 @@ M.setup = function()
     ensure_installed = {
       'bash',
       'c',
+      'cpp',
       'css',
       'elm',
       'fish',

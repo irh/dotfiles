@@ -3,10 +3,16 @@ set -x PATH \
   $HOME/.cargo/bin \
   $PATH
 
+switch (uname)
+case Darwin
+  set -x PATH \
+    /opt/homebrew/bin \
+    $PATH
+end
+
 if type -q brew
   set -x BREW_DIR (brew --prefix)
   set -x PATH \
-    $BREW_DIR/bin \
     $BREW_DIR/opt/make/libexec/gnubin \
     $BREW_DIR/opt/ruby/bin \
     $BREW_DIR/lib/ruby/gems/3.0.0/bin \

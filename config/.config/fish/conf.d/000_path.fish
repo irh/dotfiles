@@ -5,8 +5,11 @@ set -x PATH \
 
 switch (uname)
 case Darwin
+  set -x PNPM_HOME "/Users/ian/Library/pnpm"
+
   set -x PATH \
     /opt/homebrew/bin \
+    "$PNPM_HOME" \
     $PATH
 end
 

@@ -10,6 +10,7 @@ M.setup = function()
       'elm',
       'fish',
       'glsl',
+      'graphql',
       'haskell',
       'html',
       'javascript',

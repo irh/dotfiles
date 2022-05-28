@@ -1,37 +1,8 @@
 -- Set global nvimtree settings before calling setup
-local g = vim.g
-
-g.nvim_tree_show_icons = {
-  folders = 1,
-  files = 0,
-  git = 1,
-}
-
-g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    deleted = "",
-    ignored = "◌",
-    renamed = "➜",
-    staged = "✓",
-    unmerged = "",
-    unstaged = "✗",
-    untracked = "★",
-  },
-  folder = {
-    default = "",
-    empty = "",
-    empty_open = "",
-    open = "",
-    symlink = "",
-    symlink_open = "",
-  },
-}
 
 local M = {}
 
-M.setup = function(override_flag)
+M.setup = function()
   require('nvim-tree').setup {
     filters = {
       -- Don't show dotfiles by default, toggle with H
@@ -64,6 +35,34 @@ M.setup = function(override_flag)
     renderer = {
       indent_markers = {
         enable = true,
+      },
+      icons = {
+        show = {
+          file = false,
+          folder = true,
+          git = true,
+        },
+        glyphs = {
+          default = "",
+          symlink = "",
+          git = {
+            deleted = "",
+            ignored = "◌",
+            renamed = "➜",
+            staged = "✓",
+            unmerged = "",
+            unstaged = "✗",
+            untracked = "★",
+          },
+          folder = {
+            default = "",
+            empty = "",
+            empty_open = "",
+            open = "",
+            symlink = "",
+            symlink_open = "",
+          },
+        }
       }
     }
   }

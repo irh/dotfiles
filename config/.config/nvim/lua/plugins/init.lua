@@ -267,7 +267,14 @@ local plugins = {
   { 'folke/zen-mode.nvim',
     cmd = 'ZenMode',
     config = function()
-      require("zen-mode").setup {}
+      require("zen-mode").setup {
+        window = {
+          options = {
+            colorcolumn = "",
+            signcolumn = "no",
+          },
+        },
+      }
     end
   },
 

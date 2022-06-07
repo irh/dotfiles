@@ -25,6 +25,9 @@ local plugins = {
   -- Rust support, particularly for better cargo integration
   { 'rust-lang/rust.vim', ft = 'rust' },
 
+  -- Pug syntax highlighting
+  { 'digitaltoad/vim-pug', ft = 'pug' },
+
   { 'nvim-treesitter/nvim-treesitter',
     config = function()
       require('plugins/treesitter').setup()

@@ -19,6 +19,9 @@ local plugins = {
   -- Treesitter markdown highlighting doesn't highlight fenced codeblocks correctly
   { 'preservim/vim-markdown', ft = 'markdown' },
 
+  -- Markdown TOC generator
+  { 'mzlogin/vim-markdown-toc', ft = 'markdown' },
+
   -- Rust support, particularly for better cargo integration
   { 'rust-lang/rust.vim', ft = 'rust' },
 

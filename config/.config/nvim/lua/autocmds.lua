@@ -7,6 +7,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+-- Koto settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "koto",
+  callback = function()
+    vim.opt.textwidth = 100
+    vim.opt.colorcolumn = '+1'
+  end
+})
+
 -- Markdown settings
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
@@ -21,7 +30,8 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "rust",
   callback = function()
-    vim.opt.colorcolumn = '101'
+    vim.opt.textwidth = 100
+    vim.opt.colorcolumn = '+1'
     vim.cmd "compiler cargo"
   end
 })

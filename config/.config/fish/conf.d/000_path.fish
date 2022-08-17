@@ -9,6 +9,7 @@ case Darwin
 
   set -x PATH \
     /opt/homebrew/bin \
+    $HOME/.homebrew/bin \
     "$PNPM_HOME" \
     $PATH
 end

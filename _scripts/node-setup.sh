@@ -1,4 +1,4 @@
-fnm install 16
+fnm install --latest
 
 npm install -g pnpm
 

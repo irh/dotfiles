@@ -13,6 +13,7 @@ pip3 install -r _pip/packages3.txt
 julia _julia/packages.jl
 
 source _scripts/neovim-setup.sh
+source _scripts/tmux-setup.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   stow Library

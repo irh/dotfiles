@@ -234,7 +234,6 @@ local plugins = {
 
   -- Telescope - preview / select list items
   { 'nvim-telescope/telescope.nvim',
-    commit = '280c4e30376e54d39e760e119cbe1dde965f39d9', -- Avoid bug in 544c5ee
     requires = { { 'nvim-lua/plenary.nvim' } },
     event = 'VimEnter',
     config = function()

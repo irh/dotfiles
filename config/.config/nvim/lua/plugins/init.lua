@@ -189,6 +189,17 @@ local plugins = {
     after = 'nvim-cmp',
   },
 
+  -- Add toggle functions for diagnostics / virtual text
+  { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
+    after = 'cmp-nvim-lsp',
+    config = function()
+      require('toggle_lsp_diagnostics').init {
+        underline = false,
+        virtual_text = false,
+      }
+    end
+  },
+
   --
   -- Extensions
   --
@@ -310,7 +321,8 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   print('cloning packer')
-  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
 end
 
 local packer = require('packer')

@@ -77,13 +77,3 @@ opt.wildmode = "longest:full"
 
 -- Disable word wrap by default
 opt.wrap = false
-
--- Disable virtual text for diagnostics, it's too distracting
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
- vim.lsp.diagnostic.on_publish_diagnostics, {
-   -- Disable underline
-   underline = true,
-   -- Disable virtual text
-   virtual_text = false,
- }
-)

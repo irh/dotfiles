@@ -131,6 +131,9 @@ nmap('<leader>S', ':vsp<CR>')
 -- t - New tab
 nmap('<leader>t', ':tabnew<CR>')
 
+-- -- v - toggle virtual text
+nmap('<leader>v', '<Plug>(toggle-lsp-diag-vtext)')
+
 -- x - Unlink active snippet
 nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')
 

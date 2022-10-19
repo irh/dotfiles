@@ -11,6 +11,7 @@ M.setup = function()
     'ltex',
     'rust_analyzer',
     'sumneko_lua',
+    'taplo', -- TOML
     'tsserver',
   }
 
@@ -19,7 +20,6 @@ M.setup = function()
 
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
-      on_attach = attach,
       capabilities = capabilities,
       flags = {
         debounce_text_changes = 150,

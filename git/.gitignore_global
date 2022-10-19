@@ -3,9 +3,12 @@
 *.out
 *.code-workspace
 .DS_Store
+.exrc
 .netrwhist
 .nvimrc
+.pnpm-debug.log
 .vimrc
+.ccls-cache
 compile_commands.json
 tags
 tags.*

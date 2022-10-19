@@ -107,6 +107,9 @@ nmap('<leader>i', ':Telescope lsp_document_symbols<CR>')
 -- k - LSP hover
 nmap('<leader>k', ':lua vim.lsp.buf.hover()<CR>')
 
+-- L - Toggle line numbering
+nmap('<leader>L', ':set number! number?<CR>')
+
 -- o - Telescope workspace symbols
 nmap('<leader>o', ':Telescope lsp_dynamic_workspace_symbols<CR>')
 

@@ -39,6 +39,10 @@ M.setup = function()
   local luasnip = require('luasnip')
 
   cmp.setup {
+    completion = {
+      autocomplete = false
+    },
+
     snippet = {
       expand = function(args)
         require("luasnip").lsp_expand(args.body)
@@ -60,17 +64,14 @@ M.setup = function()
     },
 
     mapping = {
-      ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping.select_next_item(),
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.close(),
       ["<CR>"] = cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
+        select = false,
       },
-      ["<Tab>"] = cmp.mapping(function(fallback)
+      ["<C-n>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
@@ -81,7 +82,7 @@ M.setup = function()
           fallback()
         end
       end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
+      ["<C-p>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
@@ -101,12 +102,6 @@ M.setup = function()
       { name = "spell" },
     },
   }
-
-  cmp.setup.filetype({ 'gitcommit', 'markdown', 'help' }, {
-    completion = {
-      autocomplete = false
-    },
-  })
 end
 
 return M

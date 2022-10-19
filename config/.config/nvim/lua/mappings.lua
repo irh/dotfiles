@@ -72,7 +72,7 @@ nmap('<leader>0', ':AsyncStop<CR>')
 nmap('<leader>a', ':lua vim.lsp.buf.code_action()<CR>')
 
 -- c - Format the current buffer
-nmap('<leader>c', ':lua vim.lsp.buf.formatting_sync()<CR>')
+nmap('<leader>c', ':lua vim.lsp.buf.format()<CR>')
 
 -- d - Telescope diagnostics
 nmap('<leader>d', ':Telescope diagnostics<CR>')

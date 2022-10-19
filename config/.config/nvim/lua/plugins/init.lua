@@ -92,8 +92,6 @@ local plugins = {
         -- show_first_indent_level = false,
         show_trailing_blankline_indent = false,
       }
-
-      vim.cmd "highlight IndentBlanklineChar guifg=#303030 gui=nocombine"
     end
   },
 
@@ -116,6 +114,7 @@ local plugins = {
         transparent = false,
         style = 'dark',
         highlights = {
+          IndentBlanklineChar = { fg = '#383838' },
           TelescopeBorder = border_color,
           TelescopePromptBorder = border_color,
           TelescopeResultsBorder = border_color,

@@ -131,11 +131,8 @@ nmap('<leader>S', ':vsp<CR>')
 -- t - New tab
 nmap('<leader>t', ':tabnew<CR>')
 
--- u - Toggle inlay hints
-nmap('<leader>u', ':lua require("lsp-inlayhints").toggle()<CR>')
-
--- v - toggle virtual text
-nmap('<leader>v', '<Plug>(toggle-lsp-diag-vtext)')
+-- v - Toggle inlay hints and virtual text
+nmap('<leader>v', ':lua require("lsp-inlayhints").toggle()<CR><Plug>(toggle-lsp-diag-vtext)')
 
 -- x - Unlink active snippet
 nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')

@@ -5,8 +5,8 @@ local M = {}
 M.setup = function()
   require('nvim-tree').setup {
     filters = {
-      -- Don't show dotfiles by default, toggle with H
-      dotfiles = true,
+      -- Show dotfiles by default, toggle with H
+      dotfiles = false,
     },
     -- Disable netrw
     disable_netrw = true,

@@ -137,6 +137,7 @@
 
 [rebase]
   autosquash = true
+  updateRefs = true
 
 [status]
   submodulesummary= true

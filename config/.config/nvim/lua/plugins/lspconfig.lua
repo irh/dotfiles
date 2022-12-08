@@ -6,6 +6,7 @@ M.setup = function()
   -- lspservers with default config
   local servers = {
     'ccls',
+    'csharp_ls',
     'jsonls',
     'julials',
     'ltex',

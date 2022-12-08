@@ -1,3 +1,13 @@
+-- C# settings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "cs",
+  callback = function()
+    vim.opt.shiftwidth = 4
+    vim.opt.tabstop = 4
+  end
+})
+
+
 -- Git commit messages
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",

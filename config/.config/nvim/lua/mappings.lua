@@ -139,3 +139,10 @@ nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')
 
 -- z - Zen mode
 nmap('<leader>z', ':ZenMode<CR>')
+
+------------------
+-- Terminal
+------------------
+
+-- Exit from terminal mode with alt+escape
+map('t', '<A-esc>', '<C-\\><C-n>')

@@ -157,6 +157,8 @@ local section = {
     type = "group",
     val = {
       button("e", "New file", "<cmd>ene <CR>"),
+      button("t", "Today", "<cmd>ObsidianToday <CR>"),
+      button("y", "Yesterday", "<cmd>ObsidianYesterday <CR>"),
     },
   },
   -- note about MRU: currently this is a function,

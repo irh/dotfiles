@@ -322,6 +322,21 @@ local plugins = {
       require('dash').setup {}
     end
   },
+
+  -- Obsidian support
+  {
+    'epwalsh/obsidian.nvim',
+    after = 'nvim-cmp',
+    config = function()
+      require('obsidian').setup {
+        dir = '~/zk',
+        completion = {
+          nvim_cmp = true,
+        },
+        disable_frontmatter = true,
+      }
+    end
+  },
 }
 
 -- Bootstrap packer if it isn't already installed

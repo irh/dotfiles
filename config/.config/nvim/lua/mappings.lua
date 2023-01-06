@@ -131,6 +131,9 @@ nmap('<leader>S', ':vsp<CR>')
 -- t - New tab
 nmap('<leader>t', ':tabnew<CR>')
 
+-- T - Open today's notes
+nmap('<leader>T', ':ObsidianToday<CR>')
+
 -- v - Toggle inlay hints and virtual text
 nmap('<leader>v', ':lua require("lsp-inlayhints").toggle()<CR><Plug>(toggle-lsp-diag-vtext)')
 

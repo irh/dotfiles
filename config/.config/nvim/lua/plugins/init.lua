@@ -330,6 +330,9 @@ local plugins = {
     config = function()
       require('obsidian').setup {
         dir = '~/zk',
+        daily_notes = {
+          folder = "log",
+        },
         completion = {
           nvim_cmp = true,
         },

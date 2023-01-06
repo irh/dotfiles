@@ -83,11 +83,11 @@ nmap('<leader>e', ':NvimTreeToggle<CR>')
 -- E - Focus file explorer
 nmap('<leader>E', ':NvimTreeFocus<CR>')
 
--- f - Telescope git files
-nmap('<leader>f', ':Telescope git_files<CR>')
+-- f - Telescope files
+nmap('<leader>f', ':Telescope find_files<CR>')
 
--- F - Telescope files
-nmap('<leader>F', ':Telescope find_files<CR>')
+-- F - Telescope git files
+nmap('<leader>F', ':Telescope git_files<CR>')
 
 -- g - Telescope grep
 nmap('<leader>g', ':Telescope live_grep<CR>')

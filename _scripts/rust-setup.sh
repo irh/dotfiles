@@ -6,4 +6,5 @@ cargo install \
   cargo-bloat \
   cargo-lipo \
   cargo-tree \
-  cargo-watch
+  cargo-watch \
+  watchexec-cli

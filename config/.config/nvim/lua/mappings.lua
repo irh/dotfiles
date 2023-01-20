@@ -107,6 +107,9 @@ nmap('<leader>H', ':Telescope help_tags<CR>')
 -- i - Telescope document symbols
 nmap('<leader>i', ':Telescope lsp_document_symbols<CR>')
 
+-- I - Indent line and insert at end
+nmap('<leader>I', '>>A ')
+
 -- k - LSP hover
 nmap('<leader>k', ':lua vim.lsp.buf.hover()<CR>')
 

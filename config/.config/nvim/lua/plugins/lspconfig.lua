@@ -10,8 +10,8 @@ M.setup = function()
     'jsonls',
     'julials',
     'ltex',
+    'lua_ls',
     'rust_analyzer',
-    'sumneko_lua',
     'taplo', -- TOML
     'tsserver',
   }

@@ -35,6 +35,7 @@ swap_keys(':', ';')
 
 nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
 nmap('gD', ':lua vim.lsp.buf.declaration()<CR>')
+nmap('gx', [[:silent execute '!open ' . shellescape(expand('<cWORD>'), 1)<CR>]])
 
 ------------------
 -- Function keys

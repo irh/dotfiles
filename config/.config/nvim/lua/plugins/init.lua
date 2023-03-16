@@ -17,7 +17,10 @@ local plugins = {
 
   -- Markdown support
   -- Treesitter markdown highlighting doesn't highlight fenced codeblocks correctly
-  { 'preservim/vim-markdown', ft = 'markdown' },
+  { 'preservim/vim-markdown',
+    ft = 'markdown',
+    setup = 'vim.g.vim_markdown_no_default_key_mappings = 1'
+  },
 
   -- Markdown TOC generator
   { 'mzlogin/vim-markdown-toc', ft = 'markdown' },

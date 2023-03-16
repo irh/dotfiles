@@ -308,6 +308,12 @@ local plugins = {
     cmd = { 'G', 'Git', 'GBrowse', 'GDiff' }
   },
 
+  -- Fixed gx mapping
+  { 'felipec/vim-sanegx',
+    event = 'BufEnter',
+  },
+
+
   -- Dash support
   {
     'mrjones2014/dash.nvim',

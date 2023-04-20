@@ -472,3 +472,6 @@ key_bindings:
   - { key: F19,                     chars: "\x1b[33~"                        }
   - { key: F20,                     chars: "\x1b[34~"                        }
   - { key: NumpadEnter,             chars: "\n"                              }
+  # Allow shift+enter to work correctly in mkdx
+  - { key: Return,   mods: Shift,   chars: "\x1b[13;2u"                      }
+  - { key: Return,   mods: Control, chars: "\x1b[13;5u"                      }

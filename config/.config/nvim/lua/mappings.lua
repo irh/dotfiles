@@ -117,6 +117,9 @@ nmap('<leader>k', ':lua vim.lsp.buf.hover()<CR>')
 -- L - Toggle line numbering
 nmap('<leader>L', ':set number! number?<CR>')
 
+-- n - New tab
+nmap('<leader>n', ':tabnew<CR>')
+
 -- o - Telescope workspace symbols
 nmap('<leader>o', ':Telescope lsp_dynamic_workspace_symbols<CR>')
 
@@ -132,12 +135,6 @@ nmap('<leader>R', ':lua vim.lsp.buf.rename()<CR>')
 -- s - Save all
 nmap('<leader>s', ':wa<CR>')
 
--- S - Vertical Split
-nmap('<leader>S', ':vsp<CR>')
-
--- t - New tab
-nmap('<leader>t', ':tabnew<CR>')
-
 -- T - Open today's notes
 nmap('<leader>T', ':ObsidianToday<CR>')
 
@@ -149,6 +146,9 @@ nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')
 
 -- z - Zen mode
 nmap('<leader>z', ':ZenMode<CR>')
+
+-- | - Vertical Split
+nmap('<leader>|', ':vsp<CR>')
 
 ------------------
 -- Terminal

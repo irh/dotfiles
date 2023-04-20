@@ -16,14 +16,35 @@ local plugins = {
   { 'kchmck/vim-coffee-script', ft = { 'coffee', 'markdown' } },
 
   -- Markdown support
-  -- Treesitter markdown highlighting doesn't highlight fenced codeblocks correctly
   { 'preservim/vim-markdown',
     ft = 'markdown',
-    setup = 'vim.g.vim_markdown_no_default_key_mappings = 1'
+    setup = function()
+      local g = vim.g
+      g.vim_markdown_auto_insert_bullets = 0
+      g.vim_markdown_new_list_item_indent = 0
+    end
   },
 
-  -- Markdown TOC generator
-  { 'mzlogin/vim-markdown-toc', ft = 'markdown' },
+  -- Markdown editing QoL
+  { 'SidOfc/mkdx',
+    ft = 'markdown',
+    config = function()
+      vim.g['mkdx#settings'] = {
+        enter = {
+          -- Enable shift+enter in multiline list items
+          -- Requires overridden shift+enter codes in alacritty.yml
+          shift = 1,
+          -- Add list/check items when entering insert mode with o
+          o = 1,
+          -- Add list/check items when entering insert mode with shift+o
+          shifto = 1,
+        },
+        -- Update list numbers with ctrl+t/d
+        insert_indent_mappings = 1,
+      }
+    end
+  },
+
 
   -- Rust support, particularly for better cargo integration
   { 'rust-lang/rust.vim', ft = 'rust' },

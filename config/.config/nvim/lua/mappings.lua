@@ -150,6 +150,9 @@ nmap('<leader>z', ':ZenMode<CR>')
 -- | - Vertical Split
 nmap('<leader>|', ':vsp<CR>')
 
+-- - - Horizontal Split
+nmap('<leader>-', ':sp<CR>')
+
 ------------------
 -- Terminal
 ------------------

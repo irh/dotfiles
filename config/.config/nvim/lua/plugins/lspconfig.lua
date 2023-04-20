@@ -9,8 +9,9 @@ M.setup = function()
     'csharp_ls',
     'jsonls',
     'julials',
-    'ltex',
+    'ltex', -- Grammar + spellchecking in Markdown
     'lua_ls',
+    'marksman', -- Markdown
     'rust_analyzer',
     'taplo', -- TOML
     'tsserver',

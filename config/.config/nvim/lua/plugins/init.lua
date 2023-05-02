@@ -279,9 +279,6 @@ local plugins = {
     end
   },
 
-  -- Support for local .exrc files
-  { 'ii14/exrc.vim' },
-
   -- Leader mappings for quickly toggling the quickfix / location windows
   {
     'Valloric/ListToggle',

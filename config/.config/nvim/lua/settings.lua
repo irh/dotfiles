@@ -24,6 +24,9 @@ opt.directory:prepend('$HOME/.config/nvim/swap/')
 -- Expand tab keypresses into spaces
 opt.expandtab = true
 
+-- Enable .exrc / .nvim.lua files
+opt.exrc = true
+
 -- Don't fold by default
 opt.foldenable = false
 

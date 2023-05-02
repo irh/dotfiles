@@ -1,0 +1,7 @@
+[*.lua]
+
+align_array_table = false
+align_continuous_inline_comment = false
+
+indent_style = space
+indent_size = 2

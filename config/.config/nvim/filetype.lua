@@ -1,6 +1,6 @@
 vim.filetype.add({
-    extension = {
-        acf = "json",
-        haptic = "json",
-    },
+  extension = {
+    acf = "json",
+    haptic = "json",
+  },
 })

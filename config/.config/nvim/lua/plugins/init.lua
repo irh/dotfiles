@@ -16,7 +16,8 @@ local plugins = {
   { 'kchmck/vim-coffee-script', ft = { 'coffee', 'markdown' } },
 
   -- Markdown support
-  { 'preservim/vim-markdown',
+  {
+    'preservim/vim-markdown',
     ft = 'markdown',
     setup = function()
       local g = vim.g
@@ -26,7 +27,8 @@ local plugins = {
   },
 
   -- Markdown editing QoL
-  { 'SidOfc/mkdx',
+  {
+    'SidOfc/mkdx',
     ft = 'markdown',
     config = function()
       vim.g['mkdx#settings'] = {
@@ -56,7 +58,8 @@ local plugins = {
   -- Pug syntax highlighting
   { 'digitaltoad/vim-pug', ft = 'pug' },
 
-  { 'nvim-treesitter/nvim-treesitter',
+  {
+    'nvim-treesitter/nvim-treesitter',
     config = function()
       require('plugins/treesitter').setup()
     end,
@@ -69,27 +72,32 @@ local plugins = {
   --
 
   -- Surround motion
-  { 'tpope/vim-surround',
+  {
+    'tpope/vim-surround',
     event = file_events,
   },
 
   -- Provides a text object that operates on indentation level
-  { 'michaeljsmith/vim-indent-object',
+  {
+    'michaeljsmith/vim-indent-object',
     event = file_events,
   },
 
   -- Provides various useful text objects (pairs, strings, separators, arguments)
-  { 'wellle/targets.vim',
+  {
+    'wellle/targets.vim',
     event = file_events,
   },
 
   -- Helper for surround.vim when using `.`
-  { 'tpope/vim-repeat',
+  {
+    'tpope/vim-repeat',
     event = file_events,
   },
 
   -- Code auto-formatting
-  { 'sbdchd/neoformat',
+  {
+    'sbdchd/neoformat',
     event = file_events,
   },
 
@@ -134,7 +142,8 @@ local plugins = {
   --
   -- Colour scheme
   --
-  { 'navarasu/onedark.nvim',
+  {
+    'navarasu/onedark.nvim',
     config = function()
       border_color = { fg = '$grey', bg = '$bg0' }
       onedark = require('onedark')
@@ -160,12 +169,14 @@ local plugins = {
   --
 
   -- Cmp + LSP integration
-  { 'hrsh7th/cmp-nvim-lsp',
+  {
+    'hrsh7th/cmp-nvim-lsp',
     event = 'BufEnter',
   },
 
   -- Common LSP configurations
-  { 'neovim/nvim-lspconfig',
+  {
+    'neovim/nvim-lspconfig',
     after = 'cmp-nvim-lsp',
     config = function()
       require('plugins/lspconfig').setup()
@@ -173,12 +184,14 @@ local plugins = {
   },
 
   -- Snippet engine
-  { 'L3MON4D3/LuaSnip',
+  {
+    'L3MON4D3/LuaSnip',
     after = 'nvim-lspconfig',
   },
 
   -- snippets
-  { 'rafamadriz/friendly-snippets',
+  {
+    'rafamadriz/friendly-snippets',
     after = 'LuaSnip',
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -186,7 +199,8 @@ local plugins = {
   },
 
   -- Completion menu
-  { 'hrsh7th/nvim-cmp',
+  {
+    'hrsh7th/nvim-cmp',
     after = 'LuaSnip',
     config = function()
       require('plugins/cmp').setup()
@@ -194,30 +208,36 @@ local plugins = {
   },
 
   -- Cmp + LuaSnip integration
-  { 'saadparwaiz1/cmp_luasnip',
+  {
+    'saadparwaiz1/cmp_luasnip',
     after = 'nvim-cmp',
   },
 
   -- cmp sources
 
-  { 'hrsh7th/cmp-nvim-lua',
+  {
+    'hrsh7th/cmp-nvim-lua',
     after = 'nvim-cmp',
   },
 
-  { 'hrsh7th/cmp-buffer',
+  {
+    'hrsh7th/cmp-buffer',
     after = 'nvim-cmp',
   },
 
-  { 'hrsh7th/cmp-path',
+  {
+    'hrsh7th/cmp-path',
     after = 'nvim-cmp',
   },
 
-  { 'f3fora/cmp-spell',
+  {
+    'f3fora/cmp-spell',
     after = 'nvim-cmp',
   },
 
   -- Add toggle functions for diagnostics / virtual text
-  { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
+  {
+    'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
     after = 'cmp-nvim-lsp',
     config = function()
       require('toggle_lsp_diagnostics').init {
@@ -228,7 +248,8 @@ local plugins = {
   },
 
   -- Adds support for LSP inlay hints
-  { 'lvimuser/lsp-inlayhints.nvim',
+  {
+    'lvimuser/lsp-inlayhints.nvim',
     after = 'cmp-nvim-lsp',
     config = function()
       require("lsp-inlayhints").setup {
@@ -267,7 +288,8 @@ local plugins = {
   --
 
   -- Startup screen
-  { 'goolord/alpha-nvim',
+  {
+    'goolord/alpha-nvim',
     event = 'VimEnter',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
@@ -276,7 +298,8 @@ local plugins = {
   },
 
   -- File explorer
-  { 'kyazdani42/nvim-tree.lua',
+  {
+    'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- For file icons
     },
@@ -286,7 +309,8 @@ local plugins = {
   },
 
   -- Telescope - preview / select list items
-  { 'nvim-telescope/telescope.nvim',
+  {
+    'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
     event = 'VimEnter',
     config = function()
@@ -296,12 +320,14 @@ local plugins = {
 
   -- UI / dialog improvements
   --
-  { 'stevearc/dressing.nvim',
+  {
+    'stevearc/dressing.nvim',
     event = 'VimEnter',
   },
 
   -- Asynchronously run shell commands, used for make
-  { 'skywind3000/asyncrun.vim',
+  {
+    'skywind3000/asyncrun.vim',
     cmd = 'AsyncRun',
     config = function()
       vim.g.asyncrun_open = 10 -- auto open the quickfix window with height 10
@@ -315,12 +341,14 @@ local plugins = {
   },
 
   -- Redirect output of commands into a buffer
-  { 'AndrewRadev/bufferize.vim',
+  {
+    'AndrewRadev/bufferize.vim',
     cmd = { 'Bufferize', 'BufferizeSystem', 'BufferizeTimer' },
   },
 
   -- REPL interaction
-  { 'jpalardy/vim-slime',
+  {
+    'jpalardy/vim-slime',
     ft = { 'julia', 'koto' },
     config = function()
       local g = vim.g
@@ -331,7 +359,8 @@ local plugins = {
   },
 
   -- Show git status in the sign column
-  { 'lewis6991/gitsigns.nvim',
+  {
+    'lewis6991/gitsigns.nvim',
     event = file_events,
     config = function()
       require('gitsigns').setup()
@@ -339,7 +368,8 @@ local plugins = {
   },
 
   -- Minimal editing mode
-  { 'folke/zen-mode.nvim',
+  {
+    'folke/zen-mode.nvim',
     cmd = 'ZenMode',
     config = function()
       require("zen-mode").setup {
@@ -354,12 +384,14 @@ local plugins = {
   },
 
   -- Git commands
-  { 'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
     cmd = { 'G', 'Git', 'GBrowse', 'GDiff' }
   },
 
   -- Fixed gx mapping
-  { 'felipec/vim-sanegx',
+  {
+    'felipec/vim-sanegx',
     event = 'BufEnter',
   },
 

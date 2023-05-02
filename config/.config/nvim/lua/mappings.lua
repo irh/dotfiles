@@ -41,6 +41,15 @@ nmap('gx', [[:silent execute '!open ' . shellescape(expand('<cWORD>'), 1)<CR>]])
 -- Function keys
 ------------------
 
+-- F5 - Continue
+nmap('<F5>', ':lua require("dap").continue()<CR>')
+-- F10 - Step Over
+nmap('<F10>', ':lua require("dap").step_over()<CR>')
+-- F11 - Step Into
+nmap('<F11>', ':lua require("dap").step_into()<CR>')
+-- F12 - Step Out
+nmap('<F12>', ':lua require("dap").step_out()<CR>')
+
 -- F17 - Test
 nmap('<F17>', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
 -- F18 - Make
@@ -71,6 +80,9 @@ nmap('<leader>0', ':AsyncStop<CR>')
 
 -- a - Trigger code action
 nmap('<leader>a', ':lua vim.lsp.buf.code_action()<CR>')
+
+-- b - Toggle breakpoint
+nmap('<leader>b', ':lua require("dap").toggle_breakpoint()<CR>')
 
 -- c - Format the current buffer
 nmap('<leader>c', ':lua vim.lsp.buf.format()<CR>')
@@ -137,6 +149,9 @@ nmap('<leader>s', ':wa<CR>')
 
 -- T - Open today's notes
 nmap('<leader>T', ':ObsidianToday<CR>')
+
+-- u - Toggle debugger UI
+nmap('<leader>u', ':lua require("dapui").toggle()<CR>')
 
 -- v - Toggle inlay hints and virtual text
 nmap('<leader>v', ':lua require("lsp-inlayhints").toggle()<CR><Plug>(toggle-lsp-diag-vtext)')

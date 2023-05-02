@@ -234,6 +234,31 @@ local plugins = {
   },
 
   --
+  -- Debugging
+  --
+
+  { 'mfussenegger/nvim-dap',
+    config = function()
+      require('plugins.dap').setup()
+    end
+  },
+
+  { 'nvim-telescope/telescope-dap.nvim',
+    after = 'telescope.nvim',
+    config = function()
+      require('telescope').load_extension('dap')
+    end
+  },
+
+  { 'rcarriga/nvim-dap-ui',
+    after = { 'nvim-dap' },
+    config = function()
+      require('dapui').setup()
+    end
+  },
+
+
+  --
   -- Extensions
   --
 

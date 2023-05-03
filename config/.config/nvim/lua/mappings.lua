@@ -91,7 +91,8 @@ nmap('<leader>c', ':lua vim.lsp.buf.format()<CR>')
 nmap('<leader>d', ':Telescope diagnostics<CR>')
 
 -- D - Insert current date as a markdown header
-nmap('<leader>D', ':pu=strftime(\'%Y-%m-%d\')<CR>I## <ESC>o<CR>')
+-- nmap('<leader>D', ':pu=strftime(\'%Y-%m-%d\')<CR>I## <ESC>o<CR>')
+nmap('<leader>D', ':let @a = strftime("%Y-%m-%d")<CR>I## <ESC>"apo<CR>')
 
 -- e - Toggle file explorer
 nmap('<leader>e', ':NvimTreeToggle<CR>')

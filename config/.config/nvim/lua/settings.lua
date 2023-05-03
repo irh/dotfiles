@@ -1,4 +1,8 @@
+g = vim.g
 opt = vim.opt
+
+-- Disable default markdown indentation settings
+g.markdown_recommended_style = 0
 
 -- Use dark theme variants
 opt.background = 'dark'

@@ -33,6 +33,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.textwidth = 80
     vim.opt.colorcolumn = '+1'
     vim.opt.wrap = true
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop = 2
   end
 })
 

@@ -45,9 +45,13 @@ local plugins = {
     end
   },
 
-
-  -- Rust support, particularly for better cargo integration
-  { 'rust-lang/rust.vim', ft = 'rust' },
+  { 'simrat39/rust-tools.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    after = 'nvim-lspconfig',
+    config = function()
+      require('rust-tools').setup {}
+    end
+  },
 
   -- Pug syntax highlighting
   { 'digitaltoad/vim-pug', ft = 'pug' },

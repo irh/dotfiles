@@ -12,7 +12,6 @@ M.setup = function()
     'ltex', -- Grammar + spellchecking in Markdown
     'lua_ls',
     'marksman', -- Markdown
-    'rust_analyzer',
     'taplo', -- TOML
     'tsserver',
   }

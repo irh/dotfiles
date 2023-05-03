@@ -258,6 +258,19 @@ local plugins = {
     end
   },
 
+  -- Show LSP status as virtual text in bottom-right of window
+  {
+    'j-hui/fidget.nvim',
+    after = 'nvim-lspconfig',
+    config = function()
+      require('fidget').setup {
+        text = {
+          spinner = "dots",
+        },
+      }
+    end
+  },
+
   --
   -- Debugging
   --

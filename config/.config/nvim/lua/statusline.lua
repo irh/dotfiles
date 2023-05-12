@@ -16,12 +16,6 @@ local set_inactive = function()
       .. ' %f'
 end
 
-local set_inactive = function()
-  return '%#StatusLineNC#'
-      -- file path
-      .. ' %f'
-end
-
 
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   pattern = '*',
@@ -51,6 +45,7 @@ vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   end,
 })
 
+-- Hide the status line in the start screen
 vim.api.nvim_create_autocmd({ 'User' }, {
   pattern = 'AlphaReady',
   callback = function(args)

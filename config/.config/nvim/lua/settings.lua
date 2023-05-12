@@ -40,7 +40,7 @@ opt.grepprg = 'rg --vimgrep $*'
 -- Ignore case when searching, see also: smartcase
 opt.ignorecase = true
 
--- Show a status line in the last window
+-- Show a status line in all windows
 opt.laststatus = 2
 
 -- Break on word boundary when wrapping is on

@@ -20,9 +20,8 @@ local plugins = {
     'preservim/vim-markdown',
     ft = 'markdown',
     setup = function()
-      local g = vim.g
-      g.vim_markdown_auto_insert_bullets = 0
-      g.vim_markdown_new_list_item_indent = 0
+      vim.g.vim_markdown_auto_insert_bullets = 0
+      vim.g.vim_markdown_new_list_item_indent = 0
     end
   },
 
@@ -258,18 +257,6 @@ local plugins = {
     end
   },
 
-  -- Show LSP status as virtual text in bottom-right of window
-  {
-    'j-hui/fidget.nvim',
-    after = 'nvim-lspconfig',
-    config = function()
-      require('fidget').setup {
-        text = {
-          spinner = "dots",
-        },
-      }
-    end
-  },
 
   --
   -- Debugging

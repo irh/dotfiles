@@ -66,6 +66,14 @@ local plugins = {
     run = ':TSUpdate',
   },
 
+  {
+    'windwp/nvim-ts-autotag',
+    after = 'nvim-treesitter',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  },
+
   --
   -- Text editing
   --

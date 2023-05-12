@@ -9,8 +9,10 @@ pnpm install -g \
   instant-markdown-d \
   lua-fmt \
   prettier \
+  svelte-language-server \
   typescript \
   typescript-language-server \
+  vscode-langservers-extracted \
   vsce \
   wrangler \
   ;

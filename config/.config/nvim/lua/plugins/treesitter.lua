@@ -20,6 +20,7 @@ M.setup = function()
       'julia',
       'lua',
       'rust',
+      'svelte',
       'swift',
       'toml',
       'typescript',

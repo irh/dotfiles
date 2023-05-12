@@ -116,7 +116,7 @@ nmap('<leader>G', ':Telescope git_commits<CR>')
 nmap('<leader>h', ':DashWord<CR>')
 
 -- H - Telescope help
-nmap('<leader>H', ':Telescope help_tags<CR>')
+nmap('<leader>H', ':lua require("plugins/telescope").help_tags()<CR>')
 
 -- i - Telescope document symbols
 nmap('<leader>i', ':Telescope lsp_document_symbols<CR>')

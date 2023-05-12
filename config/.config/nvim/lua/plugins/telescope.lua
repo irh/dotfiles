@@ -40,4 +40,15 @@ M.setup = function()
   }
 end
 
+M.help_tags = function()
+  require('telescope.builtin').help_tags {
+    attach_mappings = function(_, map)
+      local select_vertical = require('telescope.actions').select_vertical
+      map('i', '<CR>', select_vertical)
+      map('n', '<CR>', select_vertical)
+      return true
+    end,
+  }
+end
+
 return M

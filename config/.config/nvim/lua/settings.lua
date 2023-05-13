@@ -61,6 +61,9 @@ opt.scrolloff = 2
 -- 2 spaces for auto indent
 opt.shiftwidth = 2
 
+-- Don't show incomplete commands in the command line
+opt.showcmd = false
+
 -- Always show the sign column
 opt.signcolumn = 'yes'
 

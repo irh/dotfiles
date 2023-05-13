@@ -77,6 +77,9 @@ opt.splitright = true
 -- Enables 24 bit RGB color
 opt.termguicolors = true
 
+-- Increase the frequency of updates
+opt.updatetime = 1000
+
 -- Jump to already open buffers (including tabs) when switching buffers from quickfix
 -- switchbuf = 'useopen', -- TODO would useopen be better?
 

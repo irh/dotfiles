@@ -4,6 +4,8 @@ local set_active = function()
       .. ' %f '
       -- separator
       .. '%='
+      -- lsp status
+      .. '%{v:lua.require("lsp_status").status()}'
       -- line:column
       .. ' %l:%c '
       -- file type
@@ -19,43 +21,56 @@ end
 
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   pattern = '*',
-  callback = function(args)
+  callback = function()
     vim.opt_local.statusline = set_active()
   end,
 })
 
 vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   pattern = '*',
-  callback = function(args)
+  callback = function()
     vim.opt_local.statusline = set_inactive()
   end,
 })
 
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   pattern = 'NVimTree*',
-  callback = function(args)
+  callback = function()
     vim.opt_local.statusline = ' '
   end,
 })
 
 vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave' }, {
   pattern = 'NVimTree*',
-  callback = function(args)
+  callback = function()
     vim.opt_local.statusline = ' '
   end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufUnload' }, {
+  callback = function()
+    vim.opt.laststatus = 2
+  end
 })
 
 -- Hide the status line in the start screen
 vim.api.nvim_create_autocmd({ 'User' }, {
   pattern = 'AlphaReady',
-  callback = function(args)
+  callback = function()
     vim.opt.laststatus = 0
   end
 })
 
-vim.api.nvim_create_autocmd({ 'BufUnload' }, {
+vim.api.nvim_create_autocmd({ 'User' }, {
+  pattern = 'LspProgressUpdate',
+  callback = function()
+    vim.api.nvim_command('redrawstatus')
+  end
+})
+
+vim.api.nvim_create_autocmd({ 'DiagnosticChanged', 'CursorHold' }, {
   pattern = '*',
-  callback = function(args)
-    vim.opt.laststatus = 2
+  callback = function()
+    vim.api.nvim_command('redrawstatus')
   end
 })

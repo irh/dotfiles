@@ -7,6 +7,7 @@ M.setup = function()
   local servers = {
     'ccls',
     'csharp_ls',
+    'html',
     'jsonls',
     'julials',
     'ltex', -- Grammar + spellchecking in Markdown

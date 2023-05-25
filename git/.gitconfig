@@ -87,7 +87,7 @@
   plus-emph-style = "#aabb11" bold
   keep-plus-minus-markers = true
   zero-style = raw
-  line-numbers = false
+  line-numbers = true
 
 [filter "lfs"]
   required = true

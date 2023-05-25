@@ -7,6 +7,7 @@ M.setup = function()
   local servers = {
     'ccls',
     'csharp_ls',
+    'cssls',
     'html',
     'jsonls',
     'julials',

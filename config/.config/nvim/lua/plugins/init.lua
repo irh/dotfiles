@@ -46,13 +46,18 @@ local plugins = {
     end
   },
 
-  { 'simrat39/rust-tools.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    after = 'nvim-lspconfig',
-    config = function()
-      require('rust-tools').setup {}
-    end
-  },
+  -- {
+  --   'simrat39/rust-tools.nvim',
+  --   requires = 'nvim-lua/plenary.nvim',
+  --   after = 'nvim-lspconfig',
+  --   config = function()
+  --     require('rust-tools').setup {
+  --       inlay_hints = {
+  --         auto = false,
+  --       },
+  --     }
+  --   end
+  -- },
 
   -- Pug syntax highlighting
   { 'digitaltoad/vim-pug', ft = 'pug' },
@@ -259,7 +264,7 @@ local plugins = {
     'lvimuser/lsp-inlayhints.nvim',
     after = 'cmp-nvim-lsp',
     config = function()
-      require("lsp-inlayhints").setup {
+      require('lsp-inlayhints').setup {
         enabled_at_startup = false,
       }
     end
@@ -270,20 +275,23 @@ local plugins = {
   -- Debugging
   --
 
-  { 'mfussenegger/nvim-dap',
+  {
+    'mfussenegger/nvim-dap',
     config = function()
       require('plugins.dap').setup()
     end
   },
 
-  { 'nvim-telescope/telescope-dap.nvim',
+  {
+    'nvim-telescope/telescope-dap.nvim',
     after = 'telescope.nvim',
     config = function()
       require('telescope').load_extension('dap')
     end
   },
 
-  { 'rcarriga/nvim-dap-ui',
+  {
+    'rcarriga/nvim-dap-ui',
     after = { 'nvim-dap' },
     config = function()
       require('dapui').setup()

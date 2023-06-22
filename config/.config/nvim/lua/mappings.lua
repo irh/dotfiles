@@ -157,8 +157,11 @@ nmap('<leader>T', ':ObsidianToday<CR>')
 -- u - Toggle debugger UI
 nmap('<leader>u', ':lua require("dapui").toggle()<CR>')
 
--- v - Toggle inlay hints and virtual text
-nmap('<leader>v', ':lua require("lsp-inlayhints").toggle()<CR><Plug>(toggle-lsp-diag-vtext)')
+-- v - Toggle diagnostics
+nmap('<leader>v', '<Plug>(toggle-lsp-diag-vtext)')
+
+-- V - Toggle inlay hints
+nmap('<leader>V', ':lua require("lsp-inlayhints").toggle()<CR>')
 
 -- x - Unlink active snippet
 nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')

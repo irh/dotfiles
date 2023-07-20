@@ -114,7 +114,7 @@
 
 [difftool "nvim"]
   prompt = false
-  cmd = nvim -d
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 
 [merge]
   tool = nvim
@@ -127,7 +127,8 @@
 [mergetool "nvim"]
   prompt = false
   keepBackup = false
-  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+  # https://smittie.de/posts/git-mergetool/
+  cmd = nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 
 [pull]
   rebase = true

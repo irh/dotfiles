@@ -151,6 +151,9 @@ nmap('<leader>R', ':lua vim.lsp.buf.rename()<CR>')
 -- s - Save all
 nmap('<leader>s', ':wa<CR>')
 
+-- S - Save all and quit
+nmap('<leader>S', ':wqa<CR>')
+
 -- T - Open today's notes
 nmap('<leader>T', ':ObsidianToday<CR>')
 

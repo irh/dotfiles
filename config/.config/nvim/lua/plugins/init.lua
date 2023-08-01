@@ -46,19 +46,6 @@ local plugins = {
     end
   },
 
-  -- {
-  --   'simrat39/rust-tools.nvim',
-  --   requires = 'nvim-lua/plenary.nvim',
-  --   after = 'nvim-lspconfig',
-  --   config = function()
-  --     require('rust-tools').setup {
-  --       inlay_hints = {
-  --         auto = false,
-  --       },
-  --     }
-  --   end
-  -- },
-
   -- Pug syntax highlighting
   { 'digitaltoad/vim-pug', ft = 'pug' },
 
@@ -441,6 +428,9 @@ local plugins = {
           nvim_cmp = true,
         },
         disable_frontmatter = true,
+        mappings = {
+          ["gi"] = require("obsidian.mapping").gf_passthrough(),
+        },
       }
     end
   },

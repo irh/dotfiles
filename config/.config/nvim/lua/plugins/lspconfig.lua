@@ -15,6 +15,7 @@ M.setup = function()
     'lua_ls',
     'marksman', -- Markdown
     'rust_analyzer',
+    'sourcekit', -- Swift / Objective-C
     'svelte',
     'taplo', -- TOML
     'tsserver',

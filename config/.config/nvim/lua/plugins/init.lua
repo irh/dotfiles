@@ -96,7 +96,7 @@ local plugins = {
 
   -- Code auto-formatting
   {
-    'sbdchd/neoformat',
+    'irh/neoformat',
     event = file_events,
   },
 
@@ -410,7 +410,11 @@ local plugins = {
     after = 'telescope.nvim',
     cmd = { 'Dash', 'DashWord' },
     config = function()
-      require('dash').setup {}
+      require('dash').setup {
+        file_type_keywords = {
+          swift = { 'apple' },
+        },
+      }
     end
   },
 

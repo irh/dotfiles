@@ -85,7 +85,7 @@ nmap('<leader>a', ':lua vim.lsp.buf.code_action()<CR>')
 nmap('<leader>b', ':lua require("dap").toggle_breakpoint()<CR>')
 
 -- c - Format the current buffer
-nmap('<leader>c', ':lua vim.lsp.buf.format()<CR>')
+nmap('<leader>c', ':lua require("formatting").format()<CR>')
 
 -- d - Telescope diagnostics
 nmap('<leader>d', ':Telescope diagnostics<CR>')

@@ -96,7 +96,7 @@ local plugins = {
 
   -- Code auto-formatting
   {
-    'irh/neoformat',
+    'sbdchd/neoformat',
     event = file_events,
   },
 

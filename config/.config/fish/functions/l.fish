@@ -1,3 +1,3 @@
 function l --wraps exa
-  exa --long --all --classify $argv;
+  exa --all --long --classify --group-directories-first $argv;
 end

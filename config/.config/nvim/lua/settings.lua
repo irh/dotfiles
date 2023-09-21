@@ -52,8 +52,9 @@ opt.matchpairs:append('<:>')
 -- Enable mouse everywhere
 opt.mouse = 'a'
 
--- Don't show line numbers by default
-opt.number = false
+-- Show relative line numbers by default
+opt.number = true
+opt.relativenumber = true
 
 -- Start scrolling before cursor reaches last line
 opt.scrolloff = 2

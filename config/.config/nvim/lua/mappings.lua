@@ -129,7 +129,7 @@ nmap('<leader>I', '>>A ')
 nmap('<leader>k', ':lua vim.lsp.buf.hover()<CR>')
 
 -- L - Toggle line numbering
-nmap('<leader>L', ':set number! number?<CR>')
+nmap('<leader>L', ':set number! number?<CR>:set rnu! rnu?<CR>')
 
 -- n - New tab
 nmap('<leader>n', ':tabnew<CR>')

@@ -17,7 +17,7 @@ config.window_padding = {
 config.native_macos_fullscreen_mode = true
 
 -- Font
-config.font = wezterm.font 'Input'
+config.font = wezterm.font_with_fallback { 'Input', 'Apple Color Emoji' }
 config.font_size = 11
 
 -- Color scheme

@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 
 -- Application
 config.window_close_confirmation = 'NeverPrompt'
+config.send_composed_key_when_left_alt_is_pressed = true
 
 -- Window
 config.enable_tab_bar = false

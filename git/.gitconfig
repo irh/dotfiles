@@ -1,6 +1,12 @@
 [include]
   path = ~/.gitconfig_local
 
+[absorb]
+  maxStack=50
+
+[advice]
+  skippedCherryPicks = false
+
 [alias]
   a = add
   br = branch
@@ -48,9 +54,6 @@
   upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u}
   upstream-create = !git branchname | xargs git push -u origin
   wip = commit -a -m WIP
-
-[absorb]
-  maxStack=50
 
 [branch]
   autosetuprebase = always

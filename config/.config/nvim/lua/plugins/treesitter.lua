@@ -26,7 +26,7 @@ M.setup = function()
       'toml',
       'typescript',
       'vim',
-      'wgsl',
+      'wgsl_bevy',
     },
     highlight = {
       enable = true,

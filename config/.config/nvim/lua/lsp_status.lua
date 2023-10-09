@@ -36,8 +36,8 @@ M.status = function()
 
   local errors = get_diagnostic('Error', '')
   local warnings = get_diagnostic('Warn', '')
-  local hints = get_diagnostic('Hint', '')
-  local info = get_diagnostic('Info', '')
+  local hints = get_diagnostic('Hint', '?')
+  local info = get_diagnostic('Info', 'ℹ︎')
 
   if errors == '' and warnings == '' and hints == '' and info == '' then
     -- Only show progress if there are no diagnostics

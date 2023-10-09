@@ -65,6 +65,7 @@ brew "xh"
 brew "youtube-dl"
 brew "zola"
 
+cask "alt-tab"
 cask "anki"
 cask "authy"
 cask "boop"

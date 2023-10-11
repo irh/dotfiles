@@ -127,7 +127,6 @@ local plugins = {
       require('ibl').setup {
         indent = {
           char = '┊',
-          highlight = 'IndentBlanklineChar',
         },
         scope = {
           enabled = false,
@@ -156,7 +155,6 @@ local plugins = {
         transparent = false,
         style = 'dark',
         highlights = {
-          IndentBlanklineChar = { fg = '#383838' },
           TelescopeBorder = border_color,
           TelescopePromptBorder = border_color,
           TelescopeResultsBorder = border_color,

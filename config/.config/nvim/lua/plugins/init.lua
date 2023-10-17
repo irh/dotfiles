@@ -74,6 +74,9 @@ local plugins = {
   {
     'tpope/vim-surround',
     event = file_events,
+    setup = function()
+      vim.g.surround_no_insert_mappings = 1
+    end
   },
 
   -- Provides a text object that operates on indentation level

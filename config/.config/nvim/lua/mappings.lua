@@ -23,6 +23,10 @@ local function nmap(from, to)
   map('n', from, to)
 end
 
+local function imap(from, to)
+  map('i', from, to)
+end
+
 -- Set leader to space
 vim.g.mapleader = " "
 
@@ -178,6 +182,15 @@ nmap('<leader>|', ':vsp<CR>')
 
 -- - - Horizontal Split
 nmap('<leader>-', ':sp<CR>')
+
+------------------
+-- Insert mode
+------------------
+
+-- Ctrl+L - Toggle comments
+imap('<C-L>', '<C-\\><C-O><Plug>(comment_toggle_linewise_current)')
+-- Ctrl+S - Save
+imap('<C-S>', '<C-\\><C-O>:wa<CR>')
 
 ------------------
 -- Terminal

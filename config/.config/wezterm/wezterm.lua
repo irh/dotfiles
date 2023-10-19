@@ -18,7 +18,7 @@ config.native_macos_fullscreen_mode = true
 
 -- Font
 config.font = wezterm.font_with_fallback { 'Input', 'Apple Color Emoji' }
-config.font_size = 11
+config.font_size = 12
 
 -- Color scheme
 local colors = wezterm.color.get_builtin_schemes()['Solarized Dark (Gogh)']

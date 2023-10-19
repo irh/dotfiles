@@ -1,0 +1,4 @@
+export
+  repl:
+    edit_mode: 'vi'
+    max_history: 2000

@@ -169,7 +169,7 @@ nmap('<leader>u', ':lua require("dapui").toggle()<CR>')
 nmap('<leader>v', '<Plug>(toggle-lsp-diag-vtext)')
 
 -- V - Toggle inlay hints
-nmap('<leader>V', ':lua require("lsp-inlayhints").toggle()<CR>')
+nmap('<leader>V', ':lua vim.lsp.inlay_hint(0)<CR>')
 
 -- x - Unlink active snippet
 nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')

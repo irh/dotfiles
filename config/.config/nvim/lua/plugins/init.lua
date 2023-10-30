@@ -253,18 +253,6 @@ local plugins = {
     end
   },
 
-  -- Adds support for LSP inlay hints
-  {
-    'lvimuser/lsp-inlayhints.nvim',
-    after = 'cmp-nvim-lsp',
-    config = function()
-      require('lsp-inlayhints').setup {
-        enabled_at_startup = false,
-      }
-    end
-  },
-
-
   --
   -- Debugging
   --

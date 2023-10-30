@@ -14,7 +14,7 @@ M.setup = function()
     'ltex', -- Grammar + spellchecking in Markdown
     'lua_ls',
     'marksman', -- Markdown
-    'rust_analyzer',
+    -- 'rust_analyzer',
     'sourcekit', -- Swift / Objective-C
     'svelte',
     'taplo', -- TOML

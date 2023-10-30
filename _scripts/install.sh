@@ -1,6 +1,8 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
   cd _homebrew
   brew bundle --verbose
+  # Link lldb-vscode, don't link the rest of LLVM
+  ln -s $(brew --prefix)/opt/llvm/bin/lldb-vscode $(brew --prefix)/bin/
   cd ..
 fi
 

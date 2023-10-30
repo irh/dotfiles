@@ -46,17 +46,22 @@ nmap('gO', ':ObsidianFollowLink<CR>')
 -- Function keys
 ------------------
 
--- F5 - Continue
-nmap('<F5>', ':lua require("dap").continue()<CR>')
--- F10 - Step Over
-nmap('<F10>', ':lua require("dap").step_over()<CR>')
--- F11 - Step Into
-nmap('<F11>', ':lua require("dap").step_into()<CR>')
--- F12 - Step Out
-nmap('<F12>', ':lua require("dap").step_out()<CR>')
+-- F6 - Stop
+nmap('<F6>', ':lua require("dap").disconnect()<CR>')
+-- F7 - Toggle breakpoint
+nmap('<F7>', ':lua require("dap").toggle_breakpoint()<CR>')
+-- F8 - Continue
+nmap('<F8>', ':lua require("dap").continue()<CR>')
+-- F9 - Step Over
+nmap('<F9>', ':lua require("dap").step_over()<CR>')
+-- F10 - Step Into
+nmap('<F10>', ':lua require("dap").step_into()<CR>')
+-- F11 - Step Out
+nmap('<F11>', ':lua require("dap").step_out()<CR>')
 
 -- F16 - Test
 nmap('<F16>', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
+
 -- F17 - Make
 nmap('<F17>', ':set makeprg=$MAKEPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
 -- F18 - Next error
@@ -85,9 +90,6 @@ nmap('<leader>0', ':AsyncStop<CR>')
 
 -- a - Trigger code action
 nmap('<leader>a', ':lua vim.lsp.buf.code_action()<CR>')
-
--- b - Toggle breakpoint
-nmap('<leader>b', ':lua require("dap").toggle_breakpoint()<CR>')
 
 -- c - Format the current buffer
 nmap('<leader>c', ':lua require("formatting").format()<CR>')
@@ -162,8 +164,11 @@ nmap('<leader>S', ':wqa<CR>')
 -- T - Open today's notes
 nmap('<leader>T', ':ObsidianToday<CR>')
 
--- u - Toggle debugger UI
-nmap('<leader>u', ':lua require("dapui").toggle()<CR>')
+-- u - Show rustaceanvim hover actions, run twice to focus window
+nmap('<leader>u', ':RustLsp hover actions<CR>:RustLsp hover actions<CR>')
+
+-- U - Toggle debugger UI
+nmap('<leader>U', ':lua require("dapui").toggle()<CR>')
 
 -- v - Toggle diagnostics
 nmap('<leader>v', '<Plug>(toggle-lsp-diag-vtext)')
@@ -173,6 +178,9 @@ nmap('<leader>V', ':lua vim.lsp.inlay_hint(0)<CR>')
 
 -- x - Unlink active snippet
 nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')
+
+-- X - Show Rust debuggables
+nmap('<leader>X', ':RustLsp debuggables<CR>')
 
 -- z - Zen mode
 nmap('<leader>z', ':ZenMode<CR>')

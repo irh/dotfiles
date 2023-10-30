@@ -66,6 +66,16 @@ local plugins = {
     end
   },
 
+  {
+    'mrcjkb/rustaceanvim',
+    ft = { 'rust' },
+    config = function()
+
+    end
+  },
+
+
+
   --
   -- Text editing
   --
@@ -265,21 +275,20 @@ local plugins = {
   },
 
   {
-    'nvim-telescope/telescope-dap.nvim',
-    after = 'telescope.nvim',
+    'rcarriga/nvim-dap-ui',
+    after = 'nvim-dap',
     config = function()
-      require('telescope').load_extension('dap')
+      require('plugins.dap').setup_ui()
     end
   },
 
   {
-    'rcarriga/nvim-dap-ui',
-    after = { 'nvim-dap' },
+    'nvim-telescope/telescope-dap.nvim',
+    after = { 'nvim-dap', 'telescope.nvim', },
     config = function()
-      require('dapui').setup()
+      require('telescope').load_extension('dap')
     end
   },
-
 
   --
   -- Extensions

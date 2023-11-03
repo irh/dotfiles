@@ -108,7 +108,7 @@ nmap('<leader>e', ':NvimTreeToggle<CR>')
 nmap('<leader>E', ':NvimTreeFocus<CR>')
 
 -- f - Telescope git files
-nmap('<leader>f', ':Telescope git_files<CR>')
+nmap('<leader>f', ':lua require("plugins/telescope").project_files()<CR>')
 
 -- F - Telescope all files
 nmap('<leader>F', ':Telescope find_files<CR>')

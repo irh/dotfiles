@@ -1,7 +1,11 @@
 local M = {}
 
 M.setup = function()
-  require('telescope').setup {
+  telescope = require('telescope')
+  sorters = require('telescope.sorters')
+  previewers = require('telescope.previewers')
+
+  telescope.setup {
     defaults = {
       prompt_prefix = "   ",
       selection_caret = "  ",
@@ -23,9 +27,9 @@ M.setup = function()
         height = 0.80,
         preview_cutoff = 120,
       },
-      file_sorter = require("telescope.sorters").get_fuzzy_file,
+      file_sorter = sorters.get_fuzzy_file,
       file_ignore_patterns = { "node_modules" },
-      generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+      generic_sorter = sorters.get_generic_fuzzy_sorter,
       path_display = { "truncate" },
       winblend = 0,
       border = {},
@@ -33,9 +37,9 @@ M.setup = function()
       color_devicons = true,
       use_less = true,
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-      file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-      grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-      qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+      file_previewer = previewers.vim_buffer_cat.new,
+      grep_previewer = previewers.vim_buffer_vimgrep.new,
+      qflist_previewer = previewers.vim_buffer_qflist.new,
     },
   }
 end
@@ -49,6 +53,25 @@ M.help_tags = function()
       return true
     end,
   }
+end
+
+local is_inside_work_tree = {}
+
+M.project_files = function()
+  local opts = {}
+  local builtin = require('telescope.builtin')
+
+  local cwd = vim.fn.getcwd()
+  if is_inside_work_tree[cwd] == nil then
+    vim.fn.system("git rev-parse --is-inside-work-tree")
+    is_inside_work_tree[cwd] = vim.v.shell_error == 0
+  end
+
+  if is_inside_work_tree[cwd] then
+    builtin.git_files(opts)
+  else
+    builtin.find_files(opts)
+  end
 end
 
 return M

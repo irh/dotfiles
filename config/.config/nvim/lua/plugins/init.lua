@@ -366,13 +366,13 @@ local plugins = {
   },
 
   -- Show git status in the sign column
-  {
-    'lewis6991/gitsigns.nvim',
-    event = file_events,
-    config = function()
-      require('gitsigns').setup()
-    end
-  },
+  -- {
+  --   'lewis6991/gitsigns.nvim',
+  --   event = file_events,
+  --   config = function()
+  --     require('gitsigns').setup()
+  --   end
+  -- },
 
   -- Minimal editing mode
   {

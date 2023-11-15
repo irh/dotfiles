@@ -1,5 +1,4 @@
--- This can be removed once https://github.com/neovim/neovim/pull/19216 is released
-vim.g.do_filetype_lua = 1
+vim.loader.enable()
 
 require('filetype')
 require('mappings')

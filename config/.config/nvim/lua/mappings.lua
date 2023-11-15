@@ -108,7 +108,7 @@ nmap('<leader>e', ':NvimTreeToggle<CR>')
 nmap('<leader>E', ':NvimTreeFocus<CR>')
 
 -- f - Telescope git files
-nmap('<leader>f', ':lua require("plugins/telescope").project_files()<CR>')
+nmap('<leader>f', ':lua require("functions").telescope_project_files()<CR>')
 
 -- F - Telescope all files
 nmap('<leader>F', ':Telescope find_files<CR>')
@@ -123,7 +123,7 @@ nmap('<leader>G', ':Telescope git_commits<CR>')
 nmap('<leader>h', ':DashWord<CR>')
 
 -- H - Telescope help
-nmap('<leader>H', ':lua require("plugins/telescope").help_tags()<CR>')
+nmap('<leader>H', ':lua require("functions").telescope_help_tags()<CR>')
 
 -- i - Telescope document symbols
 nmap('<leader>i', ':Telescope lsp_document_symbols<CR>')

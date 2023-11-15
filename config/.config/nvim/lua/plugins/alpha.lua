@@ -209,40 +209,32 @@ local section = {
   },
 }
 
-local config = {
-  layout = {
-    { type = "padding", val = 1 },
-    section.header,
-    { type = "padding", val = 2 },
-    section.top_buttons,
-    section.mru,
-    section.mru_cwd,
-    { type = "padding", val = 1 },
-    section.bottom_buttons,
-    section.footer,
-  },
-  opts = {
-    margin = math.floor(vim.api.nvim_win_get_width(0) / 2) - 40,
-    redraw_on_resize = false,
-    setup = function()
-      vim.cmd([[
+return {
+  'goolord/alpha-nvim',
+  event = 'VimEnter',
+  dependencies = { 'kyazdani42/nvim-web-devicons' },
+  config = function()
+    require('alpha').setup {
+      layout = {
+        { type = "padding", val = 1 },
+        section.header,
+        { type = "padding", val = 2 },
+        section.top_buttons,
+        section.mru,
+        section.mru_cwd,
+        { type = "padding", val = 1 },
+        section.bottom_buttons,
+        section.footer,
+      },
+      opts = {
+        margin = math.floor(vim.api.nvim_win_get_width(0) / 2) - 40,
+        redraw_on_resize = false,
+        setup = function()
+          vim.cmd([[
             autocmd alpha_temp DirChanged * lua require('alpha').redraw()
             ]])
-    end,
-  },
-}
-
-return {
-  icon = icon,
-  button = button,
-  file_button = file_button,
-  mru = mru,
-  mru_opts = mru_opts,
-  section = section,
-  config = config,
-  -- theme config
-  nvim_web_devicons = nvim_web_devicons,
-  leader = leader,
-  -- deprecated
-  opts = config,
+        end,
+      },
+    }
+  end
 }

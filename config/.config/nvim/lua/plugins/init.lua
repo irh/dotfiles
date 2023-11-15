@@ -1,6 +1,4 @@
-local file_events = { 'BufRead', 'BufNewFile' }
-
-local plugins = {
+return {
   --
   -- Language support
   --
@@ -9,8 +7,8 @@ local plugins = {
   { 'NoahTheDuke/vim-just', ft = 'just' },
 
   -- Koto highlighting
-  -- { 'koto-lang/koto.vim', ft = {'koto', 'markdown'} },
-  { '~/dev/koto/koto.vim', ft = { 'koto', 'markdown' } },
+  { 'koto-lang/koto.vim', ft = { 'koto', 'markdown' } },
+  -- { '~/dev/koto/koto.vim', ft = { 'koto', 'markdown' } },
 
   -- Coffeescript highlighting
   { 'kchmck/vim-coffee-script', ft = { 'coffee', 'markdown' } },
@@ -19,7 +17,7 @@ local plugins = {
   {
     'preservim/vim-markdown',
     ft = 'markdown',
-    setup = function()
+    config = function()
       vim.g.vim_markdown_auto_insert_bullets = 0
       vim.g.vim_markdown_new_list_item_indent = 0
     end
@@ -46,35 +44,21 @@ local plugins = {
     end
   },
 
-  -- Pug syntax highlighting
-  { 'digitaltoad/vim-pug', ft = 'pug' },
-
-  {
-    'nvim-treesitter/nvim-treesitter',
-    config = function()
-      require('plugins/treesitter').setup()
-    end,
-    event = file_events,
-    run = ':TSUpdate',
-  },
-
+  -- Auto close HTML tags using treesitter
   {
     'windwp/nvim-ts-autotag',
-    after = 'nvim-treesitter',
+    dependencies = { 'nvim-treesitter' },
+    event = 'InsertEnter',
     config = function()
       require('nvim-ts-autotag').setup()
     end
   },
 
+  -- Rust helpers
   {
     'mrcjkb/rustaceanvim',
     ft = { 'rust' },
-    config = function()
-
-    end
   },
-
-
 
   --
   -- Text editing
@@ -83,8 +67,8 @@ local plugins = {
   -- Surround motion
   {
     'tpope/vim-surround',
-    event = file_events,
-    setup = function()
+    event = 'VeryLazy',
+    config = function()
       vim.g.surround_no_insert_mappings = 1
     end
   },
@@ -92,31 +76,30 @@ local plugins = {
   -- Provides a text object that operates on indentation level
   {
     'michaeljsmith/vim-indent-object',
-    event = file_events,
+    event = 'VeryLazy',
   },
 
   -- Provides various useful text objects (pairs, strings, separators, arguments)
   {
     'wellle/targets.vim',
-    event = file_events,
+    event = 'VeryLazy',
   },
 
   -- Helper for surround.vim when using `.`
   {
     'tpope/vim-repeat',
-    event = file_events,
+    event = 'VeryLazy',
   },
 
   -- Code auto-formatting
   {
     'sbdchd/neoformat',
-    event = file_events,
+    event = 'VeryLazy',
   },
 
   -- Commenting
   {
     'numToStr/Comment.nvim',
-    event = file_events,
     keys = { 'gcc' },
     config = function()
       require('Comment').setup()
@@ -136,6 +119,7 @@ local plugins = {
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
+    event = 'VeryLazy',
     config = function()
       require('ibl').setup {
         indent = {
@@ -150,10 +134,9 @@ local plugins = {
 
   -- Strip trailing whitespace from modified lines on save
   --
-  { 'axelf4/vim-strip-trailing-whitespace',
-    -- Needs to be loaded before VimEnter so that it's active before the initial buffer
-    -- is loaded
-    -- event = { '' },
+  {
+    'axelf4/vim-strip-trailing-whitespace',
+    event = 'VeryLazy',
   },
 
   --
@@ -161,6 +144,7 @@ local plugins = {
   --
   {
     'navarasu/onedark.nvim',
+    event = 'VimEnter',
     config = function()
       border_color = { fg = '$grey', bg = '$bg0' }
       onedark = require('onedark')
@@ -187,74 +171,31 @@ local plugins = {
   -- Cmp + LSP integration
   {
     'hrsh7th/cmp-nvim-lsp',
-    event = 'BufEnter',
-  },
-
-  -- Common LSP configurations
-  {
-    'neovim/nvim-lspconfig',
-    after = 'cmp-nvim-lsp',
-    config = function()
-      require('plugins/lspconfig').setup()
-    end
+    event = 'VeryLazy',
   },
 
   -- Snippet engine
   {
     'L3MON4D3/LuaSnip',
-    after = 'nvim-lspconfig',
+    event = 'VeryLazy',
+    dependencies = { 'neovim/nvim-lspconfig' },
   },
 
   -- snippets
   {
     'rafamadriz/friendly-snippets',
-    after = 'LuaSnip',
+    event = 'VeryLazy',
+    dependencies = { 'L3MON4D3/LuaSnip' },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
     end
   },
 
-  -- Completion menu
-  {
-    'hrsh7th/nvim-cmp',
-    after = 'LuaSnip',
-    config = function()
-      require('plugins/cmp').setup()
-    end
-  },
-
-  -- Cmp + LuaSnip integration
-  {
-    'saadparwaiz1/cmp_luasnip',
-    after = 'nvim-cmp',
-  },
-
-  -- cmp sources
-
-  {
-    'hrsh7th/cmp-nvim-lua',
-    after = 'nvim-cmp',
-  },
-
-  {
-    'hrsh7th/cmp-buffer',
-    after = 'nvim-cmp',
-  },
-
-  {
-    'hrsh7th/cmp-path',
-    after = 'nvim-cmp',
-  },
-
-  {
-    'f3fora/cmp-spell',
-    after = 'nvim-cmp',
-  },
-
   -- Add toggle functions for diagnostics / virtual text
   {
     'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
-    after = 'cmp-nvim-lsp',
+    event = 'VeryLazy',
+    dependencies = { 'hrsh7th/cmp-nvim-lsp' },
     config = function()
       require('toggle_lsp_diagnostics').init {
         underline = false,
@@ -263,73 +204,25 @@ local plugins = {
     end
   },
 
-  --
-  -- Debugging
-  --
+  ---
+  --- Extensions
+  ---
 
-  {
-    'mfussenegger/nvim-dap',
-    config = function()
-      require('plugins.dap').setup()
-    end
-  },
-
-  {
-    'rcarriga/nvim-dap-ui',
-    after = 'nvim-dap',
-    config = function()
-      require('plugins.dap').setup_ui()
-    end
-  },
-
+  -- DAP integration for telescope
   {
     'nvim-telescope/telescope-dap.nvim',
-    after = { 'nvim-dap', 'telescope.nvim', },
+    event = 'VeryLazy',
+    after = { 'mfussenegger/nvim-dap', 'nvim-telescope/telescope.nvim', },
     config = function()
       require('telescope').load_extension('dap')
     end
-  },
-
-  --
-  -- Extensions
-  --
-
-  -- Startup screen
-  {
-    'goolord/alpha-nvim',
-    event = 'VimEnter',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require('alpha').setup(require('plugins.alpha').config)
-    end
-  },
-
-  -- File explorer
-  {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- For file icons
-    },
-    config = function()
-      require('plugins/nvimtree').setup()
-    end
-  },
-
-  -- Telescope - preview / select list items
-  {
-    'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } },
-    event = 'VimEnter',
-    config = function()
-      require('plugins/telescope').setup()
-    end,
   },
 
   -- UI / dialog improvements
   --
   {
     'stevearc/dressing.nvim',
-    event = 'VimEnter',
+    event = 'VeryLazy',
   },
 
   -- Asynchronously run shell commands, used for make
@@ -344,7 +237,7 @@ local plugins = {
   -- Leader mappings for quickly toggling the quickfix / location windows
   {
     'Valloric/ListToggle',
-    event = 'VimEnter',
+    event = 'VeryLazy',
   },
 
   -- Redirect output of commands into a buffer
@@ -368,7 +261,7 @@ local plugins = {
   -- Show git status in the sign column
   -- {
   --   'lewis6991/gitsigns.nvim',
-  --   event = file_events,
+  --   event = 'VeryLazy',
   --   config = function()
   --     require('gitsigns').setup()
   --   end
@@ -399,19 +292,18 @@ local plugins = {
   -- Fixed gx mapping
   {
     'felipec/vim-sanegx',
-    event = 'BufEnter',
+    keys = 'VeryLazy',
   },
-
 
   -- Dash support
   {
     'mrjones2014/dash.nvim',
-    opt = true,
+    event = 'VeryLazy',
     cond = function()
       return vim.fn.has('macunix') == 1
     end,
-    run = 'make install',
-    after = 'telescope.nvim',
+    build = 'make install',
+    depencendies = { 'nvim-telescope/telescope.nvim' },
     cmd = { 'Dash', 'DashWord' },
     config = function()
       require('dash').setup {
@@ -422,10 +314,12 @@ local plugins = {
     end
   },
 
+
   -- Obsidian support
   {
     'epwalsh/obsidian.nvim',
-    after = 'nvim-cmp',
+    event = 'VeryLazy',
+    dependencies = { 'hrsh7th/nvim-cmp', 'nvim-lua/plenary.nvim' },
     config = function()
       require('obsidian').setup {
         dir = '~/zk',
@@ -443,36 +337,3 @@ local plugins = {
     end
   },
 }
-
--- Bootstrap packer if it isn't already installed
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  print('cloning packer')
-  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-    install_path })
-end
-
-local packer = require('packer')
-
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "single" }
-    end,
-    prompt_border = "single",
-  },
-}
-
-packer.startup(function(use)
-  -- Package manager
-  use 'wbthomason/packer.nvim'
-
-  for _, plugin in ipairs(plugins) do
-    use(plugin)
-  end
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)

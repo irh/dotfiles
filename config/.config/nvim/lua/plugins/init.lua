@@ -100,7 +100,7 @@ return {
   -- Commenting
   {
     'numToStr/Comment.nvim',
-    keys = { 'gcc' },
+    event = 'VeryLazy',
     config = function()
       require('Comment').setup()
     end
@@ -259,13 +259,13 @@ return {
   },
 
   -- Show git status in the sign column
-  -- {
-  --   'lewis6991/gitsigns.nvim',
-  --   event = 'VeryLazy',
-  --   config = function()
-  --     require('gitsigns').setup()
-  --   end
-  -- },
+  {
+    'lewis6991/gitsigns.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('gitsigns').setup()
+    end
+  },
 
   -- Minimal editing mode
   {

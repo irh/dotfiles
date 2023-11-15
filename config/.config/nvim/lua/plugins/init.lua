@@ -319,6 +319,7 @@ return {
   {
     'epwalsh/obsidian.nvim',
     event = 'VeryLazy',
+    version = "*",
     dependencies = { 'hrsh7th/nvim-cmp', 'nvim-lua/plenary.nvim' },
     config = function()
       require('obsidian').setup {

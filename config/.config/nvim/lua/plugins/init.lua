@@ -136,7 +136,8 @@ return {
   --
   {
     'axelf4/vim-strip-trailing-whitespace',
-    event = 'VeryLazy',
+    -- BufEnter is needed for the plugin to work correctly when opening files directly
+    event = 'BufEnter',
   },
 
   --

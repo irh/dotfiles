@@ -293,7 +293,7 @@ return {
   -- Fixed gx mapping
   {
     'felipec/vim-sanegx',
-    keys = 'VeryLazy',
+    event = 'VeryLazy',
   },
 
   -- Dash support

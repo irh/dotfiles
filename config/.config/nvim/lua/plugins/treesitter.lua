@@ -29,6 +29,7 @@ return {
         'typescript',
         'vim',
         'wgsl_bevy',
+        'yaml',
       },
       highlight = {
         enable = true,

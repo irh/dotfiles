@@ -333,7 +333,11 @@ return {
         },
         disable_frontmatter = true,
         mappings = {
-          ["gi"] = require("obsidian.mapping").gf_passthrough(),
+          ["gi"] = {
+            action = function()
+              require("obsidian.mapping").gf_passthrough()
+            end
+          }
         },
       }
     end

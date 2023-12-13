@@ -19,6 +19,10 @@ opt.completeopt = 'menuone,noselect'
 -- Ask for confirmation to save when unsaved buffers are present
 opt.confirm = true
 
+-- Highlight the current line's number
+opt.cursorline = true
+opt.cursorlineopt = 'number'
+
 -- Options for diff mode
 opt.diffopt:append('vertical')
 
@@ -52,9 +56,8 @@ opt.matchpairs:append('<:>')
 -- Enable mouse everywhere
 opt.mouse = 'a'
 
--- Show relative line numbers by default
+-- Show line numbers by default
 opt.number = true
-opt.relativenumber = true
 
 -- Start scrolling before cursor reaches last line
 opt.scrolloff = 2

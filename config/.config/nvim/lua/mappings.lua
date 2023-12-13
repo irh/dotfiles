@@ -143,9 +143,6 @@ nmap('<leader>n', ':tabnew<CR>')
 -- o - Telescope workspace symbols
 nmap('<leader>o', ':Telescope lsp_dynamic_workspace_symbols<CR>')
 
--- P - Sync Packer
-nmap('<leader>P', ':PackerSync<CR>')
-
 -- Q - Send diagnostics to quickfix window
 nmap('<leader>Q', ':lua vim.diagnostic.setqflist()<CR>')
 

@@ -16,6 +16,9 @@ opt.colorcolumn = '91'
 -- Configure the completion menu
 opt.completeopt = 'menuone,noselect'
 
+-- Allow hiding of characters, e.g. by obsidian.nvim
+opt.conceallevel = 2
+
 -- Ask for confirmation to save when unsaved buffers are present
 opt.confirm = true
 

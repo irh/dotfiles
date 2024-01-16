@@ -29,6 +29,7 @@ return {
     ft = 'markdown',
     config = function()
       vim.g['mkdx#settings'] = {
+        checkbox = { toggles = { ' ', 'x' } },
         enter = {
           -- Enable shift+enter in multiline list items
           -- Requires overridden shift+enter codes in alacritty.yml

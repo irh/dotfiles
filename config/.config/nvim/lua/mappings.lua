@@ -179,6 +179,9 @@ nmap('<leader>x', ':LuaSnipUnlinkCurrent<CR>')
 -- X - Show Rust debuggables
 nmap('<leader>X', ':RustLsp debuggables<CR>')
 
+-- Y - Open yesterday's notes
+nmap('<leader>Y', ':ObsidianYesterday<CR>')
+
 -- z - Zen mode
 nmap('<leader>z', ':ZenMode<CR>')
 

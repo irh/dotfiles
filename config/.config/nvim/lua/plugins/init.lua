@@ -55,6 +55,12 @@ return {
     end
   },
 
+  -- RON highlighting
+  {
+    'ron-rs/ron.vim',
+    ft = { 'ron' },
+  },
+
   -- Rust helpers
   {
     'mrcjkb/rustaceanvim',

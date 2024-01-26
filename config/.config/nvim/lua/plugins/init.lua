@@ -216,6 +216,18 @@ return {
   --- Extensions
   ---
 
+  -- Adds support for LSP inlay hints
+  {
+    'lvimuser/lsp-inlayhints.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('lsp-inlayhints').setup {
+        enabled_at_startup = false,
+      }
+    end
+  },
+
+
   -- DAP integration for telescope
   {
     'nvim-telescope/telescope-dap.nvim',

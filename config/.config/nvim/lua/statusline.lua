@@ -61,7 +61,8 @@ vim.api.nvim_create_autocmd({ 'User' }, {
   end
 })
 
-vim.api.nvim_create_autocmd({ 'LspProgress' }, {
+vim.api.nvim_create_autocmd({ 'User' }, {
+  pattern = 'LspProgressUpdate',
   callback = function()
     vim.api.nvim_command('redrawstatus')
   end

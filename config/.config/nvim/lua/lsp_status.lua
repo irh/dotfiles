@@ -41,7 +41,8 @@ M.status = function()
 
   if errors == '' and warnings == '' and hints == '' and info == '' then
     -- Only show progress if there are no diagnostics
-    if string.len(vim.lsp.status()) > 0 then
+    local progress_messages = vim.lsp.util.get_progress_messages()
+    if vim.tbl_count(progress_messages) > 0 then
       local now = vim.loop.now()
       if now - M.last_spin_update > spin_update_ms then
         M.spin_frame = (M.spin_frame + 1) % spinner_frame_count

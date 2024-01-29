@@ -21,6 +21,7 @@ return {
       'svelte',
       'taplo', -- TOML
       'tsserver',
+      'yamlls',
     }
 
     local capabilities = vim.tbl_deep_extend(

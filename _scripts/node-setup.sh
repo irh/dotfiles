@@ -2,7 +2,7 @@ fnm install --lts
 eval "(fnm env)"
 
 npm install -g pnpm
-pnpm setup && source ~/.zshrc 
+pnpm setup && source ~/.zshrc
 
 pnpm install -g \
   gulp-cli \
@@ -15,4 +15,5 @@ pnpm install -g \
   vscode-langservers-extracted \
   vsce \
   wrangler \
+  yaml-language-server \
   ;

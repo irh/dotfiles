@@ -62,6 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- Auto-save when leaving insert mode
 vim.g.auto_save_on_insert_leave = 0
 
 function ToggleAutoSave()

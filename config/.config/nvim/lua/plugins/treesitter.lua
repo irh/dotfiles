@@ -21,6 +21,8 @@ return {
         'json5',
         'julia',
         'lua',
+        'markdown',
+        'markdown_inline',
         'rust',
         'sql',
         'svelte',

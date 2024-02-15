@@ -61,3 +61,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
     require("lsp-inlayhints").on_attach(client, args.buf)
   end,
 })
+
+vim.g.auto_save_on_insert_leave = 0
+
+function ToggleAutoSave()
+  if vim.g.auto_save_on_insert_leave == 0 then
+    vim.g.auto_save_on_insert_leave = 1
+    print("Auto-save on insert leave enabled")
+  else
+    vim.g.auto_save_on_insert_leave = 0
+    print("Auto-save on insert leave disabled")
+  end
+end
+
+vim.api.nvim_create_user_command('ToggleAutoSave', ToggleAutoSave, {})
+
+vim.api.nvim_create_augroup("auto_save_on_leave", { clear = true })
+vim.api.nvim_create_autocmd("InsertLeave", {
+  group = "auto_save_on_leave",
+  pattern = "*",
+  callback = function()
+    if vim.g.auto_save_on_insert_leave == 1 then
+      vim.cmd('silent write')
+    end
+  end,
+})

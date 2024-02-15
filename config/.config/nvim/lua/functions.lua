@@ -30,4 +30,16 @@ M.telescope_project_files = function()
   end
 end
 
+vim.g.auto_save_enabled = 0
+
+M.toggle_auto_save = function()
+  if vim.g.auto_save_enabled == 0 then
+    vim.g.auto_save_enabled = 1
+    print("Auto-save on insert leave enabled")
+  else
+    vim.g.auto_save_enabled = 0
+    print("Auto-save on insert leave disabled")
+  end
+end
+
 return M

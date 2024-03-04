@@ -7,7 +7,7 @@ return {
   { 'NoahTheDuke/vim-just', ft = 'just' },
 
   -- Koto highlighting
-  { 'koto-lang/koto.vim', ft = { 'koto', 'markdown' } },
+  { 'koto-lang/koto.vim', ft = { 'koto' } },
   -- { '~/dev/koto/koto.vim', ft = { 'koto', 'markdown' } },
 
   -- Coffeescript highlighting

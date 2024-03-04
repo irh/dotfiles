@@ -3,6 +3,14 @@ return {
   event = 'VeryLazy',
   build = ':TSUpdate',
   config = function()
+    local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
+    parser_config.koto = {
+      install_info = {
+        url = "~/dev/koto/tree-sitter-koto",
+        files = { 'src/parser.c', 'src/scanner.c' },
+      },
+    }
+
     require('nvim-treesitter.configs').setup {
       ensure_installed = {
         'bash',
@@ -20,6 +28,7 @@ return {
         'json',
         'json5',
         'julia',
+        'koto',
         'lua',
         'markdown',
         'markdown_inline',
@@ -35,15 +44,6 @@ return {
       },
       highlight = {
         enable = true,
-        use_languagetree = true,
-      },
-    }
-
-    local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
-    parser_config.koto = {
-      install_info = {
-        url = "~/dev/koto/tree-sitter-koto",
-        files = { 'src/parser.c', 'src/scanner.c' },
       },
     }
   end

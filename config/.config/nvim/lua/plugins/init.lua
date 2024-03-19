@@ -13,38 +13,6 @@ return {
   -- Coffeescript highlighting
   { 'kchmck/vim-coffee-script', ft = { 'coffee', 'markdown' } },
 
-  -- Markdown support
-  {
-    'preservim/vim-markdown',
-    ft = 'markdown',
-    config = function()
-      vim.g.vim_markdown_auto_insert_bullets = 0
-      vim.g.vim_markdown_new_list_item_indent = 0
-    end
-  },
-
-  -- Markdown editing QoL
-  {
-    'SidOfc/mkdx',
-    ft = 'markdown',
-    config = function()
-      vim.g['mkdx#settings'] = {
-        checkbox = { toggles = { ' ', 'x' } },
-        enter = {
-          -- Enable shift+enter in multiline list items
-          -- Requires overridden shift+enter codes in alacritty.yml
-          shift = 1,
-          -- Add list/check items when entering insert mode with o
-          o = 1,
-          -- Add list/check items when entering insert mode with shift+o
-          shifto = 1,
-        },
-        -- Update list numbers with ctrl+t/d
-        insert_indent_mappings = 1,
-      }
-    end
-  },
-
   -- Auto close HTML tags using treesitter
   {
     'windwp/nvim-ts-autotag',
@@ -309,12 +277,6 @@ return {
     cmd = { 'G', 'Git', 'GBrowse', 'GDiff' }
   },
 
-  -- Fixed gx mapping
-  {
-    'felipec/vim-sanegx',
-    event = 'VeryLazy',
-  },
-
   -- Dash support
   {
     'mrjones2014/dash.nvim',
@@ -335,6 +297,8 @@ return {
   },
 
 
+  ----- Markdown editing
+  --
   -- Obsidian support
   {
     'epwalsh/obsidian.nvim',
@@ -351,14 +315,37 @@ return {
           nvim_cmp = true,
         },
         disable_frontmatter = true,
-        mappings = {
-          ["gi"] = {
-            action = function()
-              require("obsidian.mapping").gf_passthrough()
-            end
-          }
-        },
+        mappings = {},
       }
     end
+  },
+
+  -- List editing
+  -- https://github.com/preservim/vim-markdown
+  {
+    'preservim/vim-markdown',
+    ft = 'markdown',
+    config = function()
+      -- Indent by two when pressing `o` in a list
+      vim.g.vim_markdown_new_list_item_indent = 2
+      -- Don't conceal, obsidian.nvim handles concealing
+      vim.g.vim_markdown_conceal = 0
+      vim.g.vim_markdown_conceal_code_blocks = 0
+      -- Don't add any mappings
+      vim.g.vim_markdown_no_default_key_mappings = 1
+    end
+  },
+
+  -- Open links on enter in markdown files
+  {
+    "jghauser/follow-md-links.nvim",
+    ft = "markdown",
+  },
+
+  -- Toggle/create checkboxes
+  {
+    'nfrid/markdown-togglecheck',
+    dependencies = { 'nfrid/treesitter-utils' },
+    ft = { 'markdown' },
   },
 }

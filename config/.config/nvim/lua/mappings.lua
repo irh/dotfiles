@@ -39,6 +39,7 @@ swap_keys(':', ';')
 
 nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
 nmap('gD', ':lua vim.lsp.buf.declaration()<CR>')
+-- Open URLs in the browser (overridden by markdown.nvim)
 nmap('gx', [[:silent execute '!open ' . shellescape(expand('<cWORD>'), 1)<CR>]])
 nmap('gO', ':ObsidianFollowLink<CR>')
 
@@ -190,6 +191,9 @@ nmap('<leader>|', ':vsp<CR>')
 
 -- - - Horizontal Split
 nmap('<leader>-', ':sp<CR>')
+
+-- = - Toggle markdown checkboxes
+nmap('<leader>=', ':lua require("markdown-togglecheck").toggle()<CR>')
 
 ------------------
 -- Insert mode

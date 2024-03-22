@@ -144,6 +144,9 @@ nmap('<leader>n', ':tabnew<CR>')
 -- o - Telescope workspace symbols
 nmap('<leader>o', ':Telescope lsp_dynamic_workspace_symbols<CR>')
 
+-- O - Show the document outline
+nmap('<leader>O', ':Outline!<CR>')
+
 -- Q - Send diagnostics to quickfix window
 nmap('<leader>Q', ':lua vim.diagnostic.setqflist()<CR>')
 

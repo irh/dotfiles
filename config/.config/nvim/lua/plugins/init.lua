@@ -296,6 +296,20 @@ return {
     end
   },
 
+  -- Document outline
+  {
+    "hedyhli/outline.nvim",
+    cmd = { "Outline", "OutlineOpen" },
+    opts = {
+      keymaps = {
+        -- Goto location on mouse click
+        goto_location = { "<CR>", "<LeftRelease>" },
+      },
+      symbol_folding = {
+        autofold_depth = 3,
+      },
+    },
+  },
 
   ----- Markdown editing
   --

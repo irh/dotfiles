@@ -17,6 +17,7 @@ return {
         'c',
         'cpp',
         'c_sharp',
+        'comment',
         'css',
         'elm',
         'fish',

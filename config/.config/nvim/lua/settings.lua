@@ -41,6 +41,10 @@ opt.exrc = true
 -- Don't fold by default
 opt.foldenable = false
 
+-- Use treesitter for folding
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- Use ripgrep for grepping
 opt.grepprg = 'rg --vimgrep $*'
 

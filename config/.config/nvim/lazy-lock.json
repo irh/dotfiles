@@ -22,6 +22,7 @@
   "lsp-inlayhints.nvim": { "branch": "main", "commit": "d981f65c9ae0b6062176f0accb9c151daeda6f16" },
   "markdown-togglecheck": { "branch": "main", "commit": "5e9ee3184109a102952c01ef816babe8835b299a" },
   "neoformat": { "branch": "master", "commit": "4372abb846f43ec121df40e620682c985ebc8286" },
+  "nui.nvim": { "branch": "main", "commit": "cbd2668414331c10039278f558630ed19b93e69b" },
   "nvim-autopairs": { "branch": "master", "commit": "4f41e5940bc0443fdbe5f995e2a596847215cd2a" },
   "nvim-cmp": { "branch": "main", "commit": "8f3c541407e691af6163e2447f3af1bd6e17f9a3" },
   "nvim-dap": { "branch": "master", "commit": "6ae8a14828b0f3bff1721a35a1dfd604b6a933bb" },
@@ -52,5 +53,6 @@
   "vim-slime": { "branch": "main", "commit": "87988b173b7642e6a5124f9e5559148c4159d076" },
   "vim-strip-trailing-whitespace": { "branch": "master", "commit": "59385775cbe416b2797ec5e2c7eb445a3398dd46" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
+  "xcodebuild.nvim": { "branch": "main", "commit": "3fd5b2eef5a5e12e64e1fccc1de4b7e5d351967c" },
   "zen-mode.nvim": { "branch": "main", "commit": "78557d972b4bfbb7488e17b5703d25164ae64e6a" }
 }

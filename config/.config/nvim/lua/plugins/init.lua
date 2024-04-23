@@ -362,4 +362,17 @@ return {
     dependencies = { 'nfrid/treesitter-utils' },
     ft = { 'markdown' },
   },
+
+  -- Xcode support
+  -- https://github.com/wojciech-kulik/xcodebuild.nvim
+  {
+    'wojciech-kulik/xcodebuild.nvim',
+    event = 'VeryLazy',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      require("xcodebuild").setup({})
+    end
+  }
 }

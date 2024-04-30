@@ -23,6 +23,12 @@ return {
     end
   },
 
+  -- KMonad highlighting
+  {
+    'kmonad/kmonad-vim',
+    ft = { 'kbd' },
+  },
+
   -- RON highlighting
   {
     'ron-rs/ron.vim',

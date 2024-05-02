@@ -38,7 +38,9 @@ swap_keys(':', ';')
 ------------------
 
 nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
+nmap('gv', ':vsplit<CR>:lua vim.lsp.buf.definition()<CR>')
 nmap('gD', ':lua vim.lsp.buf.declaration()<CR>')
+
 -- Open URLs in the browser (overridden by markdown.nvim)
 nmap('gx', [[:silent execute '!open ' . shellescape(expand('<cWORD>'), 1)<CR>]])
 nmap('gO', ':ObsidianFollowLink<CR>')

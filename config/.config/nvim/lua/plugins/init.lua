@@ -345,6 +345,7 @@ return {
         dir = '~/zk',
         daily_notes = {
           folder = "log",
+          alias_format = "%B %-d, %Y",
         },
         completion = {
           nvim_cmp = true,

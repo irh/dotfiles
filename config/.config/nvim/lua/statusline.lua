@@ -7,9 +7,9 @@ local set_active = function()
       -- lsp status
       .. '%{v:lua.require("lsp_status").status()}'
       -- line:column
-      .. ' %l:%c '
+      .. '%l:%c '
       -- file type
-      .. ' %y '
+      .. '%y '
 end
 
 local set_inactive = function()
@@ -61,8 +61,8 @@ vim.api.nvim_create_autocmd({ 'User' }, {
   end
 })
 
-vim.api.nvim_create_autocmd({ 'User' }, {
-  pattern = 'LspProgressUpdate',
+vim.api.nvim_create_autocmd({ 'LspProgress' }, {
+  pattern = '*',
   callback = function()
     vim.api.nvim_command('redrawstatus')
   end

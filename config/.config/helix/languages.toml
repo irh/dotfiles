@@ -1,3 +1,6 @@
+[language-server.koto-ls]
+command = "koto-ls"
+
 [[language]]
 name = "koto"
 scope = "source.koto"
@@ -6,6 +9,7 @@ file-types = ["koto"]
 comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
 roots = []
+language-servers = [ "koto-ls" ]
 
 [[grammar]]
 name = "koto"

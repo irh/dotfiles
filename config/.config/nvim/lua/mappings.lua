@@ -204,6 +204,8 @@ nmap('<leader>=', ':lua require("markdown-togglecheck").toggle()<CR>')
 -- Insert mode
 ------------------
 
+-- Ctrl+K - jump to next luasnip placeholder
+imap('<C-K>', '<cmd>lua require("luasnip").jump(1)<CR>')
 -- Ctrl+L - Toggle comments
 imap('<C-L>', '<C-\\><C-O><Plug>(comment_toggle_linewise_current)')
 -- Ctrl+S - Save

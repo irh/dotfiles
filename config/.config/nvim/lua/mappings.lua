@@ -164,6 +164,9 @@ nmap('<leader>s', ':wa<CR>')
 -- S - Save all and quit
 nmap('<leader>S', ':wqa<CR>')
 
+-- t - insert task
+nmap('<leader>t', 'i- [ ] ')
+
 -- T - Open today's notes
 nmap('<leader>T', ':ObsidianToday<CR>')
 

@@ -366,8 +366,8 @@ return {
     'preservim/vim-markdown',
     ft = 'markdown',
     config = function()
-      -- Indent by two when pressing `o` in a list
-      vim.g.vim_markdown_new_list_item_indent = 2
+      -- Don't indent when pressing `o` in a list
+      vim.g.vim_markdown_new_list_item_indent = 0
       -- Don't conceal, obsidian.nvim handles concealing
       vim.g.vim_markdown_conceal = 0
       vim.g.vim_markdown_conceal_code_blocks = 0
@@ -383,9 +383,10 @@ return {
   },
 
   -- Toggle/create checkboxes
+  -- https://github.com/nfrid/markdown-togglecheck
   {
     'nfrid/markdown-togglecheck',
-    dependencies = { 'nfrid/treesitter-utils' },
+    dependencies = { 'irh/treesitter-utils' },
     ft = { 'markdown' },
   },
 

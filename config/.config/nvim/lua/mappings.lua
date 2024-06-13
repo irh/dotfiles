@@ -164,8 +164,8 @@ nmap('<leader>s', ':wa<CR>')
 -- S - Save all and quit
 nmap('<leader>S', ':wqa<CR>')
 
--- t - insert task
-nmap('<leader>t', 'i- [ ] ')
+-- t - Toggle markdown checkboxes
+nmap('<leader>t', '^:lua require("markdown-togglecheck").toggle()<CR>')
 
 -- T - Open today's notes
 nmap('<leader>T', ':ObsidianToday<CR>')
@@ -199,9 +199,6 @@ nmap('<leader>|', ':vsp<CR>')
 
 -- - - Horizontal Split
 nmap('<leader>-', ':sp<CR>')
-
--- = - Toggle markdown checkboxes
-nmap('<leader>=', ':lua require("markdown-togglecheck").toggle()<CR>')
 
 ------------------
 -- Insert mode

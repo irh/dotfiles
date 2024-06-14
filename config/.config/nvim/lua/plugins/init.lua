@@ -386,7 +386,7 @@ return {
   -- https://github.com/nfrid/markdown-togglecheck
   {
     'nfrid/markdown-togglecheck',
-    dependencies = { 'irh/treesitter-utils' },
+    dependencies = { 'nfrid/treesitter-utils' },
     ft = { 'markdown' },
   },
 

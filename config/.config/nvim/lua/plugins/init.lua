@@ -371,8 +371,10 @@ return {
     'preservim/vim-markdown',
     ft = 'markdown',
     config = function()
-      -- Don't indent when pressing `o` in a list
-      vim.g.vim_markdown_new_list_item_indent = 0
+      -- Set the new list item indent to 2
+      -- This is a bit annoying when pressing o, but it also affects word wrap,
+      -- so its better to keep it.
+      vim.g.vim_markdown_new_list_item_indent = 2
       -- Don't conceal, obsidian.nvim handles concealing
       vim.g.vim_markdown_conceal = 0
       vim.g.vim_markdown_conceal_code_blocks = 0

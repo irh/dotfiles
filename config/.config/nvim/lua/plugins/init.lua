@@ -49,6 +49,9 @@ return {
   {
     'tpope/vim-surround',
     event = 'VeryLazy',
+    dependencies = {
+      'folke/flash.nvim', -- Ensure flash loads first to avoid visual mode S conflict
+    },
     config = function()
       vim.g.surround_no_insert_mappings = 1
     end
@@ -223,6 +226,7 @@ return {
   },
 
   -- flash.nvim
+  -- https://github.com/folke/flash.nvim
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -231,6 +235,7 @@ return {
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "S", false, mode = { "v" } }, -- avoid conflicts with vim-surround
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },

@@ -3,6 +3,7 @@ vim.filetype.add({
     koto = "koto",
     meta = "ron",
     postcss = "css",
+    swiftinterface = "swift",
     wgsl = "wgsl_bevy",
   },
 })

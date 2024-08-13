@@ -12,6 +12,7 @@
 .pnpm-debug.log
 .vimrc
 
+buildServer.json
 compile_commands.json
 tags
 tags.*

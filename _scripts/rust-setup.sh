@@ -13,4 +13,5 @@ cargo install \
   cargo-lipo \
   cargo-tree \
   cargo-watch \
+  mlc \
   watchexec-cli

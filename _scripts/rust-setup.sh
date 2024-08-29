@@ -14,4 +14,5 @@ cargo install \
   cargo-tree \
   cargo-watch \
   mlc \
-  watchexec-cli
+  watchexec-cli \
+  wasm-pack

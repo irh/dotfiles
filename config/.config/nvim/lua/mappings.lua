@@ -62,15 +62,14 @@ nmap('<F10>', ':lua require("dap").step_into()<CR>')
 -- F11 - Step Out
 nmap('<F11>', ':lua require("dap").step_out()<CR>')
 
--- F16 - Test
-nmap('<F16>', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
-
--- F17 - Make
-nmap('<F17>', ':set makeprg=$MAKEPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
--- F18 - Next error
-nmap('<F18>', ':wa<CR>:cnext<CR>')
--- F19 - Previous error
-nmap('<F19>', ':wa<CR>:cprev<CR>')
+-- Make
+nmap('<F1>', ':set makeprg=$MAKEPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
+-- Test
+nmap('<F2>', ':set makeprg=$TESTPRG<CR>:wa<CR>:AsyncRun -program=make<CR>')
+-- Previous error
+nmap('<F3>', ':wa<CR>:cprev<CR>')
+-- Next error
+nmap('<F4>', ':wa<CR>:cnext<CR>')
 
 ------------------
 -- Leader mappings

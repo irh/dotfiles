@@ -4,27 +4,12 @@ return {
   event = 'VeryLazy',
   config = function()
     require('nvim-tree').setup {
-      filters = {
-        -- Show dotfiles by default, toggle with H
-        dotfiles = false,
-      },
       -- Disable netrw
       disable_netrw = true,
       -- Don't auto-open when opening a new tab
       open_on_tab = false,
       -- Keep the cursor on the first letter of the filename when moving in the tree
       hijack_cursor = true,
-      -- Highlight the focused file in the tree
-      update_focused_file = {
-        enable = true,
-        update_cwd = false,
-      },
-      git = {
-        -- Disable git status icons
-        enable = false,
-        -- Don't hide files based on .gitignore
-        ignore = false,
-      },
       actions = {
         open_file = {
           resize_window = false,
@@ -32,6 +17,16 @@ return {
             enable = false,
           },
         },
+      },
+      filesystem_watchers = {
+        enable = false,
+      },
+      filters = {
+        -- Show dotfiles by default, toggle with H
+        dotfiles = false,
+      },
+      git = {
+        enable = false,
       },
       renderer = {
         indent_markers = {
@@ -65,7 +60,12 @@ return {
             },
           }
         }
-      }
+      },
+      -- Highlight the focused file in the tree
+      update_focused_file = {
+        enable = true,
+        update_cwd = false,
+      },
     }
   end
 }

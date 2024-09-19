@@ -20,7 +20,7 @@ return {
       'sourcekit', -- Swift / Objective-C
       'svelte',
       'taplo', -- TOML
-      'tsserver',
+      'ts_ls',
       'yamlls',
     }
 

@@ -11,6 +11,7 @@ rustup component add \
 cargo install \
   cargo-bloat \
   cargo-lipo \
+  cargo-sweep \
   cargo-tree \
   cargo-watch \
   mlc \

@@ -1,10 +1,13 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
--- Application
-config.send_composed_key_when_left_alt_is_pressed = true
+------ Application
 
--- Window
+-- See https://wezfurlong.org/wezterm/config/keyboard-concepts.html#macos-left-and-right-option-key
+config.send_composed_key_when_left_alt_is_pressed = true
+-- config.send_composed_key_when_right_alt_is_pressed = false
+
+------ Window
 config.enable_tab_bar = false
 config.initial_cols = 160
 config.initial_rows = 48
@@ -16,12 +19,12 @@ config.window_padding = {
 }
 config.native_macos_fullscreen_mode = true
 
--- Font
+------ Font
 config.font = wezterm.font_with_fallback { 'Input', 'Apple Color Emoji' }
 config.font_size = 12
 config.cell_width = 0.9
 
--- Color scheme
+------ Color scheme
 local colors = wezterm.color.get_builtin_schemes()['Solarized Dark (Gogh)']
 colors.background = '#002b36'
 colors.cursor_fg = 'black'

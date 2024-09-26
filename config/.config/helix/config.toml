@@ -8,5 +8,49 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-# [keys.normal]
-# ";" = "command_mode"
+[keys.normal]
+
+# ";" = "command_mode" # Enter command mode
+# "C-;" = "collapse_selection" # Collapse a selection (remapped from ;)
+"=" = ":format" # Format file instead of selection
+
+#--- Mac alt key workarounds
+"≥" = "repeat_last_motion" # Alt-.
+"∂" = "delete_selection_noyank" # Alt-d
+"ç" = "change_selection_noyank" # Alt-c
+"«" = "shell_pipe_to" # Alt-|
+"⁄" = "shell_append_output" # Alt-!
+"ß" = "split_selection_on_newline" # Alt-s
+"…" = "flip_selections" # Alt-;
+"Ú" = "ensure_selections_forward" # Alt-:
+"≤" = "remove_primary_selection" # Alt-,
+"Ç" = "copy_selection_on_prev_line" # Alt-C
+"·" = "rotate_selection_contents_backward" # Alt-(
+"‚" = "rotate_selection_contents_forward" # Alt-)
+"≈" = "shrink_to_line_bounds" # Alt-x
+"" = "remove_selections" # Alt-K
+"ø" = "expand_selection" # Alt-o
+"ˆ" = "shrink_selection" # Alt-i
+"π" = "select_prev_sibling" # Alt-p
+"˜" = "select_next_sibling" # Alt-n
+
+# Alt-` (no way to capture this; Alt-` is the same as `)
+# "???" = "switch_to_uppercase"
+
+# Alt-u / Alt-U (no way to capture this; Alt-u is the same as Alt-U)
+# "¨" = "earlier"
+# "¨" = "later"
+
+[keys.normal.space]
+
+"z" = ":write-all!" # Write all buffers
+"Z" = ":write-quit-all!" # Write all buffers and exit 
+
+[keys.insert]
+
+#--- Mac alt key workarounds
+"∂" = "delete_word_forward" # Alt-d
+"∫" = "move_prev_word_end" # Alt-b
+"ƒ" = "move_next_word_start" # Alt-f
+"˘" = "goto_file_end" # Alt->
+"¯" = "goto_file_start" # Alt-<

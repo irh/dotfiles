@@ -8,12 +8,13 @@ rustup component add \
   rust-src \
   rustfmt
 
-cargo install \
+cargo install --locked \
   cargo-bloat \
   cargo-lipo \
   cargo-sweep \
   cargo-tree \
   cargo-watch \
+  harper-ls \
   mlc \
   watchexec-cli \
   wasm-pack

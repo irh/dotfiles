@@ -10,13 +10,12 @@ return {
       'ccls',
       'csharp_ls',
       'cssls',
+      'harper_ls', -- Grammar and spelling in code comments and markdown
       'html',
       'jsonls',
       'julials',
-      'ltex', -- Grammar + spellchecking in Markdown
       'lua_ls',
       'marksman', -- Markdown
-      -- 'rust_analyzer',
       'sourcekit', -- Swift / Objective-C
       'svelte',
       'taplo', -- TOML

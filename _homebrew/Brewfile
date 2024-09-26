@@ -31,7 +31,6 @@ brew "hub"
 brew "imagemagick"
 brew "just"
 brew "llvm"
-brew "ltex-ls" # For markdown LSP
 brew "lua"
 brew "lua-language-server"
 brew "marksman"

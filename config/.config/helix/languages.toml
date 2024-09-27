@@ -3,6 +3,11 @@ name = "rust"
 rulers = [101]
 text-width = 100
 
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["format", "-"] }
+
 # [language-server.koto-ls]
 # command = "koto-ls"
 

@@ -56,13 +56,20 @@ x = "extend_line" # Allow x to work upwards following Alt-;
 
 [keys.normal.space]
 
-"q" = ":write-quit-all"                 # Write all and quit
-"Q" = ":write-quit-all!"                # Write all and quit, discard scratch buffers
-"s" = ":write-all"                      # Write all buffers
-"S" = ":write-all!"                     # Write all buffers forcefully, creating subdirectories
-"o" = "symbol_picker"                   # Document symbols
-"O" = "workspace_symbol_picker"         # Workspace symbols
-"h" = ":toggle lsp.display-inlay-hints" # Toggle type hints
+
+# Open selection in Dash
+"h" = ["collapse_selection", "expand_selection", ":pipe-to open-in-dash"]
+
+"i" = ":toggle lsp.display-inlay-hints" # Toggle type hints
+
+"o" = "symbol_picker"           # Document symbols
+"O" = "workspace_symbol_picker" # Workspace symbols
+
+"q" = ":write-quit-all"  # Write all and quit
+"Q" = ":write-quit-all!" # Write all and quit, discard scratch buffers
+"s" = ":write-all"       # Write all buffers
+"S" = ":write-all!"      # Write all buffers forcefully, creating subdirectories
+
 # Toggle markdown checkboxes 
 "t" = [
   # Extend the selection to include the whole line (or lines), 
@@ -93,6 +100,7 @@ x = "extend_line" # Allow x to work upwards following Alt-;
   "goto_first_nonwhitespace",
   "collapse_selection",
 ]
+
 
 [keys.normal.tab]
 

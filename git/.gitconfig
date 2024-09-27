@@ -64,7 +64,7 @@
 [core]
   autocrlf = input
   commitGraph = true
-  editor = nvim
+  editor = hx
   excludesfile = ~/.gitignore_global
   ignorecase = true
   pager = delta

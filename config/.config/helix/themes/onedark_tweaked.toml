@@ -1,3 +1,4 @@
 inherits = "onedark"
 
+"variable.builtin" = { fg = "red" }
 "ui.virtual.ruler" = { bg = "light-black" }

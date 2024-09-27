@@ -1,3 +1,8 @@
+[[language]]
+name = "rust"
+rulers = [101]
+text-width = 100
+
 # [language-server.koto-ls]
 # command = "koto-ls"
 

@@ -16,6 +16,9 @@ render = true
 character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 
 x = "extend_line" # Allow x to work upwards following Alt-;

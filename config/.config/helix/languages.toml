@@ -1,16 +1,16 @@
-[language-server.koto-ls]
-command = "koto-ls"
+# [language-server.koto-ls]
+# command = "koto-ls"
 
-[[language]]
-name = "koto"
-scope = "source.koto"
-injection-regex = "koto"
-file-types = ["koto"]
-comment-token = "#"
-indent = { tab-width = 2, unit = "  " }
-roots = []
-language-servers = [ "koto-ls" ]
+# [[language]]
+# name = "koto"
+# scope = "source.koto"
+# injection-regex = "koto"
+# file-types = ["koto"]
+# comment-token = "#"
+# indent = { tab-width = 2, unit = "  " }
+# roots = []
+# language-servers = [ "koto-ls" ]
 
-[[grammar]]
-name = "koto"
-source = { git = "https://github.com/koto-lang/tree-sitter-koto", rev = "main" }
+# [[grammar]]
+# name = "koto"
+# source = { git = "https://github.com/koto-lang/tree-sitter-koto", rev = "main" }

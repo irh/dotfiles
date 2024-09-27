@@ -25,13 +25,6 @@ config.font_size = 12
 config.cell_width = 0.9
 
 ------ Color scheme
-local colors = wezterm.color.get_builtin_schemes()['Solarized Dark (Gogh)']
-colors.background = '#002b36'
-colors.cursor_fg = 'black'
-
-config.color_schemes = {
-  ['MyScheme'] = colors,
-}
-config.color_scheme = 'MyScheme'
+config.color_scheme = 'OneDark (base16)'
 
 return config

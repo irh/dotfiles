@@ -1,4 +1,7 @@
-theme = 'solarized_dark'
+theme = 'everforest_dark'
+
+[editor]
+bufferline = "multiple"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -8,31 +11,38 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
 [keys.normal]
 
-# ";" = "command_mode" # Enter command mode
-# "C-;" = "collapse_selection" # Collapse a selection (remapped from ;)
-"=" = ":format" # Format file instead of selection
+x = "extend_line" # Allow x to work upwards following Alt-;
+
+# Vim-style paragraph motions
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 
 #--- Mac alt key workarounds
-"≥" = "repeat_last_motion" # Alt-.
-"∂" = "delete_selection_noyank" # Alt-d
-"ç" = "change_selection_noyank" # Alt-c
-"«" = "shell_pipe_to" # Alt-|
-"⁄" = "shell_append_output" # Alt-!
-"ß" = "split_selection_on_newline" # Alt-s
-"…" = "flip_selections" # Alt-;
-"Ú" = "ensure_selections_forward" # Alt-:
-"≤" = "remove_primary_selection" # Alt-,
-"Ç" = "copy_selection_on_prev_line" # Alt-C
+"≥" = "repeat_last_motion"                 # Alt-.
+"∂" = "delete_selection_noyank"            # Alt-d
+"ç" = "change_selection_noyank"            # Alt-c
+"«" = "shell_pipe_to"                      # Alt-|
+"⁄" = "shell_append_output"                # Alt-!
+"ß" = "split_selection_on_newline"         # Alt-s
+"…" = "flip_selections"                    # Alt-;
+"Ú" = "ensure_selections_forward"          # Alt-:
+"≤" = "remove_primary_selection"           # Alt-,
+"Ç" = "copy_selection_on_prev_line"        # Alt-C
 "·" = "rotate_selection_contents_backward" # Alt-(
-"‚" = "rotate_selection_contents_forward" # Alt-)
-"≈" = "shrink_to_line_bounds" # Alt-x
-"" = "remove_selections" # Alt-K
-"ø" = "expand_selection" # Alt-o
-"ˆ" = "shrink_selection" # Alt-i
-"π" = "select_prev_sibling" # Alt-p
-"˜" = "select_next_sibling" # Alt-n
+"‚" = "rotate_selection_contents_forward"  # Alt-)
+"≈" = "shrink_to_line_bounds"              # Alt-x
+"" = "remove_selections"                  # Alt-K
+"ø" = "expand_selection"                   # Alt-o
+"ˆ" = "shrink_selection"                   # Alt-i
+"π" = "select_prev_sibling"                # Alt-p
+"˜" = "select_next_sibling"                # Alt-n
 
 # Alt-` (no way to capture this; Alt-` is the same as `)
 # "???" = "switch_to_uppercase"
@@ -43,14 +53,63 @@ hidden = false
 
 [keys.normal.space]
 
-"z" = ":write-all!" # Write all buffers
-"Z" = ":write-quit-all!" # Write all buffers and exit 
+"q" = ":write-quit-all"                 # Write all and quit
+"Q" = ":write-quit-all!"                # Write all and quit, discard scratch buffers
+"s" = ":write-all"                      # Write all buffers
+"S" = ":write-all!"                     # Write all buffers forcefully, creating subdirectories
+"o" = "symbol_picker"                   # Document symbols
+"O" = "workspace_symbol_picker"         # Workspace symbols
+"h" = ":toggle lsp.display-inlay-hints" # Toggle type hints
+# Toggle markdown checkboxes 
+"t" = [
+  # Extend the selection to include the whole line (or lines), 
+  # without selecting an extra line when a single line is selected
+  "extend_to_line_start",
+  "flip_selections",
+  "extend_to_line_end",
+  "extend_line",
+  # Run the selection through awk
+  # - Toggle '- [ ]' to '- [x]' and vice-versa
+  # - If the line starts with a '-' bullet, then add an empty checkbox
+  # - If the line isn't a bullet point, then add '- [ ] ' 
+  """:pipe awk '{ 
+    if ($0 ~ /^- \\[ \\]/) {
+      sub(/^- \\[ \\]/, \"- [x]\"); print;
+    } else if ($0 ~ /^- \\[x\\]/) {
+      sub(/^- \\[x\\]/, \"- [ ]\"); print;
+    } else if ($0 ~ /^- /) {
+      sub(/^- /, \"- [ ] \"); print;
+    } else {
+      print \"- [ ] \" $0;
+    }
+  }'
+  """,
+  # Move the cursor to the start of the line and collapse the selection
+  # (this is the only way I've found to have consistent behaviour between 
+  # single and multi-line toggling).
+  "goto_first_nonwhitespace",
+  "collapse_selection",
+]
+
+[keys.normal.tab]
+
+# Insert date as markdown subheading
+"d" = [
+  "open_below",
+  ":insert-output date -u '+## %Y-%m-%d'",
+  "open_below",
+  "insert_newline",
+]
+
 
 [keys.insert]
 
-#--- Mac alt key workarounds
-"∂" = "delete_word_forward" # Alt-d
-"∫" = "move_prev_word_end" # Alt-b
-"ƒ" = "move_next_word_start" # Alt-f
-"˘" = "goto_file_end" # Alt->
-"¯" = "goto_file_start" # Alt-<
+"C-s" = ":write-all"  # Write all buffers
+"C-S" = ":write-all!" # Write all buffers forcefully, creating subdirectories
+
+# #--- Mac alt key workarounds
+# "∂" = "delete_word_forward" # Alt-d
+# "∫" = "move_prev_word_end" # Alt-b
+# "ƒ" = "move_next_word_start" # Alt-f
+# "˘" = "goto_file_end" # Alt->
+# "¯" = "goto_file_start" # Alt-<

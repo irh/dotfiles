@@ -2,6 +2,7 @@ theme = 'onedark_tweaked'
 
 [editor]
 bufferline = "multiple"
+color-modes = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -20,8 +21,9 @@ skip-levels = 1
 enable = true
 
 [keys.normal]
+"x" = "extend_line" # Allow x to work upwards following Alt-;
+"=" = ":format"     # Format the file and not just a selection
 
-x = "extend_line" # Allow x to work upwards following Alt-;
 
 # Vim-style paragraph motions
 "{" = "goto_prev_paragraph"
@@ -55,8 +57,7 @@ x = "extend_line" # Allow x to work upwards following Alt-;
 # "¨" = "later"
 
 [keys.normal.space]
-
-
+"F" = "file_picker_in_current_buffer_directory"
 # Open selection in Dash
 "h" = ["collapse_selection", "expand_selection", ":pipe-to open-in-dash"]
 
@@ -117,6 +118,12 @@ x = "extend_line" # Allow x to work upwards following Alt-;
 
 "C-s" = ":write-all"  # Write all buffers
 "C-S" = ":write-all!" # Write all buffers forcefully, creating subdirectories
+
+[keys.select]
+
+# Vim-style paragraph motions
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 
 # #--- Mac alt key workarounds
 # "∂" = "delete_word_forward" # Alt-d

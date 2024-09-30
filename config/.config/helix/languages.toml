@@ -5,7 +5,7 @@ text-width = 100
 
 [[language]]
 name = "toml"
-auto-format = true
+auto-format = false
 formatter = { command = "taplo", args = ["format", "-"] }
 
 # [language-server.koto-ls]

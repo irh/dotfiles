@@ -1,4 +1,5 @@
 inherits = "onedark"
 
+"keyword" = { fg = "purple" }
 "variable.builtin" = { fg = "red" }
 "ui.virtual.ruler" = { bg = "light-black" }

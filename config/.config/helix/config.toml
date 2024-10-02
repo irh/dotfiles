@@ -3,6 +3,7 @@ theme = 'onedark_tweaked'
 [editor]
 bufferline = "multiple"
 color-modes = true
+end-of-line-diagnostics = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -16,6 +17,9 @@ hidden = false
 render = true
 character = "┊" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.soft-wrap]
 enable = true

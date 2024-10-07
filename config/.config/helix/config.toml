@@ -21,10 +21,12 @@ skip-levels = 1
 [editor.soft-wrap]
 enable = true
 
+# [editor.inline-diagnostics]
+# cursor-line = "warning" # show warnings and errors on the cursorline inline
+
 [keys.normal]
 "x" = "extend_line" # Allow x to work upwards following Alt-;
 "=" = ":format"     # Format the file and not just a selection
-
 
 # Vim-style paragraph motions
 "{" = "goto_prev_paragraph"
@@ -102,6 +104,9 @@ enable = true
   "goto_first_nonwhitespace",
   "collapse_selection",
 ]
+
+"T" = [":lsp-workspace-command today"]
+"W" = [":lsp-workspace-command"]
 
 
 [keys.normal.tab]

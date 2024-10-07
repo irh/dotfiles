@@ -1,12 +1,25 @@
 [[language]]
+name = "markdown"
+text-width = 100
+language-servers = ["harper-ls", "marksman", "markdown-oxide"]
+
+[[language]]
 name = "rust"
 rulers = [101]
 text-width = 100
+language-servers = ["rust-analyzer", "harper-ls"]
 
 [[language]]
 name = "toml"
 auto-format = false
 formatter = { command = "taplo", args = ["format", "-"] }
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+# A config is required to avoid errors 
+# See <https://github.com/elijah-potter/harper/blob/master/harper-ls/README.md#configuration>
+config = { harper-ls = {} } 
 
 # [language-server.koto-ls]
 # command = "koto-ls"

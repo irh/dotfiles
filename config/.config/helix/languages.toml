@@ -19,7 +19,7 @@ command = "harper-ls"
 args = ["--stdio"]
 # A config is required to avoid errors 
 # See <https://github.com/elijah-potter/harper/blob/master/harper-ls/README.md#configuration>
-config = { harper-ls = {} } 
+config = { harper-ls = { linters = { an_a = false } } }
 
 # [language-server.koto-ls]
 # command = "koto-ls"

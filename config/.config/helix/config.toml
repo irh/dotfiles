@@ -3,7 +3,7 @@ theme = 'onedark_tweaked'
 [editor]
 bufferline = "multiple"
 color-modes = true
-end-of-line-diagnostics = "hint"
+end-of-line-diagnostics = "warning"
 
 [editor.cursor-shape]
 insert = "bar"

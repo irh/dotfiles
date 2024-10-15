@@ -86,15 +86,22 @@ enable = true
   # - Toggle '- [ ]' to '- [x]' and vice-versa
   # - If the line starts with a '-' bullet, then add an empty checkbox
   # - If the line isn't a bullet point, then add '- [ ] ' 
-  """:pipe awk '{ 
-    if ($0 ~ /^- \\[ \\]/) {
-      sub(/^- \\[ \\]/, \"- [x]\"); print;
-    } else if ($0 ~ /^- \\[x\\]/) {
-      sub(/^- \\[x\\]/, \"- [ ]\"); print;
-    } else if ($0 ~ /^- /) {
-      sub(/^- /, \"- [ ] \"); print;
+  """:pipe gawk '{
+  match($0, /^([[:space:]]*)/, arr);
+    indent = arr[1];
+    line = substr($0, length(indent) + 1);
+
+    if (line ~ /^- \\[ \\]/) {
+      sub(/^- \\[ \\]/, "- [x]", line);
+      print indent line;
+    } else if (line ~ /^- \\[x\\]/) {
+      sub(/^- \\[x\\]/, "- [ ]", line);
+      print indent line;
+    } else if (line ~ /^- /) {
+      sub(/^- /, "- [ ] ", line);
+      print indent line;
     } else {
-      print \"- [ ] \" $0;
+      print indent "- [ ] " line;
     }
   }'
   """,

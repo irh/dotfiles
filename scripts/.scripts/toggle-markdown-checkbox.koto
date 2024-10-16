@@ -1,0 +1,45 @@
+#! /usr/bin/env koto
+
+import regex
+
+toggle_checkbox = |input|
+  captures = regex
+    .new(r'^(?<whitespace>\s*)((?<bullet>[-+*])\s*(\[(?<check>[ x])\])?\s*)?(?<content>.*)')
+    .captures input
+  preamble = captures.get(0).text()
+  whitespace = captures.whitespace.text()
+  content = captures.content.text()
+  bullet = if bullet = captures.get('bullet') then bullet.text()
+  check = if check = captures.get('check') then check.text()
+  switch 
+    input.is_empty() then input
+    not bullet then '{whitespace}- {content}'
+    not check then '{whitespace}{bullet} [ ] {content}'
+    check == 'x' then '{whitespace}{bullet} [ ] {content}' 
+    else '{whitespace}{bullet} [x] {content}'
+
+@main = ||
+  stdin = io.stdin()
+  if not stdin.is_terminal()
+    while input = stdin.read_line()
+      print toggle_checkbox input
+
+@tests = 
+  @test empty_line: ||
+    assert_eq (toggle_checkbox ''), ''
+
+  @test no_bullet: ||
+    assert_eq (toggle_checkbox 'hello'), '- hello'
+    assert_eq (toggle_checkbox '  hello'), '  - hello'
+
+  @test no_checkbox: ||
+    assert_eq (toggle_checkbox '- hello'), '- [ ] hello'
+    assert_eq (toggle_checkbox '* xyz'), '* [ ] xyz'
+    assert_eq (toggle_checkbox '+ 123'), '+ [ ] 123'
+    assert_eq (toggle_checkbox '  + 123'), '  + [ ] 123'
+
+  @test untoggled: ||
+    assert_eq (toggle_checkbox '- [ ] hello'), '- [x] hello'
+    assert_eq (toggle_checkbox '* [ ] xyz'), '* [x] xyz'
+    assert_eq (toggle_checkbox '+ [ ] 123'), '+ [x] 123'
+    assert_eq (toggle_checkbox '    - [ ] hello'), '    - [x] hdllo'

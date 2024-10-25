@@ -13,7 +13,7 @@ pnpm install -g \
   typescript \
   typescript-language-server \
   vscode-langservers-extracted \
-  vsce \
+  @vscode/vsce \
   wrangler \
   yaml-language-server \
   ;

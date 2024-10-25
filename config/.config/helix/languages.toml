@@ -1,4 +1,8 @@
 [[language]]
+name = "javascript"
+auto-format = true
+
+[[language]]
 name = "markdown"
 text-width = 100
 language-servers = ["harper-ls", "marksman", "markdown-oxide"]

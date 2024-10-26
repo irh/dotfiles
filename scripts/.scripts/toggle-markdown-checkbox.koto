@@ -6,11 +6,10 @@ toggle_checkbox = |input|
   captures = regex
     .new(r'^(?<whitespace>\s*)((?<bullet>[-+*])\s*(\[(?<check>[ x])\])?\s*)?(?<content>.*)')
     .captures input
-  preamble = captures.get(0).text()
   whitespace = captures.whitespace.text()
   content = captures.content.text()
-  bullet = if bullet = captures.get('bullet') then bullet.text()
-  check = if check = captures.get('check') then check.text()
+  bullet = captures.get('bullet')?.text()
+  check = captures.get('check')?.text()
   switch 
     input.is_empty() then input
     not bullet then '{whitespace}- {content}'

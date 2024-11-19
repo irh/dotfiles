@@ -61,7 +61,7 @@ enable = true
 # "¨" = "later"
 
 [keys.normal.space]
-"F" = "file_picker_in_current_buffer_directory"
+"F" = "file_browser"
 # Open selection in Dash
 "h" = ["collapse_selection", "expand_selection", ":pipe-to open-in-dash"]
 

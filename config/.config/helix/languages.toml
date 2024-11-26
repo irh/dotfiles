@@ -8,6 +8,10 @@ text-width = 100
 language-servers = ["harper-ls", "marksman", "markdown-oxide"]
 
 [[language]]
+name = "javascript"
+auto-format = true
+
+[[language]]
 name = "rust"
 rulers = [101]
 text-width = 100

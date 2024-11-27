@@ -4,7 +4,7 @@ theme = 'onedark_tweaked'
 bufferline = "multiple"
 color-modes = true
 end-of-line-diagnostics = "warning"
-command-git-ignore = false
+command-git-ignore = false # See https://github.com/helix-editor/helix/pull/11957
 
 [editor.cursor-shape]
 insert = "bar"
@@ -61,7 +61,10 @@ enable = true
 # "¨" = "later"
 
 [keys.normal.space]
-"F" = "file_browser"
+# See https://github.com/helix-editor/helix/pull/11285
+"e" = "file_browser"
+"E" = "file_browser_in_current_buffer_directory"
+
 # Open selection in Dash
 "h" = ["collapse_selection", "expand_selection", ":pipe-to open-in-dash"]
 

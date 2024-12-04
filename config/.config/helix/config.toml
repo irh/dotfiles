@@ -53,6 +53,7 @@ enable = true
 "ˆ" = "shrink_selection"                   # Alt-i
 "π" = "select_prev_sibling"                # Alt-p
 "˜" = "select_next_sibling"                # Alt-n
+"•" = "search_selection"                   # Alt-*
 
 # Alt-` (no way to capture this; Alt-` is the same as `)
 # "???" = "switch_to_uppercase"

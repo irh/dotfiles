@@ -70,7 +70,7 @@ enable = true
 "F" = "file_picker_in_current_buffer_directory"
 
 # Open selection in Dash
-"h" = ["collapse_selection", "expand_selection", ":pipe-to open-in-dash"]
+"h" = ["collapse_selection", "expand_selection", ":pipe-to open-in-dash.koto"]
 
 "i" = ":toggle lsp.display-inlay-hints" # Toggle type hints
 

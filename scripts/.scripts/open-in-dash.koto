@@ -1,0 +1,5 @@
+#!/usr/bin/env koto
+
+os.command('open')
+  .args 'dash://{io.stdin().read_to_string()}'
+  .spawn()

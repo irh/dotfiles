@@ -100,6 +100,7 @@ enable = true
 
 "T" = [":lsp-workspace-command today"]
 "W" = [":lsp-workspace-command"]
+"x" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]
 
 
 [keys.normal.tab]

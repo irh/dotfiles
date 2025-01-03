@@ -63,6 +63,10 @@ enable = true
 # "¨" = "later"
 
 [keys.normal.space]
+# Trim all whitespace in file
+# See https://github.com/helix-editor/helix/pull/8366
+"B" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]
+
 # See https://github.com/helix-editor/helix/pull/11285
 "e" = "file_browser"
 "E" = "file_browser_in_current_buffer_directory"
@@ -82,17 +86,17 @@ enable = true
 "s" = ":write-all"       # Write all buffers
 "S" = ":write-all!"      # Write all buffers forcefully, creating subdirectories
 
-# Toggle markdown checkboxes 
+# Toggle markdown bullet
 "t" = [
-  # Extend the selection to include the whole line (or lines), 
+  # Extend the selection to include the whole line (or lines),
   # without selecting an extra line when a single line is selected
   "extend_to_line_start",
   "flip_selections",
   "extend_to_line_end",
   "extend_line",
-  ":pipe toggle-markdown-checkbox.koto",
+  ":pipe toggle-markdown-bullet.koto",
   # Move the cursor to the start of the line and collapse the selection
-  # (this is the only way I've found to have consistent behaviour between 
+  # (this is the only way I've found to have consistent behaviour between
   # single and multi-line toggling).
   "goto_first_nonwhitespace",
   "collapse_selection",
@@ -100,7 +104,22 @@ enable = true
 
 "T" = [":lsp-workspace-command today"]
 "W" = [":lsp-workspace-command"]
-"x" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]
+
+# Toggle markdown checkboxes
+"x" = [
+  # Extend the selection to include the whole line (or lines),
+  # without selecting an extra line when a single line is selected
+  "extend_to_line_start",
+  "flip_selections",
+  "extend_to_line_end",
+  "extend_line",
+  ":pipe toggle-markdown-checkbox.koto",
+  # Move the cursor to the start of the line and collapse the selection
+  # (this is the only way I've found to have consistent behaviour between
+  # single and multi-line toggling).
+  "goto_first_nonwhitespace",
+  "collapse_selection",
+]
 
 
 [keys.normal.tab]

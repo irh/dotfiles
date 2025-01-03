@@ -1,0 +1,35 @@
+#! /usr/bin/env koto
+
+import regex
+
+toggle_bullet = |input|
+  if input.is_empty() then return ''
+
+  captures = regex
+    .new(r'^(?<whitespace>\s*)(?<bullet>[-+*])?\s*(?<content>.*)')
+    .captures input
+
+  whitespace = captures.whitespace.text()
+  content = captures.content.text()
+  bullet = if captures.contains_key('bullet') then '' else '- '
+
+  '{whitespace}{bullet}{content}'
+
+@main = ||
+  stdin = io.stdin()
+  if not stdin.is_terminal()
+    while input = stdin.read_line()
+      print toggle_bullet input
+
+@test empty_line = ||
+  assert_eq (toggle_bullet ''), ''
+
+@test no_bullet = ||
+  assert_eq (toggle_bullet 'hello'), '- hello'
+  assert_eq (toggle_bullet '  hello'), '  - hello'
+
+@test bullet = ||
+  assert_eq (toggle_bullet '- hello'), 'hello'
+  assert_eq (toggle_bullet '* xyz'), 'xyz'
+  assert_eq (toggle_bullet '+ 123'), '123'
+  assert_eq (toggle_bullet '  + 123'), '  123'

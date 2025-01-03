@@ -3,19 +3,21 @@
 import regex
 
 toggle_checkbox = |input|
+  if input.is_empty() then return ''
+
   captures = regex
-    .new(r'^(?<whitespace>\s*)((?<bullet>[-+*])\s*(\[(?<check>[ x])\])?\s*)?(?<content>.*)')
+    .new(r'^(?<whitespace>\s*)((?<bullet>[-+*])\s*(\[(?<check>.*)\])?\s*)?(?<content>.*)')
     .captures input
+
   whitespace = captures.whitespace.text()
   content = captures.content.text()
-  bullet = captures.get('bullet')?.text()
-  check = captures.get('check')?.text()
-  switch 
-    input.is_empty() then input
-    not bullet then '{whitespace}- {content}'
-    not check then '{whitespace}{bullet} [ ] {content}'
-    check == 'x' then '{whitespace}{bullet} [ ] {content}' 
-    else '{whitespace}{bullet} [x] {content}'
+  bullet = captures.get('bullet')?.text() or '-'
+
+  let toggled = match captures.get('check')?.text()
+    null or 'x' then ' '
+    else 'x'
+
+  '{whitespace}{bullet} [{toggled}] {content}'
 
 @main = ||
   stdin = io.stdin()
@@ -27,8 +29,8 @@ toggle_checkbox = |input|
   assert_eq (toggle_checkbox ''), ''
 
 @test no_bullet = ||
-  assert_eq (toggle_checkbox 'hello'), '- hello'
-  assert_eq (toggle_checkbox '  hello'), '  - hello'
+  assert_eq (toggle_checkbox 'hello'), '- [ ] hello'
+  assert_eq (toggle_checkbox '  hello'), '  - [ ] hello'
 
 @test no_checkbox = ||
   assert_eq (toggle_checkbox '- hello'), '- [ ] hello'
@@ -36,8 +38,12 @@ toggle_checkbox = |input|
   assert_eq (toggle_checkbox '+ 123'), '+ [ ] 123'
   assert_eq (toggle_checkbox '  + 123'), '  + [ ] 123'
 
+@test toggled = ||
+  assert_eq (toggle_checkbox '- [x] zzz'), '- [ ] zzz'
+  assert_eq (toggle_checkbox '    - [x] a b c'), '    - [ ] a b c'
+
 @test untoggled = ||
   assert_eq (toggle_checkbox '- [ ] hello'), '- [x] hello'
-  assert_eq (toggle_checkbox '* [ ] xyz'), '* [x] xyz'
-  assert_eq (toggle_checkbox '+ [ ] 123'), '+ [x] 123'
-  assert_eq (toggle_checkbox '    - [ ] hello'), '    - [x] hdllo'
+  assert_eq (toggle_checkbox '* [~] xyz'), '* [x] xyz'
+  assert_eq (toggle_checkbox '+ [>] 123'), '+ [x] 123'
+  assert_eq (toggle_checkbox '    - [] hello'), '    - [x] hello'

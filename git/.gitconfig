@@ -148,6 +148,7 @@
 
 [submodule]
   fetchJobs = 8
+  recurse = true
 
 [user]
   name = Ian Hobson

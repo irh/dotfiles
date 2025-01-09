@@ -6,3 +6,8 @@ inherits = "onedark"
 "variable" = { fg = "white" }
 "variable.builtin" = { fg = "cyan" }
 "ui.virtual.ruler" = { bg = "light-black" }
+"ui.bufferline.active" = { fg = "white", bg = "light-black" }
+
+[palette]
+red = "#d07277ff"
+yellow = "#E5C080"

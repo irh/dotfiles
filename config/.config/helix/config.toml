@@ -6,6 +6,7 @@ clipboard-provider = "pasteboard" # Skip tmux clipboard (macos specific)
 color-modes = true
 command-git-ignore = false # See https://github.com/helix-editor/helix/pull/11957
 end-of-line-diagnostics = "warning"
+inline-diagnostics.cursor-line = "error"
 jump-label-alphabet = "nteslpufhd,ciryw.xoa;q/zmgjbkv" # colemak d-h, prioritizing central keys
 
 [editor.cursor-shape]

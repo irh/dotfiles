@@ -6,6 +6,7 @@ clipboard-provider = "pasteboard" # Skip tmux clipboard (macos specific)
 color-modes = true
 command-git-ignore = false # See https://github.com/helix-editor/helix/pull/11957
 end-of-line-diagnostics = "warning"
+jump-label-alphabet = "nteslpufhd,ciryw.xoa;q/zmgjbkv" # colemak d-h, prioritizing central keys
 
 [editor.cursor-shape]
 insert = "bar"
@@ -63,6 +64,8 @@ enable = true
 # "¨" = "later"
 
 [keys.normal.space]
+"space" = "goto_word"
+
 # Trim all whitespace in file
 # See https://github.com/helix-editor/helix/pull/8366
 "B" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]
@@ -132,7 +135,6 @@ enable = true
   "insert_newline",
 ]
 
-
 [keys.insert]
 
 "C-s" = ":write-all"  # Write all buffers
@@ -143,6 +145,9 @@ enable = true
 # Vim-style paragraph motions
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
+
+[keys.select.space]
+"space" = "extend_to_word"
 
 # #--- Mac alt key workarounds
 # "∂" = "delete_word_forward" # Alt-d

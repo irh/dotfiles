@@ -8,6 +8,8 @@ command-git-ignore = false # See https://github.com/helix-editor/helix/pull/1195
 end-of-line-diagnostics = "warning"
 inline-diagnostics.cursor-line = "error"
 jump-label-alphabet = "nteslpufhd,ciryw.xoa;q/zmgjbkv" # colemak d-h, prioritizing central keys
+popup-border = "all"
+rounded-corners = true # See https://github.com/helix-editor/helix/pull/11497
 
 [editor.cursor-shape]
 insert = "bar"

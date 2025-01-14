@@ -25,9 +25,12 @@ formatter = { command = "taplo", args = ["format", "-"] }
 [language-server.harper-ls]
 command = "harper-ls"
 args = ["--stdio"]
-# A config is required to avoid errors 
-# See <https://github.com/elijah-potter/harper/blob/master/harper-ls/README.md#configuration>
-config = { harper-ls = { linters = { an_a = false } } }
+
+# See <https://writewithharper.com/docs/integrations/neovim#Configuration>
+[language-server.harper-ls.config.harper-ls]
+linters = { an_a = false } 
+isolateEnglish = true
+
 
 # [language-server.koto-ls]
 # command = "koto-ls"

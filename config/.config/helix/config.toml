@@ -31,6 +31,7 @@ enable = true
 # cursor-line = "warning" # show warnings and errors on the cursorline inline
 
 [keys.normal]
+"n" = "goto_word"
 "x" = "extend_line" # Allow x to work upwards following Alt-;
 "=" = ":format"     # Format the file and not just a selection
 
@@ -67,8 +68,6 @@ enable = true
 # "¨" = "later"
 
 [keys.normal.space]
-"space" = "goto_word"
-
 # Trim all whitespace in file
 # See https://github.com/helix-editor/helix/pull/8366
 "B" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]

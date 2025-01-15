@@ -31,7 +31,7 @@ enable = true
 # cursor-line = "warning" # show warnings and errors on the cursorline inline
 
 [keys.normal]
-"n" = "goto_word"
+"ret" = "goto_word"
 "x" = "extend_line" # Allow x to work upwards following Alt-;
 "=" = ":format"     # Format the file and not just a selection
 
@@ -143,6 +143,7 @@ enable = true
 "C-S" = ":write-all!" # Write all buffers forcefully, creating subdirectories
 
 [keys.select]
+"ret" = "extend_to_word"
 
 # Vim-style paragraph motions
 "{" = "goto_prev_paragraph"

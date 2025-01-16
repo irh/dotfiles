@@ -6,12 +6,14 @@ toggle_bullet = |input|
   if input.is_empty() then return ''
 
   captures = regex
-    .new(r'^(?<whitespace>\s*)(?<bullet>[-+*])?\s*(?<content>.*)')
+    .new(r'^(?<whitespace>\s*)(?<bullet>[-+*](?<check>\s*\[[ x]\])?)?\s*(?<content>.*)')
     .captures input
 
   whitespace = captures.whitespace.text()
   content = captures.content.text()
-  bullet = if captures.contains_key('bullet') then '' else '- '
+  bullet = match captures.contains_key('bullet'), captures.contains_key('check')
+    true, false then ''
+    else '- '
 
   '{whitespace}{bullet}{content}'
 
@@ -33,3 +35,7 @@ toggle_bullet = |input|
   assert_eq (toggle_bullet '* xyz'), 'xyz'
   assert_eq (toggle_bullet '+ 123'), '123'
   assert_eq (toggle_bullet '  + 123'), '  123'
+
+@test checkbox = ||
+  assert_eq (toggle_bullet '- [ ] hello'), '- hello'
+  assert_eq (toggle_bullet '- [x] hello'), '- hello'

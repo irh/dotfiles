@@ -107,7 +107,7 @@ enable = true
   "collapse_selection",
 ]
 
-"T" = [":lsp-workspace-command today"]
+"T" = [":edit %sh{today --print-path}"] # Open today's log file
 "W" = [":lsp-workspace-command"]
 
 # Toggle markdown checkboxes

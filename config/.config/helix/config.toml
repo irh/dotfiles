@@ -132,7 +132,7 @@ enable = true
 # Insert date as markdown subheading
 "d" = [
   "open_below",
-  ":insert-output date -u '+## %Y-%m-%d'",
+  ":insert-output date-header.koto",
   "open_below",
   "insert_newline",
 ]

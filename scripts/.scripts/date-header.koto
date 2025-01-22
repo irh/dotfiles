@@ -1,0 +1,4 @@
+#!/usr/bin/env koto
+
+now = os.time()
+print '## {now.year()}-{now.month():02}-{now.day():02}'

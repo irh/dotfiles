@@ -1,4 +1,8 @@
 [[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+
+[[language]]
 name = "javascript"
 auto-format = true
 
@@ -18,6 +22,11 @@ text-width = 100
 language-servers = ["rust-analyzer", "harper-ls"]
 
 [[language]]
+name = "svelte"
+auto-format = true
+language-servers = ["svelteserver", "tailwindcss-ls"]
+
+[[language]]
 name = "toml"
 auto-format = false
 formatter = { command = "taplo", args = ["format", "-"] }
@@ -28,7 +37,7 @@ args = ["--stdio"]
 
 # See <https://writewithharper.com/docs/integrations/neovim#Configuration>
 [language-server.harper-ls.config.harper-ls]
-linters = { an_a = false } 
+linters = { an_a = false }
 isolateEnglish = true
 
 

@@ -72,9 +72,8 @@ enable = true
 # See https://github.com/helix-editor/helix/pull/8366
 "B" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]
 
-# See https://github.com/helix-editor/helix/pull/11285
-"e" = "file_browser"
-"E" = "file_browser_in_current_buffer_directory"
+"e" = "file_explorer"
+"E" = "file_explorer_in_current_buffer_directory"
 
 "F" = "file_picker_in_current_buffer_directory"
 

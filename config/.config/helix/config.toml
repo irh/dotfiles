@@ -136,6 +136,11 @@ enable = true
   "insert_newline",
 ]
 
+[keys.normal.m]
+
+# surround selection with an HTML tag, then edit the tag name
+"t" = "@|surround-tag.koto<ret>sxxx<ret>c"
+
 [keys.insert]
 
 "C-s" = ":write-all"  # Write all buffers

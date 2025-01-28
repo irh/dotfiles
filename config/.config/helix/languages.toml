@@ -31,6 +31,12 @@ name = "toml"
 auto-format = false
 formatter = { command = "taplo", args = ["format", "-"] }
 
+[[language]]
+name = "typst"
+language-servers = ["tinymist"]
+formatter = { command = "typstyle" }
+auto-format = true
+
 [language-server.harper-ls]
 command = "harper-ls"
 args = ["--stdio"]

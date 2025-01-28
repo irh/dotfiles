@@ -9,12 +9,18 @@ rustup component add \
   rustfmt
 
 cargo install --locked \
+  cargo-binstall \
+
+cargo binstall -y \
   cargo-bloat \
   cargo-lipo \
   cargo-sweep \
   cargo-tree \
   cargo-watch \
   harper-ls \
+  typstyle \
   mlc \
   watchexec-cli \
   wasm-pack
+
+cargo install --git https://github.com/Myriad-Dreamin/tinymist --locked tinymist

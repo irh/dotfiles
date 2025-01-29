@@ -1,0 +1,31 @@
+# Api config files, use `api_key` or `api_key_command` fields
+# to set the api key for each api
+# more details at https://github.com/efugier/smartcat#configuration
+
+[openai]
+url = "https://api.openai.com/v1/chat/completions"
+default_model = "gpt-4"
+
+[groq]
+url = "https://api.groq.com/openai/v1/chat/completions"
+default_model = "llama-3.3-70b-versatile"
+api_key_command = "echo $GROQ_API_KEY"
+
+[ollama]
+url = "http://localhost:11434/api/chat"
+default_model = "phi3"
+timeout_seconds = 180
+
+[azureopenai]
+url = "https://your-azure-endpoint.azure.com/openai/deployments/your-deployment-id/chat/completions?api-version=2024-06-01"
+default_model = "gpt-4o"
+
+[mistral]
+url = "https://api.mistral.ai/v1/chat/completions"
+default_model = "mistral-medium"
+
+[anthropic]
+url = "https://api.anthropic.com/v1/messages"
+default_model = "claude-3-5-sonnet-20241022"
+version = "2023-06-01"
+api_key_command = "echo $ANTHROPIC_API_KEY"

@@ -136,6 +136,9 @@ enable = true
   "insert_newline",
 ]
 
+"n" = "@|sc \"\"<C-b>"
+"m" = "@|sc md \"\"<C-b>"
+
 [keys.normal.m]
 
 # surround selection with an HTML tag, then edit the tag name
@@ -152,9 +155,6 @@ enable = true
 # Vim-style paragraph motions
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
-
-[keys.select.space]
-"space" = "extend_to_word"
 
 # #--- Mac alt key workarounds
 # "∂" = "delete_word_forward" # Alt-d

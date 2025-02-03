@@ -33,7 +33,7 @@ formatter = { command = "taplo", args = ["format", "-"] }
 
 [[language]]
 name = "typst"
-language-servers = ["tinymist"]
+language-servers = ["tinymist", "harper-ls"]
 formatter = { command = "typstyle" }
 auto-format = true
 

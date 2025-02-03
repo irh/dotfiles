@@ -138,6 +138,7 @@ enable = true
 
 "n" = "@|sc \"\"<C-b>"
 "m" = "@|sc md \"\"<C-b>"
+"t" = "@|sc typst \"\"<C-b>"
 
 [keys.normal.m]
 

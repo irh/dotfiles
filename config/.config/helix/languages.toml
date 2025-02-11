@@ -10,6 +10,7 @@ auto-format = true
 name = "markdown"
 text-width = 100
 language-servers = ["harper-ls", "marksman", "markdown-oxide"]
+comment-tokens = ["-", "+", "*", "1.", ">", "- [ ]"]
 
 [[language]]
 name = "javascript"

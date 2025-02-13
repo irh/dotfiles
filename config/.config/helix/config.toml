@@ -149,6 +149,7 @@ enable = true
 
 "C-s" = ":write-all"  # Write all buffers
 "C-S" = ":write-all!" # Write all buffers forcefully, creating subdirectories
+"C-t" = "indent"
 
 [keys.select]
 "ret" = "extend_to_word"

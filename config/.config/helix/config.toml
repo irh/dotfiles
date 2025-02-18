@@ -35,6 +35,10 @@ enable = true
 "x" = "extend_line" # Allow x to work upwards following Alt-;
 "=" = ":format"     # Format the file and not just a selection
 
+# Override I/A to collapse selection
+"I" = ["collapse_selection", "insert_mode"]
+"A" = ["collapse_selection", "append_mode"]
+
 # Vim-style paragraph motions
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
@@ -150,6 +154,7 @@ enable = true
 "C-s" = ":write-all"  # Write all buffers
 "C-S" = ":write-all!" # Write all buffers forcefully, creating subdirectories
 "C-t" = "indent"
+"C-x" = "unindent"
 
 [keys.select]
 "ret" = "extend_to_word"

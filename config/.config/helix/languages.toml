@@ -49,7 +49,7 @@ isolateEnglish = true
 
 [language-server.rust-analyzer.config.completion.snippets.custom.bevyplugin]
 description = "Define a new bevy plugin in an empty file"
-prefix = "bevyplugin"
+prefix = "bvplugin"
 scope = "item"
 body = """
 use bevy::prelude::*;
@@ -60,6 +60,26 @@ impl Plugin for ${1}Plugin {
     fn build(&self, app: &mut App) {
         $0
     }
+}
+"""
+
+[language-server.rust-analyzer.config.completion.snippets.custom.bevyevent]
+description = "Define a new bevy Event"
+prefix = "bvevent"
+scope = "item"
+body = """
+#[derive(Event)]
+pub struct $0;
+"""
+
+[language-server.rust-analyzer.config.completion.snippets.custom.bevyresource]
+description = "Define a new bevy Resource"
+prefix = "bvresource"
+scope = "item"
+body = """
+#[derive(Resource)]
+pub struct $1 {
+    $0
 }
 """
 

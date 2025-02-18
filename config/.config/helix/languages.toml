@@ -47,6 +47,22 @@ args = ["--stdio"]
 linters = { an_a = false }
 isolateEnglish = true
 
+[language-server.rust-analyzer.config.completion.snippets.custom.bevyplugin]
+description = "Define a new bevy plugin in an empty file"
+prefix = "bevyplugin"
+scope = "item"
+body = """
+use bevy::prelude::*;
+
+pub struct ${1}Plugin;
+
+impl Plugin for ${1}Plugin {
+    fn build(&self, app: &mut App) {
+        $0
+    }
+}
+"""
+
 
 # [language-server.koto-ls]
 # command = "koto-ls"

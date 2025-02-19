@@ -35,9 +35,8 @@ enable = true
 "x" = "extend_line" # Allow x to work upwards following Alt-;
 "=" = ":format"     # Format the file and not just a selection
 
-# Override I/A to collapse selection
+# Override I to collapse selection and insert
 "I" = ["collapse_selection", "insert_mode"]
-"A" = ["collapse_selection", "append_mode"]
 
 # Vim-style paragraph motions
 "{" = "goto_prev_paragraph"

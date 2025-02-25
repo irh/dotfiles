@@ -85,6 +85,8 @@ enable = true
 
 "i" = ":toggle lsp.display-inlay-hints" # Toggle type hints
 
+"n" = ":reload-all"
+
 "o" = "symbol_picker"           # Document symbols
 "O" = "workspace_symbol_picker" # Workspace symbols
 

@@ -71,17 +71,10 @@ enable = true
 # "¨" = "later"
 
 [keys.normal.space]
-# Trim all whitespace in file
-# See https://github.com/helix-editor/helix/pull/8366
-"B" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]
-
 "e" = "file_explorer"
 "E" = "file_explorer_in_current_buffer_directory"
 
 "F" = "file_picker_in_current_buffer_directory"
-
-# Open selection in Dash
-"H" = ["collapse_selection", "expand_selection", ":sh open-in-dash.koto %{lang}:%{selection}"]
 
 "i" = ":toggle lsp.display-inlay-hints" # Toggle type hints
 
@@ -112,7 +105,6 @@ enable = true
 ]
 
 "T" = [":edit %sh{today --print-path}"] # Open today's log file
-"W" = [":lsp-workspace-command"]
 
 # Toggle markdown checkboxes
 "x" = [
@@ -130,6 +122,16 @@ enable = true
   "collapse_selection",
 ]
 
+[keys.normal.space.space]
+# show blame for current line
+"b" = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}"
+# Open selection in Dash
+"h" = ["collapse_selection", "expand_selection", ":sh open-in-dash.koto %{lang}:%{selection}"]
+# Trim all whitespace in file
+# See https://github.com/helix-editor/helix/pull/8366
+"t" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]
+# Show workspace commands
+"w" = [":lsp-workspace-command"]
 
 [keys.normal.tab]
 

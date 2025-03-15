@@ -124,7 +124,7 @@ enable = true
 
 [keys.normal.space.space]
 # show blame for current line
-"b" = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}"
+"b" = ":sh git-blame.koto %{cursor_line},%{cursor_line} %{buffer_name}"
 # Open selection in Dash
 "h" = ["collapse_selection", "expand_selection", ":sh open-in-dash.koto %{lang}:%{selection}"]
 # Trim all whitespace in file

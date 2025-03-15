@@ -1,0 +1,35 @@
+#!/usr/bin/env koto
+
+timezone_to_seconds = |tz|
+  sign = if tz[0] == '+' then 1 else -1
+  hours = tz[1..3].to_number()
+  minutes = tz[3..5].to_number()
+  sign * (hours * 3600 + minutes * 60)
+
+output = os.command('git')
+  .args 'blame', '--porcelain', '-L', koto.args...
+  .wait_for_output()
+
+if not output.success()
+  print '{output.stderr()}'
+  return
+
+info =
+  lines: output.stdout().lines()
+  next_line: || self.lines.next().get()
+  next_field: |field| self.next_line().strip_prefix '{field} '
+  advance: |n| self.lines.advance n
+
+id, _ = info.next_line().split(' ')
+name = info.next_field 'author'
+
+info.advance 1 # author-email
+
+timestamp = info.next_field('author-time').to_number()
+offset = info.next_field('author-tz') -> timezone_to_seconds
+time = os.time timestamp, offset 
+
+info.advance 4 # committer, committer-mail, committer-time, committer-tz
+summary = info.next_field 'summary'
+
+print '{id[..8]} | {name} | {time} | {summary}'

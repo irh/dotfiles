@@ -6,7 +6,7 @@ toggle_checkbox = |input|
   if input.is_empty() then return ''
 
   captures = regex
-    .new(r'^(?<whitespace>\s*)((?<bullet>[-+*])\s*(\[(?<check>.*)\])?\s*)?(?<content>.*)')
+    .new(r'^(?<whitespace>\s*)((?<bullet>[-+*])\s*(\[(?<check>[^\]]*)\])?\s*)?(?<content>.*)')
     .captures input
 
   whitespace = captures.whitespace.text()
@@ -47,3 +47,4 @@ toggle_checkbox = |input|
   assert_eq (toggle_checkbox '* [~] xyz'), '* [x] xyz'
   assert_eq (toggle_checkbox '+ [>] 123'), '+ [x] 123'
   assert_eq (toggle_checkbox '    - [] hello'), '    - [x] hello'
+  assert_eq (toggle_checkbox '- [ ] [hello](https://hello.io)'), '- [x] [hello](https://hello.io)'

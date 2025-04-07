@@ -1,5 +1,5 @@
 #!/usr/bin/env koto
 
 os.command('open')
-  .args 'dash://?query={koto.args.first()}'
+  .args 'dash://?query={os.args.first()}'
   .spawn()

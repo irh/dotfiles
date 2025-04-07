@@ -7,7 +7,7 @@ timezone_to_seconds = |tz|
   sign * (hours * 3600 + minutes * 60)
 
 output = os.command('git')
-  .args 'blame', '--porcelain', '-L', koto.args...
+  .args 'blame', '--porcelain', '-L', os.args...
   .wait_for_output()
 
 if not output.success()

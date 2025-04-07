@@ -18,6 +18,7 @@ cargo binstall -y \
   cargo-tree \
   cargo-watch \
   harper-ls \
+  just-lsp \
   typstyle \
   mlc \
   watchexec-cli \

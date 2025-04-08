@@ -1,5 +1,6 @@
 stow stow
 
+stow aider
 stow bash
 stow config
 stow git

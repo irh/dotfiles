@@ -1,6 +1,7 @@
 [[language]]
 name = "css"
 language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+auto-format = false
 
 [[language]]
 name = "javascript"

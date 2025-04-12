@@ -9,6 +9,8 @@ inherits = "onedark"
 "ui.text.directory" = { fg = "blue" }
 "ui.virtual.ruler" = { bg = "light-black" }
 
+"diagnostic.unnecessary" = {}
+
 'markup.heading' = { fg = 'blue', modifiers = ['bold'] }
 'markup.heading.marker' = { modifiers = ['dim'] }
 'markup.heading.1' = { fg = 'blue', modifiers = ['bold'] }

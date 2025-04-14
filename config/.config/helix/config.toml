@@ -24,6 +24,9 @@ render = true
 character = "┊"
 skip-levels = 1
 
+[editor.lsp]
+display-progress-messages = true
+
 [editor.soft-wrap]
 enable = true
 

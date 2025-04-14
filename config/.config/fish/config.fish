@@ -7,19 +7,9 @@ set -x EDITOR hx
 set -x RUSTC_WRAPPER sccache
 set -x HELIX_RUNTIME ~/.config/helix/runtime
 
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
 if type -q mcfly
     mcfly init fish | source
 end
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/ian/.miniconda3/bin/conda
-    eval /Users/ian/.miniconda3/bin/conda "shell.fish" hook $argv | source
-else
-    if test -f "/Users/ian/.miniconda3/etc/fish/conf.d/conda.fish"
-        . "/Users/ian/.miniconda3/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "/Users/ian/.miniconda3/bin" $PATH
-    end
-end
-# <<< conda initialize <<<

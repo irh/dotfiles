@@ -18,3 +18,7 @@ if type -q $BREW_DIR/bin/brew
     fish_add_path -g $BREW_DIR/lib/ruby/gems/3.0.0/bin
     # fish_add_path -g $BREW_DIR/opt/llvm/bin
 end
+
+if type -q $PYENV_ROOT
+    fish_add_path -g $PYENV_ROOT/bin
+end

@@ -1,2 +1,4 @@
+auto-commits: false
 dark-mode: true
+gitignore: false
 vim: true

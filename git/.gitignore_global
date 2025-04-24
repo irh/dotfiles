@@ -6,6 +6,7 @@
 .DS_Store
 .ccls
 .ccls-cache
+.env
 .exrc
 .netrwhist
 .nvimrc

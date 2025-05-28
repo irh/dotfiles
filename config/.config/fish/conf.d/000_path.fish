@@ -20,5 +20,5 @@ if type -q $BREW_DIR/bin/brew
 end
 
 if type -q $PYENV_ROOT
-    fish_add_path -g $PYENV_ROOT/bin
+    fish_add_path -g $PYENV_ROOT/shims
 end

@@ -7,8 +7,7 @@ set -x EDITOR hx
 set -x RUSTC_WRAPPER sccache
 set -x HELIX_RUNTIME ~/.config/helix/runtime
 
-set -Ux PYENV_ROOT $HOME/.pyenv
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+set -x PYENV_ROOT $HOME/.pyenv
 
 if type -q mcfly
     mcfly init fish | source

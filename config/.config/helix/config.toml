@@ -138,7 +138,7 @@ enable = true
 # show blame for current line
 "b" = ":sh git-blame.koto %{cursor_line},%{cursor_line} %{buffer_name}"
 # Open selection in Dash
-"h" = ["collapse_selection", "expand_selection", ":sh open-in-dash.koto %{language}:%{selection}"]
+"h" = ["collapse_selection", "expand_selection", ":sh open-in-dash.koto %{language} %{selection}"]
 # Trim all whitespace in file
 # See https://github.com/helix-editor/helix/pull/8366
 "t" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]

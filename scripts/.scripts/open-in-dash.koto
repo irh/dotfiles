@@ -1,5 +1,17 @@
 #!/usr/bin/env koto
 
+language, selection = match os.args.get(0), os.args.get(1)
+  null, _ then
+    io.stderr().write_line 'Missing language argument'
+    return
+  _, null then
+    io.stderr().write_line 'Missing selection argument'
+    return
+  'swift', selection then
+    'apple', selection
+  language, selection then
+    language, selection
+
 os.command('open')
-  .args 'dash://?query={os.args.first()}'
+  .args 'dash://?query={language}:{selection}'
   .spawn()

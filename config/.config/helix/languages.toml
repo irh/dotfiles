@@ -21,7 +21,6 @@ auto-format = true
 name = "rust"
 rulers = [101]
 text-width = 100
-language-servers = ["rust-analyzer", "harper-ls"]
 
 [[language]]
 name = "svelte"

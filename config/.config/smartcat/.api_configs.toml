@@ -14,7 +14,7 @@ api_key_command = "echo $GROQ_API_KEY"
 
 [ollama]
 url = "http://localhost:11434/api/chat"
-default_model = "phi3"
+default_model = "qwen2.5-coder:32b"
 timeout_seconds = 180
 
 [azureopenai]
@@ -27,6 +27,6 @@ default_model = "mistral-medium"
 
 [anthropic]
 url = "https://api.anthropic.com/v1/messages"
-default_model = "claude-3-5-sonnet-20241022"
+default_model = "claude-sonnet-4-20250514"
 version = "2023-06-01"
 api_key_command = "echo $ANTHROPIC_API_KEY"

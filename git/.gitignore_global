@@ -22,3 +22,4 @@ temp.koto
 
 venv/
 .helix/
+.zed/

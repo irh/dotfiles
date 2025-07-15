@@ -154,7 +154,7 @@ enable = true
   "insert_newline",
 ]
 
-"n" = "@|sc editor\"\"<C-b>"
+"n" = "@|sc editor \"\"<C-b>"
 "m" = "@|sc md \"\"<C-b>"
 "t" = "@|sc typst \"\"<C-b>"
 

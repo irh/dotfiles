@@ -4,7 +4,8 @@
 
 [openai]
 url = "https://api.openai.com/v1/chat/completions"
-default_model = "gpt-4"
+default_model = "gpt-4.1-mini"
+api_key_command = "echo $OPENAI_API_KEY"
 
 [groq]
 url = "https://api.groq.com/openai/v1/chat/completions"

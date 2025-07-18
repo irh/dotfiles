@@ -9,7 +9,7 @@ function fish_prompt
   set -l repo (git rev-parse --show-toplevel 2>/dev/null)
   if test $repo
     # Branch name
-    git diff --quiet --ignore-submodules
+    git diff --quiet
     if test $status -gt 0
       set_color red
     else

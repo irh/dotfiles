@@ -4,6 +4,10 @@ language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
 auto-format = false
 
 [[language]]
+name = "html"
+auto-format = false
+
+[[language]]
 name = "javascript"
 auto-format = true
 

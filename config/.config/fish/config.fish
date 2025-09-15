@@ -9,7 +9,3 @@ set -x HELIX_RUNTIME ~/.config/helix/runtime
 set -x OLLAMA_API_BASE http://studio:11434
 set -x PYENV_ROOT $HOME/.pyenv
 set -x RUSTC_WRAPPER sccache
-
-if type -q mcfly
-    mcfly init fish | source
-end

@@ -6,6 +6,7 @@
 (require-builtin helix/core/text as text.)
 
 (provide shell rust-analyzer-expand-macro)
+(provide shell rust-analyzer-parent-module)
 
 (define (current-path)
   (let* ([focus (editor-focus)]
@@ -29,16 +30,37 @@
   (define line-start (text.rope-line->char rope line))
   (- pos line-start))
 
+(define (text-document-position-params)
+  (hash
+    "textDocument" (hash "uri" (string-append "file://" (current-path)))
+    "position" (hash
+      "line" (get-current-line-number)
+      "character" (get-current-line-character "utf-8"))))
+
+(define (jump-to-location uri pos)
+  (define path (trim-start-matches uri "file://"))
+  (define line (hash-get pos 'line))
+  (define column (hash-get pos 'character))
+  (open path)
+  (goto (number->string (+ 1 (exact line)))))
+
+(define (jump-to-link link)
+  (cond
+    ((hash-contains? link 'targetUri) (begin
+      (define uri (hash-get link 'targetUri))
+      (define pos (hash-get (hash-get link 'targetRange) 'start))
+      (jump-to-location uri pos)))
+    ((hash-contains? link 'uri) (begin
+      (define uri (hash-get link 'uri))
+      (define pos (hash-get (hash-get link 'range) 'start))
+      (jump-to-location uri pos)))))
+
 ;;@doc
 ;; Expands the macro under the cursor
 (define (rust-analyzer-expand-macro)
   (send-lsp-command "rust-analyzer"
     "rust-analyzer/expandMacro"
-    (hash
-      "textDocument" (hash "uri" (string-append "file://" (current-path)))
-      "position" (hash
-        "line" (current-document-cursor-line)
-        "character" (current-document-cursor-column)))
+    (text-document-position-params)
     (lambda (result)
       (cond
         ((void? result) (set-error! "No macro found under cursor"))
@@ -50,3 +72,14 @@
                           (set-language "rust")
                           (insert_string expansion)
                           (goto_file_start)))))))
+
+;;@doc
+;; Expands the macro under the cursor
+(define (rust-analyzer-parent-module)
+  (send-lsp-command "rust-analyzer"
+    "experimental/parentModule"
+    (text-document-position-params)
+    (lambda (result)
+      (cond
+        ((void? result) (set-error! "Parent module not found"))
+        ((list? result) (jump-to-link (first result)))))))

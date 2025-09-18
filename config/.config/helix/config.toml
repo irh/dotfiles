@@ -142,6 +142,8 @@ enable = true
 "e" = [":rust-analyzer-expand-macro"]
 # Open selection in Dash
 "h" = ["collapse_selection", "expand_selection", ":sh open-in-dash.koto %{language} %{selection}"]
+# Jump to the parent Rust module - requires steel plugin support, defined in helix.scm
+"p" = [":rust-analyzer-parent-module"]
 # Trim all whitespace in file
 # See https://github.com/helix-editor/helix/pull/8366
 "t" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]

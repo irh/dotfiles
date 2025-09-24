@@ -9,4 +9,6 @@ pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
     co: pr checkout
+    checks: pr checks --watch
+    issues: issue list
 version: "1"

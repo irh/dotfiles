@@ -11,4 +11,5 @@ aliases:
     co: pr checkout
     checks: pr checks --watch
     issues: issue list
+    i: issue
 version: "1"

@@ -138,6 +138,8 @@ enable = true
 [keys.normal.space.space]
 # show blame for current line
 "b" = ":sh git-blame.koto %{cursor_line},%{cursor_line} %{buffer_name}"
+# show diff for current line
+"d" = ":sh git-diff.koto %{buffer_name} %{cursor_line}"
 # Expand a Rust macro into a scratch buffer - requires steel plugin support, defined in helix.scm
 "e" = [":rust-analyzer-expand-macro"]
 # Open selection in Dash

@@ -1,0 +1,99 @@
+#!/usr/bin/env koto
+
+# A command for helix that shows the diff hunk for the given line
+# Args: [file, line]
+
+import regex
+from iterator import once
+
+get_old_diff_range = |diff: String, diff_line: Number| -> Range? 
+  lines = diff.lines()
+
+  match_hunk = regex
+    .new(r'^\@\@\s-(?<old_start>\d*)(,(?<old_count>\d*))?\s\+(?<new_start>\d*)(,(?<new_count>\d*))? \@\@')
+
+  while line = lines.next()?.get()
+    if hunk = match_hunk.captures line
+      old_start = hunk.old_start.text().to_number()
+      old_count = hunk.get('old_count')?.text().to_number() or 1
+      new_start = hunk.new_start.text().to_number()
+      new_count = hunk.get('new_count')?.text().to_number() or 1
+
+      if (new_start..new_start + new_count).contains(diff_line)
+        return old_start..old_start + old_count
+
+      lines.advance(old_count + new_count)
+  null
+
+@main = ||
+  file = os.args.get(0)
+  line = os.args.get(1)?.to_number()
+
+  if (not file) or (not line)
+    print 'Expected args: [file, line]'
+    return
+
+  diff_output = os.command('git')
+    .args '--no-pager', 'diff','-U0', '--', file
+    .wait_for_output()
+
+  if not diff_output.success()
+    print '{diff_output.stderr()}'
+    return
+
+  if old_diff_range = get_old_diff_range(diff_output.stdout(), line) 
+    show_line_count = size old_diff_range
+    old_diff_range.start(), show_line_count
+    if show_line_count > 0
+      show_output = os.command('git')
+        .args 'show', '@:{file}'
+        .wait_for_output()
+
+      if not show_output.success()
+        print '{show_output.stderr()}'
+        return
+
+      show_lines = show_output.stdout()
+        .lines()
+        .skip(old_diff_range.start() - 1)
+        .take show_line_count
+
+      for line in show_lines
+        print line
+    else
+      print '>> New hunk'
+  else
+    print '>> No diff found for line {line}'
+     
+
+@test diff_range = ||
+  diff = '
+---
+---
+@@ -100,2 +106,3 @@ ...
+-xxx
+-yyy
++abc
++def
++ghi
+@@ -200,0 +202,2 @@ ...
++123
++456
+@@ -300 +310 @@ ...
++xyz
+'
+
+  assert_eq get_old_diff_range(diff, 105), null 
+  assert_eq get_old_diff_range(diff, 106), 100..102 
+  assert_eq get_old_diff_range(diff, 107), 100..102 
+  assert_eq get_old_diff_range(diff, 108), 100..102 
+  assert_eq get_old_diff_range(diff, 109), null
+
+  assert_eq get_old_diff_range(diff, 201), null 
+  assert_eq get_old_diff_range(diff, 202), 200..200 
+  assert_eq get_old_diff_range(diff, 203), 200..200 
+  assert_eq get_old_diff_range(diff, 204), null 
+
+  assert_eq get_old_diff_range(diff, 309), null 
+  assert_eq get_old_diff_range(diff, 310), 300..301
+  assert_eq get_old_diff_range(diff, 311), null 

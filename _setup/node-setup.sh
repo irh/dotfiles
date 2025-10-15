@@ -11,6 +11,7 @@ pnpm install -g \
   prettier \
   svelte-language-server \
   @tailwindcss/language-server \
+  tldr \
   typescript \
   typescript-language-server \
   vscode-langservers-extracted \

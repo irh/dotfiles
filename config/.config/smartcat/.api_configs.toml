@@ -27,6 +27,6 @@ default_model = "mistral-medium"
 
 [anthropic]
 url = "https://api.anthropic.com/v1/messages"
-default_model = "claude-sonnet-4-20250514"
+default_model = "claude-sonnet-4-5-20250929"
 version = "2023-06-01"
 api_key_command = "echo $ANTHROPIC_API_KEY"

@@ -42,6 +42,10 @@ language-servers = ["tinymist", "harper-ls"]
 formatter = { command = "typstyle" }
 auto-format = true
 
+[[language]]
+name = "yaml"
+auto-format = false
+
 # See <https://writewithharper.com/docs/integrations/neovim#Configuration>
 [language-server.harper-ls.config.harper-ls]
 linters = { an_a = false }

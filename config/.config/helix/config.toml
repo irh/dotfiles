@@ -165,9 +165,17 @@ enable = true
 "m" = "@|sc md \"\"<C-b>"
 "t" = "@|sc typst \"\"<C-b>"
 
+[keys.normal.g]
+
+# Go to definition in a net vertical split
+"v" = [
+  ":vsplit",
+  "goto_definition",
+]
+
 [keys.normal.m]
 
-# surround selection with an HTML tag, then edit the tag name
+# Surround selection with an HTML tag, then edit the tag name
 "t" = "@|surround-tag.koto<ret>sxxx<ret>c"
 
 [keys.insert]

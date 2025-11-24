@@ -20,7 +20,7 @@ toggle_checkbox = |input|
   '{whitespace}{bullet} [{toggled}] {content}'
 
 @main = ||
-  stdin = io.stdin()
+  stdin = io.stdin
   if not stdin.is_terminal()
     while input = stdin.read_line()
       print toggle_checkbox input

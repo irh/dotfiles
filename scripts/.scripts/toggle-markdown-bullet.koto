@@ -18,7 +18,7 @@ toggle_bullet = |input|
   '{whitespace}{bullet}{content}'
 
 @main = ||
-  stdin = io.stdin()
+  stdin = io.stdin
   if not stdin.is_terminal()
     while input = stdin.read_line()
       print toggle_bullet input

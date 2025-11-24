@@ -1,4 +1,4 @@
 #!/usr/bin/env koto
- 
-'<xxx>{io.stdin().read_to_string().trim()}</xxx>'
-  -> io.stdout().write 
+
+'<xxx>{io.stdin.read_to_string().trim()}</xxx>'
+  -> io.stdout.write

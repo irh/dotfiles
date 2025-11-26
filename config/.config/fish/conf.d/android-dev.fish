@@ -7,6 +7,7 @@ if test -d $HOME/Library/android/sdk
     set -x ANDROID_HOME $HOME/Library/android/sdk
     set -x ANDROID_SDK_ROOT $ANDROID_HOME # This is deprecated, but no harm in keeping it
     set -x ANDROID_NDK_ROOT $ANDROID_SDK_ROOT/ndk/current
+    set -x ANDROID_NDK_HOME $ANDROID_NDK_ROOT
 
     fish_add_path -g $ANDROID_HOME/platform-tools
     fish_add_path -g $ANDROID_HOME/cmdline-tools/latest/bin/

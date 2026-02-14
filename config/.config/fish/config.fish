@@ -1,3 +1,6 @@
+# Vim keybindings
+set --global fish_key_bindings fish_hybrid_key_bindings
+
 # locale
 set -x LC_ALL en_US.UTF-8
 

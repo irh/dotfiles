@@ -1,6 +1,5 @@
 tap "homebrew/services" # For background services
 
-brew "autojump"
 brew "bash"
 brew "bash-completion"
 brew "bat"
@@ -64,3 +63,4 @@ brew "yazi"
 brew "xh"
 brew "yt-dlp"
 brew "zola"
+brew "zoxide"

@@ -1,0 +1,13 @@
+bat
+build-essential
+curl
+eza
+fish
+gh
+git
+git-absorb
+git-delta
+pkg-config
+ripgrep
+stow
+zoxide

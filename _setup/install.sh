@@ -13,6 +13,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -s $(brew --prefix)/opt/llvm/bin/lldb-vscode $(brew --prefix)/bin/
 fi
 
+if [[ "$OSTYPE" == "linux"* ]]; then
+  source _apt/install.sh
+fi
+
 source _setup/stow.sh
 
 source _setup/rust-setup.sh

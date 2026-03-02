@@ -1,14 +1,13 @@
 fish_add_path -g /usr/local/bin
 fish_add_path -g $HOME/.local/bin
-fish_add_path -g $HOME/.cargo/bin
 fish_add_path -g $HOME/.scripts
-fish_add_path -g $HOME/Sync/scripts
 
 switch (uname)
     case Darwin
         set -x PNPM_HOME /Users/ian/Library/pnpm
         set -x BREW_DIR /opt/homebrew
         fish_add_path -g $PNPM_HOME
+        fish_add_path -g $HOME/Sync/scripts
 end
 
 if type -q $BREW_DIR/bin/brew

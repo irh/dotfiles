@@ -13,20 +13,20 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -s $(brew --prefix)/opt/llvm/bin/lldb-vscode $(brew --prefix)/bin/
 fi
 
-source _scripts/stow.sh
+source _setup/stow.sh
 
-source _scripts/rust-setup.sh
-source _scripts/node-setup.sh
+source _setup/rust-setup.sh
+source _setup/node-setup.sh
 
 # pip3 install -r _pip/packages3.txt
 # julia _julia/packages.jl
 
-source _scripts/neovim-setup.sh
-source _scripts/tmux-setup.sh
+source _setup/neovim-setup.sh
+source _setup/tmux-setup.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   stow Library
-  sudo source _scripts/setup-mac-preferences.sh
+  sudo source _setup/setup-mac-preferences.sh
 
   brew bundle --verbose --file _homebrew/Brewfile-casks
 fi

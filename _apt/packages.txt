@@ -10,4 +10,6 @@ git-delta
 pkg-config
 ripgrep
 stow
+tmux
+tree
 zoxide

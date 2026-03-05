@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local color_scheme = require 'color_scheme'
 local config = wezterm.config_builder()
 
 ------ Application
@@ -25,6 +26,6 @@ config.font_size = 12
 config.cell_width = 0.9
 
 ------ Color scheme
-config.color_scheme = 'OneDark (base16)'
+config.color_scheme = color_scheme.color_scheme
 
 return config

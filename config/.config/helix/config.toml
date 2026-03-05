@@ -1,4 +1,5 @@
-theme = 'onedark_tweaked'
+# theme = 'onedark_tweaked'
+theme = 'base16_transparent'
 
 [editor]
 bufferline = "multiple"

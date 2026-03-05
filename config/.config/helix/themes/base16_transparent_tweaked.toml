@@ -1,0 +1,34 @@
+inherits = "base16_transparent"
+
+# Code
+
+"comment" = { fg = "light-grey", modifiers = ["dim", "italic"] }
+"namespace" = { fg = "light-red", modifiers = [] }
+"type" = { fg = "light-yellow" }
+"variable" = { fg = "cyan" }
+"variable.builtin" = { fg = "cyan", modifiers = ["bold"] }
+"variable.other.member" = "light-red"
+
+# Markup
+
+'markup.heading' = { fg = 'yellow', modifiers = ['bold'] }
+'markup.heading.marker' = { modifiers = ['dim'] }
+'markup.heading.1' = { fg = 'yellow', modifiers = ['bold'] }
+'markup.heading.2' = { fg = 'cyan', modifiers = ['bold'] }
+'markup.heading.3' = { fg = 'light-blue', modifiers = ['bold'] }
+'markup.heading.4' = { fg = 'light-magenta', modifiers = ['bold'] }
+'markup.heading.5' = { fg = 'green', modifiers = ['bold'] }
+'markup.heading.6' = { fg = 'red', modifiers = ['bold'] }
+
+"markup.link.text" = "light-blue"
+"markup.link.url" = { fg = "light-yellow", modifiers = ['dim'] }
+
+"markup.list" = "light-blue"
+"markup.list.unchecked" = "light-red"
+
+"markup.quote" = "light-yellow"
+
+# UI
+
+"ui.gutter" = "light-gray"
+"ui.virtual.ruler" = { bg = "gray" }

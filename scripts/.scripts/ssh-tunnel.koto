@@ -1,0 +1,22 @@
+#!/usr/bin/env koto
+
+print_usage = ||
+  io.stdout().write "\
+ssh-tunnel <HOST> <HOST_PORT> <LOCAL_PORT?>
+
+Opens a tunnel from the local machine to a host port.
+If the local port isn't specified then it defaults to the host port.
+"
+
+host, host_port, local_port = os.args
+
+if not host or not host_port
+  print_usage()
+  return
+
+local_port = local_port or host_port
+
+os.command('ssh')
+  .args('-N', '-L', '{local_port}:localhost:{host_port}', host)
+  .wait_for_exit()
+

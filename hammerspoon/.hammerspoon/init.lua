@@ -32,3 +32,14 @@ end
 hs.hotkey.bind({"cmd, alt"}, "T", function()
     hs.spotify.displayCurrentTrack()
 end)
+
+-- Toggle Safari Sidebar
+
+hs.hotkey.bind({"alt"}, "S", function()
+    local app = hs.application.frontmostApplication()
+    if app:name() == "Safari" then 
+        if not app:selectMenuItem({"View", "Show Sidebar"}) then
+            app:selectMenuItem({"View", "Hide Sidebar"})
+        end
+    end
+end)

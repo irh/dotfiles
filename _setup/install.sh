@@ -20,6 +20,7 @@ fi
 source _setup/stow.sh
 
 source _setup/rust-setup.sh
+
 source _setup/node-setup.sh
 source _setup/uv-setup.sh
 

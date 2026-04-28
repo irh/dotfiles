@@ -22,6 +22,7 @@ cargo binstall -y \
   typstyle \
   mlc \
   watchexec-cli \
-  wasm-pack
+  wasm-pack \
+  uv
 
 cargo install --git https://github.com/Myriad-Dreamin/tinymist --locked tinymist

@@ -1,3 +1,3 @@
-if type -q mcfly
+if command -q mcfly
     mcfly init fish | source
 end

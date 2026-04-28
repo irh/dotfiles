@@ -10,7 +10,7 @@ switch (uname)
         fish_add_path -g $HOME/Sync/scripts
 end
 
-if type -q $BREW_DIR/bin/brew
+if command -q $BREW_DIR/bin/brew
     fish_add_path -g $BREW_DIR/bin
     fish_add_path -g $BREW_DIR/sbin
     fish_add_path -g $BREW_DIR/opt/make/libexec/gnubin

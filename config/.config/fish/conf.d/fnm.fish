@@ -1,3 +1,3 @@
 if command -q fnm
-  fnm env | source
+    fnm env --shell fish | source
 end

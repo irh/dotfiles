@@ -144,6 +144,8 @@ enable = true
 "e" = [":rust-analyzer-expand-macro"]
 # Open selection in Dash
 "h" = ["collapse_selection", "expand_selection", ":sh open-in-dash.koto %{language} %{selection}"]
+# Restart the LSP server
+"l" = [":lsp-restart"]
 # Jump to the parent Rust module - requires steel plugin support, defined in helix.scm
 "p" = [":rust-analyzer-parent-module"]
 # Trim all whitespace in file

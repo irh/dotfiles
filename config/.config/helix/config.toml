@@ -31,6 +31,10 @@ display-progress-messages = true
 [editor.soft-wrap]
 enable = true
 
+[editor.smart-tab]
+enable = true
+supersede-menu = true
+
 # [editor.inline-diagnostics]
 # cursor-line = "warning" # show warnings and errors on the cursorline inline
 
@@ -38,6 +42,8 @@ enable = true
 "ret" = "goto_word"
 "x" = "extend_line" # Allow x to work upwards following Alt-;
 "=" = ":format"     # Format the file and not just a selection
+tab = "move_parent_node_end"
+S-tab = "move_parent_node_start"
 
 # Override I to collapse selection and insert
 "I" = ["collapse_selection", "insert_mode"]
@@ -77,16 +83,11 @@ enable = true
 [keys.normal.space]
 "e" = "file_explorer"
 "E" = "file_explorer_in_current_buffer_directory"
-
 "F" = "file_picker_in_current_buffer_directory"
-
 "i" = ":toggle lsp.display-inlay-hints" # Toggle type hints
-
 "n" = ":reload-all"
-
 "o" = "symbol_picker"           # Document symbols
 "O" = "workspace_symbol_picker" # Workspace symbols
-
 "q" = ":write-quit-all"  # Write all and quit
 "Q" = ":write-quit-all!" # Write all and quit, discard scratch buffers
 "s" = ":write-all"       # Write all buffers
@@ -140,6 +141,12 @@ enable = true
 "b" = ":sh git-blame.koto %{cursor_line},%{cursor_line} %{buffer_name}"
 # show diff for current line
 "d" = ":sh git-diff.koto %{buffer_name} %{cursor_line}"
+# Insert date as markdown subheading
+"D" = [
+  ":insert-output date-header.koto",
+  "open_below",
+  "insert_newline",
+]
 # Expand a Rust macro into a scratch buffer - requires steel plugin support, defined in helix.scm
 "e" = [":rust-analyzer-expand-macro"]
 # Open selection in Dash
@@ -154,21 +161,7 @@ enable = true
 # Show workspace commands
 "w" = [":lsp-workspace-command"]
 
-[keys.normal.tab]
-
-# Insert date as markdown subheading
-"d" = [
-  ":insert-output date-header.koto",
-  "open_below",
-  "insert_newline",
-]
-
-"n" = "@|sc editor \"\"<C-b>"
-"m" = "@|sc md \"\"<C-b>"
-"t" = "@|sc typst \"\"<C-b>"
-
 [keys.normal.g]
-
 # Go to definition in a net vertical split
 "v" = [
   ":vsplit",
@@ -176,19 +169,20 @@ enable = true
 ]
 
 [keys.normal.m]
-
 # Surround selection with an HTML tag, then edit the tag name
 "t" = "@|surround-tag.koto<ret>sxxx<ret>c"
 
 [keys.insert]
-
 "C-s" = ":write-all"  # Write all buffers
 "C-S" = ":write-all!" # Write all buffers forcefully, creating subdirectories
 "C-t" = "indent"
 "C-x" = "unindent"
+S-tab = "move_parent_node_start"
 
 [keys.select]
 "ret" = "extend_to_word"
+tab = "extend_parent_node_end"
+S-tab = "extend_parent_node_start"
 
 # Vim-style paragraph motions
 "{" = "goto_prev_paragraph"

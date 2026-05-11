@@ -55,6 +55,9 @@ auto-format = false
 linters = { an_a = false }
 isolateEnglish = true
 
+[language-server.rust-analyzer]
+command = "lspmux"
+
 [language-server.rust-analyzer.config.completion.snippets.custom.bevyplugin]
 description = "Define a new bevy plugin in an empty file"
 prefix = "bvplugin"

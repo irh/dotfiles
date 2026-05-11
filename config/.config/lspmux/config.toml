@@ -1,0 +1,2 @@
+# Remove unused instances after 1 hour
+instance_timeout = 3200 

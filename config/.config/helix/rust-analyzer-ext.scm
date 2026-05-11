@@ -7,6 +7,7 @@
 
 (provide shell rust-analyzer-expand-macro)
 (provide shell rust-analyzer-parent-module)
+(provide shell rust-analyzer-reload-workspace)
 
 (define (current-path)
   (let* ([focus (editor-focus)]
@@ -83,3 +84,11 @@
       (cond
         ((void? result) (set-error! "Parent module not found"))
         ((list? result) (jump-to-link (first result)))))))
+
+;;@doc
+;; Sends a request to reload the workspace
+(define (rust-analyzer-reload-workspace)
+  (send-lsp-command "rust-analyzer"
+    "rust-analyzer/reloadWorkspace"
+    #f
+    (lambda (_) void)))

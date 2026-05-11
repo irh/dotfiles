@@ -155,6 +155,8 @@ S-tab = "move_parent_node_start"
 "h" = ["collapse_selection", "expand_selection", ":sh open-in-dash.koto %{language} %{selection}"]
 # Restart the LSP server
 "l" = [":lsp-restart"]
+# Send `rust-analyzer/reloadWorkspace` - requires steel plugin support, defined in helix.scm
+"L" = [":rust-analyzer-reload-workspace"]
 # Jump to the parent Rust module - requires steel plugin support, defined in helix.scm
 "p" = [":rust-analyzer-parent-module"]
 # Show workspace commands

@@ -10,6 +10,8 @@ inline-diagnostics.cursor-line = "error"
 jump-label-alphabet = "nteslpufhd,ciryw.xoa;q/zmgjbkv" # colemak d-h, prioritizing central keys
 popup-border = "all"
 rainbow-brackets = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
 rounded-corners = true # See https://github.com/helix-editor/helix/pull/11497
 
 [editor.cursor-shape]
@@ -155,9 +157,6 @@ S-tab = "move_parent_node_start"
 "l" = [":lsp-restart"]
 # Jump to the parent Rust module - requires steel plugin support, defined in helix.scm
 "p" = [":rust-analyzer-parent-module"]
-# Trim all whitespace in file
-# See https://github.com/helix-editor/helix/pull/8366
-"t" = ["save_selection", "select_all", ":trim", "collapse_selection", "jump_backward"]
 # Show workspace commands
 "w" = [":lsp-workspace-command"]
 
@@ -180,7 +179,6 @@ S-tab = "move_parent_node_start"
 S-tab = "move_parent_node_start"
 
 [keys.select]
-"ret" = "extend_to_word"
 tab = "extend_parent_node_end"
 S-tab = "extend_parent_node_start"
 

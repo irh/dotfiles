@@ -1,0 +1,82 @@
+#!/usr/bin/env koto
+
+import regex
+
+reset = '\u{1b}[0m'
+dark_gray = '38;5;240'
+orange = '38;5;208'
+
+log_line = regex.new r'^(?:(?:\d{4}-\d{2}-\d{2}T)?(?<time>\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?)\s+)?(?<level>TRACE|DEBUG|INFO|WARN|ERROR)\s+(?<target>[A-Za-z_][A-Za-z0-9_-]*(?:::[A-Za-z_][A-Za-z0-9_]*)*:)\s?(?<message>.*)$'
+
+paint = |code, text|
+  if text.is_empty()
+    text
+  else
+    '\u{1b}[{code}m{text}{reset}'
+
+level_color = |level|
+  match level
+    'TRACE' then '2;36'
+    'DEBUG' then '36'
+    'INFO' then '1;32'
+    'WARN' then '1;{orange}'
+    'ERROR' then '1;31'
+
+format_level = |level|
+  text = match level
+    'INFO' or 'WARN' then ' {level}'
+    else level
+
+  paint (level_color level), text
+
+colorize_rust_log_line = |input|
+  if captures = log_line.captures input
+    time = captures.get('time')?.text()
+    level = captures.level.text()
+    target = captures.target.text()
+    message = captures.message.text()
+
+    prefix = if time then '{paint dark_gray, time} ' else ''
+    message_suffix = if message.is_empty()
+      ''
+    else if level == 'ERROR'
+      ' {paint '31', message}'
+    else
+      ' {message}'
+
+    '{prefix}{format_level level} {paint dark_gray, target}{message_suffix}'
+  else
+    input
+
+@main = ||
+  stdin = io.stdin
+  if not stdin.is_terminal()
+    while input = stdin.read_line()
+      print colorize_rust_log_line input
+
+@test trace_line = ||
+  assert_eq
+    (colorize_rust_log_line '2026-05-12T10:06:32.717917Z TRACE foo::model: all is well'),
+    '\u{1b}[38;5;240m10:06:32.717917Z{reset} \u{1b}[2;36mTRACE{reset} \u{1b}[38;5;240mfoo::model:{reset} all is well'
+
+@test padded_levels = ||
+  assert_eq
+    (colorize_rust_log_line '2026-05-12T10:06:33Z INFO foo::session: started'),
+    '\u{1b}[38;5;240m10:06:33Z{reset} \u{1b}[1;32m INFO{reset} \u{1b}[38;5;240mfoo::session:{reset} started'
+
+  assert_eq
+    (colorize_rust_log_line '2026-05-12T10:06:34Z WARN foo::model: slow request'),
+    '\u{1b}[38;5;240m10:06:34Z{reset} \u{1b}[1;38;5;208m WARN{reset} \u{1b}[38;5;240mfoo::model:{reset} slow request'
+
+@test error_message = ||
+  assert_eq
+    (colorize_rust_log_line '2026-05-12T10:06:35+02:00 ERROR app: failed to save buffer'),
+    '\u{1b}[38;5;240m10:06:35+02:00{reset} \u{1b}[1;31mERROR{reset} \u{1b}[38;5;240mapp:{reset} \u{1b}[31mfailed to save buffer{reset}'
+
+@test no_timestamp = ||
+  assert_eq
+    (colorize_rust_log_line 'INFO app: started'),
+    '\u{1b}[1;32m INFO{reset} \u{1b}[38;5;240mapp:{reset} started'
+
+@test unmatched = ||
+  assert_eq (colorize_rust_log_line 'plain stderr line'), 'plain stderr line'

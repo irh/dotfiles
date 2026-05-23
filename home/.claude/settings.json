@@ -4,6 +4,19 @@
   },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "context-mode@context-mode": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/ian/.claude/hooks/context-mode-cache-heal.mjs\""
+          }
+        ]
+      }
+    ]
   }
 }

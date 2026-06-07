@@ -1,0 +1,33 @@
+from editor import *
+from lsp import get_lsp
+
+get_rust_analyzer = ||
+  if not lsp = get_lsp('rust-analyzer')
+    set_status 'rust-analyzer is not available'
+  lsp
+
+export jump_to_parent_module =
+  make_command 'jump_to_parent_module', 'Jump to parent module', ||
+    get_rust_analyzer()?.request_at_cursor 'experimental/parentModule', |response|
+      result = response.first()
+      if uri = result?.get 'targetUri'
+        pos = result.targetRange.start
+        jump_to_location uri, pos
+      else if uri = result?.get 'uri'
+        pos = result.range.start
+        jump_to_location uri, pos
+      else
+        set_status 'No parent module found'
+
+export expand_macro =
+  make_command 'expand_macro', 'Expands the macro under the cursor', ||
+    get_rust_analyzer()?.request_at_cursor 'rust-analyzer/expandMacro', |response|
+      if response
+        macro_name = response.name
+        buffer_id = new_preview '[{macro_name}]'
+        set_preview_contents buffer_id, response.expansion
+        language buffer_id, 'rust'
+        vertical_split buffer_id
+        set_status 'Expanded `{macro_name}`'
+      else
+        set_status 'No macro found under cursor'

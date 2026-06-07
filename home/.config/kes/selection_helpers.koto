@@ -1,0 +1,27 @@
+from editor import current_document, make_command, position_for_byte, selections
+
+get_selection_ref = ||
+  {path} = current_document()
+  {start, end} = selections().first()
+  if start == end
+    {line, column} = position_for_byte start
+    '{path}:{line}:{column}'
+  else
+    start_pos = position_for_byte start
+    end_pos = position_for_byte end
+    '{path}:{start_pos.line}:{start_pos.column}-{end_pos.line}:{end_pos.column}'
+
+export copy_selection_ref =
+  make_command 'copy_selection_ref', 'Copy a reference to the primary selection', ||
+    spawned = os.command('pbcopy')
+      .stdin('piped')
+      .spawn()
+
+    spawned.stdin().write get_selection_ref()
+    spawned.wait_for_exit()
+
+export send_selection_ref =
+  make_command 'send_selection_ref', 'Send a reference to the primary selection to tmux pane 0', ||
+    os.command('tmux')
+      .args('send-keys', '-t', '0', '`{get_selection_ref()}`')
+      .wait_for_exit()

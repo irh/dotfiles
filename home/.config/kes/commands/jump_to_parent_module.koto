@@ -1,0 +1,15 @@
+from editor import make_command
+from lsp import request_at_cursor
+
+export jump_to_parent_module =
+  make_command 'jump_to_parent_module', 'Jump to parent module', ||
+    request_at_cursor 'experimental/parentModule', |response|
+      result = response.first()
+      if uri = result?.get 'targetUri'
+        pos = result.targetRange.start
+        jump_to_location uri, pos
+      else if uri = result?.get 'uri'
+        pos = result.range.start
+        jump_to_location uri, pos
+      else
+        set_status 'No parent module found'

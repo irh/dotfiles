@@ -1,3 +1,3 @@
-function e --wraps hx
-    hx $argv
+function e --wraps kes
+    kes $argv
 end

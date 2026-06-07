@@ -1,0 +1,3 @@
+{ui, syntax} = editor.theme 'default'
+
+export {ui, syntax}

@@ -1,0 +1,63 @@
+from editor import language, make_command, replace_ranges, selected_lines, set_status
+import regex
+
+language_check = ||
+  if language() == 'markdown'
+    true
+  else
+    set_status 'Not a Markdown buffer'
+    false
+
+bullet_matcher = regex.new(
+  r'^(?<whitespace>\s*)(?<bullet>[-+*](?<check>\s*\[[ x]\])?)?\s*(?<content>.*)'
+)
+
+task_matcher = regex.new(
+  r'^(?<whitespace>\s*)((?<bullet>[-+*])\s*(\[(?<check>[^\]]*)\])?\s*)?(?<content>.*)'
+)
+
+export toggle_bullet =
+  make_command 'toggle_markdown_bullet', 'Toggle markdown bullet', ||
+    if not language_check()
+      return
+
+    replace_ranges selected_lines()
+      .keep |line| not line.text.is_empty()
+      .each |line|
+        captures = bullet_matcher.captures line.text
+
+        whitespace = captures.whitespace.text()
+        content = captures.content.text()
+        bullet = match captures.contains_key('bullet'), captures.contains_key('check')
+          true, false then ''
+          else '- '
+
+        {
+          start: line.start,
+          end: line.end,
+          text: '{whitespace}{bullet}{content}',
+        }
+
+export toggle_task =
+  make_command 'toggle_markdown_task', 'Toggle markdown task', ||
+    if not language_check()
+      return
+
+    replace_ranges selected_lines()
+      .keep |line| not line.text.is_empty()
+      .each |line|
+        captures = task_matcher.captures line.text
+
+        whitespace = captures.whitespace.text()
+        content = captures.content.text()
+        bullet = captures.get('bullet')?.text() or '-'
+
+        toggled = match captures.get('check')?.text()
+          null or 'x' then ' '
+          else 'x'
+
+        {
+          start: line.start,
+          end: line.end,
+          text: '{whitespace}{bullet} [{toggled}] {content}',
+        }

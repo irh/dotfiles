@@ -1,0 +1,42 @@
+from editor import *
+from selection_helpers import send_selection_ref
+from markdown_helpers import toggle_bullet, toggle_task
+from rust_analyzer_ext import expand_macro, jump_to_parent_module
+
+# config.theme = 'base16_transparent'
+
+# colemak d-h, prioritizing central keys
+config.ui.goto_word.characters = 'nteslpufhd,ciryw.xoa;q/zmgjbkv'
+
+# Leader Extra minor mode
+config.modes.leader_extra =
+  name: 'Leader Extra'
+  keymap:
+    e: expand_macro
+    p: jump_to_parent_module
+    r: send_selection_ref
+    t: toggle_bullet
+    x: toggle_task
+
+config.modes.leader.keymap.extend
+  Q: write_quit_all
+  space: enter_mode 'leader_extra'
+
+# Language servers
+
+config.lsp.servers.extend
+  codebook:
+    command: 'codebook-lsp'
+    args: 'serve'
+
+# Language settings
+
+languages.rust.extend
+  rulers: 101
+  text_width: 100
+
+languages.rust.lsp = [{
+  command: "lspmux",
+}, 'codebook']
+
+languages.markdown.lsp.push 'codebook'

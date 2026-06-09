@@ -1,0 +1,16 @@
+export open_in_dash =
+  make_command 'open_in_dash', 'Open the selection in Dash', ||
+#     save_selections()
+#     collapse_selection()
+    select_inside_word()
+    query = selections().first()?.contents
+#     restore_selections()
+    print 'query: {query}'
+
+    lang = match language()
+      'swift' then 'apple'
+      other then other
+
+    os.command('open')
+      .args 'dash://?query={lang}:{query}'
+      .spawn()

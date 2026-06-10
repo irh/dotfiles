@@ -1,4 +1,4 @@
-from editor import language, make_command, replace_ranges, selected_lines, set_status
+from editor import *
 import regex
 
 language_check = ||
@@ -7,6 +7,17 @@ language_check = ||
   else
     set_status 'Not a Markdown buffer'
     false
+
+export insert_date_header =
+  make_command 'insert_date_header', 'Insert a markdown date header', ||
+    if not language_check()
+      return
+    now = os.time()
+    insert_text '\
+## {now.year()}-{now.month():02}-{now.day():02}
+
+'
+    insert_mode()
 
 bullet_matcher = regex.new(
   r'^(?<whitespace>\s*)(?<bullet>[-+*](?<check>\s*\[[ x]\])?)?\s*(?<content>.*)'

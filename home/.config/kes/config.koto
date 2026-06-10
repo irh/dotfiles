@@ -1,6 +1,6 @@
 from editor import *
 from selection_helpers import send_selection_ref
-from markdown_helpers import toggle_bullet, toggle_task
+from markdown_helpers import insert_date_header, toggle_bullet, toggle_task
 from rust_analyzer_ext import expand_macro, jump_to_parent_module
 
 # config.theme = 'base16_transparent'
@@ -12,6 +12,7 @@ config.ui.goto_word.characters = 'nteslpufhd,ciryw.xoa;q/zmgjbkv'
 config.modes.leader_extra =
   name: 'Leader Extra'
   keymap:
+    d: insert_date_header
     e: expand_macro
     p: jump_to_parent_module
     r: send_selection_ref

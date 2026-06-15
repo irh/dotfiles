@@ -1,7 +1,7 @@
-from editor import *
-from selection_helpers import send_selection_ref
+from dash_helpers import open_in_dash
 from markdown_helpers import insert_date_header, toggle_bullet, toggle_task
 from rust_analyzer_ext import expand_macro, jump_to_parent_module
+from selection_helpers import send_selection_ref
 
 # config.theme = 'base16_transparent'
 
@@ -14,6 +14,7 @@ config.modes.leader_extra =
   keymap:
     d: insert_date_header
     e: expand_macro
+    h: open_in_dash
     p: jump_to_parent_module
     r: send_selection_ref
     t: toggle_bullet
@@ -25,19 +26,18 @@ config.modes.leader.keymap.extend
 
 # Language servers
 
-config.lsp.servers.extend
-  codebook:
-    command: 'codebook-lsp'
-    args: 'serve'
+servers = config.lsp.servers
+servers.codebook =
+  command: 'codebook-lsp'
+  args: 'serve'
+servers.'rust-analyzer'.command = 'lspmux'
+
 
 # Language settings
 
-languages.rust.extend
-  rulers: 101
-  text_width: 100
-
-languages.rust.lsp = [{
-  command: "lspmux",
-}, 'codebook']
+rust = languages.rust
+rust.rulers = 101
+rust.text_width = 100
+rust.lsp.push 'codebook'
 
 languages.markdown.lsp.push 'codebook'

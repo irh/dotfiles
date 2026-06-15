@@ -1,7 +1,5 @@
-from editor import current_document, make_command, position_for_byte, selections
-
 get_selection_ref = ||
-  {path} = current_document()
+  {path} = current_buffer()
   {start, end} = selections().first()
   if start == end
     {line, column} = position_for_byte start

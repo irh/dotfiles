@@ -1,3 +1,5 @@
+from kes import make_command
+
 get_selection_ref = ||
   {path} = current_buffer()
   {start, end} = selections().first()

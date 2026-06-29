@@ -1,4 +1,6 @@
 import regex
+from kes import make_command, run_command
+from kes.buffers import insert_text, language, replace_ranges, selected_lines
 
 language_check = ||
   if language() == 'markdown'
@@ -12,7 +14,7 @@ export insert_date_header =
     if not language_check()
       return
     now = os.time()
-    insert_text '\
+    insert_text '
 ## {now.year()}-{now.month():02}-{now.day():02}
 
 '

@@ -1,3 +1,6 @@
+from kes import make_command
+from kes.buffers import language, selections
+
 export open_in_dash =
   make_command 'open_in_dash', 'Open the selection in Dash', ||
 #     save_selections()
@@ -5,7 +8,6 @@ export open_in_dash =
     select_inside_word()
     query = selections().first()?.contents
 #     restore_selections()
-    print 'query: {query}'
 
     lang = match language()
       'swift' then 'apple'

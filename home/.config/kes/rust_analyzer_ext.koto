@@ -1,4 +1,8 @@
-from lsp import get_lsp
+from kes.buffers import language, new_preview, set_preview_contents
+from kes.lsp import get_lsp
+from kes.navigation import jump_to_location
+from kes.ui import set_status
+from kes import make_command
 
 get_rust_analyzer = ||
   if not lsp = get_lsp('rust-analyzer')
@@ -23,7 +27,7 @@ export expand_macro =
     get_rust_analyzer()?.request_at_cursor 'rust-analyzer/expandMacro', |response|
       if response
         macro_name = response.name
-        buffer_id = new_preview '[{macro_name}]'
+        buffer_id = new_preview '{macro_name}'
         set_preview_contents buffer_id, response.expansion
         language buffer_id, 'rust'
         vertical_split buffer_id

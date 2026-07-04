@@ -1,51 +1,56 @@
+from kes import enter_mode, make_command, run_command
+from kes.config import languages, lsp, modes, ui
+
 from dash_helpers import open_in_dash
 from markdown_helpers import insert_date_header, toggle_bullet, toggle_task
 from rust_analyzer_ext import expand_macro, jump_to_parent_module
 from selection_helpers import send_selection_ref
-from kes import enter_mode, make_command, run_command
 
-# config.theme = 'base16_transparent'
+# kes.config.theme = 'base16_transparent'
 
 # colemak d-h, prioritizing central keys
-config.ui.goto_word.characters = 'nteslpufhd,ciryw.xoa;q/zmgjbkv'
+ui.goto_word.characters = 'nteslpufhd,ciryw.xoa;q/zmgjbkv'
 
 # Normal mode overrides
-config.modes.normal.extend
+modes.normal.extend
   'ß': select_lines # alt-s
 
 # Leader Extra minor mode
-config.modes.leader_extra =
+modes.leader_extra =
   name: 'Leader Extra'
   keymap:
-    b: make_command 'toggle_blame_eol', 'Toggle end-of-line blame info', || run_command "toggle vcs.blame.end_of_line.enabled"
+    b: make_command 'Toggle end-of-line blame info', || run_command "toggle vcs.blame.end_of_line.enabled"
     B: blame_commit_message
     d: insert_date_header
     e: expand_macro
     g: diff_selection
     h: open_in_dash
-    i: make_command 'toggle_inlay_hints', 'Toggle inlay hints', || run_command "toggle lsp.show_inlay_hints"
+    i: make_command 'Toggle inlay hints', || run_command "toggle lsp.inlay_hints.enabled"
     p: jump_to_parent_module
     r: send_selection_ref
     t: toggle_bullet
     x: toggle_task
 
-config.modes.leader.keymap.extend
-  Q: || run_command 'write_quit_all!'
-  space: enter_mode 'leader_extra'
+modes.leader.keymap.extend
+  Q: make_command "Save all and quit", || run_command 'write_quit_all!'
+  space: make_command 'Leader Extra', || enter_mode 'leader_extra'
 
 # Language servers
 
-servers = config.lsp.servers
-servers.codebook =
+lsp.servers.codebook =
   command: 'codebook-lsp'
   args: 'serve'
-servers.'rust-analyzer'.command = 'lspmux'
+
+# Use lspmux to avoid constantly re-checking the workspace when opening new editors
+lsp.servers.'rust-analyzer'.command = 'lspmux'
 
 # Language settings
+
+languages.cpp.suffixes.push 'inc'
+
+languages.markdown.lsp.push 'codebook'
 
 rust = languages.rust
 rust.rulers = 101
 rust.text_width = 100
 rust.lsp.push 'codebook'
-
-languages.markdown.lsp.push 'codebook'

@@ -46,7 +46,9 @@ lsp.servers.'rust-analyzer'.command = 'lspmux'
 
 # Language settings
 
-languages.cpp.suffixes.push 'inc'
+languages.cpp.files.extensions.push 'inc'
+
+languages.just.auto_format = false
 
 languages.markdown.lsp.push 'codebook'
 
@@ -54,3 +56,5 @@ rust = languages.rust
 rust.rulers = 101
 rust.text_width = 100
 rust.lsp.push 'codebook'
+
+languages.yaml.auto_format = false

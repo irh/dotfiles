@@ -25,3 +25,4 @@ venv/
 .helix/
 .kes/
 .zed/
+__pycache__/

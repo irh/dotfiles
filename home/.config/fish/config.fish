@@ -9,4 +9,3 @@ set -x BACON_PREFS $HOME/.config/bacon/prefs.toml
 set -x EDITOR kes
 set -x HELIX_RUNTIME $HOME/.config/helix/runtime
 set -x OLLAMA_API_BASE http://studio:11434
-set -x RUSTC_WRAPPER sccache

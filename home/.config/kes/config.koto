@@ -41,8 +41,17 @@ lsp.servers.codebook =
   command: 'codebook-lsp'
   args: 'serve'
 
-# Use lspmux to avoid constantly re-checking the workspace when opening new editors
-lsp.servers.'rust-analyzer'.command = 'lspmux'
+## Rust-analyzer
+ra = lsp.servers.'rust-analyzer'
+
+### Use lspmux to avoid constantly re-checking the workspace when opening new editors
+ra.command = 'lspmux'
+
+### Use a separate target dir for rust-analyzer
+### https://rust-analyzer.github.io/book/configuration.html#cargo.targetDir
+ra.config.extend
+  cargo:
+    targetDir: true
 
 # Language settings
 

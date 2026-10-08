@@ -8,6 +8,7 @@
 .ccls
 .ccls-cache
 .env
+.envrc
 .exrc
 .netrwhist
 .nvimrc

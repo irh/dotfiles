@@ -1,11 +1,7 @@
-# Vim keybindings
-set --global fish_key_bindings fish_hybrid_key_bindings
+# Remember, config.fish is evaluated _after_ `conf.d/`
+# https://fishshell.com/docs/current/language.html#configuration-files
+#
+# Use this for configuring the Fish shell itself, set general env vars in `conf.d`.
 
-# locale
-set -x LC_ALL en_US.UTF-8
-
-# env vars
-set -x BACON_PREFS $HOME/.config/bacon/prefs.toml
-set -x EDITOR kes
-set -x HELIX_RUNTIME $HOME/.config/helix/runtime
-set -x OLLAMA_API_BASE http://studio:11434
+## Enable vim keybindings
+set -g fish_key_bindings fish_hybrid_key_bindings

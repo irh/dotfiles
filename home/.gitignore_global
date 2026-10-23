@@ -23,6 +23,7 @@ tags.*
 temp.koto
 
 venv/
+.codex/
 .helix/
 .kes/
 .zed/

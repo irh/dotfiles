@@ -16,7 +16,7 @@
   ci = commit -v
   cl = clone --recursive
   co = checkout
-  cp = cherry-pick
+  cp = cherry-pick -x
   cpa = cherry-pick --abort
   cpc = cherry-pick --continue
   da = diffall

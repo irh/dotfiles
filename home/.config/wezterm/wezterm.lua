@@ -10,6 +10,15 @@ config.send_composed_key_when_left_alt_is_pressed = true
 
 config.enable_kitty_keyboard = true
 
+-- macOS can translate forward Delete to DEL, which Kitty encodes as Backspace.
+config.keys = {
+  {
+    key = 'phys:Delete',
+    mods = 'NONE',
+    action = wezterm.action.SendKey { key = 'Delete', mods = 'NONE' },
+  },
+}
+
 ------ Window
 config.enable_tab_bar = false
 config.initial_cols = 160

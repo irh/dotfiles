@@ -1,5 +1,3 @@
-tap "homebrew/services" # For background services
-
 brew "bash"
 brew "bash-completion"
 brew "bat"

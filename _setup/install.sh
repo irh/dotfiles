@@ -25,8 +25,8 @@ source _setup/node-setup.sh
 source _setup/uv-setup.sh
 
 # julia _julia/packages.jl
+# source _setup/neovim-setup.sh
 
-source _setup/neovim-setup.sh
 source _setup/tmux-setup.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
